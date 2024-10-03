@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters;
+using Assets.Scripts;
 using UnityEngine;
 
-public class MiningGridManager : MonoBehaviour
+public class MiningGridManager : MonoBehaviour, IGrid
 {
     [SerializeField] private int _width;
     [SerializeField] private int _height;
     [SerializeField] private int _numberOfItems;
-    [SerializeField] private int _miningDepth; 
+    [SerializeField] private int _miningDepth;
 
+    [SerializeField] private GameObject _renderingGrid;
     [SerializeField] private MiningTile _emptyMiningTilePrefab;
     [SerializeField] private List<MiningItem> _miningItems;
 
@@ -23,7 +25,7 @@ public class MiningGridManager : MonoBehaviour
         
     }
 
-    void GenerateGrid()
+    public void GenerateGrid()
     {
         for (int i = 0; i < _miningDepth; i++)
         {
