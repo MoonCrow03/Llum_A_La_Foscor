@@ -98,6 +98,24 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""295c4be7-1614-4316-8fa7-bbc75af8f465"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""7cd57a2f-5240-4fbc-8029-4bb9ae341dc2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -232,6 +250,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0ac62c1-7294-4c42-888b-389315628a48"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""077c0c16-a7b8-4f22-ad60-f688f476882f"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -248,6 +288,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Main_Right = m_Main.FindAction("Right", throwIfNotFound: true);
         m_Main_Interact = m_Main.FindAction("Interact", throwIfNotFound: true);
         m_Main_Esc = m_Main.FindAction("Esc", throwIfNotFound: true);
+        m_Main_LeftClick = m_Main.FindAction("LeftClick", throwIfNotFound: true);
+        m_Main_RightClick = m_Main.FindAction("RightClick", throwIfNotFound: true);
     }
 
     ~@InputActions()
@@ -322,6 +364,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Right;
     private readonly InputAction m_Main_Interact;
     private readonly InputAction m_Main_Esc;
+    private readonly InputAction m_Main_LeftClick;
+    private readonly InputAction m_Main_RightClick;
     public struct MainActions
     {
         private @InputActions m_Wrapper;
@@ -334,6 +378,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Right => m_Wrapper.m_Main_Right;
         public InputAction @Interact => m_Wrapper.m_Main_Interact;
         public InputAction @Esc => m_Wrapper.m_Main_Esc;
+        public InputAction @LeftClick => m_Wrapper.m_Main_LeftClick;
+        public InputAction @RightClick => m_Wrapper.m_Main_RightClick;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -367,6 +413,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Esc.started += instance.OnEsc;
             @Esc.performed += instance.OnEsc;
             @Esc.canceled += instance.OnEsc;
+            @LeftClick.started += instance.OnLeftClick;
+            @LeftClick.performed += instance.OnLeftClick;
+            @LeftClick.canceled += instance.OnLeftClick;
+            @RightClick.started += instance.OnRightClick;
+            @RightClick.performed += instance.OnRightClick;
+            @RightClick.canceled += instance.OnRightClick;
         }
 
         private void UnregisterCallbacks(IMainActions instance)
@@ -395,6 +447,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Esc.started -= instance.OnEsc;
             @Esc.performed -= instance.OnEsc;
             @Esc.canceled -= instance.OnEsc;
+            @LeftClick.started -= instance.OnLeftClick;
+            @LeftClick.performed -= instance.OnLeftClick;
+            @LeftClick.canceled -= instance.OnLeftClick;
+            @RightClick.started -= instance.OnRightClick;
+            @RightClick.performed -= instance.OnRightClick;
+            @RightClick.canceled -= instance.OnRightClick;
         }
 
         public void RemoveCallbacks(IMainActions instance)
@@ -422,5 +480,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnRight(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
+        void OnLeftClick(InputAction.CallbackContext context);
+        void OnRightClick(InputAction.CallbackContext context);
     }
 }

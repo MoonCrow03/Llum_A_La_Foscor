@@ -11,6 +11,8 @@ public class InputManager : MonoBehaviour
 
     public ButtonInputHandler Up, Down, Left, Right;
 
+    public ButtonInputHandler LeftClick, RightClick;
+
     public ButtonInputHandler Interact;
     
     public Vector2 MovementInput { private set; get; }
@@ -47,7 +49,10 @@ public class InputManager : MonoBehaviour
         Up = new ButtonInputHandler(_actions.Main.Up);
         Left = new ButtonInputHandler(_actions.Main.Left);
         Right = new ButtonInputHandler(_actions.Main.Right);
-        
+
+        LeftClick = new ButtonInputHandler(_actions.Main.LeftClick);
+        RightClick = new ButtonInputHandler(_actions.Main.RightClick);
+
         Interact = new ButtonInputHandler(_actions.Main.Interact);
     }
 }
