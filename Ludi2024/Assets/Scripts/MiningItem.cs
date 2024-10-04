@@ -2,20 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiningItem : MonoBehaviour
+[CreateAssetMenu(fileName = "MiningItem", menuName = "MiningItem")]
+public class MiningItem : ScriptableObject
 {
     [SerializeField] private int _horizontalTilesSize;
     [SerializeField] private int _verticalTilesSize;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int HorizontalTilesSize => HorizontalTilesSize;
+    public int VerticalTilesSize => VerticalTilesSize;
 }
