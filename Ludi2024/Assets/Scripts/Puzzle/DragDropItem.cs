@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drag_Drop : MonoBehaviour
+public class DragDropItem : MonoBehaviour
 {
+    [Header("Y Axis Settings")]
+    [SerializeField] private float _yAxis = 0.25f;
+    [SerializeField] private float _defaultY = 0f;
+
+
     private GameObject _selectedObject;
 
     private void Update()
@@ -29,11 +34,7 @@ public class Drag_Drop : MonoBehaviour
         // Drag object while holding
         if (InputManager.Instance.LeftClick.Hold && _selectedObject != null)
         {
-            Vector3 position = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y,
-                Camera.main.WorldToScreenPoint(_selectedObject.transform.position).z);
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
-
-            _selectedObject.transform.position = new Vector3(worldPosition.x, .25f, worldPosition.z);
+            MouseToWorldObjectPosition(_yAxis);
         }
 
         // Release the object
@@ -41,11 +42,7 @@ public class Drag_Drop : MonoBehaviour
         {
             Debug.Log("Releasing Object");
 
-            Vector3 position = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y,
-                Camera.main.WorldToScreenPoint(_selectedObject.transform.position).z);
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
-
-            _selectedObject.transform.position = new Vector3(worldPosition.x, 0f, worldPosition.z);
+            MouseToWorldObjectPosition(_defaultY);
 
             _selectedObject = null;
             Cursor.visible = true;
@@ -77,5 +74,13 @@ public class Drag_Drop : MonoBehaviour
         return hit;
     }
 
+    private void MouseToWorldObjectPosition(float y)
+    {
+        Vector3 position = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y,
+            Camera.main.WorldToScreenPoint(_selectedObject.transform.position).z);
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
+
+        _selectedObject.transform.position = new Vector3(worldPosition.x, y, worldPosition.z);
+    }
 
 }
