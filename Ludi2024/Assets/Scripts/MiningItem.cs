@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MiningItem", menuName = "MiningItem")]
 public class MiningItem : ScriptableObject
 {
+    
+    private MiningTileType _tileType = MiningTileType.Item;
+    
     [SerializeField] private int _horizontalTilesSize;
     [SerializeField] private int _verticalTilesSize;
     [SerializeField] private GameObject _itemPrefab;
