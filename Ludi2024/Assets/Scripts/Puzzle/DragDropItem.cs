@@ -5,82 +5,90 @@ using UnityEngine;
 public class DragDropItem : MonoBehaviour
 {
     [Header("Y Axis Settings")]
-    [SerializeField] private float _yAxis = 0.25f;
-    [SerializeField] private float _defaultY = 0f;
+    [SerializeField] private float m_YAxis = 0.25f;
+    [SerializeField] private float m_DefaultY = 0f;
 
+    private GameObject m_SelectedObject;
+    private PuzzlePiece m_PuzzlePiece;
 
-    private GameObject _selectedObject;
+    private void Awake()
+    {
+        m_PuzzlePiece = GetComponent<PuzzlePiece>();
+    }
 
     private void Update()
     {
+        if (!m_PuzzlePiece.CanDrag()) return;
+
         // Pick up object
-        if (InputManager.Instance.LeftClick.Tap)  // Detect when left click starts
+        if (m_PuzzlePiece.CanDrag() && InputManager.Instance.LeftClick.Tap)  // Detect when left click starts
         {
-            Debug.Log("LeftClick");
-            if (_selectedObject == null)
+            bool a = m_PuzzlePiece.CanDrag();
+            Debug.Log("Pick up");
+            if (m_SelectedObject == null)
             {
                 RaycastHit hit = CastRay();
 
                 if (hit.collider != null)
                 {
                     if (!hit.collider.CompareTag("Drag")) return;
-                    Debug.Log("Dragging");
-                    _selectedObject = hit.collider.gameObject;
+                    Debug.Log("Drag");
+                    m_SelectedObject = hit.collider.gameObject;
                     Cursor.visible = false;
                 }
             }
         }
 
         // Drag object while holding
-        if (InputManager.Instance.LeftClick.Hold && _selectedObject != null)
+        if (m_PuzzlePiece.CanDrag() && InputManager.Instance.LeftClick.Hold && m_SelectedObject != null)
         {
-            MouseToWorldObjectPosition(_yAxis);
+            MouseToWorldObjectPosition(m_YAxis);
         }
 
         // Release the object
-        if (InputManager.Instance.LeftClick.Release && _selectedObject != null)
+        if (m_PuzzlePiece.CanDrag() && InputManager.Instance.LeftClick.Release && m_SelectedObject != null)
         {
             Debug.Log("Releasing Object");
+            
+            MouseToWorldObjectPosition(m_DefaultY);
 
-            MouseToWorldObjectPosition(_defaultY);
-
-            _selectedObject = null;
+            m_SelectedObject = null;
             Cursor.visible = true;
         }
 
         // Rotate object
-        if (_selectedObject != null && InputManager.Instance.RightClick.Tap)
+        if (m_PuzzlePiece.CanDrag() && m_SelectedObject != null && InputManager.Instance.RightClick.Tap)
         {
-            Debug.Log("RightClick");
-            _selectedObject.transform.rotation = Quaternion.Euler(new Vector3(
-                _selectedObject.transform.rotation.eulerAngles.x,
-                _selectedObject.transform.rotation.eulerAngles.y + 90f,
-                _selectedObject.transform.rotation.eulerAngles.z));
+            Debug.Log("Rotate");
+            m_SelectedObject.transform.rotation = Quaternion.Euler(new Vector3(
+                m_SelectedObject.transform.rotation.eulerAngles.x,
+                m_SelectedObject.transform.rotation.eulerAngles.y + 90f,
+                m_SelectedObject.transform.rotation.eulerAngles.z));
         }
     }
 
     private RaycastHit CastRay()
     {
-        Vector3 screenMousePosFar = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y, Camera.main.farClipPlane);
-        Vector3 screenMousePosNear = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y, Camera.main.nearClipPlane);
+        Vector3 l_screenMousePosFar = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y, Camera.main.farClipPlane);
+        Vector3 l_screenMousePosNear = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y, Camera.main.nearClipPlane);
 
-        Vector3 worldMousePosFar = Camera.main.ScreenToWorldPoint(screenMousePosFar);
-        Vector3 worldMousePosNear = Camera.main.ScreenToWorldPoint(screenMousePosNear);
+        Vector3 l_worldMousePosFar = Camera.main.ScreenToWorldPoint(l_screenMousePosFar);
+        Vector3 l_worldMousePosNear = Camera.main.ScreenToWorldPoint(l_screenMousePosNear);
 
-        RaycastHit hit;
-        Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit);
+        RaycastHit l_hit;
+        Physics.Raycast(l_worldMousePosNear, l_worldMousePosFar - l_worldMousePosNear, out l_hit);
 
 
-        return hit;
+        return l_hit;
     }
 
     private void MouseToWorldObjectPosition(float y)
     {
-        Vector3 position = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y,
-            Camera.main.WorldToScreenPoint(_selectedObject.transform.position).z);
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
+        Vector3 l_Position = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y,
+            Camera.main.WorldToScreenPoint(m_SelectedObject.transform.position).z);
+        Vector3 l_WorldPosition = Camera.main.ScreenToWorldPoint(l_Position);
 
-        _selectedObject.transform.position = new Vector3(worldPosition.x, y, worldPosition.z);
+        m_SelectedObject.transform.position = new Vector3(l_WorldPosition.x, y, l_WorldPosition.z);
     }
 
 }
