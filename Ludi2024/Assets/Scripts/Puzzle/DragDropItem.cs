@@ -9,21 +9,12 @@ public class DragDropItem : MonoBehaviour
     [SerializeField] private float m_DefaultY = 0f;
 
     private GameObject m_SelectedObject;
-    private PuzzlePiece m_PuzzlePiece;
-
-    private void Awake()
-    {
-        m_PuzzlePiece = GetComponent<PuzzlePiece>();
-    }
 
     private void Update()
     {
-        if (!m_PuzzlePiece.CanDrag()) return;
-
         // Pick up object
-        if (m_PuzzlePiece.CanDrag() && InputManager.Instance.LeftClick.Tap)  // Detect when left click starts
+        if (InputManager.Instance.LeftClick.Tap)  // Detect when left click starts
         {
-            bool a = m_PuzzlePiece.CanDrag();
             Debug.Log("Pick up");
             if (m_SelectedObject == null)
             {
@@ -34,30 +25,51 @@ public class DragDropItem : MonoBehaviour
                     if (!hit.collider.CompareTag("Drag")) return;
                     Debug.Log("Drag");
                     m_SelectedObject = hit.collider.gameObject;
-                    Cursor.visible = false;
+
+                    PuzzlePiece l_PuzzlePiece = m_SelectedObject.GetComponent<PuzzlePiece>();
+
+                    if (!l_PuzzlePiece.CanDrag())
+                    {
+                        m_SelectedObject = null;
+                    }
+                    else
+                    {
+                        Cursor.visible = false;
+                    }
                 }
             }
         }
 
+        if (m_SelectedObject == null) return;
+
         // Drag object while holding
-        if (m_PuzzlePiece.CanDrag() && InputManager.Instance.LeftClick.Hold && m_SelectedObject != null)
+        if (InputManager.Instance.LeftClick.Hold)
         {
             MouseToWorldObjectPosition(m_YAxis);
         }
 
         // Release the object
-        if (m_PuzzlePiece.CanDrag() && InputManager.Instance.LeftClick.Release && m_SelectedObject != null)
+        if (InputManager.Instance.LeftClick.Release)
         {
             Debug.Log("Releasing Object");
-            
-            MouseToWorldObjectPosition(m_DefaultY);
+
+            PuzzlePiece l_PuzzlePiece = m_SelectedObject.GetComponent<PuzzlePiece>();
+
+            if(l_PuzzlePiece.IsSolution())
+            {
+                m_SelectedObject.transform.position = l_PuzzlePiece.GetSolutionPosition();
+            }
+            else
+            {
+                MouseToWorldObjectPosition(m_DefaultY);
+            }
 
             m_SelectedObject = null;
             Cursor.visible = true;
         }
 
         // Rotate object
-        if (m_PuzzlePiece.CanDrag() && m_SelectedObject != null && InputManager.Instance.RightClick.Tap)
+        if (InputManager.Instance.RightClick.Tap)
         {
             Debug.Log("Rotate");
             m_SelectedObject.transform.rotation = Quaternion.Euler(new Vector3(
