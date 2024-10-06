@@ -68,7 +68,7 @@ public class MiningGridManager : MonoBehaviour, IGrid
                 {
                     for (int z = position.z; z < position.z + size[1]; z++)
                     {
-                        if (grid[x, position.y, z] == null)
+                        if (!occupiedPositions[x, position.y-1, z])
                         {
                             Debug.Log("Generating item at: " + x + ", " + position.y + ", " + z);
                             GameObject itemObject = Instantiate(miningItem.ItemPrefab, new Vector3Int(x, position.y, z),
