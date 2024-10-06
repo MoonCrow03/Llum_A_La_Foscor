@@ -321,8 +321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f6a413c846bb547a4de17cf8410f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_YAxis: 0.25
-  m_DefaultY: 0
+  m_YAxis: 1
+  m_YGrounded: 0
+  m_YAboveObject: 0.25
 --- !u!1 &331867876
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_YAxis: 0.25
-  m_DefaultY: 0
+  m_YGrounded: 0
+  m_YAboveObject: 0.25
 --- !u!64 &531777772
 MeshCollider:
   m_ObjectHideFlags: 0

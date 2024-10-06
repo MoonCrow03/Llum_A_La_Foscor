@@ -19,15 +19,13 @@ public class PuzzlePiece : MonoBehaviour
         m_Looked = false;
     }
 
-    public bool IsSolution()
+    public void SetPosition()
     {
-        return !m_Looked && Vector3.Distance(transform.position, m_SolutionPosition) < m_Snap;
-    }
-
-    public Vector3 GetSolutionPosition()
-    {
-        m_Looked = true;
-        return m_SolutionPosition;
+        if (!m_Looked && Vector3.Distance(transform.position, m_SolutionPosition) < m_Snap)
+        {
+            m_Looked = true;
+            transform.position = m_SolutionPosition;
+        }
     }
 
     public bool CanDrag()
