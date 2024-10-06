@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _horizontalTilesSize: 4
   _verticalTilesSize: 2
-  _itemPrefab: {fileID: 190117871992635904, guid: 06a97ac8c9195cc4ebf8dae6c30fcb3f,
+  _itemPrefab: {fileID: 7255929773043370669, guid: fdd00355ac95030408b96f9b0cf67668,
     type: 3}

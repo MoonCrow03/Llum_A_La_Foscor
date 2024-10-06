@@ -9,6 +9,11 @@ public class MiningItem : ScriptableObject
     [SerializeField] private int _verticalTilesSize;
     [SerializeField] private GameObject _itemPrefab;
 
+    public int[] GetSize()
+    {
+        return new int[] { _horizontalTilesSize, _verticalTilesSize };
+    }
+
     public int HorizontalTilesSize => _horizontalTilesSize;
     public int VerticalTilesSize => _verticalTilesSize;
     public GameObject ItemPrefab => _itemPrefab;

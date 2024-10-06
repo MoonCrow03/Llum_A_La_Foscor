@@ -1,108 +1,115 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using System.Runtime.Serialization.Formatters;
 using Assets.Scripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
-using Vector2 = UnityEngine.Vector2;
 
 public class MiningGridManager : MonoBehaviour, IGrid
 {
     [Header("Grid Settings")]
-    [SerializeField] private int _width;
-    [SerializeField] private int _height;
-    [SerializeField] private int _numberOfItems;
-    [SerializeField] private int _miningDepth;
+    [SerializeField] private int width;
+    [SerializeField] private int height;
+    [SerializeField] private int numberOfItems;
+    [SerializeField] private int miningDepth;
 
+    [FormerlySerializedAs("_renderingGrid")]
     [Header("Prefabs")]
-    [SerializeField] private GameObject _renderingGrid;
-    [SerializeField] private MiningTile _emptyMiningTilePrefab;
-    [SerializeField] private List<MiningItem> _miningItems;
+    [SerializeField] private GameObject renderingGrid;
+    [SerializeField] private MiningTile emptyMiningTilePrefab;
+    [SerializeField] private List<MiningItem> miningItems;
+
+    private GameObject[,,] grid;
+    private bool[,,] occupiedPositions;
+
+    void Awake()
+    {
+        grid = new GameObject[width, miningDepth, height];
+        occupiedPositions = new bool[width, miningDepth, height];
+    }
 
     void Start()
     {
-        GenerateGrid();
         PlaceItemsOnGrid();
-    }
-
-    public void GenerateGrid()
-    {
-        for (int i = 0; i < _miningDepth; i++)
-        {
-            Debug.Log("Generating Layer " + _miningDepth);
-            GenerateLayer(i);
-        }
+        GenerateGrid();
     }
 
     // TODO: Hacer que la profundidad cambie, no que en toda la grid tenga la misma profundidad
-    void GenerateLayer(int miningDepth)
+
+    public void GenerateGrid()
     {
-        Vector3 gridOrigin = _renderingGrid.transform.position;
-        for (int i = 0; i < _width; i++)
+        for (int x = 0; x < width; x++)
         {
-            for (int j = 0; j < _height; j++)
+            for (int y = 0; y < miningDepth; y++)
             {
-                Vector3 tilePosition = new Vector3(gridOrigin.x + i, gridOrigin.y - miningDepth, gridOrigin.z - j);
-                var generatedMiningTile = Instantiate(_emptyMiningTilePrefab, tilePosition, Quaternion.identity);
-                generatedMiningTile.transform.SetParent(_renderingGrid.transform);
+                for (int z = 0; z < height; z++)
+                {
+                    Debug.Log("Generating tile at: " + x + ", " + y + ", " + z);
+                    if (occupiedPositions[x, y, z]) continue;
+                    occupiedPositions[x, y, z] = true;
+                    MiningTile miningTile = Instantiate(emptyMiningTilePrefab, new Vector3Int(x, y, z), Quaternion.identity);
+                    miningTile.transform.SetParent(renderingGrid.transform);
+                    miningTile.transform.localScale = new Vector3Int(1, 1, 1);
+                }
             }
         }
     }
-
     void PlaceItemsOnGrid()
     {
-        Debug.Log("Starting to place items");
-        int deepestLayer = _miningDepth - 1;
-        Vector3 gridOrigin = _renderingGrid.transform.position;
-        HashSet<Vector2> occupiedPositions = new HashSet<Vector2>();
-
-        for (int i = 0; i < _numberOfItems; i++)
+        int itemsPlaced = 0;
+        while (itemsPlaced < numberOfItems)
         {
-            MiningItem randomMiningItem = _miningItems[Random.Range(0, _miningItems.Count)];
-            int itemWidth = randomMiningItem.HorizontalTilesSize;
-            int itemHeight = randomMiningItem.VerticalTilesSize;
-
-            bool itemPlaced = false;
-            while (!itemPlaced)
+            MiningItem miningItem = miningItems[Random.Range(0, miningItems.Count)];
+            Vector3Int position = GetRandomPosition();
+            int[] size = miningItem.GetSize();
+            
+            if (position.x + size[0] < width && position.z + size[1] < height)
             {
-                int x = Random.Range(0, _width - itemWidth + 1);
-                int y = Random.Range(0, _height - itemHeight + 1);
-                Vector2 startPosition = new Vector2(x, y);
-
-                // Check if the item can be placed at the startPosition
-                bool canPlace = true;
-                for (int dx = 0; dx < itemWidth && canPlace; dx++)
+                for (int x = position.x; x < position.x + size[0]; x++)
                 {
-                    for (int dy = 0; dy < itemHeight && canPlace; dy++)
+                    for (int z = position.z; z < position.z + size[1]; z++)
                     {
-                        Vector2 checkPosition = new Vector2(startPosition.x + dx, startPosition.y + dy);
-                        if (occupiedPositions.Contains(checkPosition))
+                        if (grid[x, position.y, z] == null)
                         {
-                            canPlace = false;
+                            Debug.Log("Generating item at: " + x + ", " + position.y + ", " + z);
+                            GameObject itemObject = Instantiate(miningItem.ItemPrefab, new Vector3Int(x, position.y, z),
+                                Quaternion.identity);
+                            itemObject.transform.localScale = new Vector3Int(1, 1, 1);
+                            itemObject.transform.SetParent(renderingGrid.transform);
+                            occupiedPositions[x, position.y-1, z] = true;
+                            grid[x, position.y, z] = itemObject;
+                            
                         }
                     }
                 }
-
-                if (canPlace)
-                {
-                    // Mark the positions as occupied and place the item tiles
-                    for (int dx = 0; dx < itemWidth; dx++)
-                    {
-                        for (int dy = 0; dy < itemHeight; dy++)
-                        {
-                            Vector2 occupiedPosition = new Vector2(startPosition.x + dx, startPosition.y + dy);
-                            occupiedPositions.Add(occupiedPosition);
-
-                            Vector3 itemTilePosition = new Vector3(gridOrigin.x + occupiedPosition.x, gridOrigin.y - deepestLayer, gridOrigin.z - occupiedPosition.y);
-                            Debug.Log("Placing item tile at " + itemTilePosition);
-                            Instantiate(randomMiningItem.ItemPrefab, itemTilePosition, Quaternion.identity);
-                        }
-                    }
-                    itemPlaced = true;
-                }
+                itemsPlaced++;
             }
         }
     }
+    
+    bool IsPositionOccupied(Vector3Int position, int[] size)
+    {
+        for (int x = position.x; x < position.x + size[0]; x++)
+        {
+            for (int z = position.z; z < position.z + size[1]; z++)
+            {
+                if (grid[x, position.y, z] != null)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    Vector3Int GetRandomPosition()
+    {
+        int x = Random.Range(0, width);
+        int y = 1;
+        int z = Random.Range(0, height);
+
+        return new Vector3Int(x, y, z);
+    }
+
+
 }
