@@ -6,20 +6,21 @@ public class MiningTile : MonoBehaviour
 {
     [SerializeField] private float _tileWidth;
     [SerializeField] private float _tileHeight;
+    private MiningItem _item;
+
+    public float TileWidth => _tileWidth;
+    public float TileHeight => _tileHeight;
 
     [SerializeField] private MiningTileType _tileType;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void SetTileType(MiningTileType tileType)
     {
-        
+        _tileType = tileType;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void SetMiningItem(MiningItem item)
     {
-        
+        _item = item;
     }
 }
 
