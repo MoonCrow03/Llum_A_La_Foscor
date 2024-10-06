@@ -19,18 +19,6 @@ public class PuzzlePiece : MonoBehaviour
         m_Looked = false;
     }
 
-    private void Update()
-    {
-        if(m_Looked) return;
-
-        if (Vector3.Distance(transform.position, m_SolutionPosition) < m_Snap)
-        {
-            Debug.Log("Snap");
-            transform.position = m_SolutionPosition;
-            m_Looked = true;
-        }
-    }
-
     public bool IsSolution()
     {
         return !m_Looked && Vector3.Distance(transform.position, m_SolutionPosition) < m_Snap;
