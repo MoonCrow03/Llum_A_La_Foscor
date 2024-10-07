@@ -9,14 +9,17 @@ public class DragNDropMaster : MonoBehaviour
     [SerializeField] private float m_YGrounded = 0f;
     [SerializeField] private float m_YAboveObject = 0.25f;
 
-    private GameObject m_SelectedObject;
+    [Header("Rotation Settings")]
+    [SerializeField] private Vector3 m_RotationAngle;
+
+    private Transform m_SelectedObject;
+    private PuzzlePiece m_PuzzlePiece;
 
     private void Update()
     {
         // Pick up object
         if (InputManager.Instance.LeftClick.Tap)  // Detect when left click starts
         {
-            Debug.Log("Pick up");
             if (m_SelectedObject == null)
             {
                 RaycastHit hit = CastRay();
@@ -24,13 +27,13 @@ public class DragNDropMaster : MonoBehaviour
                 if (hit.collider != null)
                 {
                     if (!hit.collider.CompareTag("Drag")) return;
-                    Debug.Log("Drag");
-                    m_SelectedObject = hit.collider.gameObject;
 
-                    PuzzlePiece l_PuzzlePiece = m_SelectedObject.GetComponent<PuzzlePiece>();
+                    m_SelectedObject = hit.collider.gameObject.transform;
+                    m_PuzzlePiece = m_SelectedObject.GetComponent<PuzzlePiece>();
 
-                    if (!l_PuzzlePiece.CanDrag())
+                    if (!m_PuzzlePiece.CanDrag())
                     {
+                        m_PuzzlePiece = null;
                         m_SelectedObject = null;
                     }
                     else
@@ -41,37 +44,33 @@ public class DragNDropMaster : MonoBehaviour
             }
         }
 
-        if (m_SelectedObject == null) return;
+        if (m_SelectedObject == null || m_PuzzlePiece == null) return;
 
         // Drag object while holding
         if (InputManager.Instance.LeftClick.Hold)
         {
             Drag();
+
+            // Rotate object
+            if (InputManager.Instance.RightClick.Tap)
+            {
+                m_SelectedObject.rotation = Quaternion.Euler(new Vector3(
+                    m_SelectedObject.rotation.eulerAngles.x + m_RotationAngle.x,
+                    m_SelectedObject.rotation.eulerAngles.y + m_RotationAngle.y,
+                    m_SelectedObject.rotation.eulerAngles.z + m_RotationAngle.z));
+            }
         }
 
         // Release the object
         if (InputManager.Instance.LeftClick.Release)
         {
-            Debug.Log("Releasing Object");
-
             Release();
 
-            PuzzlePiece l_PuzzlePiece = m_SelectedObject.GetComponent<PuzzlePiece>();
+            m_PuzzlePiece.Snap();
 
-            l_PuzzlePiece.SetPosition();
-
+            m_PuzzlePiece = null;
             m_SelectedObject = null;
             Cursor.visible = true;
-        }
-
-        // Rotate object
-        if (InputManager.Instance.RightClick.Tap)
-        {
-            Debug.Log("Rotate");
-            m_SelectedObject.transform.rotation = Quaternion.Euler(new Vector3(
-                m_SelectedObject.transform.rotation.eulerAngles.x,
-                m_SelectedObject.transform.rotation.eulerAngles.y + 90f,
-                m_SelectedObject.transform.rotation.eulerAngles.z));
         }
     }
 
@@ -93,7 +92,7 @@ public class DragNDropMaster : MonoBehaviour
     {
         Vector3 l_worldPosition = MouseToWorldObjectPosition();
 
-        m_SelectedObject.transform.position = new Vector3(l_worldPosition.x, m_YGrabbed, l_worldPosition.z);
+        m_SelectedObject.position = new Vector3(l_worldPosition.x, m_YGrabbed, l_worldPosition.z);
     }
 
     private void Release()
@@ -102,27 +101,33 @@ public class DragNDropMaster : MonoBehaviour
 
         // Perform raycast downwards from the object's current position to detect if there is something below
         RaycastHit l_hit;
-        Vector3 l_objectPosition = m_SelectedObject.transform.position;
+        Vector3 l_newPosition;
 
         // Cast a ray downward to check if there's any object beneath the selected object
-        if (Physics.Raycast(l_objectPosition, Vector3.down, out l_hit, Mathf.Infinity))
+        if (Physics.Raycast(m_SelectedObject.position, Vector3.down, out l_hit, Mathf.Infinity) && l_hit.collider.CompareTag("Drag"))
         {
             // If something is below, set the Y position to the default value
-            m_SelectedObject.transform.position = new Vector3(l_worldPosition.x, m_YAboveObject, l_worldPosition.z);
+            l_newPosition = new Vector3(l_worldPosition.x, m_YAboveObject, l_worldPosition.z);
         }
         else
         {
             // If nothing is below, allow the object to follow the mouse position using the specified Y value
-            m_SelectedObject.transform.position = new Vector3(l_worldPosition.x, m_YGrounded, l_worldPosition.z);
+            l_newPosition = new Vector3(l_worldPosition.x, m_YGrounded, l_worldPosition.z);
         }
+
+        m_SelectedObject.position = l_newPosition;
     }
 
     private Vector3 MouseToWorldObjectPosition()
     {
         Vector3 l_position = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y,
-            Camera.main.WorldToScreenPoint(m_SelectedObject.transform.position).z);
+            Camera.main.WorldToScreenPoint(m_SelectedObject.position).z);
 
         return Camera.main.ScreenToWorldPoint(l_position);
     }
 
+    public Vector3 GetRotationAngle()
+    {
+        return m_RotationAngle;
+    }
 }
