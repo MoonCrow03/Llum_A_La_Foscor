@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PuzzlePiece : MonoBehaviour
 {
-
     [Header("Puzzle Settings")]
-    [SerializeField] private float m_Snap;
+    [SerializeField] private float m_SnapPosition = 0.5f;
+    [SerializeField] private float m_SnapRotation = 1f;
     [SerializeField] private bool m_Looked;
 
     public Vector3 m_SolutionPosition;
@@ -16,16 +16,23 @@ public class PuzzlePiece : MonoBehaviour
     {
         m_SolutionPosition = transform.position;
         m_SolutionRotation = transform.rotation;
+
         m_Looked = false;
     }
 
-    public void SetPosition()
+    public void Snap()
     {
-        if (!m_Looked && Vector3.Distance(transform.position, m_SolutionPosition) < m_Snap)
-        {
-            m_Looked = true;
-            transform.position = m_SolutionPosition;
-        }
+        // Check if the piece is already in the correct position
+        if (m_Looked) return;
+
+        // Check if the piece is in the correct rotation
+        if (!(Quaternion.Angle(transform.rotation, m_SolutionRotation) < m_SnapRotation)) return;
+
+        // Check if the piece is in the correct position
+        if (!(Vector3.Distance(transform.position, m_SolutionPosition) < m_SnapPosition)) return;
+
+        m_Looked = true;
+        transform.position = m_SolutionPosition;
     }
 
     public bool CanDrag()
