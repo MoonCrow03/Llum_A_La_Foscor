@@ -9,7 +9,8 @@ public class DragNDropMaster : MonoBehaviour
     [SerializeField] private float m_YGrounded = 0f;
     [SerializeField] private float m_YAboveObject = 0.25f;
 
-    private GameObject m_SelectedObject;
+    private Transform m_SelectedObject;
+    private PuzzlePiece m_PuzzlePiece;
 
     private void Update()
     {
@@ -24,13 +25,14 @@ public class DragNDropMaster : MonoBehaviour
                 if (hit.collider != null)
                 {
                     if (!hit.collider.CompareTag("Drag")) return;
+
                     Debug.Log("Drag");
-                    m_SelectedObject = hit.collider.gameObject;
+                    m_SelectedObject = hit.collider.gameObject.transform;
+                    m_PuzzlePiece = m_SelectedObject.GetComponent<PuzzlePiece>();
 
-                    PuzzlePiece l_PuzzlePiece = m_SelectedObject.GetComponent<PuzzlePiece>();
-
-                    if (!l_PuzzlePiece.CanDrag())
+                    if (!m_PuzzlePiece.CanDrag())
                     {
+                        m_PuzzlePiece = null;
                         m_SelectedObject = null;
                     }
                     else
@@ -47,6 +49,16 @@ public class DragNDropMaster : MonoBehaviour
         if (InputManager.Instance.LeftClick.Hold)
         {
             Drag();
+
+            // Rotate object
+            if (InputManager.Instance.RightClick.Tap)
+            {
+                Debug.Log("Rotate");
+                m_SelectedObject.rotation = Quaternion.Euler(new Vector3(
+                    m_SelectedObject.rotation.eulerAngles.x,
+                    m_SelectedObject.rotation.eulerAngles.y + 90f,
+                    m_SelectedObject.rotation.eulerAngles.z));
+            }
         }
 
         // Release the object
@@ -56,22 +68,11 @@ public class DragNDropMaster : MonoBehaviour
 
             Release();
 
-            PuzzlePiece l_PuzzlePiece = m_SelectedObject.GetComponent<PuzzlePiece>();
+            m_PuzzlePiece.SetPosition();
 
-            l_PuzzlePiece.SetPosition();
-
+            m_PuzzlePiece = null;
             m_SelectedObject = null;
             Cursor.visible = true;
-        }
-
-        // Rotate object
-        if (InputManager.Instance.RightClick.Tap)
-        {
-            Debug.Log("Rotate");
-            m_SelectedObject.transform.rotation = Quaternion.Euler(new Vector3(
-                m_SelectedObject.transform.rotation.eulerAngles.x,
-                m_SelectedObject.transform.rotation.eulerAngles.y + 90f,
-                m_SelectedObject.transform.rotation.eulerAngles.z));
         }
     }
 
@@ -93,7 +94,7 @@ public class DragNDropMaster : MonoBehaviour
     {
         Vector3 l_worldPosition = MouseToWorldObjectPosition();
 
-        m_SelectedObject.transform.position = new Vector3(l_worldPosition.x, m_YGrabbed, l_worldPosition.z);
+        m_SelectedObject.position = new Vector3(l_worldPosition.x, m_YGrabbed, l_worldPosition.z);
     }
 
     private void Release()
@@ -102,25 +103,25 @@ public class DragNDropMaster : MonoBehaviour
 
         // Perform raycast downwards from the object's current position to detect if there is something below
         RaycastHit l_hit;
-        Vector3 l_objectPosition = m_SelectedObject.transform.position;
+        Vector3 l_objectPosition = m_SelectedObject.position;
 
         // Cast a ray downward to check if there's any object beneath the selected object
         if (Physics.Raycast(l_objectPosition, Vector3.down, out l_hit, Mathf.Infinity))
         {
             // If something is below, set the Y position to the default value
-            m_SelectedObject.transform.position = new Vector3(l_worldPosition.x, m_YAboveObject, l_worldPosition.z);
+            m_SelectedObject.position = new Vector3(l_worldPosition.x, m_YAboveObject, l_worldPosition.z);
         }
         else
         {
             // If nothing is below, allow the object to follow the mouse position using the specified Y value
-            m_SelectedObject.transform.position = new Vector3(l_worldPosition.x, m_YGrounded, l_worldPosition.z);
+            m_SelectedObject.position = new Vector3(l_worldPosition.x, m_YGrounded, l_worldPosition.z);
         }
     }
 
     private Vector3 MouseToWorldObjectPosition()
     {
         Vector3 l_position = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y,
-            Camera.main.WorldToScreenPoint(m_SelectedObject.transform.position).z);
+            Camera.main.WorldToScreenPoint(m_SelectedObject.position).z);
 
         return Camera.main.ScreenToWorldPoint(l_position);
     }
