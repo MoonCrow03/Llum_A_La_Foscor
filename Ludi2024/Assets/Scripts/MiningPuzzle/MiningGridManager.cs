@@ -17,6 +17,9 @@ namespace MiningPuzzle
         [SerializeField] private GameObject renderingGrid;
         [SerializeField] private GameObject emptyMiningTilePrefab;
         [SerializeField] private List<MiningItem> miningItems;
+        
+        [Header("Camera")]
+        [SerializeField] private Camera mainCamera;
 
         private MiningTile[,,] grid;
         private bool[,,] occupiedPositions;
@@ -31,6 +34,7 @@ namespace MiningPuzzle
         {
             PlaceItemsOnGrid();
             GenerateGrid();
+            PositionCameraAboveGrid(mainCamera);
         }
     
         public void GenerateGrid()
@@ -48,7 +52,8 @@ namespace MiningPuzzle
                         {
                             occupiedPositions[x, y, z] = true;
                             grid[x, y, z] = new MiningTile(new Vector3Int(x, y, z), MiningTileType.Empty);
-                            InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefab);
+                            InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefab, MiningTileType.Empty);
+
                         }
                         else if (TileBelowExists(new Vector3Int(x, y, z)))
                         {
@@ -57,7 +62,7 @@ namespace MiningPuzzle
                             {
                                 occupiedPositions[x, y, z] = true;
                                 grid [x, y, z] = new MiningTile(new Vector3Int(x, y, z), MiningTileType.Empty);
-                                InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefab);
+                                InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefab, MiningTileType.Empty);
                             }
                         }
                     
@@ -85,7 +90,7 @@ namespace MiningPuzzle
                             { 
                                 Item = miningItem
                             };
-                            InstantiateTileGameObject(new Vector3Int(x, position.y-1, z), miningItem.ItemPrefab);
+                            InstantiateTileGameObject(new Vector3Int(x, position.y-1, z), miningItem.ItemPrefab, MiningTileType.Item, miningItem);
                         }
                     }
                     itemsPlaced++;
@@ -98,10 +103,17 @@ namespace MiningPuzzle
             return occupiedPositions[position.x, position.y - 1, position.z];
         }
     
-        void InstantiateTileGameObject(Vector3Int position, GameObject miningTilePrefab)
+        private void InstantiateTileGameObject(Vector3Int position, GameObject prefab, MiningTileType tileType, MiningItem item = null)
         {
-            GameObject tile = Instantiate(miningTilePrefab, position, Quaternion.identity);
-            tile.transform.SetParent(renderingGrid.transform);
+            GameObject tileObject = Instantiate(prefab, position, Quaternion.identity);
+            tileObject.transform.SetParent(renderingGrid.transform);
+
+            TileClickHandler clickHandler = tileObject.GetComponent<TileClickHandler>();
+            if (clickHandler != null)
+            {
+                clickHandler.TileType = tileType;
+                clickHandler.Item = item;
+            }
         }
         Vector3Int GetRandomPosition()
         {
@@ -111,9 +123,13 @@ namespace MiningPuzzle
 
             return new Vector3Int(x, y, z);
         }
-    
-    
 
+        void PositionCameraAboveGrid(Camera camera)
+        {
+            Vector3 centerPosition = new Vector3(width / 2f, miningDepth + 10f, height / 2f);
+            camera.transform.position = centerPosition;
+            camera.transform.LookAt(new Vector3(width / 2f, 0f, height / 2f));
+        }
 
     }
 }
