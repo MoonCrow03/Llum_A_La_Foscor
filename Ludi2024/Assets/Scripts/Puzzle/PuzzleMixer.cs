@@ -38,15 +38,12 @@ public class PuzzleMixer : MonoBehaviour
     {
         foreach (var l_piece in m_PuzzlePieces)
         {
-            int l_randomPosIndex = Random.Range(0, m_SpawnPoints.Count-1);
-
-            l_piece.position = m_SpawnPoints[l_randomPosIndex].position;
-            l_piece.rotation = RotateRandomly(l_piece);
-            m_SpawnPoints.RemoveAt(l_randomPosIndex);
+            l_piece.position = GetRandomPosition();
+            l_piece.rotation = GetRandomRotation(l_piece);
         }
     }
 
-    private Quaternion RotateRandomly(Transform p_piece)
+    private Quaternion GetRandomRotation(Transform p_piece)
     {
         int l_randomRot = Random.Range(1, 4);
 
@@ -54,5 +51,16 @@ public class PuzzleMixer : MonoBehaviour
             p_piece.rotation.eulerAngles.x + m_RotationAngle.x * l_randomRot,
             p_piece.rotation.eulerAngles.y + m_RotationAngle.y * l_randomRot,
             p_piece.rotation.eulerAngles.z + m_RotationAngle.z * l_randomRot));
+    }
+
+    private Vector3 GetRandomPosition()
+    {
+        int l_randomPosIndex = Random.Range(0, m_SpawnPoints.Count - 1);
+
+        Vector3 l_position = m_SpawnPoints[l_randomPosIndex].position;
+
+        m_SpawnPoints.RemoveAt(l_randomPosIndex);
+
+        return l_position;
     }
 }
