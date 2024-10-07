@@ -14,6 +14,7 @@ public class PuzzleMixer : MonoBehaviour
 
     private void Awake()
     {
+        
         m_DragNDropMaster = GetComponent<DragNDropMaster>();
     }
 
@@ -23,6 +24,11 @@ public class PuzzleMixer : MonoBehaviour
 
         for (int i = 0; i < transform.childCount; i++)
         {
+            PuzzlePiece l_piece = transform.GetChild(i).GetComponent<PuzzlePiece>();
+
+            // Skip the first piece
+            if (l_piece.IsFirst()) continue;
+
             m_PuzzlePieces.Add(transform.GetChild(i));
         }
 

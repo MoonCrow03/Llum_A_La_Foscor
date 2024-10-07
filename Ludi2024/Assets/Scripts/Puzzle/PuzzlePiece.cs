@@ -5,6 +5,7 @@ using UnityEngine;
 public class PuzzlePiece : MonoBehaviour
 {
     [Header("Puzzle Settings")]
+    [SerializeField] private PuzzlePieceType m_PieceType;
     [SerializeField] private float m_SnapPosition = 0.5f;
     [SerializeField] private float m_SnapRotation = 1f;
     [SerializeField] private bool m_Looked;
@@ -14,10 +15,13 @@ public class PuzzlePiece : MonoBehaviour
 
     private void Awake()
     {
-        m_SolutionPosition = transform.position;
-        m_SolutionRotation = transform.rotation;
+        if (m_PieceType == PuzzlePieceType.Simple)
+        {
+            m_SolutionPosition = transform.position;
+            m_SolutionRotation = transform.rotation;
+        }
 
-        m_Looked = false;
+        m_Looked = m_PieceType == PuzzlePieceType.First;
     }
 
     public void Snap()
@@ -39,4 +43,17 @@ public class PuzzlePiece : MonoBehaviour
     {
         return !m_Looked;
     }
+
+    public bool IsFirst()
+    {
+        return m_PieceType == PuzzlePieceType.First;
+    }
+
+}
+
+public enum PuzzlePieceType
+{
+    Simple,
+    Fake,
+    First
 }
