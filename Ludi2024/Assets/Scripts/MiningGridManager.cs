@@ -75,21 +75,18 @@ public class MiningGridManager : MonoBehaviour, IGrid
             Vector3Int position = GetRandomPosition();
             int[] size = miningItem.GetSize();
             
-            if (position.x + size[0] < width && position.z + size[1] < height)
+            if (position.x + size[0] < width && position.z + size[1] < height && !occupiedPositions[position.x, position.y - 1, position.z])
             {
                 for (int x = position.x; x < position.x + size[0]; x++)
                 {
                     for (int z = position.z; z < position.z + size[1]; z++)
                     {
-                        if (!occupiedPositions[x, position.y-1, z])
-                        {
-                            occupiedPositions[x, position.y - 1, z] = true;
-                            grid[x, position.y, z] = new MiningTile(new Vector3Int(x, position.y-1, z), MiningTileType.Item)
-                            {
-                                Item = miningItem
-                            };
-                            InstantiateTileGameObject(new Vector3Int(x, position.y-1, z), miningItem.ItemPrefab);
-                        }
+                        occupiedPositions[x, position.y - 1, z] = true;
+                        grid[x, position.y, z] = new MiningTile(new Vector3Int(x, position.y-1, z), MiningTileType.Item)
+                        { 
+                            Item = miningItem
+                        };
+                        InstantiateTileGameObject(new Vector3Int(x, position.y-1, z), miningItem.ItemPrefab);
                     }
                 }
                 itemsPlaced++;
