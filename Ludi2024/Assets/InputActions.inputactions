@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Mouse",
+                    "name": "View",
                     "type": "Value",
                     "id": "1078d828-c3ad-4ae5-8087-59ef021f6cac",
                     "expectedControlType": "Vector2",
@@ -225,7 +225,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Mouse",
+                    "action": "View",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

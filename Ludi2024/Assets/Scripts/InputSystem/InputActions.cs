@@ -37,7 +37,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Mouse"",
+                    ""name"": ""View"",
                     ""type"": ""Value"",
                     ""id"": ""1078d828-c3ad-4ae5-8087-59ef021f6cac"",
                     ""expectedControlType"": ""Vector2"",
@@ -247,7 +247,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Mouse"",
+                    ""action"": ""View"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -281,7 +281,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         // Main
         m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
         m_Main_Movement = m_Main.FindAction("Movement", throwIfNotFound: true);
-        m_Main_Mouse = m_Main.FindAction("Mouse", throwIfNotFound: true);
+        m_Main_View = m_Main.FindAction("View", throwIfNotFound: true);
         m_Main_Up = m_Main.FindAction("Up", throwIfNotFound: true);
         m_Main_Down = m_Main.FindAction("Down", throwIfNotFound: true);
         m_Main_Left = m_Main.FindAction("Left", throwIfNotFound: true);
@@ -357,7 +357,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Main;
     private List<IMainActions> m_MainActionsCallbackInterfaces = new List<IMainActions>();
     private readonly InputAction m_Main_Movement;
-    private readonly InputAction m_Main_Mouse;
+    private readonly InputAction m_Main_View;
     private readonly InputAction m_Main_Up;
     private readonly InputAction m_Main_Down;
     private readonly InputAction m_Main_Left;
@@ -371,7 +371,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         private @InputActions m_Wrapper;
         public MainActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Main_Movement;
-        public InputAction @Mouse => m_Wrapper.m_Main_Mouse;
+        public InputAction @View => m_Wrapper.m_Main_View;
         public InputAction @Up => m_Wrapper.m_Main_Up;
         public InputAction @Down => m_Wrapper.m_Main_Down;
         public InputAction @Left => m_Wrapper.m_Main_Left;
@@ -392,9 +392,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @Mouse.started += instance.OnMouse;
-            @Mouse.performed += instance.OnMouse;
-            @Mouse.canceled += instance.OnMouse;
+            @View.started += instance.OnView;
+            @View.performed += instance.OnView;
+            @View.canceled += instance.OnView;
             @Up.started += instance.OnUp;
             @Up.performed += instance.OnUp;
             @Up.canceled += instance.OnUp;
@@ -426,9 +426,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @Mouse.started -= instance.OnMouse;
-            @Mouse.performed -= instance.OnMouse;
-            @Mouse.canceled -= instance.OnMouse;
+            @View.started -= instance.OnView;
+            @View.performed -= instance.OnView;
+            @View.canceled -= instance.OnView;
             @Up.started -= instance.OnUp;
             @Up.performed -= instance.OnUp;
             @Up.canceled -= instance.OnUp;
@@ -473,7 +473,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     public interface IMainActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnMouse(InputAction.CallbackContext context);
+        void OnView(InputAction.CallbackContext context);
         void OnUp(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
         void OnLeft(InputAction.CallbackContext context);

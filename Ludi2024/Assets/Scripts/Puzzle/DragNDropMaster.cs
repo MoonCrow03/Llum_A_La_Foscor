@@ -76,8 +76,8 @@ public class DragNDropMaster : MonoBehaviour
 
     private RaycastHit CastRay()
     {
-        Vector3 l_screenMousePosFar = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y, Camera.main.farClipPlane);
-        Vector3 l_screenMousePosNear = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y, Camera.main.nearClipPlane);
+        Vector3 l_screenMousePosFar = new Vector3(InputManager.Instance.MousePosition.x, InputManager.Instance.MousePosition.y, Camera.main.farClipPlane);
+        Vector3 l_screenMousePosNear = new Vector3(InputManager.Instance.MousePosition.x, InputManager.Instance.MousePosition.y, Camera.main.nearClipPlane);
 
         Vector3 l_worldMousePosFar = Camera.main.ScreenToWorldPoint(l_screenMousePosFar);
         Vector3 l_worldMousePosNear = Camera.main.ScreenToWorldPoint(l_screenMousePosNear);
@@ -120,7 +120,7 @@ public class DragNDropMaster : MonoBehaviour
 
     private Vector3 MouseToWorldObjectPosition()
     {
-        Vector3 l_position = new Vector3(InputManager.Instance.MouseInput.x, InputManager.Instance.MouseInput.y,
+        Vector3 l_position = new Vector3(InputManager.Instance.MousePosition.x, InputManager.Instance.MousePosition.y,
             Camera.main.WorldToScreenPoint(m_SelectedObject.position).z);
 
         return Camera.main.ScreenToWorldPoint(l_position);

@@ -16,7 +16,7 @@ public class InputManager : MonoBehaviour
     public ButtonInputHandler Interact;
     
     public Vector2 MovementInput { private set; get; }
-    public Vector2 MouseInput { private set; get; }
+    public Vector2 MousePosition { private set; get; }
     
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour
         {
             _actions = new InputActions();
             _actions.Main.Movement.performed += i => MovementInput = i.ReadValue<Vector2>();
-            _actions.Main.Mouse.performed += i => MouseInput = i.ReadValue<Vector2>();
+            _actions.Main.View.performed += i => MousePosition = i.ReadValue<Vector2>();
         }
 
         _actions.Enable();
