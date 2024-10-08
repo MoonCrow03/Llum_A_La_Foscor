@@ -6,16 +6,18 @@ public class PuzzleMixer : MonoBehaviour
 {
     [SerializeField] private Transform m_SpawnLocations;
 
-    private List<Transform> m_PuzzlePieces = new List<Transform>();
-    private List<Transform> m_SpawnPoints = new List<Transform>();
+    private List<Transform> m_PuzzlePieces;
+    private List<Transform> m_SpawnPoints;
 
     private DragNDropMaster m_DragNDropMaster;
     private Vector3 m_RotationAngle;
 
     private void Awake()
     {
-        
         m_DragNDropMaster = GetComponent<DragNDropMaster>();
+
+        m_PuzzlePieces = new List<Transform>();
+        m_SpawnPoints = new List<Transform>();
     }
 
     private void Start()
@@ -42,10 +44,10 @@ public class PuzzleMixer : MonoBehaviour
 
     private void MixPuzzle()
     {
-        foreach (var l_piece in m_PuzzlePieces)
+        foreach (var t_piece in m_PuzzlePieces)
         {
-            l_piece.position = GetRandomPosition();
-            l_piece.rotation = GetRandomRotation(l_piece);
+            t_piece.position = GetRandomPosition();
+            t_piece.rotation = GetRandomRotation(t_piece);
         }
     }
 

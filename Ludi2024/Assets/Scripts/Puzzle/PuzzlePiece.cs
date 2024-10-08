@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,10 @@ public class PuzzlePiece : MonoBehaviour
     [SerializeField] private float m_SnapRotation = 1f;
     [SerializeField] private bool m_Looked;
 
-    public Vector3 m_SolutionPosition;
-    public Quaternion m_SolutionRotation;
+    private Vector3 m_SolutionPosition;
+    private Quaternion m_SolutionRotation;
+
+    public static Action OnPiecePlaced;
 
     private void Awake()
     {
@@ -37,11 +40,18 @@ public class PuzzlePiece : MonoBehaviour
 
         m_Looked = true;
         transform.position = m_SolutionPosition;
+
+        OnPiecePlaced?.Invoke();
     }
 
     public bool CanDrag()
     {
         return !m_Looked;
+    }
+
+    public bool IsSimple()
+    {
+        return m_PieceType == PuzzlePieceType.Simple;
     }
 
     public bool IsFirst()
