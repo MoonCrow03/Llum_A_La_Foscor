@@ -19,6 +19,7 @@ namespace MiningPuzzle
     {
         Empty,
         Item,
-        Bomb
+        Bomb,
+        Air
     }
 }

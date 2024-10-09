@@ -118,3 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1064b2adba427fb3f3995cdeea9220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miningGridManager: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+    type: 3}
