@@ -10,7 +10,7 @@ public class Rotate : MonoBehaviour
     private bool m_IsRotating;
     private float m_StartMousePosition = 1.0f;
 
-
+    public bool IsRotating => m_IsRotating;
 
     void Start()
     {
@@ -19,13 +19,13 @@ public class Rotate : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.LeftClick.Tap)
+        if (InputManager.Instance.RightClick.Tap)
         {
             m_IsRotating = true;
             m_StartMousePosition = InputManager.Instance.MousePosition.x;
         }
 
-        if (InputManager.Instance.LeftClick.Release)
+        if (InputManager.Instance.RightClick.Release)
         {
             m_IsRotating = false;
         }
