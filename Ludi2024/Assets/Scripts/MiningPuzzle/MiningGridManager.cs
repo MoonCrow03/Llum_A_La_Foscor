@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Assets.Scripts;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
@@ -17,8 +16,8 @@ namespace MiningPuzzle
 
         [Header("Prefabs")]
         [SerializeField] private GameObject renderingGrid;
-        [SerializeField] private GameObject emptyMiningTilePrefab;
         [SerializeField] private List<MiningItem> miningItems;
+        [SerializeField] private List<GameObject> emptyMiningTilePrefabs;
         
         [Header("Camera")]
         [SerializeField] private Camera mainCamera;
@@ -126,8 +125,15 @@ namespace MiningPuzzle
                         {
                             occupiedPositions[x, y, z] = true;
                             grid[x, y, z] = new MiningTile(new Vector3Int(x, y, z), MiningTileType.Empty);
-                            InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefab, MiningTileType.Empty);
-
+                            switch (y)
+                            {
+                                case 0:
+                                    InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefabs[0], MiningTileType.Empty);
+                                    break;
+                                case 1:
+                                    InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefabs[1], MiningTileType.Empty);
+                                    break;
+                            }
                         }
                         else if (TileBelowExists(new Vector3Int(x, y, z)))
                         {
@@ -136,7 +142,18 @@ namespace MiningPuzzle
                             {
                                 occupiedPositions[x, y, z] = true;
                                 grid [x, y, z] = new MiningTile(new Vector3Int(x, y, z), MiningTileType.Empty);
-                                InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefab, MiningTileType.Empty);
+                                switch (y)
+                                {
+                                    case 3:
+                                        InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefabs[2], MiningTileType.Empty);
+                                        break;
+                                    case 4:
+                                        InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefabs[3], MiningTileType.Empty);
+                                        break;
+                                    case 5:
+                                        InstantiateTileGameObject(new Vector3Int(x, y, z), emptyMiningTilePrefabs[4], MiningTileType.Empty);
+                                        break;
+                                }
                             }
                         }
                         

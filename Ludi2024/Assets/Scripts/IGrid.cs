@@ -1,10 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-
-namespace Assets.Scripts
+﻿public interface IGrid
 {
-    public interface IGrid
-    {
-        public abstract void GenerateGrid();
-    }
+    public abstract void GenerateGrid();
 }

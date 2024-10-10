@@ -639,6 +639,41 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+        type: 3}
+      propertyPath: emptyMiningTilePrefabs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+        type: 3}
+      propertyPath: emptyMiningTilePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+        type: 3}
+    - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+        type: 3}
+      propertyPath: emptyMiningTilePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+        type: 3}
+    - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+        type: 3}
+      propertyPath: emptyMiningTilePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+        type: 3}
+    - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+        type: 3}
+      propertyPath: emptyMiningTilePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+        type: 3}
+    - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+        type: 3}
+      propertyPath: emptyMiningTilePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
