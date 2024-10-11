@@ -220,7 +220,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d2a1ce5de857e10439f06d417514ae6e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.77
+      value: 3.74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2a1ce5de857e10439f06d417514ae6e,
         type: 3}
@@ -1014,8 +1014,8 @@ MonoBehaviour:
   numberOfItems: 0
   miningDepth: 0
   renderingGrid: {fileID: 890269552}
-  emptyMiningTilePrefab: {fileID: 0}
   miningItems: []
+  emptyMiningTilePrefabs: []
   mainCamera: {fileID: 0}
 --- !u!64 &890269554
 MeshCollider:
