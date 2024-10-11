@@ -25,7 +25,7 @@ namespace MiningPuzzle
 
         public void GenerateGrid()
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
