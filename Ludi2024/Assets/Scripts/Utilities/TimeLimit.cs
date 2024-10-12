@@ -33,6 +33,15 @@ namespace Utilities
             onTimerEnd?.Invoke();
         }
         
+        public void StopTimer()
+        {
+            coroutineOwner.StopAllCoroutines();
+        }
+
+        public bool IsTimeUp()
+        {
+            return timeRemaining <= 0;
+        }
     }
     
   

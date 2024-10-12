@@ -611,6 +611,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0712bfc3a885f3c4fb110fc172cfd9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PuzzleSize: 4
+  m_PieceCounter: 4
+  m_SecondsToComplete: 10
+  m_WorldScene: World Scene
 --- !u!114 &453334296
 MonoBehaviour:
   m_ObjectHideFlags: 0
