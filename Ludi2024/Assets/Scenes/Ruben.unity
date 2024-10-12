@@ -571,6 +571,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2138044566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3281777409564376375, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+    type: 3}
+  m_PrefabInstance: {fileID: 984141206976867953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &984141206976867953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -641,6 +647,11 @@ PrefabInstance:
       objectReference: {fileID: 330585545}
     - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
         type: 3}
+      propertyPath: renderingOrigin
+      value: 
+      objectReference: {fileID: 2138044566}
+    - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+        type: 3}
       propertyPath: emptyMiningTilePrefabs.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -648,31 +659,31 @@ PrefabInstance:
         type: 3}
       propertyPath: emptyMiningTilePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+      objectReference: {fileID: 4954392717649977552, guid: b8821a8f71dba644a90f38f577bb14a9,
         type: 3}
     - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
         type: 3}
       propertyPath: emptyMiningTilePrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+      objectReference: {fileID: 793064621872611696, guid: 26a61004e052920468a4dda4109ef43b,
         type: 3}
     - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
         type: 3}
       propertyPath: emptyMiningTilePrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+      objectReference: {fileID: 1106915571997142083, guid: b0e757bb080b3794b87880dd2bb82f09,
         type: 3}
     - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
         type: 3}
       propertyPath: emptyMiningTilePrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+      objectReference: {fileID: 2492179907298924983, guid: 5e3056104f6cfa84aa954ad95a611789,
         type: 3}
     - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
         type: 3}
       propertyPath: emptyMiningTilePrefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 1896094490515853455, guid: 0e0bd597b2a49dc42aad6b4f78b07e4e,
+      objectReference: {fileID: 2064327474905707572, guid: 2b7de15cf0f3b134e81f6b186d959571,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
