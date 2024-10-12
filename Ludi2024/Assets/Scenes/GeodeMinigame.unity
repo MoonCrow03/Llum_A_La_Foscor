@@ -1375,6 +1375,8 @@ MonoBehaviour:
   m_GeodeMiniGameType: 0
   m_Time: 2
   m_MaxStrikes: 2
+  m_PointsToWin: 3
+  m_WorldScene: World Scene
 --- !u!1 &2101106005
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 namespace WorldScripts
 {
@@ -8,6 +9,16 @@ namespace WorldScripts
     {
         public List<SceneSpawnLocation> sceneSpawnLocations = new List<SceneSpawnLocation>();
         private Dictionary<string, List<Transform>> spawnPossibleLocations = new Dictionary<string, List<Transform>>();
+
+        private void OnEnable()
+        {
+            BasicSceneChanger.OnSceneChange += PlaceTriggerInRandomLocation;
+        }
+        
+        private void OnDisable()
+        {
+            BasicSceneChanger.OnSceneChange -= PlaceTriggerInRandomLocation;
+        }
 
         private void Awake()
         {

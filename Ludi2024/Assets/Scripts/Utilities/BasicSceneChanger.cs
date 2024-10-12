@@ -6,22 +6,7 @@ namespace Utilities
     public class BasicSceneChanger : MonoBehaviour
     {
         public string sceneToLoad;
-        
-        private static BasicSceneChanger instance;
-        
-        public static BasicSceneChanger Instance => instance;
-        
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+        public static event Action<string> OnSceneChange;
         
         public void ChangeScene()
         {
@@ -31,6 +16,7 @@ namespace Utilities
         public static void ChangeScene(string sceneName)
         {
             UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
+            OnSceneChange?.Invoke(sceneName);
         }
 
         private void OnTriggerEnter(Collider other)

@@ -122,6 +122,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &158588096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 158588097}
+  m_Layer: 0
+  m_Name: Puzzle Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &158588097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158588096}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.59, y: 1.52, z: -0.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &373882795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -182,8 +213,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
+      propertyPath: sceneSpawnLocations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
       propertyPath: sceneSpawnLocations.Array.data[0].sceneName
       value: Geoda
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[1].sceneName
+      value: Puzzle
       objectReference: {fileID: 0}
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
@@ -191,6 +232,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5639986702700229805, guid: 8f5d1c042f511bd479e74c6a055f1868,
         type: 3}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[1].spawnTrigger
+      value: 
+      objectReference: {fileID: 7611784024552290753, guid: d5714d4bc97cadc43bbeeca61a7d34f9,
+        type: 3}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[0].spawnLocations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[1].spawnLocations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
       propertyPath: sceneSpawnLocations.Array.data[0].spawnLocations.Array.data[0]
@@ -201,6 +258,21 @@ PrefabInstance:
       propertyPath: sceneSpawnLocations.Array.data[0].spawnLocations.Array.data[1]
       value: 
       objectReference: {fileID: 1814035680}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[0].spawnLocations.Array.data[2]
+      value: 
+      objectReference: {fileID: 1814035680}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[1].spawnLocations.Array.data[0]
+      value: 
+      objectReference: {fileID: 158588097}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[1].spawnLocations.Array.data[1]
+      value: 
+      objectReference: {fileID: 665920589}
     - target: {fileID: 6856936854781986347, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
       propertyPath: m_Name
@@ -462,6 +534,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 509586932}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &665920588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 665920589}
+  m_Layer: 0
+  m_Name: Puzzle Test 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &665920589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665920588}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.626379, y: 1.67, z: -2.34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &717866963
 GameObject:
@@ -1588,7 +1691,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1814035680}
   m_Layer: 0
-  m_Name: Puzzle test 2
+  m_Name: Geode test 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1603,7 +1706,7 @@ Transform:
   m_GameObject: {fileID: 1814035679}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.32, y: 2.369999, z: -4.72}
+  m_LocalPosition: {x: -2.32, y: 1.9, z: -4.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1619,7 +1722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964729074}
   m_Layer: 0
-  m_Name: Puzzle Test 1
+  m_Name: Geode Test 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1634,7 +1737,7 @@ Transform:
   m_GameObject: {fileID: 1964729073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.83, y: 2.369999, z: -5.56}
+  m_LocalPosition: {x: -13.83, y: 1.65, z: -5.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1758,3 +1861,5 @@ SceneRoots:
   - {fileID: 1814035680}
   - {fileID: 373882795}
   - {fileID: 962003996}
+  - {fileID: 158588097}
+  - {fileID: 665920589}
