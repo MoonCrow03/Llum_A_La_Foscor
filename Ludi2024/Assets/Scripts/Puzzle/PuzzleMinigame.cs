@@ -6,24 +6,39 @@ using Utilities;
 
 public class PuzzleMinigame : MonoBehaviour
 {
+    private enum PuzzleMiniGameType
+    {
+        Basic,
+        TimeLimit
+    }
+
     [Header("Puzzle Settings")]
-    [SerializeField] private int m_PuzzleSize;
-    [SerializeField] private int m_PieceCounter;
-    [SerializeField] private int m_SecondsToComplete;
+    [SerializeField] private PuzzleMiniGameType m_PuzzleMiniGameType;
+    [SerializeField] private float m_SecondsToComplete;
     [SerializeField] private string m_WorldScene;
-    
+
+    [Header("Debug")]
+    [SerializeField] private int m_PieceCounter;
+    [SerializeField] private int m_PuzzleSize;
+
     private TimeLimit m_TimeLimit;
     private bool m_IsGameCompleted;
 
     private void Start()
     {
         SetPlayablePieces();
-        SetUpTimer();
-        m_PieceCounter = 0;
+
+        if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
+        {
+            SetUpTimer();
+        }
     }
 
     private void SetPlayablePieces()
     {
+        m_PuzzleSize = 0;
+        m_PieceCounter = 0;
+
         List<PuzzlePiece> l_puzzlePieces = new List<PuzzlePiece>(gameObject.GetComponentsInChildren<PuzzlePiece>());
 
         foreach (var t_puzzlePiece in l_puzzlePieces)
@@ -37,13 +52,12 @@ public class PuzzleMinigame : MonoBehaviour
 
     private void EndGame()
     {
-        if (m_PieceCounter == m_PuzzleSize)
-        {
-            Debug.Log("Puzzle completed!");
+        if (m_PieceCounter != m_PuzzleSize) return;
+
+        Debug.Log("Puzzle completed!");
+        if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
-            BasicSceneChanger.ChangeScene(m_WorldScene);
-        }
-        
+        BasicSceneChanger.ChangeScene(m_WorldScene);
     }
 
     private void RegisterCorrectPiece()

@@ -130,4 +130,9 @@ public class DragNDropMaster : MonoBehaviour
     {
         return m_RotationAngle;
     }
+
+    public float GetYGrounded()
+    {
+        return m_YGrounded;
+    }
 }

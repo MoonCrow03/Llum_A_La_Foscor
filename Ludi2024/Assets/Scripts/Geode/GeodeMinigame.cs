@@ -61,6 +61,9 @@ public class GeodeMinigame : MonoBehaviour
     private void LoseGame()
     {
         Debug.Log("Geode minigame failed!");
+
+        if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit)
+            m_TimeLimit.StopTimer();
     }
 
     private void OnEnable()

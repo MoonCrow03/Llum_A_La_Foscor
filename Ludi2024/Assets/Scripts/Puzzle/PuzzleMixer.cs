@@ -23,7 +23,8 @@ public class PuzzleMixer : MonoBehaviour
     private void Start()
     {
         m_RotationAngle = m_DragNDropMaster.GetRotationAngle();
-
+        
+        // Get all puzzle pieces
         for (int i = 0; i < transform.childCount; i++)
         {
             PuzzlePiece l_piece = transform.GetChild(i).GetComponent<PuzzlePiece>();
@@ -34,8 +35,14 @@ public class PuzzleMixer : MonoBehaviour
             m_PuzzlePieces.Add(transform.GetChild(i));
         }
 
+        float l_grounded = m_DragNDropMaster.GetYGrounded();
+
+        // Get all spawn points
         for (int i = 0; i < m_SpawnLocations.childCount; i++)
         {
+            Transform l_spawnPoint = m_SpawnLocations.GetChild(i);
+            l_spawnPoint.position = new Vector3(l_spawnPoint.position.x, l_grounded, l_spawnPoint.position.z);
+
             m_SpawnPoints.Add(m_SpawnLocations.GetChild(i));
         }
 
