@@ -2,24 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyPointMaster : MonoBehaviour
+public class GeodePartMaster : MonoBehaviour
 {
-    [Header("Key Points Settings")]
-    [SerializeField] private ParticleSystem m_Particles;
-    [SerializeField] private float m_ParticleDuration;
-
     private GameObject m_SelectedObject;
-    private Rotate m_Rotate;
-
-    private void Awake()
-    {
-        m_Rotate = GetComponent<Rotate>();
-    }
-
-    private void Start()
-    {
-        m_Particles.Stop();
-    }
 
     private void Update()
     {
@@ -35,10 +20,9 @@ public class KeyPointMaster : MonoBehaviour
 
                     m_SelectedObject = hit.collider.gameObject;
 
-                    m_Particles.transform.position = m_SelectedObject.transform.position;
-                    m_Particles.Play();
-
-                    StartCoroutine(DestroyObject());
+                    GeodePart l_GeodePart = m_SelectedObject.GetComponent<GeodePart>();
+                    l_GeodePart.OnKeyPointClicked();
+                    m_SelectedObject = null;
                 }
             }
         }
@@ -56,13 +40,5 @@ public class KeyPointMaster : MonoBehaviour
         Physics.Raycast(l_worldMousePosNear, l_worldMousePosFar - l_worldMousePosNear, out l_hit);
 
         return l_hit;
-    }
-
-    private IEnumerator DestroyObject()
-    {
-        yield return new WaitForSeconds(m_ParticleDuration);
-
-        Destroy(m_SelectedObject);
-        m_SelectedObject = null;
     }
 }

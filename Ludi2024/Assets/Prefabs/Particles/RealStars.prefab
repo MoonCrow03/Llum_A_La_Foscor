@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2185408777922954697}
   - component: {fileID: 3761614462032481825}
   m_Layer: 0
-  m_Name: Estrellitas
+  m_Name: RealStars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1159518993244889725}
   serializedVersion: 2
   m_LocalRotation: {x: -0.50000364, y: -0.4999964, z: 0.4999964, w: 0.50000364}
-  m_LocalPosition: {x: -1.548, y: -0.317, z: 0.379}
+  m_LocalPosition: {x: 0.25118196, y: 0.5801632, z: -0.94516}
   m_LocalScale: {x: 0.7246938, y: 0.7246938, z: 0.7246938}
   m_ConstrainProportionsScale: 0
   m_Children:
