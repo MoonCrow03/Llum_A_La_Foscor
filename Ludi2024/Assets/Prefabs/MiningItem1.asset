@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a2b07214112004da773772de0eb20c, type: 3}
   m_Name: MiningItem1
   m_EditorClassIdentifier: 
-  _horizontalTilesSize: 4
-  _verticalTilesSize: 2
-  _itemPrefab: {fileID: 7255929773043370669, guid: fdd00355ac95030408b96f9b0cf67668,
+  HorizontalSize: 4
+  VerticalSize: 2
+  ItemPrefab: {fileID: 190117871992635904, guid: 06a97ac8c9195cc4ebf8dae6c30fcb3f,
     type: 3}

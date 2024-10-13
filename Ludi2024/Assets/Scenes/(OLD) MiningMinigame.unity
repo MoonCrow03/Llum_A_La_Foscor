@@ -652,6 +652,11 @@ PrefabInstance:
       objectReference: {fileID: 2138044566}
     - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
         type: 3}
+      propertyPath: miningItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656733271369722621, guid: 5cc679f66d97ac0458da0246b5f9cf44,
+        type: 3}
       propertyPath: emptyMiningTilePrefabs.Array.size
       value: 5
       objectReference: {fileID: 0}

@@ -20,12 +20,10 @@ namespace MiningPuzzle
         
         [Header("Camera")]
         public Camera mainCamera;
-
-
-        private HashSet<Vector3> occupiedPositions = new HashSet<Vector3>();
         
         private void Awake()
         {
+            GenerateItems();
             GenerateGrid();
         }
 
@@ -41,7 +39,6 @@ namespace MiningPuzzle
                     for (int z = 0; z < item.VerticalSize; z++)
                     {
                         Vector3 itemPosition = new Vector3(position.x + x, position.y, position.z + z);
-                        occupiedPositions.Add(itemPosition);
                         Instantiate(item.ItemPrefab, itemPosition, Quaternion.identity);
                     }
                 }
@@ -64,10 +61,8 @@ namespace MiningPuzzle
                     for (int y = 1; y <= miningDepth; y++)
                     {
                         Vector3 position = new Vector3(x * GetTileWidth(), y , z * GetTileHeight()) + renderingOrigin.transform.position;
-                        if (occupiedPositions.Contains(new Vector3(x, y, z)))
-                        {
-                            continue;
-                        }
+                        Vector3 checkPosition = new Vector3(x * GetTileWidth(), miningDepth, z * GetTileHeight());
+                        
                         GameObject tilePrefab = GetTileBasedOnDepth(y);
                         Quaternion rotation = Quaternion.Euler(-90, 0, 0);
                         Instantiate(tilePrefab, position, rotation);
