@@ -54,7 +54,6 @@ namespace MakeWordsMinigame
 
         private void CreateWord()
         {
-            if 
         }
 
         private void OnWordCreated()
