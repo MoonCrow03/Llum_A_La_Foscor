@@ -8,7 +8,6 @@ namespace MiningPuzzle
     {
         public int HorizontalSize;
         public int VerticalSize;
-        
-        
+        public GameObject ItemPrefab;
     }
 }
