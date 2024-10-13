@@ -18,7 +18,7 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
         m_Text = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("OnBeginDrag");
         m_ParentAfterDrag = transform.parent;
@@ -32,13 +32,13 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
         }
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public virtual void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
         transform.position = InputManager.Instance.MousePosition;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("OnEndDrag");
         transform.SetParent(m_ParentAfterDrag);
@@ -50,7 +50,7 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
         }
     }
 
-    public void SetParentAfterDrag(Transform p_transform)
+    public virtual void SetParentAfterDrag(Transform p_transform)
     {
         m_ParentAfterDrag = p_transform;
     }

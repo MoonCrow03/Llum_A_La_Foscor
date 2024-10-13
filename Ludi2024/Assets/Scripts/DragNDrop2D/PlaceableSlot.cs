@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public abstract class PlaceableSlot : MonoBehaviour, IDropHandler
 {
-    public void OnDrop(PointerEventData eventData)
+    public virtual void OnDrop(PointerEventData eventData)
     {
         if(transform.childCount != 0) return;
 
