@@ -14,6 +14,8 @@ public class InputManager : MonoBehaviour
     public ButtonInputHandler LeftClick, RightClick;
 
     public ButtonInputHandler Interact;
+
+    public ButtonInputHandler Esc;
     
     public Vector2 MovementInput { private set; get; }
     public Vector2 MousePosition { private set; get; }
@@ -32,6 +34,7 @@ public class InputManager : MonoBehaviour
         {
             _actions = new InputActions();
             _actions.Main.Movement.performed += i => MovementInput = i.ReadValue<Vector2>();
+            _actions.Main.Movement.canceled += i => MovementInput = Vector2.zero;
             _actions.Main.View.performed += i => MousePosition = i.ReadValue<Vector2>();
         }
 
@@ -54,6 +57,8 @@ public class InputManager : MonoBehaviour
         RightClick = new ButtonInputHandler(_actions.Main.RightClick);
 
         Interact = new ButtonInputHandler(_actions.Main.Interact);
+        
+        Esc = new ButtonInputHandler(_actions.Main.Esc);
     }
 }
 

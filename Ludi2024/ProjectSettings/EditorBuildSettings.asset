@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/World Scene.unity
+    guid: 813fa0452d50a53439bdb38736c32df6
+  - enabled: 1
+    path: Assets/Scenes/(TEST) PuzzleMinigame.unity
+    guid: d3d93dee0c95e3a4aa42792f0fa94aa0
+  - enabled: 1
+    path: Assets/Scenes/GeodeMinigame.unity
+    guid: 1e46a5dcba9786d4b8ea80cdddcbbe31
   m_configObjects: {}
