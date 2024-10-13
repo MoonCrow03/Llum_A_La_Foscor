@@ -42,6 +42,11 @@ namespace Utilities
         {
             return timeRemaining <= 0;
         }
+        
+        public float GetTimeRemaining()
+        {
+            return timeRemaining;
+        }
     }
     
   
