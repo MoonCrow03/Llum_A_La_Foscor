@@ -7,10 +7,19 @@ using UnityEngine.EventSystems;
 
 public class WordPairSlot : SlotContainer2D
 {
-    [Header("Components")]
-    [SerializeField] private WordPairSlot m_SlotPair;
+    public static event Action OnWordDropped;
 
-    public static Action OnCheckPairs;
+    public override void OnDrop(PointerEventData eventData)
+    {
+        base.OnDrop(eventData);
+        StartCoroutine(OnCheckPair());
+    }
+
+    private IEnumerator OnCheckPair()
+    {
+        yield return new WaitForSeconds(0.1f);
+        OnWordDropped?.Invoke();
+    }
 
     public bool HasWord()
     {
@@ -18,20 +27,18 @@ public class WordPairSlot : SlotContainer2D
 
         if(l_drag == null) return false;
 
-        string l_word = l_drag.GetWord();
-
-        return l_drag.GetWord() != null && !l_drag.GetWord().Equals("");
+        return l_drag.GetWordId() != -1;
     }
 
-    public string GetWord()
+    public int GetWordId()
     {
         WordPairDrag l_drag = GetComponentInChildren<WordPairDrag>();
-        return l_drag.GetWord();
-    }
 
-    public string GetWordPair()
-    {
-        return !m_SlotPair.HasWord() ? null : m_SlotPair.GetWord();
+        Debug.Log(l_drag.GetWordPair() + " ID: " + l_drag.m_Id);
+
+        if (l_drag == null) return -1;
+
+        return l_drag.GetWordId();
     }
 
     public WordPairDrag GetWordDrag()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class WordsPair : MonoBehaviour
     [SerializeField] private WordPairSlot m_SlotPairA;
     [SerializeField] private WordPairSlot m_SlotPairB;
 
+    public bool IsLocked;
+
     private ColorChanger m_ColorChanger;
 
     private void Awake()
@@ -17,38 +20,43 @@ public class WordsPair : MonoBehaviour
         m_ColorChanger = GetComponent<ColorChanger>();
     }
 
-    public void SetWords(string p_wordA, string p_wordB)
+    public void SetBothWords((string p_wordA, string p_wordB) p_wordPair, int p_index)
     {
-        m_WordAComponent.InitializeWords(p_wordA, p_wordB);
-        m_WordBComponent.InitializeWords(p_wordB, p_wordA);
+        m_WordAComponent.SetWords(p_wordPair, p_index);
+        m_WordBComponent.SetWords(p_wordPair, p_index);
     }
 
-    public void SetWordA(string p_word)
+    public void SetWordA((string p_wordA, string p_wordB) p_wordPair, int p_index)
     {
-        m_WordAComponent.SetWord(p_word);
+        m_WordAComponent.SetWords(p_wordPair, p_index);
     }
 
-    public void SetWordB(string p_word)
+    public void SetWordB((string p_wordA, string p_wordB) p_wordPair, int p_index)
     {
-        m_WordBComponent.SetWord(p_word);
+        m_WordBComponent.SetWords(p_wordPair, p_index);
+    }
+
+    public int GetWordId()
+    {
+        return transform.GetSiblingIndex();
+    }
+
+    public (string, string) GetWordPair()
+    {
+        return m_WordAComponent.GetWordPair();
     }
 
     public bool IsPair()
     {
-        if (!m_SlotPairA.HasWord()) return false;
+        int A = m_SlotPairA.GetWordId();
+        int B = m_SlotPairB.GetWordId();
 
-        if(m_SlotPairB.GetWordPair() == null) return false;
-
-        if (m_SlotPairA.GetWord().Equals(m_SlotPairB.GetWordPair()))
-        {
-            return true;
-        }
-
-        return false;
+        return m_SlotPairA.GetWordId().Equals(m_SlotPairB.GetWordId());
     }
 
     public void LockWords(bool p_lock)
     {
+        IsLocked = p_lock;
         m_ColorChanger.Correct();
         m_WordAComponent.Lock(p_lock);
         m_WordBComponent.Lock(p_lock);

@@ -271,7 +271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlotPair: {fileID: 5249661287228762029}
-  m_ColorChanger: {fileID: 8291392736859005636}
 --- !u!1 &4421580279550435709
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SlotPair: {fileID: 7863471671562839799}
-  m_ColorChanger: {fileID: 8291392736859005636}
 --- !u!1 &7884100211785688611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1090,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WordB
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407822448240039249, guid: c4bef568b2e8353478a34d03ccb6917c,
+        type: 3}
+      propertyPath: m_WhichWordPair
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

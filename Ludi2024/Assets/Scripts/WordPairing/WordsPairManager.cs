@@ -5,32 +5,37 @@ using UnityEngine;
 
 public class WordsPairManager : MonoBehaviour
 {
+    public static WordsPairManager Instance;
+
     [Header("Components")]
     [SerializeField] private List<WordsPair> m_WordsSetters;
 
     private int m_CorrectPairCount;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
         m_CorrectPairCount = 0;
     }
 
-    private void Update()
-    {
-        CheckPairs();
-    }
-
     private void OnEnable()
     {
-        WordPairSlot.OnCheckPairs += CheckPairs;
+        WordPairSlot.OnWordDropped += CheckPairs;
     }
 
     private void OnDisable()
     {
-        WordPairSlot.OnCheckPairs -= CheckPairs;
+        WordPairSlot.OnWordDropped -= CheckPairs;
     }
 
-    private void CheckPairs()
+    public void CheckPairs()
     {
         foreach (var t_pair in m_WordsSetters)
         {

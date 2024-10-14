@@ -6,44 +6,59 @@ using UnityEngine.EventSystems;
 
 public class WordPairDrag : DragNDrop2D
 {
+    private enum WhichWordPair
+    {
+        A,
+        B
+    }
+
     [Header("Word Settings")]
-    [SerializeField] private string m_Word;
-    [SerializeField] private string m_WordPair;
+    [SerializeField] private WhichWordPair m_WhichWordPair;
+    [SerializeField] private string m_WordShown;
 
     [Header("Components")]
     [SerializeField] private TextMeshProUGUI m_TextMeshProUGUI;
 
+    private (string,string) m_WordPair;
+    public int m_Id;
+
     private void Start()
     {
-        m_TextMeshProUGUI.text = m_Word;
+        m_WordShown = m_WhichWordPair == WhichWordPair.A ?
+            m_WordPair.Item1 : m_WordPair.Item2;
+
+        m_TextMeshProUGUI.text = m_WordShown;
     }
 
-    public bool IsCorrect(string p_word)
+    public bool IsCorrect((string p_wordA, string p_wordB) p_wordPair)
     {
-        return m_Word.Equals(p_word);
+        return p_wordPair.Equals(m_WordPair);
     }
 
-    public void InitializeWords(string p_word, string p_wordPair)
+    public void SetWords((string p_wordA, string p_wordB) p_wordPair, int p_id)
     {
-        m_Word = p_word;
+        m_Id = p_id;
         m_WordPair = p_wordPair;
-        m_TextMeshProUGUI.text = m_Word;
+
+        m_WordShown = m_WhichWordPair == WhichWordPair.A ? 
+            m_WordPair.Item1 : m_WordPair.Item2;
+
+        m_TextMeshProUGUI.text = m_WordShown;
     }
 
-    public void SetWord(string p_word)
+    public int GetWordId()
     {
-        m_Word = p_word;
-        m_TextMeshProUGUI.text = m_Word;
+        return m_Id;
     }
 
-    public string GetWord()
+    public (string, string) GetWordPair()
     {
-        return m_Word;
+        return m_WordPair;
     }
 
     public override void Lock(bool p_lock)
     {
-        Debug.Log(m_Word + " is locked");
+        Debug.Log(m_WordPair + " is locked");
         base.Lock(p_lock);
     }
 
