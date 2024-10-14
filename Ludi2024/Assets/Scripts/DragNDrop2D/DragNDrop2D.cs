@@ -8,20 +8,28 @@ using UnityEngine.EventSystems;
 public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     private Transform m_ParentAfterDrag;
-    private PlaceableSlot m_CurrentSlot;
+    private SlotContainer2D mCurrentSlotContainer2D;
 
     private Image m_Image;
     private TextMeshProUGUI m_Text;
+
+    private bool m_IsLocked;
 
     private void Awake()
     {
         m_Image = GetComponent<Image>();
         m_Text = GetComponentInChildren<TextMeshProUGUI>();
-        m_CurrentSlot = GetComponentInParent<PlaceableSlot>();
+        mCurrentSlotContainer2D = GetComponentInParent<SlotContainer2D>();
+    }
+    private void Start()
+    {
+        m_IsLocked = false;
     }
 
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
+        if(m_IsLocked) return;
+
         Debug.Log("OnBeginDrag");
         m_ParentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
@@ -63,13 +71,18 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
         m_ParentAfterDrag = p_transform;
     }
 
-    public void SetCurrentSlot(PlaceableSlot slot)
+    public void SetCurrentSlot(SlotContainer2D slotContainer2D)
     {
-        m_CurrentSlot = slot;
+        mCurrentSlotContainer2D = slotContainer2D;
     }
 
-    public PlaceableSlot GetCurrentSlot()
+    public SlotContainer2D GetCurrentSlot()
     {
-        return m_CurrentSlot;
+        return mCurrentSlotContainer2D;
+    }
+
+    public void Lock(bool p_lock)
+    {
+        m_IsLocked = p_lock;
     }
 }

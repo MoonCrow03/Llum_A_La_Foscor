@@ -13,22 +13,13 @@ public class ConnectWordsDrag : DragNDrop2D
     [Header("Components")]
     [SerializeField] private TextMeshProUGUI m_TextMeshProUGUI;
 
-    private bool m_Locked;
-    private ConnectWordsSlot m_CurrentWordSlot;
+    private ConnectWordsSlot mCurrentWordSlot;
 
     private void Start()
     {
         SetWordSlot(GetComponentInParent<ConnectWordsSlot>());
 
         m_TextMeshProUGUI.text = m_Word;
-        m_Locked = false;
-    }
-
-    public override void OnBeginDrag(PointerEventData eventData)
-    {
-        if (m_Locked) return;
-
-        base.OnBeginDrag(eventData);
     }
 
     public bool IsCorrect(string p_word)
@@ -54,18 +45,18 @@ public class ConnectWordsDrag : DragNDrop2D
         return m_Word;
     }
 
-    public void LockWord()
+    public void LockWord(bool p_lock)
     {
-        m_Locked = true;
+        base.Lock(p_lock);
     }
 
-    public void SetWordSlot(ConnectWordsSlot p_slot)
+    public void SetWordSlot(ConnectWordsSlot pSlot)
     {
-        m_CurrentWordSlot = p_slot;
-        m_CurrentWordSlot.SetWord(m_Word);
+        mCurrentWordSlot = pSlot;
+        mCurrentWordSlot.SetWord(m_Word);
     }
     public ConnectWordsSlot GetWordSlot()
     {
-        return m_CurrentWordSlot;
+        return mCurrentWordSlot;
     }
 }

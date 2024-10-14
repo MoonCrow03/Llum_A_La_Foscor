@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ConnectWordsSlot : PlaceableSlot
+public class ConnectWordsSlot : SlotContainer2D
 {
     [Header("Components")]
     [SerializeField] private ConnectWordsSlot m_SlotPair;
@@ -32,7 +32,7 @@ public class ConnectWordsSlot : PlaceableSlot
 
         if (l_draggableObject.IsCorrect(m_SlotPair.GetWord()))
         {
-            l_draggableObject.LockWord();
+            l_draggableObject.LockWord(true);
             m_ColorChanger.Correct();
         }
     }
