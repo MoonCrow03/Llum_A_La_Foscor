@@ -51,11 +51,12 @@ public class WordMixer : MonoBehaviour
 
             int l_wordId = 0;
 
-            foreach (var t_setter in m_WordsSetters)
+            foreach (var t_setter in m_WordsB)
             {
-                if (t_setter.GetWordPair().Equals(l_pair))
+                if (t_setter.Equals(l_pair.wordB))
                 {
-                    l_wordId = t_setter.GetWordId();
+                    l_wordId = m_WordsB.IndexOf(t_setter);
+                    break;
                 }
             }
 

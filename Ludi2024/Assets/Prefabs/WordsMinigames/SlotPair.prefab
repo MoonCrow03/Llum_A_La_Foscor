@@ -270,7 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec7d9d523e49204898c126f38499ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SlotPair: {fileID: 5249661287228762029}
 --- !u!1 &4421580279550435709
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +467,8 @@ MonoBehaviour:
   m_WordAComponent: {fileID: 8239232408714367596}
   m_WordBComponent: {fileID: 6233618824585989556}
   m_SlotPairA: {fileID: 7863471671562839799}
-  m_SlotPairB: {fileID: 7863471671562839799}
+  m_SlotPairB: {fileID: 5249661287228762029}
+  IsLocked: 0
 --- !u!114 &8291392736859005636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,7 +678,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec7d9d523e49204898c126f38499ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SlotPair: {fileID: 7863471671562839799}
 --- !u!1 &7884100211785688611
 GameObject:
   m_ObjectHideFlags: 0

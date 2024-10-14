@@ -43,6 +43,7 @@ public class WordPairSlot : SlotContainer2D
 
     public WordPairDrag GetWordDrag()
     {
+        WordPairDrag l_drag = GetComponentInChildren<WordPairDrag>();
         return transform.GetComponentInChildren<WordPairDrag>();
     }
 }

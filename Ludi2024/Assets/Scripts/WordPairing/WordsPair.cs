@@ -58,7 +58,8 @@ public class WordsPair : MonoBehaviour
     {
         IsLocked = p_lock;
         m_ColorChanger.Correct();
-        m_WordAComponent.Lock(p_lock);
-        m_WordBComponent.Lock(p_lock);
+
+        m_SlotPairA.GetWordDrag().Lock(true);
+        m_SlotPairB.GetWordDrag().Lock(true);
     }
 }
