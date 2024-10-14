@@ -25,7 +25,7 @@ public class WordsPairManager : MonoBehaviour
     {
         foreach (var t_pair in m_WordsSetters)
         {
-            if(t_pair.)
+            //if(t_pair.)
         }
     }
 }

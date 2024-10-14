@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 8621448900436788933}
   - component: {fileID: 4780391804108604452}
   - component: {fileID: 8123277758029733736}
+  - component: {fileID: -5703234231367070612}
   m_Layer: 5
   m_Name: LetterPlaceHolder
   m_TagString: Untagged
@@ -152,6 +153,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-5703234231367070612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6922772525889845904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1449d3dea8c3bc645ae466a18988a2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7312735449939413779
 GameObject:
   m_ObjectHideFlags: 0
