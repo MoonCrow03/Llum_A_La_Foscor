@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace MakeWordsMinigame
 {
@@ -10,6 +12,7 @@ namespace MakeWordsMinigame
         [Header("Word List")] 
         [SerializeField] private List<string> listOfWords;
         [SerializeField] private GameObject letterPrefab;
+        [SerializeField] private GameObject slotPrefab;
         [SerializeField] private Transform letterParent;
         [SerializeField] private Transform slotsParent;
         [SerializeField] private int extraLetters;
@@ -19,7 +22,7 @@ namespace MakeWordsMinigame
         private int numberOfLetters;
 
         private static readonly List<char> vowels = new List<char> {'a', 'e', 'i', 'o', 'u'};
-        private static readonly List<char> consonants = new List<char> {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'};
+        private static readonly List<char> consonants = new List<char> {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v'};
     
 
         // Start is called before the first frame update
@@ -29,6 +32,11 @@ namespace MakeWordsMinigame
             GenerateRandomLetters();
             CreateLetterObjects();
             CreatePlaceableSlots();
+        }
+
+        private void Update()
+        {
+            CheckWordFormed();
         }
 
         private void GenerateRandomLetters()
@@ -64,9 +72,7 @@ namespace MakeWordsMinigame
         {
             for (int i = 0; i < selectedWord.Length; i++)
             {
-                GameObject slotObject = new GameObject("Slot " + i);
-                slotObject.transform.SetParent(slotsParent);
-                slotObject.AddComponent<PlaceableSlot>();
+                Instantiate(slotPrefab, slotsParent);
             }
         }
 
