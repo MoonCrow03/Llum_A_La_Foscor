@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     private Transform m_ParentAfterDrag;
+    private PlaceableSlot m_CurrentSlot;
 
     private Image m_Image;
     private TextMeshProUGUI m_Text;
@@ -16,6 +17,7 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     {
         m_Image = GetComponent<Image>();
         m_Text = GetComponentInChildren<TextMeshProUGUI>();
+        m_CurrentSlot = GetComponentInParent<PlaceableSlot>();
     }
 
     public virtual void OnBeginDrag(PointerEventData eventData)
@@ -41,7 +43,13 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     public virtual void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("OnEndDrag");
-        transform.SetParent(m_ParentAfterDrag);
+
+        if (m_ParentAfterDrag != null)
+        {
+            transform.SetParent(m_ParentAfterDrag);
+            transform.localPosition = Vector3.zero;
+        }
+        
         m_Image.raycastTarget = true;
 
         if (m_Text != null)
@@ -53,5 +61,15 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     public virtual void SetParentAfterDrag(Transform p_transform)
     {
         m_ParentAfterDrag = p_transform;
+    }
+
+    public void SetCurrentSlot(PlaceableSlot slot)
+    {
+        m_CurrentSlot = slot;
+    }
+
+    public PlaceableSlot GetCurrentSlot()
+    {
+        return m_CurrentSlot;
     }
 }
