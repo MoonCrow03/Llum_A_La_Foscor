@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 585447907}
   - component: {fileID: 585447906}
   - component: {fileID: 585447908}
+  - component: {fileID: 585447909}
   m_Layer: 5
   m_Name: LetterPanel
   m_TagString: Untagged
@@ -327,6 +328,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &585447909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585447904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf29e1e7013ff643b1caa09805405ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &736101446
 GameObject:
   m_ObjectHideFlags: 0

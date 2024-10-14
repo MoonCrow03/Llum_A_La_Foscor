@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using Utilities;
 using Random = UnityEngine.Random;
 
 namespace MakeWordsMinigame
@@ -33,10 +34,16 @@ namespace MakeWordsMinigame
             CreateLetterObjects();
             CreatePlaceableSlots();
         }
+        
 
-        private void Update()
+        private void OnEnable()
         {
-            CheckWordFormed();
+            LetterFormDrop.OnLetterDropped += CheckWordFormed;
+        }
+        
+        private void OnDisable()
+        {
+            LetterFormDrop.OnLetterDropped -= CheckWordFormed;
         }
 
         private void GenerateRandomLetters()
@@ -60,6 +67,7 @@ namespace MakeWordsMinigame
 
         private void CreateLetterObjects()
         {
+            ShuffleList(ref availableLetters);
             foreach (char letter in availableLetters)
             {
                 GameObject letterObject = Instantiate(letterPrefab, letterParent);
@@ -107,8 +115,19 @@ namespace MakeWordsMinigame
 
         private void OnWordCreated()
         {
+            BasicSceneChanger.ChangeScene("World Scene");
             Debug.Log("Word created!");
         }
-    
+
+        private void ShuffleList(ref List<char> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                char temp = list[i];
+                int randomIndex = Random.Range(i, list.Count);
+                list[i] = list[randomIndex];
+                list[randomIndex] = temp;
+            }
+        }
     }
 }
