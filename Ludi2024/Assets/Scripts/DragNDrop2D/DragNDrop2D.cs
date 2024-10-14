@@ -28,9 +28,10 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
 
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
-        if(m_IsLocked) return;
+        if(IsLocked()) return;
 
         Debug.Log("OnBeginDrag");
+
         m_ParentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
@@ -44,12 +45,16 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
 
     public virtual void OnDrag(PointerEventData eventData)
     {
+        if (IsLocked()) return;
+
         Debug.Log("OnDrag");
         transform.position = InputManager.Instance.MousePosition;
     }
 
     public virtual void OnEndDrag(PointerEventData eventData)
     {
+        if (IsLocked()) return;
+
         Debug.Log("OnEndDrag");
 
         if (m_ParentAfterDrag != null)
@@ -79,6 +84,11 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     public SlotContainer2D GetCurrentSlot()
     {
         return mCurrentSlotContainer2D;
+    }
+
+    public bool IsLocked()
+    {
+        return m_IsLocked;
     }
 
     public void Lock(bool p_lock)

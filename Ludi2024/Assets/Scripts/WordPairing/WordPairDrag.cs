@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ConnectWordsDrag : DragNDrop2D
+public class WordPairDrag : DragNDrop2D
 {
     [Header("Word Settings")]
     [SerializeField] private string m_Word;
@@ -13,12 +13,8 @@ public class ConnectWordsDrag : DragNDrop2D
     [Header("Components")]
     [SerializeField] private TextMeshProUGUI m_TextMeshProUGUI;
 
-    private ConnectWordsSlot mCurrentWordSlot;
-
     private void Start()
     {
-        SetWordSlot(GetComponentInParent<ConnectWordsSlot>());
-
         m_TextMeshProUGUI.text = m_Word;
     }
 
@@ -47,16 +43,13 @@ public class ConnectWordsDrag : DragNDrop2D
 
     public void LockWord(bool p_lock)
     {
+        Debug.Log(m_Word + " is locked");
         base.Lock(p_lock);
     }
 
-    public void SetWordSlot(ConnectWordsSlot pSlot)
+    public WordPairSlot GetWordSlot()
     {
-        mCurrentWordSlot = pSlot;
-        mCurrentWordSlot.SetWord(m_Word);
-    }
-    public ConnectWordsSlot GetWordSlot()
-    {
-        return mCurrentWordSlot;
+        WordPairSlot l_wordPairSlot = transform.GetComponentInParent<WordPairSlot>();
+        return l_wordPairSlot;
     }
 }

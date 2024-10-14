@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WordsSetter : MonoBehaviour
+public class WordPairs : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private ConnectWordsDrag m_WordAComponent;
-    [SerializeField] private ConnectWordsDrag m_WordBComponent;
+    [SerializeField] private WordPairDrag m_WordAComponent;
+    [SerializeField] private WordPairDrag m_WordBComponent;
 
     private WordMixer m_WordMixer;
 
@@ -31,8 +31,8 @@ public class WordsSetter : MonoBehaviour
         m_WordBComponent.SetWord(p_word);
     }
 
-    public bool CanSetWord(string p_word)
+    public bool CheckPair()
     {
-        return !m_WordAComponent.IsCorrect(p_word) && !m_WordBComponent.IsCorrect(p_word);
+        return true;
     }
 }

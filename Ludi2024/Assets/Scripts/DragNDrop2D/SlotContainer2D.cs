@@ -10,6 +10,13 @@ public abstract class SlotContainer2D : MonoBehaviour, IDropHandler
         GameObject l_droppedObject = eventData.pointerDrag;
         DragNDrop2D l_draggableObject = l_droppedObject.GetComponent<DragNDrop2D>();
 
+        // Check if the dropped object is locked, if locked do nothing
+        if (l_draggableObject == null || l_draggableObject.IsLocked())
+        {
+            Debug.Log("Item is locked, cannot swap or move.");
+            return;
+        }
+
         if (transform.childCount > 0)
         {
             // If the slotContainer2D already has a child, swap the objects.
