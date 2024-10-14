@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     private Dictionary<string, bool> miniGamesCompleted = new Dictionary<string, bool>();
     
+    public Dictionary<string, bool> MiniGamesCompleted => miniGamesCompleted;
+    
     private void Awake()
     {
         if (_instance == null)
