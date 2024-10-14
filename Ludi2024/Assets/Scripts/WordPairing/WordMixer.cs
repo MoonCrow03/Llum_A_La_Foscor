@@ -9,7 +9,7 @@ public class WordMixer : MonoBehaviour
     [SerializeField] private List<string> m_WordsB;
 
     [Header("Components")]
-    [SerializeField] private List<WordPairs> m_WordsSetters;
+    [SerializeField] private List<WordsPair> m_WordsSetters;
 
     private void Start()
     {

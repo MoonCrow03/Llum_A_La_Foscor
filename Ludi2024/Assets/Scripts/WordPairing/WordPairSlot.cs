@@ -9,8 +9,7 @@ public class WordPairSlot : SlotContainer2D
 {
     [Header("Components")]
     [SerializeField] private WordPairSlot m_SlotPair;
-
-    public static Action OnCheckPair;
+    [SerializeField] private ColorChanger m_ColorChanger;
 
     public override void OnDrop(PointerEventData eventData)
     {
@@ -24,7 +23,9 @@ public class WordPairSlot : SlotContainer2D
 
         if (l_draggableObject.IsCorrect(m_SlotPair.GetWord()))
         {
+            m_SlotPair.GetWordDrag().LockWord(true);
             l_draggableObject.LockWord(true);
+            m_ColorChanger.Correct();
 
             // Move the word object to the correct slot pair
             l_draggableObject.transform.SetParent(transform);
@@ -51,5 +52,10 @@ public class WordPairSlot : SlotContainer2D
     public string GetWordPair()
     {
         return m_SlotPair.GetWord();
+    }
+
+    public WordPairDrag GetWordDrag()
+    {
+        return transform.GetComponentInChildren<WordPairDrag>();
     }
 }

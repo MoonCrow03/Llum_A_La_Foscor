@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 400060874}
   - component: {fileID: 400060873}
   - component: {fileID: 400060872}
+  - component: {fileID: 400060876}
   - component: {fileID: 400060875}
   m_Layer: 5
   m_Name: Colum
@@ -481,6 +482,24 @@ MonoBehaviour:
   - C
   - D
   - E
+  m_WordsSetters:
+  - {fileID: 3655329276535680501}
+  - {fileID: 1327610109}
+  - {fileID: 812888433}
+  - {fileID: 1497919782}
+  - {fileID: 472937788}
+--- !u!114 &400060876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400060870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eab054c7fa90764d9d6f79076e2db43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_WordsSetters:
   - {fileID: 3655329276535680501}
   - {fileID: 1327610109}

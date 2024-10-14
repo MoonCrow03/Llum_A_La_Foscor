@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WordPairs : MonoBehaviour
+public class WordsPair : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private WordPairDrag m_WordAComponent;
     [SerializeField] private WordPairDrag m_WordBComponent;
-
-    private WordMixer m_WordMixer;
-
-    private void Awake()
-    {
-        m_WordMixer = GetComponentInParent<WordMixer>();
-    }
+    [SerializeField] private WordPairSlot m_SlotPairA;
+    [SerializeField] private WordPairSlot m_SlotPairB;
 
     public void SetWords(string p_wordA, string p_wordB)
     {
@@ -31,8 +26,13 @@ public class WordPairs : MonoBehaviour
         m_WordBComponent.SetWord(p_word);
     }
 
-    public bool CheckPair()
+    public bool IsPair()
     {
-        return true;
+        if (m_SlotPairA.GetWord().Equals(m_SlotPairB.GetWordPair()))
+        {
+            return true;
+        }
+
+        return false;
     }
 }
