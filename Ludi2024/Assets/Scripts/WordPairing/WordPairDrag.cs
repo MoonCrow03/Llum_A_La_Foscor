@@ -41,7 +41,7 @@ public class WordPairDrag : DragNDrop2D
         return m_Word;
     }
 
-    public void LockWord(bool p_lock)
+    public override void Lock(bool p_lock)
     {
         Debug.Log(m_Word + " is locked");
         base.Lock(p_lock);

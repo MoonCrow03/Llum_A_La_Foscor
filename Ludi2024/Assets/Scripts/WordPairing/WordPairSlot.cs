@@ -9,38 +9,18 @@ public class WordPairSlot : SlotContainer2D
 {
     [Header("Components")]
     [SerializeField] private WordPairSlot m_SlotPair;
-    [SerializeField] private ColorChanger m_ColorChanger;
 
-    public override void OnDrop(PointerEventData eventData)
-    {
-        base.OnDrop(eventData);
-
-        WordPairDrag l_draggableObject = eventData.pointerDrag.GetComponent<WordPairDrag>();
-
-        if(l_draggableObject == null) return;
-
-        if (!m_SlotPair.HasWord()) return;
-
-        if (l_draggableObject.IsCorrect(m_SlotPair.GetWord()))
-        {
-            m_SlotPair.GetWordDrag().LockWord(true);
-            l_draggableObject.LockWord(true);
-            m_ColorChanger.Correct();
-
-            // Move the word object to the correct slot pair
-            l_draggableObject.transform.SetParent(transform);
-
-            // Reset its position inside the slot
-            l_draggableObject.transform.localPosition = Vector3.zero;
-        }
-    }
+    public static Action OnCheckPairs;
 
     public bool HasWord()
     {
         WordPairDrag l_drag = GetComponentInChildren<WordPairDrag>();
+
+        if(l_drag == null) return false;
+
         string l_word = l_drag.GetWord();
 
-        return l_word != null && !l_word.Equals("");
+        return l_drag.GetWord() != null && !l_drag.GetWord().Equals("");
     }
 
     public string GetWord()
@@ -51,7 +31,7 @@ public class WordPairSlot : SlotContainer2D
 
     public string GetWordPair()
     {
-        return m_SlotPair.GetWord();
+        return !m_SlotPair.HasWord() ? null : m_SlotPair.GetWord();
     }
 
     public WordPairDrag GetWordDrag()

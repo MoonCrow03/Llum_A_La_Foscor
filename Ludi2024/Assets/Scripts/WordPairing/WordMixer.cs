@@ -11,7 +11,7 @@ public class WordMixer : MonoBehaviour
     [Header("Components")]
     [SerializeField] private List<WordsPair> m_WordsSetters;
 
-    private void Start()
+    private void Awake()
     {
         if (m_WordsA.Count != m_WordsB.Count && m_WordsA.Count != m_WordsSetters.Count)
         {

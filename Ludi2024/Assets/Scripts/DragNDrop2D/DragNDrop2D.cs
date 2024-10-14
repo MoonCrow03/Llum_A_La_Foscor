@@ -86,12 +86,12 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
         return mCurrentSlotContainer2D;
     }
 
-    public bool IsLocked()
+    public virtual bool IsLocked()
     {
         return m_IsLocked;
     }
 
-    public void Lock(bool p_lock)
+    public virtual void Lock(bool p_lock)
     {
         m_IsLocked = p_lock;
     }

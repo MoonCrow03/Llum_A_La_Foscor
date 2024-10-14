@@ -10,6 +10,13 @@ public class WordsPair : MonoBehaviour
     [SerializeField] private WordPairSlot m_SlotPairA;
     [SerializeField] private WordPairSlot m_SlotPairB;
 
+    private ColorChanger m_ColorChanger;
+
+    private void Awake()
+    {
+        m_ColorChanger = GetComponent<ColorChanger>();
+    }
+
     public void SetWords(string p_wordA, string p_wordB)
     {
         m_WordAComponent.InitializeWords(p_wordA, p_wordB);
@@ -28,11 +35,22 @@ public class WordsPair : MonoBehaviour
 
     public bool IsPair()
     {
+        if (!m_SlotPairA.HasWord()) return false;
+
+        if(m_SlotPairB.GetWordPair() == null) return false;
+
         if (m_SlotPairA.GetWord().Equals(m_SlotPairB.GetWordPair()))
         {
             return true;
         }
 
         return false;
+    }
+
+    public void LockWords(bool p_lock)
+    {
+        m_ColorChanger.Correct();
+        m_WordAComponent.Lock(p_lock);
+        m_WordBComponent.Lock(p_lock);
     }
 }
