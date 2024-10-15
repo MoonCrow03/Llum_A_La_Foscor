@@ -19,6 +19,7 @@ public class GridSquare : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
     private TextMeshProUGUI m_Text;
     private bool m_IsSelected;
     private bool m_IsClicked;
+    private bool m_IsCorrect;
     private int m_Index = -1;
 
     public int m_SquareIndex { get; set; }
@@ -30,6 +31,7 @@ public class GridSquare : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
 
         m_IsSelected = false;
         m_IsClicked = false;
+        m_IsCorrect = false;
     }
 
     private void OnEnable()
@@ -56,6 +58,8 @@ public class GridSquare : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
     {
         m_IsClicked = false;
         m_IsSelected = false;
+
+        m_Image.color = m_IsCorrect ? m_CorrectColor : m_NormalColor;
     }
 
     private void SelectSquare(Vector3 p_position)
