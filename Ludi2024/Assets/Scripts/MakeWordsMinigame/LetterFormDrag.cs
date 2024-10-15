@@ -10,10 +10,11 @@ namespace MakeWordsMinigame
     {
         public Image image;
         public TextMeshProUGUI text;
-
+        
         
         public override void OnBeginDrag(PointerEventData eventData)
         {
+            base.SetCanvas();
             base.OnBeginDrag(eventData);
             image.raycastTarget = false;
             text.raycastTarget = false;
