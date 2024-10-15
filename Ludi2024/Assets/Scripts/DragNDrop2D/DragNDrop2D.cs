@@ -54,22 +54,38 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
         Debug.Log("OnDrag");
 
         // Get the camera associated with the World Space canvas
-        Camera worldCamera = m_Canvas.worldCamera;
+        Camera l_worldCamera = m_Canvas.worldCamera;
 
         // Get the current mouse position in screen space
-        Vector3 screenPosition = InputManager.Instance.MousePosition;
+        Vector3 l_screenPosition = InputManager.Instance.MousePosition;
 
         // Get the distance between the canvas and the camera
-        float canvasToCameraDistance = Vector3.Distance(worldCamera.transform.position, m_Canvas.transform.position);
+        float l_canvasToCameraDistance = Vector3.Distance(l_worldCamera.transform.position, m_Canvas.transform.position);
 
         // Set the z-position of the screen position to the distance from the camera to the canvas
-        screenPosition.z = canvasToCameraDistance;
+        l_screenPosition.z = l_canvasToCameraDistance;
 
         // Convert the screen position to a world position based on the canvas camera
-        Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
+        Vector3 l_worldPosition = l_worldCamera.ScreenToWorldPoint(l_screenPosition);
+
+        // Get the RectTransform of the canvas and the object being dragged
+        RectTransform l_canvasRect = m_Canvas.GetComponent<RectTransform>();
+        RectTransform l_objectRect = GetComponent<RectTransform>();
+
+        // Calculate the canvas bounds in world space
+        Vector3[] l_canvasCorners = new Vector3[4];
+        l_canvasRect.GetWorldCorners(l_canvasCorners);
+
+        // Calculate the half-size of the object in world space to account for its dimensions
+        Vector3 l_objectSize = l_objectRect.rect.size;
+        Vector3 l_objectHalfSize = new Vector3(l_objectSize.x * l_objectRect.lossyScale.x / 2, l_objectSize.y * l_objectRect.lossyScale.y / 2, 0);
+
+        // Clamp the world position, considering the object's size
+        l_worldPosition.x = Mathf.Clamp(l_worldPosition.x, l_canvasCorners[0].x + l_objectHalfSize.x, l_canvasCorners[2].x - l_objectHalfSize.x);
+        l_worldPosition.y = Mathf.Clamp(l_worldPosition.y, l_canvasCorners[0].y + l_objectHalfSize.y, l_canvasCorners[2].y - l_objectHalfSize.y);
 
         // Update the dragged object's world position
-        transform.position = worldPosition;
+        transform.position = l_worldPosition;
     }
 
 
