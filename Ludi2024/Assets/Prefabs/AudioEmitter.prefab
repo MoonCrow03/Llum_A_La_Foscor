@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4083919089232591213}
   - component: {fileID: 9145415483777381158}
+  - component: {fileID: 4312028930994436588}
+  - component: {fileID: 1608290939473129589}
   m_Layer: 0
-  m_Name: AudioEmiter
+  m_Name: AudioEmitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,3 +65,28 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &4312028930994436588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756496376667105820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2beb27c3a0bf8447ba15774086ee8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1608290939473129589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756496376667105820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c41a42d87e1e7e44baa1b449c0728e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffects: []

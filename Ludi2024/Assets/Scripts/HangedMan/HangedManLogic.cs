@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 namespace HangedMan
@@ -8,11 +9,18 @@ namespace HangedMan
     public class HangedManLogic : MonoBehaviour
     {
         [Header("Game Settings")] 
-        private List<string> wordsToGuess;
-        private int maxGuesses;
+        [SerializeField] private List<string> wordList;
+        [SerializeField] private int maxGuesses;
         
         private string wordToGuess;
         private Dictionary<char, bool> availableLetters;
+
+        private static readonly List<char> letters = new List<char>
+        {
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+            'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+            'U', 'V', 'W', 'X', 'Y', 'Z'
+        };
 
         private void Awake()
         {
@@ -26,7 +34,7 @@ namespace HangedMan
 
         private void SelectRandomWord()
         {
-            wordToGuess = wordsToGuess[UnityEngine.Random.Range(0, wordsToGuess.Count)];
+            wordToGuess = wordList[UnityEngine.Random.Range(0, wordList.Count)];
         }
 
         private void GuessLetter(char letterGuessed)
