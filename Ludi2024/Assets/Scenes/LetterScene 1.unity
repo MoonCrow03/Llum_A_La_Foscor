@@ -371,13 +371,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listOfWords:
   - Prueba
+  - "sarr\xF3"
+  - follet
+  - amagat
   letterPrefab: {fileID: 6922772525889845904, guid: b2b436d97cc59964c90c014a9c6c0fef,
     type: 3}
   slotPrefab: {fileID: 6085060054342828097, guid: 4b9c204ef488e3b4fa90dd5e081e4091,
     type: 3}
   letterParent: {fileID: 585447905}
   slotsParent: {fileID: 1097644082}
-  extraLetters: 5
+  extraLetters: 3
 --- !u!4 &736101448
 Transform:
   m_ObjectHideFlags: 0
