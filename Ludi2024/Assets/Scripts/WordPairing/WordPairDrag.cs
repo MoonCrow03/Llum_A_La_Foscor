@@ -30,11 +30,6 @@ public class WordPairDrag : DragNDrop2D
         m_TextMeshProUGUI.text = m_WordShown;
     }
 
-    public bool IsCorrect((string p_wordA, string p_wordB) p_wordPair)
-    {
-        return p_wordPair.Equals(m_WordPair);
-    }
-
     public void SetWords((string p_wordA, string p_wordB) p_wordPair, int p_id)
     {
         m_Id = p_id;
@@ -54,17 +49,5 @@ public class WordPairDrag : DragNDrop2D
     public (string, string) GetWordPair()
     {
         return m_WordPair;
-    }
-
-    public override void Lock(bool p_lock)
-    {
-        Debug.Log(m_WordPair + " is locked");
-        base.Lock(p_lock);
-    }
-
-    public WordPairSlot GetWordSlot()
-    {
-        WordPairSlot l_wordPairSlot = transform.GetComponentInParent<WordPairSlot>();
-        return l_wordPairSlot;
     }
 }
