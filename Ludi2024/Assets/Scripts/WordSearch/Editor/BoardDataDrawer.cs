@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
@@ -21,12 +22,24 @@ public class BoardDataDrawer : Editor
     {
         serializedObject.Update();
         DrawColumnsRowsInputFields();
+
         EditorGUILayout.Space();
+
+        ConvertToUpperButton();
 
         if (m_GameDataInstance.m_Board != null && m_GameDataInstance.m_Columns > 0 && m_GameDataInstance.m_Rows > 0)
         {
             DrawBoardTable();
         }
+
+        GUILayout.BeginHorizontal();
+        ClearBoardButton();
+        FillUpWithRandomLettersButton();
+        GUILayout.EndHorizontal();
+
+
+        EditorGUILayout.Space();
+        m_DataList.DoLayoutList();
 
         serializedObject.ApplyModifiedProperties();
 
@@ -127,5 +140,71 @@ public class BoardDataDrawer : Editor
             EditorGUI.PropertyField(new Rect(t_rect.x, t_rect.y, EditorGUIUtility.labelWidth, EditorGUIUtility.singleLineHeight),
                 l_element.FindPropertyRelative("m_Word"), GUIContent.none);
         };
+    }
+
+    private void ConvertToUpperButton()
+    {
+        if (GUILayout.Button("To Upper"))
+        {
+            for (int i = 0; i < m_GameDataInstance.m_Columns; i++)
+            {
+                for (int j = 0; j < m_GameDataInstance.m_Rows; j++)
+                {
+                    var l_errorCounter = Regex.Matches(m_GameDataInstance.m_Board[i].m_Row[j], @"[a-z]").Count;
+
+                    if(l_errorCounter > 0)
+                    {
+                        m_GameDataInstance.m_Board[i].m_Row[j] = m_GameDataInstance.m_Board[i].m_Row[j].ToUpper();
+                    }
+                }
+            }
+
+            foreach (var t_searchWord in m_GameDataInstance.m_SearchWords)
+            {
+                var l_errorCounter = Regex.Matches(t_searchWord.m_Word, @"[a-z]").Count;
+
+                if (l_errorCounter > 0)
+                {
+                    t_searchWord.m_Word = t_searchWord.m_Word.ToUpper();
+                }
+            }
+        }
+    }
+
+    private void ClearBoardButton()
+    {
+        if (GUILayout.Button("Clear Board"))
+        {
+            for (int i = 0; i < m_GameDataInstance.m_Columns; i++)
+            {
+                for (int j = 0; j < m_GameDataInstance.m_Rows; j++)
+                {
+                    m_GameDataInstance.m_Board[i].m_Row[j] = " ";
+                }
+            }
+        }
+    }
+
+    private void FillUpWithRandomLettersButton()
+    {
+        if (GUILayout.Button("Fill Up With Random Letters"))
+        {
+            for (int i = 0; i < m_GameDataInstance.m_Columns; i++)
+            {
+                for (int j = 0; j < m_GameDataInstance.m_Rows; j++)
+                {
+                    int l_errorCounter = Regex.Matches(m_GameDataInstance.m_Board[i].m_Row[j], @"[a-zA-Z]").Count;
+
+                    string l_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÇ";
+
+                    int l_index = Random.Range(0, l_letters.Length);
+
+                    if (l_errorCounter == 0)
+                    {
+                        m_GameDataInstance.m_Board[i].m_Row[j] = l_letters[l_index].ToString();
+                    }
+                }
+            }
+        }
     }
 }

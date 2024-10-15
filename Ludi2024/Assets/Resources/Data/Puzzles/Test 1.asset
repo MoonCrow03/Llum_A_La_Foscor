@@ -18,37 +18,38 @@ MonoBehaviour:
   m_Board:
   - m_Size: 5
     m_Row:
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
+    - Z
+    - X
+    - H
+    - V
+    - X
   - m_Size: 5
     m_Row:
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
+    - "\xC7"
+    - N
+    - C
+    - U
+    - F
   - m_Size: 5
     m_Row:
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
+    - A
+    - B
+    - C
+    - N
+    - E
   - m_Size: 5
     m_Row:
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
+    - F
+    - G
+    - D
+    - Y
+    - C
   - m_Size: 5
     m_Row:
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-  m_SearchWords: []
+    - S
+    - S
+    - A
+    - S
+    - Y
+  m_SearchWords:
+  - m_Word: SUMMER
