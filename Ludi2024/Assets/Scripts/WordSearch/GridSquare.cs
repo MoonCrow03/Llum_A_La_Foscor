@@ -2,35 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static WordSearchEvents;
 
 
-public class GridSquare : MonoBehaviour
+public class GridSquare : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerUpHandler
 {
-    /*public int m_SquareIndex { get; set; }
-
-    private AlphabetData.LetterData m_NormalLetterData;
-    private AlphabetData.LetterData m_SelectedLetterData;
-    private AlphabetData.LetterData m_WrongLetterData;
-
-    private SpriteRenderer m_DisplayedImage;
-
-    private void Start()
-    {
-        m_DisplayedImage = GetComponent<SpriteRenderer>();
-    }
-
-    public void SetSprite(AlphabetData.LetterData p_normalLetterData, AlphabetData.LetterData p_selectedLetterData, AlphabetData.LetterData p_correctLetterData)
-    {
-        m_NormalLetterData = p_normalLetterData;
-        m_SelectedLetterData = p_selectedLetterData;
-        m_WrongLetterData = p_correctLetterData;
-
-        GetComponent<SpriteRenderer>().sprite = m_NormalLetterData.m_Image;
-    }*/
-
-
-
     [Header("Grid Square Settings")]
     [SerializeField] private Color m_NormalColor;
     [SerializeField] private Color m_SelectedColor;
@@ -39,6 +17,9 @@ public class GridSquare : MonoBehaviour
     public string m_Letter;
     private Image m_Image;
     private TextMeshProUGUI m_Text;
+    private bool m_IsSelected;
+    private bool m_IsClicked;
+    private int m_Index = -1;
 
     public int m_SquareIndex { get; set; }
 
@@ -46,6 +27,72 @@ public class GridSquare : MonoBehaviour
     {
         m_Image = GetComponent<Image>();
         m_Text = GetComponentInChildren<TextMeshProUGUI>();
+
+        m_IsSelected = false;
+        m_IsClicked = false;
+    }
+
+    private void OnEnable()
+    {
+        WordSearchEvents.OnEnableSquareSelection += OnEnableSquareSelection;
+        WordSearchEvents.OnDisableSquareSelection += OnDisableSquareSelection;
+        WordSearchEvents.OnSelectSquare += SelectSquare;
+    }
+
+    private void OnDisable()
+    {
+        WordSearchEvents.OnEnableSquareSelection -= OnEnableSquareSelection;
+        WordSearchEvents.OnDisableSquareSelection -= OnDisableSquareSelection;
+        WordSearchEvents.OnSelectSquare -= SelectSquare;
+    }
+
+    private void OnEnableSquareSelection()
+    {
+        m_IsClicked = true;
+        m_IsSelected = false;
+    }
+
+    private void OnDisableSquareSelection()
+    {
+        m_IsClicked = false;
+        m_IsSelected = false;
+    }
+
+    private void SelectSquare(Vector3 p_position)
+    {
+        if (gameObject.transform.position == p_position)
+        {
+            m_Image.color = m_SelectedColor;
+        }
+    }
+
+    private void CheckSquare()
+    {
+        if (!m_IsSelected && m_IsClicked)
+        {
+            m_IsSelected = true;
+
+            WordSearchEvents.CheckSquareMethod(m_Letter, gameObject.transform.position, m_Index);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        OnEnableSquareSelection();
+        WordSearchEvents.EnableSquareSelectionMethod();
+        CheckSquare();
+        m_Image.color = m_SelectedColor;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        CheckSquare();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        WordSearchEvents.ClearSelectionMethod();
+        WordSearchEvents.DisableSquareSelectionMethod();
     }
 
     public void SetLetter(string p_letter)
@@ -54,18 +101,13 @@ public class GridSquare : MonoBehaviour
         m_Text.text = m_Letter;
     }
 
-    public void SetNormalColor()
+    public void SetIndex(int p_index)
     {
-        m_Image.color = m_NormalColor;
+        m_Index = p_index;
     }
 
-    public void SetSelectedColor()
+    public int GetIndex()
     {
-        m_Image.color = m_SelectedColor;
-    }
-
-    public void SetCorrectColor()
-    {
-        m_Image.color = m_CorrectColor;
+        return m_Index;
     }
 }
