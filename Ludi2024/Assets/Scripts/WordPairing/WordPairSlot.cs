@@ -21,20 +21,9 @@ public class WordPairSlot : SlotContainer2D
         OnWordDropped?.Invoke();
     }
 
-    public bool HasWord()
-    {
-        WordPairDrag l_drag = GetComponentInChildren<WordPairDrag>();
-
-        if(l_drag == null) return false;
-
-        return l_drag.GetWordId() != -1;
-    }
-
     public int GetWordId()
     {
         WordPairDrag l_drag = GetComponentInChildren<WordPairDrag>();
-
-        Debug.Log(l_drag.GetWordPair() + " ID: " + l_drag.m_Id);
 
         if (l_drag == null) return -1;
 

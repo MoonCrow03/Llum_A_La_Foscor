@@ -44,5 +44,15 @@ public class WordsPairManager : MonoBehaviour
             t_pair.LockWords(true);
             m_CorrectPairCount++;
         }
+
+        EndGame();
+    }
+
+    private void EndGame()
+    {
+        if(m_CorrectPairCount == m_WordsSetters.Count)
+        {
+            Debug.Log("Finished!");
+        }
     }
 }

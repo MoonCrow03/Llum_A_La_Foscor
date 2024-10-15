@@ -36,21 +36,8 @@ public class WordsPair : MonoBehaviour
         m_WordBComponent.SetWords(p_wordPair, p_index);
     }
 
-    public int GetWordId()
-    {
-        return transform.GetSiblingIndex();
-    }
-
-    public (string, string) GetWordPair()
-    {
-        return m_WordAComponent.GetWordPair();
-    }
-
     public bool IsPair()
     {
-        int A = m_SlotPairA.GetWordId();
-        int B = m_SlotPairB.GetWordId();
-
         return m_SlotPairA.GetWordId().Equals(m_SlotPairB.GetWordId());
     }
 
