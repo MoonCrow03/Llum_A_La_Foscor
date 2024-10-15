@@ -4,9 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using FMODUnity;
 
 public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    [Header("Components")]
+    [SerializeField] private Canvas m_Canvas;
+
     private Transform m_ParentAfterDrag;
     private SlotContainer2D mCurrentSlotContainer2D;
 
@@ -48,8 +52,26 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
         if (IsLocked()) return;
 
         Debug.Log("OnDrag");
-        transform.position = InputManager.Instance.MousePosition;
+
+        // Get the camera associated with the World Space canvas
+        Camera worldCamera = m_Canvas.worldCamera;
+
+        // Get the current mouse position in screen space
+        Vector3 screenPosition = InputManager.Instance.MousePosition;
+
+        // Get the distance between the canvas and the camera
+        float canvasToCameraDistance = Vector3.Distance(worldCamera.transform.position, m_Canvas.transform.position);
+
+        // Set the z-position of the screen position to the distance from the camera to the canvas
+        screenPosition.z = canvasToCameraDistance;
+
+        // Convert the screen position to a world position based on the canvas camera
+        Vector3 worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
+
+        // Update the dragged object's world position
+        transform.position = worldPosition;
     }
+
 
     public virtual void OnEndDrag(PointerEventData eventData)
     {
