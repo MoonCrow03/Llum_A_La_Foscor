@@ -214,7 +214,7 @@ PrefabInstance:
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
       propertyPath: sceneSpawnLocations.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
@@ -225,6 +225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneSpawnLocations.Array.data[1].sceneName
       value: Puzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[2].sceneName
+      value: CreateWords
       objectReference: {fileID: 0}
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
@@ -240,13 +245,24 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[2].spawnTrigger
+      value: 
+      objectReference: {fileID: 5639986702700229805, guid: acabf21df7c517c44bd045e3b6a59602,
+        type: 3}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
       propertyPath: sceneSpawnLocations.Array.data[0].spawnLocations.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
       propertyPath: sceneSpawnLocations.Array.data[1].spawnLocations.Array.size
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[2].spawnLocations.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
@@ -262,7 +278,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneSpawnLocations.Array.data[0].spawnLocations.Array.data[2]
       value: 
-      objectReference: {fileID: 1814035680}
+      objectReference: {fileID: 861800004}
     - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
       propertyPath: sceneSpawnLocations.Array.data[1].spawnLocations.Array.data[0]
@@ -273,6 +289,26 @@ PrefabInstance:
       propertyPath: sceneSpawnLocations.Array.data[1].spawnLocations.Array.data[1]
       value: 
       objectReference: {fileID: 665920589}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[1].spawnLocations.Array.data[2]
+      value: 
+      objectReference: {fileID: 861800004}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[2].spawnLocations.Array.data[0]
+      value: 
+      objectReference: {fileID: 158588097}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[2].spawnLocations.Array.data[1]
+      value: 
+      objectReference: {fileID: 665920589}
+    - target: {fileID: 4970334147097353208, guid: 8f8d6581268dfc04eb08b9d87ee64455,
+        type: 3}
+      propertyPath: sceneSpawnLocations.Array.data[2].spawnLocations.Array.data[2]
+      value: 
+      objectReference: {fileID: 861800004}
     - target: {fileID: 6856936854781986347, guid: 8f8d6581268dfc04eb08b9d87ee64455,
         type: 3}
       propertyPath: m_Name
@@ -777,6 +813,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 509586932}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &861800003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 861800004}
+  m_Layer: 0
+  m_Name: Puzzle Test 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &861800004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861800003}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.626379, y: 1.67, z: -12.71}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &962003994
 GameObject:
@@ -1863,3 +1930,4 @@ SceneRoots:
   - {fileID: 962003996}
   - {fileID: 158588097}
   - {fileID: 665920589}
+  - {fileID: 861800004}
