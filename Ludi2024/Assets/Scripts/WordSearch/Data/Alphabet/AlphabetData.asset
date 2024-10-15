@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe3ca2656ae8c0745a2ecafd71972841, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: 50d3c9b49e1484d4ca90dd7c8411dc99, type: 3}
+  m_Name: AlphabetData
   m_EditorClassIdentifier: 
-  m_TimeInSeconds: 0
-  m_Columns: 0
-  m_Rows: 0
-  m_Board: []
+  m_AlphabetPlain: []
+  m_AlphabetNormal: []
+  m_AlphabetHighlighted: []
+  m_AlphabetWrong: []
