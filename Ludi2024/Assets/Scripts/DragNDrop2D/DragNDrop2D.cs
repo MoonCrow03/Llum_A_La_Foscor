@@ -133,4 +133,9 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     {
         m_IsLocked = p_lock;
     }
+    
+    public virtual void SetCanvas()
+    {
+        m_Canvas = GetComponentInParent<Canvas>();
+    }
 }

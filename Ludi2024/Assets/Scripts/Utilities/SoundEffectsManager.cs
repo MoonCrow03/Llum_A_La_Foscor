@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using FMODUnity;
 using UnityEngine;
 
@@ -25,9 +26,8 @@ namespace Utilities
     
         public void PlaySoundEffect(string soundEffectName)
         {
-            foreach (var soundEffect in soundEffects)
+            foreach (var soundEffect in soundEffects.Where(soundEffect => soundEffect.name == soundEffectName))
             {
-                if (soundEffect.name != soundEffectName) continue;
                 RuntimeManager.PlayOneShot(soundEffect.eventReference);
                 return;
             }
