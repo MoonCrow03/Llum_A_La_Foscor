@@ -7,11 +7,9 @@ public class WordsGrid : MonoBehaviour
 {
     [SerializeField] private BoardData m_CurrentBoard;
     [SerializeField] private GameObject m_GridSquarePrefab;
-    [SerializeField] private AlphabetData m_AlphabetData;
 
     [SerializeField] private float m_SquareOffset = 0.0f;
     [SerializeField] private float m_SquareScale = 1.5f;
-    [SerializeField] private Vector2 m_PositionOffset;
 
     private List<GameObject> m_SquareList = new List<GameObject>();
 
@@ -32,7 +30,7 @@ public class WordsGrid : MonoBehaviour
             y = (l_squareRect.height * l_squareTransform.localScale.y + m_SquareOffset)
         };
 
-        var l_startPosition = GetFirstSquarePosition() + m_PositionOffset; // Add manual offset here
+        var l_startPosition = GetFirstSquarePosition();
         int l_columnNum = 0;
         int l_rowNum = 0;
 
