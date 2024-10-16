@@ -26,17 +26,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2217181981976741458}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6754803018510943293}
+  m_Father: {fileID: 3470425391593621072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15262498, y: 0.6388519}
-  m_AnchorMax: {x: 0.8455419, y: 0.8638519}
-  m_AnchoredPosition: {x: 2, y: -5.5}
-  m_SizeDelta: {x: -4, y: 3}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.040100098, y: 0}
+  m_SizeDelta: {x: -0.080200195, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7118318095405760202
 CanvasRenderer:
@@ -256,6 +256,42 @@ MonoBehaviour:
   letterFromGuessWordPrefab: {fileID: 5107654295513464289, guid: 8db2b2cebd8c1944780a515ea78ed31e,
     type: 3}
   letterFromGuessWordParent: {fileID: 643423803583534683}
+--- !u!1 &7421396506373493637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3470425391593621072}
+  m_Layer: 5
+  m_Name: Word To Guess Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3470425391593621072
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7421396506373493637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 643423803583534683}
+  m_Father: {fileID: 6754803018510943293}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.15539582, y: 0.62674075}
+  m_AnchorMax: {x: 0.84535426, y: 0.86}
+  m_AnchoredPosition: {x: -0.6799927, y: 3.1600037}
+  m_SizeDelta: {x: 1.36, y: -5.92}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7761673212298888342
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +324,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1395439343094415224}
-  - {fileID: 643423803583534683}
+  - {fileID: 3470425391593621072}
   m_Father: {fileID: 3884758223218532840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
