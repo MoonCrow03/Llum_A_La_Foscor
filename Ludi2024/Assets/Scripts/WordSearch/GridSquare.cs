@@ -39,6 +39,7 @@ public class GridSquare : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
         WordSearchEvents.OnEnableSquareSelection += OnEnableSquareSelection;
         WordSearchEvents.OnDisableSquareSelection += OnDisableSquareSelection;
         WordSearchEvents.OnSelectSquare += SelectSquare;
+        WordSearchEvents.OnCorrectWord += CorrectWord;
     }
 
     private void OnDisable()
@@ -46,6 +47,19 @@ public class GridSquare : MonoBehaviour, IPointerDownHandler, IPointerEnterHandl
         WordSearchEvents.OnEnableSquareSelection -= OnEnableSquareSelection;
         WordSearchEvents.OnDisableSquareSelection -= OnDisableSquareSelection;
         WordSearchEvents.OnSelectSquare -= SelectSquare;
+        WordSearchEvents.OnCorrectWord -= CorrectWord;
+    }
+
+    private void CorrectWord(string p_word, List<int> p_squareIndexes)
+    {
+        if (m_IsSelected && p_squareIndexes.Contains(m_Index))
+        {
+            m_IsCorrect = true;
+            m_Image.color = m_CorrectColor;
+        }
+
+        m_IsSelected = false;
+        m_IsClicked = false;
     }
 
     private void OnEnableSquareSelection()

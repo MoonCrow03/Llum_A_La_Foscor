@@ -57,4 +57,15 @@ public class WordSearchEvents
             OnClearSelection();
         }
     }
+
+    public delegate void CorrectWord(string p_word, List<int> p_squareIndexes);
+    public static event CorrectWord OnCorrectWord;
+
+    public static void CorrectWordMethod(string p_word, List<int> p_squareIndexes)
+    {
+        if (OnCorrectWord != null)
+        {
+            OnCorrectWord(p_word, p_squareIndexes);
+        }
+    }
 }

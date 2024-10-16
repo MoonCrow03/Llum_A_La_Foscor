@@ -76,15 +76,14 @@ public class WordsGrid : MonoBehaviour
         {
             foreach (var t_squareLetter in t_squares.m_Row)
             {
-                var squareObject = Instantiate(m_GridSquarePrefab, transform); // Create the square as a child of the canvas
-                m_SquareList.Add(squareObject);
+                var l_squareObject = Instantiate(m_GridSquarePrefab, transform); // Create the square as a child of the canvas
+                m_SquareList.Add(l_squareObject);
 
-                var squareRect = squareObject.GetComponent<RectTransform>();
-                squareObject.GetComponent<GridSquare>().SetLetter(t_squareLetter);
-                squareRect.anchoredPosition = Vector2.zero;
-
-                // Apply the manual scale factor
-                squareRect.localScale = new Vector3(m_SquareScale, m_SquareScale, 1f);
+                var l_squareRect = l_squareObject.GetComponent<RectTransform>();
+                l_squareObject.GetComponent<GridSquare>().SetLetter(t_squareLetter);
+                l_squareObject.GetComponent<GridSquare>().SetIndex(m_SquareList.Count-1);
+                l_squareRect.anchoredPosition = Vector2.zero;
+                l_squareRect.localScale = new Vector3(m_SquareScale, m_SquareScale, 1f);
             }
         }
     }

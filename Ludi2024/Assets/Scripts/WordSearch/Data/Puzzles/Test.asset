@@ -13,44 +13,57 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   m_TimeInSeconds: 0
-  m_Columns: 5
-  m_Rows: 5
+  m_Columns: 6
+  m_Rows: 6
   m_Board:
-  - m_Size: 5
+  - m_Size: 6
     m_Row:
-    - "\xC7"
-    - Y
-    - D
-    - K
-    - H
-  - m_Size: 5
-    m_Row:
-    - H
-    - I
-    - Y
-    - Q
     - S
-  - m_Size: 5
-    m_Row:
-    - J
-    - "\xC7"
+    - X
+    - F
     - T
-    - I
-    - N
-  - m_Size: 5
+    - E
+    - W
+  - m_Size: 6
     m_Row:
-    - K
-    - S
-    - K
-    - G
-    - L
-  - m_Size: 5
-    m_Row:
-    - Z
-    - G
-    - G
-    - S
     - H
+    - U
+    - K
+    - G
+    - Z
+    - I
+  - m_Size: 6
+    m_Row:
+    - Q
+    - N
+    - M
+    - F
+    - "\xC7"
+    - N
+  - m_Size: 6
+    m_Row:
+    - S
+    - "\xC7"
+    - I
+    - M
+    - O
+    - T
+  - m_Size: 6
+    m_Row:
+    - X
+    - B
+    - L
+    - M
+    - E
+    - E
+  - m_Size: 6
+    m_Row:
+    - N
+    - T
+    - H
+    - O
+    - X
+    - R
   m_SearchWords:
   - m_Word: SUMMER
   - m_Word: WINTER
