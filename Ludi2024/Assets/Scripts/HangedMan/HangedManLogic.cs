@@ -26,9 +26,9 @@ namespace HangedMan
 
         private static readonly List<char> letters = new List<char>
         {
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
-            'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-            'U', 'V', 'W', 'X', 'Y', 'Z'
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+            'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+            'u', 'v', 'w', 'x', 'y', 'z', 'ç'
         };
 
         private void Awake()
@@ -69,15 +69,16 @@ namespace HangedMan
         
         public void OnLetterClicked(char letterClicked)
         {
-            if (availableLetters[letterClicked])
+            char lowerLetter = char.ToLower(letterClicked);
+            if (availableLetters[lowerLetter])
             {
-                GuessLetter(letterClicked);
+                GuessLetter(lowerLetter);
             }
         }
 
         private void SelectRandomWord()
         {
-            wordToGuess = wordList[UnityEngine.Random.Range(0, wordList.Count)];
+            wordToGuess = wordList[UnityEngine.Random.Range(0, wordList.Count)].ToLower();
         }
 
         private void GuessLetter(char letterGuessed)
@@ -93,6 +94,11 @@ namespace HangedMan
             {
                 ChangeLetterColor(letterGuessed, Color.red);
                 maxGuesses--;
+            }
+
+            if (maxGuesses == 0)
+            {
+                GameFailed();
             }
         }
 
@@ -110,14 +116,47 @@ namespace HangedMan
         {
             for (int i = 0; i < wordToGuess.Length; i++)
             {
-                if (wordToGuess[i] == letterGuessed)
-                {
-                    Transform letter = letterFromGuessWordParent.GetChild(i);
-                    letter.GetComponentInChildren<TextMeshProUGUI>().text = letterGuessed.ToString();
-                }
+                if (!wordToGuess[i].Equals(letterGuessed)) continue;
+                Transform letter = letterFromGuessWordParent.GetChild(i);
+                letter.GetComponentInChildren<TextMeshProUGUI>().text = i == 0 ? letterGuessed.ToString().ToUpper() : letterGuessed.ToString();
+            }
+            
+            if (IsWordGuessed())
+            {
+                GameWon();
             }
         }
-        
-        
+
+        private void GameFailed()
+        {
+            Debug.Log("Failed! The word was: " + wordToGuess);
+
+            foreach (var letter in availableLetters)
+            {
+                DisableLetterInteraction(letter.Key);
+            }
+        }
+
+        private void GameWon()
+        {
+            Debug.Log("Hangman completed! The word was: " + wordToGuess);
+            foreach (var letter in availableLetters)
+            {
+                DisableLetterInteraction(letter.Key);
+            }
+        }
+
+        private bool IsWordGuessed()
+        {
+            for (int i = 0; i < wordToGuess.Length; i++)
+            {
+                if (letterFromGuessWordParent.GetChild(i).GetComponentInChildren<TextMeshProUGUI>().text.Equals("_"))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
