@@ -118,4 +118,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57068d7c63bf4b4b90bcb7f1f6e71966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: (TEST) PuzzleMinigame
+  sceneToLoad: PuzzleMinigame

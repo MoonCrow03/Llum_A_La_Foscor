@@ -57,6 +57,7 @@ public class PuzzleMinigame : MonoBehaviour
         Debug.Log("Puzzle completed!");
         if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
+        GameManager.Instance.SetMinigameCompleted("PuzzleMinigame");
         BasicSceneChanger.ChangeScene(m_WorldScene);
     }
 

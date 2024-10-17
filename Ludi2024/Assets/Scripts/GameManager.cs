@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance => _instance;
 
-    private Dictionary<string, bool> miniGamesCompleted = new Dictionary<string, bool>();
+    private static Dictionary<string, bool> miniGamesCompleted = new Dictionary<string, bool>();
+    
+    public static Dictionary<string, bool> MiniGamesCompleted => miniGamesCompleted;
     
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject);
     }
     
 
@@ -53,6 +56,8 @@ public class GameManager : MonoBehaviour
     {
         return miniGamesCompleted.ContainsKey(minigameName) && miniGamesCompleted[minigameName];
     }
+    
+    
     
     
 }

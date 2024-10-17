@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3ca2656ae8c0745a2ecafd71972841, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  m_TimeInSeconds: 0
+  m_Columns: 6
+  m_Rows: 6
+  m_Board:
+  - m_Size: 6
+    m_Row:
+    - S
+    - X
+    - F
+    - T
+    - E
+    - W
+  - m_Size: 6
+    m_Row:
+    - H
+    - U
+    - K
+    - G
+    - Z
+    - I
+  - m_Size: 6
+    m_Row:
+    - Q
+    - N
+    - M
+    - F
+    - "\xC7"
+    - N
+  - m_Size: 6
+    m_Row:
+    - S
+    - "\xC7"
+    - I
+    - M
+    - O
+    - T
+  - m_Size: 6
+    m_Row:
+    - X
+    - B
+    - L
+    - M
+    - E
+    - E
+  - m_Size: 6
+    m_Row:
+    - N
+    - T
+    - H
+    - O
+    - X
+    - R
+  m_SearchWords:
+  - m_Word: SUMMER
+  - m_Word: WINTER

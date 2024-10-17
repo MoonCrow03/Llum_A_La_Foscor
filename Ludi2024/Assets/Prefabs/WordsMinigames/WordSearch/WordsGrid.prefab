@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6854625750214373448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4195777494939174587}
+  - component: {fileID: 2105570637861722377}
+  - component: {fileID: 3946779303571080928}
+  m_Layer: 5
+  m_Name: WordsGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4195777494939174587
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854625750214373448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2105570637861722377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854625750214373448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55a75a82bcdd5f4d955f5e2731a2483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CurrentBoard: {fileID: 11400000, guid: 59199585db941cc4889f4a5c1c8fb1fa, type: 2}
+  m_GridSquarePrefab: {fileID: 869726862372349078, guid: f9a8b33ad1da82e4b835d25436076613,
+    type: 3}
+  m_AlphabetData: {fileID: 11400000, guid: ee9b5d7bf424ccf449740c19b72b7abd, type: 2}
+  m_SquareOffset: 20
+  m_SquareScale: 1.5
+  m_PositionOffset: {x: -500, y: 0}
+--- !u!114 &3946779303571080928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854625750214373448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f673431ab2dc644851495fe8ddec84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BoardData: {fileID: 11400000, guid: 59199585db941cc4889f4a5c1c8fb1fa, type: 2}

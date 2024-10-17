@@ -38,6 +38,10 @@ namespace WorldScripts
         
         private void PlaceTriggerInRandomLocation(string sceneName)
         {
+            if (GameManager.Instance.IsMiniGameCompleted(sceneName))
+            {
+                return;
+            }
             if (spawnPossibleLocations.TryGetValue(sceneName, out var possibleLocations))
             {
                 if (possibleLocations.Count > 0)
