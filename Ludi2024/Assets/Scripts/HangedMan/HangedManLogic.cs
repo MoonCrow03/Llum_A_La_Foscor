@@ -144,6 +144,7 @@ namespace HangedMan
             {
                 DisableLetterInteraction(letter.Key);
             }
+            GameManager.Instance.SetMinigameCompleted("HangedMan");
         }
 
         private bool IsWordGuessed()
