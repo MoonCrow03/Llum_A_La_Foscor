@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BaseMatEmisive
+    second: {fileID: 2100000, guid: 6a63131594ef881479579a7d9fc37fd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Tabla_Miramanda
     second: {fileID: 2100000, guid: 7376773af7bafe94291e2c586dada726, type: 2}
   materials:
