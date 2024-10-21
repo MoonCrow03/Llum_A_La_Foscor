@@ -18,52 +18,53 @@ MonoBehaviour:
   m_Board:
   - m_Size: 6
     m_Row:
-    - S
+    - M
+    - V
     - X
-    - F
-    - T
     - E
-    - W
-  - m_Size: 6
-    m_Row:
-    - H
-    - U
-    - K
-    - G
-    - Z
-    - I
+    - D
+    - P
   - m_Size: 6
     m_Row:
     - Q
-    - N
-    - M
-    - F
-    - "\xC7"
-    - N
+    - B
+    - A
+    - Y
+    - C
+    - O
+  - m_Size: 6
+    m_Row:
+    - W
+    - L
+    - L
+    - X
+    - W
+    - A
+  - m_Size: 6
+    m_Row:
+    - J
+    - D
+    - A
+    - H
+    - D
+    - L
   - m_Size: 6
     m_Row:
     - S
-    - "\xC7"
-    - I
-    - M
     - O
-    - T
-  - m_Size: 6
-    m_Row:
-    - X
-    - B
-    - L
-    - M
-    - E
-    - E
-  - m_Size: 6
-    m_Row:
-    - N
-    - T
-    - H
-    - O
-    - X
     - R
+    - T
+    - I
+    - R
+  - m_Size: 6
+    m_Row:
+    - "\xC7"
+    - X
+    - F
+    - S
+    - F
+    - Y
   m_SearchWords:
-  - m_Word: SUMMER
-  - m_Word: WINTER
+  - m_Word: XALAR
+  - m_Word: POAL
+  - m_Word: SORTIR

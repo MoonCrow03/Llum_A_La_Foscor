@@ -968,6 +968,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1477151035626943132, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_WordShown
+      value: mirall
+      objectReference: {fileID: 0}
     - target: {fileID: 2119077156492526300, guid: a10573bfea6227040ace69cb984ac9c8,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1247,6 +1252,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506620180581608772, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_WordShown
+      value: espill
       objectReference: {fileID: 0}
     - target: {fileID: 3528893539291946467, guid: a10573bfea6227040ace69cb984ac9c8,
         type: 3}
