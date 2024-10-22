@@ -34,7 +34,7 @@ public class Rotate : MonoBehaviour
         {
             float l_mouseDelta = InputManager.Instance.MousePosition.x - m_StartMousePosition;
 
-            transform.Rotate(Vector3.up, -l_mouseDelta * m_RotationSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.forward, -l_mouseDelta * m_RotationSpeed * Time.deltaTime);
 
             m_StartMousePosition = InputManager.Instance.MousePosition.x;
         }
