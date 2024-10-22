@@ -80,6 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbdfb0aabb14ce42866b6483a7b5df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TilePrefab: {fileID: 6522817409202418243, guid: 22f13cd4c5ed00941ad14aef8abd0fc7,
+    type: 3}
 --- !u!1001 &1310326429687743307
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ namespace Wordle
     {
         public Tile[] Tiles { get; private set; }
 
+        public GameObject TilePrefab;
+        
         public string word
         {
             get
@@ -22,9 +24,18 @@ namespace Wordle
         }
         private void Awake()
         {
-            Tiles = GetComponentsInChildren<Tile>();
+            
+            //Tiles = GetComponentsInChildren<Tile>();
         }
-        
-        
+
+        private void Start()
+        {
+            Tiles = new Tile[Board.Instance.wordLength];
+            for (int i = 0; i < Board.Instance.wordLength; i++)
+            {
+                GameObject tile = Instantiate(TilePrefab, transform);
+                Tiles[i] = tile.GetComponent<Tile>();
+            }
+        }
     }
 }

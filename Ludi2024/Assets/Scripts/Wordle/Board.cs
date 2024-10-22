@@ -23,16 +23,28 @@ namespace Wordle
         public Tile.TileStates WrongSpot;
         public Tile.TileStates IncorrectState;
         
+        
         private Row[] rows;
         private string[] validWords;
         private int rowIndex;
         private int columnIndex;
         
         private static readonly string[] SEPARATOR = new string[] { "\r\n", "\r", "\n" };
-        
+
+        private static Board instance;
+
+        public static Board Instance => instance;
         private void Awake()
         {
             rows = GetComponentsInChildren<Row>();
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void Start()
@@ -46,23 +58,23 @@ namespace Wordle
             {
                 case EASY_WORD_LENGTH:
                     TextAsset textFile = Resources.Load("dictionary_3_letters_final") as TextAsset;
-                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
+                    validWords = textFile?.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 case MEDIUM_WORD_LENGTH:
                     textFile = Resources.Load("dictionary_4_letters_final") as TextAsset;
-                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
+                    validWords = textFile?.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 case HARD_WORD_LENGTH:
                     textFile = Resources.Load("dictionary_5_letters_final") as TextAsset;
-                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
+                    validWords = textFile?.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 case VERY_HARD_WORD_LENGTH:
                     textFile = Resources.Load("dictionary_6_letters_final") as TextAsset;
-                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
+                    validWords = textFile?.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 case EXPERT_WORD_LENGTH:
                     textFile = Resources.Load("dictionary_7_letters_final") as TextAsset;
-                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
+                    validWords = textFile?.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -145,24 +157,6 @@ namespace Wordle
                     }
                 }
             }
-            /*for (int i = 0; i < row.Tiles.Length; i++)
-            {
-                Tile tile = row.Tiles[i];
-
-                if (tile.Letter == solutionWord[i])
-                {
-                    tile.SetTileState(CorrectState);
-                }
-                else if (solutionWord.Contains(tile.Letter.ToString()))
-                {
-                    tile.SetTileState(WrongSpot);
-                }
-                else
-                {
-                    tile.SetTileState(IncorrectState);
-                }
-            }*/
-            
             rowIndex++;
             columnIndex = 0;
 
