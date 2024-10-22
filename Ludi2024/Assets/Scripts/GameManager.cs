@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,11 @@ public class GameManager : MonoBehaviour
     private static Dictionary<string, bool> miniGamesCompleted = new Dictionary<string, bool>();
     
     public static Dictionary<string, bool> MiniGamesCompleted => miniGamesCompleted;
-    
+
+    public static Action<bool> OnEnableNoteBook;
+    public static Action<string> OnAddBulletPoint;
+
+
     private void Awake()
     {
         if (_instance == null)
@@ -25,22 +30,20 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (InputManager.Instance.Esc.Tap)
         {
             QuitGame();
         }
     }
-    
-    public void QuitGame()
+
+    private void QuitGame()
     {
         Application.Quit();
     }
     
-    public void SetMinigameCompleted(string minigameName)
+    public void SetMiniGameCompleted(string minigameName)
     {
         if (!miniGamesCompleted.ContainsKey(minigameName))
         {
@@ -56,8 +59,4 @@ public class GameManager : MonoBehaviour
     {
         return miniGamesCompleted.ContainsKey(minigameName) && miniGamesCompleted[minigameName];
     }
-    
-    
-    
-    
 }

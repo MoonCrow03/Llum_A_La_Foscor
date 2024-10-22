@@ -59,7 +59,7 @@ public class GeodeMinigame : MonoBehaviour
     private void WinGame()
     {
         Debug.Log("Geode minigame completed!");
-        GameManager.Instance.SetMinigameCompleted("GeodeMinigame");
+        GameManager.Instance.SetMiniGameCompleted("GeodeMinigame");
         BasicSceneChanger.ChangeScene(m_WorldScene);
     }
 
