@@ -33,14 +33,12 @@ public class NotebookUI : MonoBehaviour
 
         m_CurrentIndex = 0;
         m_IsNoteBookEnabled = false;
-        m_Animator.SetTrigger("Hide");
     }
 
     private void Update()
     {
         if (InputManager.Instance.Tab.Tap)
         {
-            Debug.Log("Tab");
             m_IsNoteBookEnabled = !m_IsNoteBookEnabled;
             OnEnableNoteBook(m_IsNoteBookEnabled);
         }
