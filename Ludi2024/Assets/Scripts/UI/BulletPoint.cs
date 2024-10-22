@@ -19,11 +19,16 @@ public class BulletPoint : MonoBehaviour
 
     public bool IsEmpty()
     {
-        return m_Text.text is "";
+        return m_Text.text == string.Empty;
     }
 
     public void SetText(string p_text)
     {
         m_Text.text = "- " + p_text;
+    }
+
+    public void ClearText()
+    {
+        m_Text.text = string.Empty;
     }
 }

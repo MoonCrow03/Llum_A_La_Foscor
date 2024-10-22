@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
 
     public ButtonInputHandler Backspace;
 
+    public ButtonInputHandler N, M;
     
     public Vector2 MovementInput { private set; get; }
     public Vector2 MousePosition { private set; get; }
@@ -66,6 +67,9 @@ public class InputManager : MonoBehaviour
         Esc = new ButtonInputHandler(_actions.Main.Esc);
         Enter = new ButtonInputHandler(_actions.Main.Enter);
         Backspace = new ButtonInputHandler(_actions.Main.Backspace);
+
+        N = new ButtonInputHandler(_actions.Main.N);
+        M = new ButtonInputHandler(_actions.Main.M);
     }
 }
 
