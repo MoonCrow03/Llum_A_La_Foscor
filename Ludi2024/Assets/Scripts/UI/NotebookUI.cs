@@ -6,22 +6,19 @@ using UnityEngine;
 public class NotebookUI : MonoBehaviour
 {
     [Header("Components")]
+    [SerializeField] private GameObject m_InfoPanel;
     [SerializeField] private GameObject m_BulletPointHolder;
     [SerializeField] private GameObject m_BulletPointPrefab;
     [SerializeField] private Animator m_Animator;
 
     [Header("Settings")]
-    [SerializeField] private int m_MaxBPForPage = 7;
+    [SerializeField] private int m_MaxBPForPage = 4;
 
-    private Canvas m_NotebookUI;
     private List<BulletPoint> m_BulletPoints;
     private List<string> m_BulletPointTexts;
-    private int m_CurrentIndex;
 
-    private void Awake()
-    {
-        m_NotebookUI = GetComponent<Canvas>();
-    }
+    private int m_CurrentIndex;
+    private bool m_IsNoteBookEnabled;
 
     private void Start()
     {
@@ -35,18 +32,29 @@ public class NotebookUI : MonoBehaviour
         }
 
         m_CurrentIndex = 0;
+        m_IsNoteBookEnabled = false;
+        m_Animator.SetTrigger("Hide");
     }
 
     private void Update()
     {
-        if (InputManager.Instance.N.Tap)
+        if (InputManager.Instance.Tab.Tap)
         {
-            NextPage();
+            Debug.Log("Tab");
+            m_IsNoteBookEnabled = !m_IsNoteBookEnabled;
+            OnEnableNoteBook(m_IsNoteBookEnabled);
         }
 
-        if (InputManager.Instance.M.Tap)
+        if(!m_IsNoteBookEnabled) return;
+
+        if (InputManager.Instance.Q.Tap)
         {
-            AddBulletPoint("Bullet Point");
+            PreviousPage();
+        }
+
+        if (InputManager.Instance.E.Tap)
+        {
+            NextPage();
         }
     }
 
@@ -118,7 +126,9 @@ public class NotebookUI : MonoBehaviour
 
     public void OnEnableNoteBook(bool p_enable)
     {
-        gameObject.SetActive(p_enable);
+        
+        m_Animator.SetBool("Show", p_enable);
+        m_InfoPanel.SetActive(!p_enable);
     }
 
     public void AddBulletPoint(string p_text)

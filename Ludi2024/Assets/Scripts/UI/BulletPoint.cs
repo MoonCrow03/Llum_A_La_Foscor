@@ -6,6 +6,7 @@ using UnityEngine;
 public class BulletPoint : MonoBehaviour
 {
     private TextMeshProUGUI m_Text;
+    private string m_EmptyText;
 
     private void Awake()
     {
@@ -14,17 +15,18 @@ public class BulletPoint : MonoBehaviour
 
     private void Start()
     {
-        m_Text.text = string.Empty;
+        m_EmptyText = "- ";
+        m_Text.text = m_EmptyText;
     }
 
     public bool IsEmpty()
     {
-        return m_Text.text == string.Empty;
+        return m_Text.text == m_EmptyText;
     }
 
     public void SetText(string p_text)
     {
-        m_Text.text = "- " + p_text;
+        m_Text.text = m_EmptyText + p_text;
     }
 
     public void ClearText()

@@ -1,3 +1,4 @@
+using FMOD;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,13 +16,11 @@ public class InputManager : MonoBehaviour
 
     public ButtonInputHandler Interact;
 
-    public ButtonInputHandler Esc;
-
-    public ButtonInputHandler Enter;
+    public ButtonInputHandler Esc, Tab, Enter;
 
     public ButtonInputHandler Backspace;
 
-    public ButtonInputHandler N, M;
+    public ButtonInputHandler Q, E;
     
     public Vector2 MovementInput { private set; get; }
     public Vector2 MousePosition { private set; get; }
@@ -65,11 +64,12 @@ public class InputManager : MonoBehaviour
         Interact = new ButtonInputHandler(_actions.Main.Interact);
         
         Esc = new ButtonInputHandler(_actions.Main.Esc);
+        Tab = new ButtonInputHandler(_actions.Main.Tab);
         Enter = new ButtonInputHandler(_actions.Main.Enter);
         Backspace = new ButtonInputHandler(_actions.Main.Backspace);
 
-        N = new ButtonInputHandler(_actions.Main.N);
-        M = new ButtonInputHandler(_actions.Main.M);
+        Q = new ButtonInputHandler(_actions.Main.Q);
+        E = new ButtonInputHandler(_actions.Main.E);
     }
 }
 

@@ -136,18 +136,27 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""N"",
+                    ""name"": ""E"",
                     ""type"": ""Button"",
-                    ""id"": ""72c74db7-cca1-48d5-b7f3-38823164da41"",
+                    ""id"": ""eb1b54ce-ea93-4971-81e5-d2fe4ead833d"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""M"",
+                    ""name"": ""Q"",
                     ""type"": ""Button"",
-                    ""id"": ""d361a2c3-a214-47f5-b559-c49ccc460bea"",
+                    ""id"": ""26240ff3-eabc-43e7-9a1a-98f85819618a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Tab"",
+                    ""type"": ""Button"",
+                    ""id"": ""5c8f7a9a-5ce1-4a46-aa80-c7c16085057a"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -333,23 +342,34 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""82cc5e0a-3c6d-4edc-9e39-1defb8338af1"",
-                    ""path"": ""<Keyboard>/n"",
+                    ""id"": ""7a9959b7-0a9e-4428-93c0-9539614acca0"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""N"",
+                    ""action"": ""E"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""93fb151b-137b-48bf-b62c-7cd57413da64"",
-                    ""path"": ""<Keyboard>/m"",
+                    ""id"": ""fd5855c0-4c54-486d-b749-5a9264652d71"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""M"",
+                    ""action"": ""Q"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c90d3d2-032e-4fcb-afc7-435d0b6aafcb"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -372,8 +392,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Main_RightClick = m_Main.FindAction("RightClick", throwIfNotFound: true);
         m_Main_Enter = m_Main.FindAction("Enter", throwIfNotFound: true);
         m_Main_Backspace = m_Main.FindAction("Backspace", throwIfNotFound: true);
-        m_Main_N = m_Main.FindAction("N", throwIfNotFound: true);
-        m_Main_M = m_Main.FindAction("M", throwIfNotFound: true);
+        m_Main_E = m_Main.FindAction("E", throwIfNotFound: true);
+        m_Main_Q = m_Main.FindAction("Q", throwIfNotFound: true);
+        m_Main_Tab = m_Main.FindAction("Tab", throwIfNotFound: true);
     }
 
     ~@InputActions()
@@ -452,8 +473,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_RightClick;
     private readonly InputAction m_Main_Enter;
     private readonly InputAction m_Main_Backspace;
-    private readonly InputAction m_Main_N;
-    private readonly InputAction m_Main_M;
+    private readonly InputAction m_Main_E;
+    private readonly InputAction m_Main_Q;
+    private readonly InputAction m_Main_Tab;
     public struct MainActions
     {
         private @InputActions m_Wrapper;
@@ -470,8 +492,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @RightClick => m_Wrapper.m_Main_RightClick;
         public InputAction @Enter => m_Wrapper.m_Main_Enter;
         public InputAction @Backspace => m_Wrapper.m_Main_Backspace;
-        public InputAction @N => m_Wrapper.m_Main_N;
-        public InputAction @M => m_Wrapper.m_Main_M;
+        public InputAction @E => m_Wrapper.m_Main_E;
+        public InputAction @Q => m_Wrapper.m_Main_Q;
+        public InputAction @Tab => m_Wrapper.m_Main_Tab;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -517,12 +540,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Backspace.started += instance.OnBackspace;
             @Backspace.performed += instance.OnBackspace;
             @Backspace.canceled += instance.OnBackspace;
-            @N.started += instance.OnN;
-            @N.performed += instance.OnN;
-            @N.canceled += instance.OnN;
-            @M.started += instance.OnM;
-            @M.performed += instance.OnM;
-            @M.canceled += instance.OnM;
+            @E.started += instance.OnE;
+            @E.performed += instance.OnE;
+            @E.canceled += instance.OnE;
+            @Q.started += instance.OnQ;
+            @Q.performed += instance.OnQ;
+            @Q.canceled += instance.OnQ;
+            @Tab.started += instance.OnTab;
+            @Tab.performed += instance.OnTab;
+            @Tab.canceled += instance.OnTab;
         }
 
         private void UnregisterCallbacks(IMainActions instance)
@@ -563,12 +589,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Backspace.started -= instance.OnBackspace;
             @Backspace.performed -= instance.OnBackspace;
             @Backspace.canceled -= instance.OnBackspace;
-            @N.started -= instance.OnN;
-            @N.performed -= instance.OnN;
-            @N.canceled -= instance.OnN;
-            @M.started -= instance.OnM;
-            @M.performed -= instance.OnM;
-            @M.canceled -= instance.OnM;
+            @E.started -= instance.OnE;
+            @E.performed -= instance.OnE;
+            @E.canceled -= instance.OnE;
+            @Q.started -= instance.OnQ;
+            @Q.performed -= instance.OnQ;
+            @Q.canceled -= instance.OnQ;
+            @Tab.started -= instance.OnTab;
+            @Tab.performed -= instance.OnTab;
+            @Tab.canceled -= instance.OnTab;
         }
 
         public void RemoveCallbacks(IMainActions instance)
@@ -600,7 +629,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnEnter(InputAction.CallbackContext context);
         void OnBackspace(InputAction.CallbackContext context);
-        void OnN(InputAction.CallbackContext context);
-        void OnM(InputAction.CallbackContext context);
+        void OnE(InputAction.CallbackContext context);
+        void OnQ(InputAction.CallbackContext context);
+        void OnTab(InputAction.CallbackContext context);
     }
 }

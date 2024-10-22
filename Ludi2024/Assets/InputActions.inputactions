@@ -114,18 +114,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "N",
+                    "name": "E",
                     "type": "Button",
-                    "id": "72c74db7-cca1-48d5-b7f3-38823164da41",
+                    "id": "eb1b54ce-ea93-4971-81e5-d2fe4ead833d",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "M",
+                    "name": "Q",
                     "type": "Button",
-                    "id": "d361a2c3-a214-47f5-b559-c49ccc460bea",
+                    "id": "26240ff3-eabc-43e7-9a1a-98f85819618a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Tab",
+                    "type": "Button",
+                    "id": "5c8f7a9a-5ce1-4a46-aa80-c7c16085057a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -311,23 +320,34 @@
                 },
                 {
                     "name": "",
-                    "id": "82cc5e0a-3c6d-4edc-9e39-1defb8338af1",
-                    "path": "<Keyboard>/n",
+                    "id": "7a9959b7-0a9e-4428-93c0-9539614acca0",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "N",
+                    "action": "E",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "93fb151b-137b-48bf-b62c-7cd57413da64",
-                    "path": "<Keyboard>/m",
+                    "id": "fd5855c0-4c54-486d-b749-5a9264652d71",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "M",
+                    "action": "Q",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c90d3d2-032e-4fcb-afc7-435d0b6aafcb",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
