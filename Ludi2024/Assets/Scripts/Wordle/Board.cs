@@ -28,6 +28,8 @@ namespace Wordle
         private int rowIndex;
         private int columnIndex;
         
+        private static readonly string[] SEPARATOR = new string[] { "\r\n", "\r", "\n" };
+        
         private void Awake()
         {
             rows = GetComponentsInChildren<Row>();
@@ -44,23 +46,23 @@ namespace Wordle
             {
                 case EASY_WORD_LENGTH:
                     TextAsset textFile = Resources.Load("dictionary_3_letters_final") as TextAsset;
-                    if (textFile != null) validWords = textFile.text.Split('\n');
+                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 case MEDIUM_WORD_LENGTH:
                     textFile = Resources.Load("dictionary_4_letters_final") as TextAsset;
-                    if (textFile != null) validWords = textFile.text.Split('\n');
+                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 case HARD_WORD_LENGTH:
                     textFile = Resources.Load("dictionary_5_letters_final") as TextAsset;
-                    if (textFile != null) validWords = textFile.text.Split('\n');
+                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 case VERY_HARD_WORD_LENGTH:
                     textFile = Resources.Load("dictionary_6_letters_final") as TextAsset;
-                    if (textFile != null) validWords = textFile.text.Split('\n');
+                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 case EXPERT_WORD_LENGTH:
                     textFile = Resources.Load("dictionary_7_letters_final") as TextAsset;
-                    if (textFile != null) validWords = textFile.text.Split('\n');
+                    validWords = textFile.text.Split(SEPARATOR, System.StringSplitOptions.None);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -101,10 +103,11 @@ namespace Wordle
 
         private void SubmitRow(Row row)
         {
-            if (!IsValidWord(row.word) || row.word == solutionWord)
+            if (!IsValidWord(row.word))
             {
                 return;
             }
+            
             string remaining = solutionWord;
             for (int i = 0; i < row.Tiles.Length; i++)
             {
@@ -113,8 +116,8 @@ namespace Wordle
                 if (tile.Letter == solutionWord[i])
                 {
                     tile.SetTileState(CorrectState);
-                    remaining = remaining.Remove(remaining.IndexOf(solutionWord[i]), 1);
-                    remaining = remaining.Insert(remaining.IndexOf(solutionWord[i]), " ");
+                    remaining = remaining.Remove(1, 1);
+                    remaining = remaining.Insert(1, " ");
                 }
                 else if (!solutionWord.Contains(tile.Letter))
                 {
@@ -171,9 +174,11 @@ namespace Wordle
 
         private bool IsValidWord(string word)
         {
+            if (word == solutionWord) return true;
+            
             for (int i = 0; i < validWords.Length; i++)
             {
-                if (word == validWords[i])
+                if (string.Equals(word, validWords[i], StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
                 }
