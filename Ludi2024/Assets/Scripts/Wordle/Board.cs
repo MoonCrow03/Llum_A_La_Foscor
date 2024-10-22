@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Wordle
@@ -110,6 +109,7 @@ namespace Wordle
             {
                 foreach (char c in Input.inputString)
                 {
+                    if (c == '\u0008') continue;
                     currentRow.Tiles[columnIndex].SetLetter(c);
                     currentRow.Tiles[columnIndex].SetTileState(OccupiedState);
                     
