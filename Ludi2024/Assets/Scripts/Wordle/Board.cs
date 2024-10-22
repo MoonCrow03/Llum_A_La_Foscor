@@ -109,7 +109,7 @@ namespace Wordle
             {
                 foreach (char c in Input.inputString)
                 {
-                    if (c == '\u0008') continue;
+                    if (c == '\u0008') continue; // Caracter basura generado por mantener la tecla de Backspace
                     currentRow.Tiles[columnIndex].SetLetter(c);
                     currentRow.Tiles[columnIndex].SetTileState(OccupiedState);
                     
@@ -163,6 +163,12 @@ namespace Wordle
                     }
                 }
             }
+
+            if (CheckWordGuessed(ref row))
+            {
+                Debug.Log("2394829348 de iq listisimo");
+            }
+            
             rowIndex++;
             columnIndex = 0;
 
@@ -183,6 +189,22 @@ namespace Wordle
                     return true;
                 }
             }
+            return false;
+        }
+
+        private bool CheckWordGuessed(ref Row row)
+        {
+            string formedWord = "";
+            
+            for (int i = 0; i < row.Tiles.Length; i++)
+            {
+                formedWord += row.Tiles[i].Letter.ToString();
+                if (formedWord.Equals(solutionWord))
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
     }
