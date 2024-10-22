@@ -1,14 +1,15 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace Wordle
 {
     public class Board : MonoBehaviour
     {
         [Header("Word Settings")]
-        public string solutionWord;
-        public int wordLength;
+        public List<string> listOfPossibleSolutions = new List<string>();
         
         private const int EASY_WORD_LENGTH = 3;
         private const int MEDIUM_WORD_LENGTH = 4;
@@ -26,8 +27,11 @@ namespace Wordle
         
         private Row[] rows;
         private string[] validWords;
+        private string solutionWord;
         private int rowIndex;
         private int columnIndex;
+        public int wordLength;
+
         
         private static readonly string[] SEPARATOR = new string[] { "\r\n", "\r", "\n" };
 
@@ -37,6 +41,8 @@ namespace Wordle
         private void Awake()
         {
             rows = GetComponentsInChildren<Row>();
+            solutionWord = listOfPossibleSolutions[Random.Range(0, listOfPossibleSolutions.Count)];
+            wordLength = solutionWord.Length;
             if (instance == null)
             {
                 instance = this;
