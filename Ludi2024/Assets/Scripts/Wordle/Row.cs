@@ -30,8 +30,8 @@ namespace Wordle
 
         private void Start()
         {
-            Tiles = new Tile[Board.Instance.wordLength];
-            for (int i = 0; i < Board.Instance.wordLength; i++)
+            Tiles = new Tile[Board.Instance.WordLength];
+            for (int i = 0; i < Board.Instance.WordLength; i++)
             {
                 GameObject tile = Instantiate(TilePrefab, transform);
                 Tiles[i] = tile.GetComponent<Tile>();

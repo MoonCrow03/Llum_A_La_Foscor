@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public static Action<bool> OnEnableNoteBook;
     public static Action<string> OnAddBulletPoint;
+    
+    //TODO: Crear enum para trackear que minijuegos de cada nivel se han completado
 
 
     private void Awake()

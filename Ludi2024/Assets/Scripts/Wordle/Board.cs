@@ -10,6 +10,8 @@ namespace Wordle
         [Header("Word Settings")]
         public List<string> listOfPossibleSolutions = new List<string>();
         
+        [NonSerialized] public int WordLength;
+
         private const int EASY_WORD_LENGTH = 3;
         private const int MEDIUM_WORD_LENGTH = 4;
         private const int HARD_WORD_LENGTH = 5;
@@ -29,7 +31,7 @@ namespace Wordle
         private string solutionWord;
         private int rowIndex;
         private int columnIndex;
-        public int wordLength;
+        
 
         
         private static readonly string[] SEPARATOR = new string[] { "\r\n", "\r", "\n" };
@@ -41,7 +43,7 @@ namespace Wordle
         {
             rows = GetComponentsInChildren<Row>();
             solutionWord = listOfPossibleSolutions[Random.Range(0, listOfPossibleSolutions.Count)];
-            wordLength = solutionWord.Length;
+            WordLength = solutionWord.Length;
             if (instance == null)
             {
                 instance = this;
@@ -59,7 +61,7 @@ namespace Wordle
 
         private void LoadWordsFromTxt()
         {
-            switch (wordLength)
+            switch (WordLength)
             {
                 case EASY_WORD_LENGTH:
                     TextAsset textFile = Resources.Load("dictionary_3_letters_final") as TextAsset;
@@ -85,6 +87,22 @@ namespace Wordle
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public void OnLetterInput(char letter)
+        {
+            Row currentRow = rows[rowIndex];
+            if (columnIndex < currentRow.Tiles.Length)
+            {
+                currentRow.Tiles[columnIndex].SetLetter(letter);
+                currentRow.Tiles[columnIndex].SetTileState(OccupiedState);
+                columnIndex++;
+            }
+            
+            /*if (columnIndex >= currentRow.Tiles.Length)
+            {
+                SubmitRow(currentRow);
+            }*/
+        }
         
 
         private void Update()
@@ -102,7 +120,6 @@ namespace Wordle
                 if (InputManager.Instance.Enter.Tap)
                 {
                     SubmitRow(currentRow);
-                    
                 }
             }
             else
@@ -166,6 +183,7 @@ namespace Wordle
 
             if (CheckWordGuessed(ref row))
             {
+                //GameManager.Instance.SetMiniGameCompleted("WordleMinigame");
                 Debug.Log("2394829348 de iq listisimo");
             }
             
@@ -206,6 +224,23 @@ namespace Wordle
             }
 
             return false;
+        }
+
+        public void OnBackspaceInput()
+        {
+            Row currentRow = rows[rowIndex];
+            columnIndex = Mathf.Max(columnIndex - 1, 0);
+            currentRow.Tiles[columnIndex].SetLetter('\0');
+            currentRow.Tiles[columnIndex].SetTileState(EmptyState);
+        }
+
+        public void OnEnterClicked()
+        {
+            Row currentRow = rows[rowIndex];
+            if (columnIndex >= currentRow.Tiles.Length)
+            {
+                SubmitRow(currentRow);
+            }
         }
     }
 }
