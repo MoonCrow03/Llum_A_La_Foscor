@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Utilities;
 using Random = UnityEngine.Random;
 
@@ -31,6 +32,7 @@ namespace MakeWordsMinigame
         {
             availableLetters = new List<char>();
             GenerateRandomLetters();
+            ResizeLayouts();
             CreateLetterObjects();
             CreatePlaceableSlots();
         }
@@ -128,6 +130,31 @@ namespace MakeWordsMinigame
                 list[i] = list[randomIndex];
                 list[randomIndex] = temp;
             }
+        }
+
+        private void ResizeLayouts()
+        {
+            GridLayoutGroup slotGridLayout = slotsParent.GetComponent<GridLayoutGroup>();
+            GridLayoutGroup letterGridLayout = letterParent.GetComponent<GridLayoutGroup>();
+
+            // Get the width of the parent RectTransform (for one row)
+            RectTransform parentRect = slotsParent.GetComponent<RectTransform>();
+            float parentWidth = parentRect.rect.width;
+            float parentHeight = parentRect.rect.height;
+
+            // Number of slots (equal to the length of the selected word)
+            int numberOfSlots = selectedWord.Length;
+
+            // Calculate the maximum possible slot size, constrained by either width or height
+            float maxSlotSizeByWidth = parentWidth / numberOfSlots;
+            float maxSlotSizeByHeight = parentHeight;
+
+            // Choose the smaller value to ensure the slots fit horizontally and are square
+            float slotSize = Mathf.Min(maxSlotSizeByWidth, maxSlotSizeByHeight);
+
+            // Set both the width and height of each slot to the calculated size to make them squares
+            slotGridLayout.cellSize = new Vector2(slotSize, slotSize);
+            letterGridLayout.cellSize = new Vector2(slotSize, slotSize);
         }
     }
 }
