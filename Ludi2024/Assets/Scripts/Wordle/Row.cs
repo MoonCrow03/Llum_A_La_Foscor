@@ -35,6 +35,7 @@ namespace Wordle
             {
                 GameObject tile = Instantiate(TilePrefab, transform);
                 Tiles[i] = tile.GetComponent<Tile>();
+                Tiles[i].SetTileState(Board.Instance.EmptyState);
             }
         }
     }
