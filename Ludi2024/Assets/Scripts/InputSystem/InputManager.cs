@@ -16,10 +16,15 @@ public class InputManager : MonoBehaviour
     public ButtonInputHandler Interact;
 
     public ButtonInputHandler Esc;
+
+    public ButtonInputHandler Enter;
+
+    public ButtonInputHandler Backspace;
+
     
     public Vector2 MovementInput { private set; get; }
     public Vector2 MousePosition { private set; get; }
-    
+
     private void Awake()
     {
         if (Instance == null)
@@ -59,6 +64,8 @@ public class InputManager : MonoBehaviour
         Interact = new ButtonInputHandler(_actions.Main.Interact);
         
         Esc = new ButtonInputHandler(_actions.Main.Esc);
+        Enter = new ButtonInputHandler(_actions.Main.Enter);
+        Backspace = new ButtonInputHandler(_actions.Main.Backspace);
     }
 }
 

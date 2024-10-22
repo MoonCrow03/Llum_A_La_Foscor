@@ -116,6 +116,24 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Enter"",
+                    ""type"": ""Button"",
+                    ""id"": ""bf7173c8-8bc9-4f40-8e12-abddfcc1eeda"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Backspace"",
+                    ""type"": ""Button"",
+                    ""id"": ""84959fb4-c864-413f-bcdc-9ae615f06af7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -272,6 +290,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""RightClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""602af3cc-4caa-4859-adc0-3993d4116837"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Enter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f9c2a10-c0aa-422c-806e-bde139884917"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Backspace"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -290,6 +330,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Main_Esc = m_Main.FindAction("Esc", throwIfNotFound: true);
         m_Main_LeftClick = m_Main.FindAction("LeftClick", throwIfNotFound: true);
         m_Main_RightClick = m_Main.FindAction("RightClick", throwIfNotFound: true);
+        m_Main_Enter = m_Main.FindAction("Enter", throwIfNotFound: true);
+        m_Main_Backspace = m_Main.FindAction("Backspace", throwIfNotFound: true);
     }
 
     ~@InputActions()
@@ -366,6 +408,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Esc;
     private readonly InputAction m_Main_LeftClick;
     private readonly InputAction m_Main_RightClick;
+    private readonly InputAction m_Main_Enter;
+    private readonly InputAction m_Main_Backspace;
     public struct MainActions
     {
         private @InputActions m_Wrapper;
@@ -380,6 +424,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Esc => m_Wrapper.m_Main_Esc;
         public InputAction @LeftClick => m_Wrapper.m_Main_LeftClick;
         public InputAction @RightClick => m_Wrapper.m_Main_RightClick;
+        public InputAction @Enter => m_Wrapper.m_Main_Enter;
+        public InputAction @Backspace => m_Wrapper.m_Main_Backspace;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -419,6 +465,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @RightClick.started += instance.OnRightClick;
             @RightClick.performed += instance.OnRightClick;
             @RightClick.canceled += instance.OnRightClick;
+            @Enter.started += instance.OnEnter;
+            @Enter.performed += instance.OnEnter;
+            @Enter.canceled += instance.OnEnter;
+            @Backspace.started += instance.OnBackspace;
+            @Backspace.performed += instance.OnBackspace;
+            @Backspace.canceled += instance.OnBackspace;
         }
 
         private void UnregisterCallbacks(IMainActions instance)
@@ -453,6 +505,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @RightClick.started -= instance.OnRightClick;
             @RightClick.performed -= instance.OnRightClick;
             @RightClick.canceled -= instance.OnRightClick;
+            @Enter.started -= instance.OnEnter;
+            @Enter.performed -= instance.OnEnter;
+            @Enter.canceled -= instance.OnEnter;
+            @Backspace.started -= instance.OnBackspace;
+            @Backspace.performed -= instance.OnBackspace;
+            @Backspace.canceled -= instance.OnBackspace;
         }
 
         public void RemoveCallbacks(IMainActions instance)
@@ -482,5 +540,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnEsc(InputAction.CallbackContext context);
         void OnLeftClick(InputAction.CallbackContext context);
         void OnRightClick(InputAction.CallbackContext context);
+        void OnEnter(InputAction.CallbackContext context);
+        void OnBackspace(InputAction.CallbackContext context);
     }
 }
