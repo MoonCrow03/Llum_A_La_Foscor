@@ -58,13 +58,13 @@ public class NotebookUI : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.OnEnableNoteBook += OnEnableNoteBook;
+        TabletUI.OnEnableNoteBook += OnEnableNoteBook;
         GameManager.OnAddBulletPoint += AddBulletPoint;
     }
 
     private void OnDisable()
     {
-        GameManager.OnEnableNoteBook -= OnEnableNoteBook;
+        TabletUI.OnEnableNoteBook -= OnEnableNoteBook;
         GameManager.OnAddBulletPoint -= AddBulletPoint;
     }
 
