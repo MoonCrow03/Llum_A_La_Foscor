@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
 
     public static Action<bool> OnEnableNoteBook;
     public static Action<string> OnAddBulletPoint;
-    
+
+    private bool m_CanPlayerMove;
+
     //TODO: Crear enum para trackear que minijuegos de cada nivel se han completado
 
 
@@ -31,18 +33,25 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-    
-    private void Update()
+
+    private void Start()
     {
-        if (InputManager.Instance.Esc.Tap)
-        {
-            QuitGame();
-        }
+        m_CanPlayerMove = false;
     }
 
-    private void QuitGame()
+    private void Update()
     {
-        Application.Quit();
+
+    }
+
+    public void EnablePlayerMovement(bool p_enable)
+    {
+        m_CanPlayerMove = p_enable;
+    }
+
+    public bool CanPlayerMove()
+    {
+        return m_CanPlayerMove;
     }
     
     public void SetMiniGameCompleted(ELevelsCompleted minigameName)

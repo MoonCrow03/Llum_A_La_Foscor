@@ -14,6 +14,7 @@ public class NotebookUI : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private int m_MaxBPForPage = 4;
+    [SerializeField] private int m_NumBulletPoints = 7;
 
     private List<BulletPoint> m_BulletPoints;
     private List<string> m_BulletPointTexts;
@@ -34,6 +35,11 @@ public class NotebookUI : MonoBehaviour
             m_BulletPoints.Add(bulletPoint.GetComponent<BulletPoint>());
         }
 
+        for (int i = 0; i < m_NumBulletPoints; i++)
+        {
+            m_BulletPointTexts.Add(string.Empty);
+        }
+
         m_CurrentIndex = 0;
         m_IsNoteBookEnabled = false;
     }
@@ -50,11 +56,13 @@ public class NotebookUI : MonoBehaviour
 
         if (InputManager.Instance.Q.Tap)
         {
+            Debug.Log("Previous Page");
             PreviousPage();
         }
 
         if (InputManager.Instance.E.Tap)
         {
+            Debug.Log("Next Page");
             NextPage();
         }
     }
@@ -69,32 +77,29 @@ public class NotebookUI : MonoBehaviour
         GameManager.OnAddBulletPoint -= AddBulletPoint;
     }
 
-    private void SetNextIndex()
+    private bool SetNextIndex()
     {
         int l_index = m_CurrentIndex;
 
-        if (l_index + m_MaxBPForPage > m_BulletPointTexts.Count - 1)
-        {
-            m_CurrentIndex = 0;
-        }
-        else
+        if (l_index + m_MaxBPForPage < m_BulletPointTexts.Count - 1)
         {
             m_CurrentIndex += m_MaxBPForPage;
+            return true;
         }
+
+        return false;
     }
 
-    private void SetPreviousPage()
+    private bool SetPreviousIndex()
     {
         int l_index = m_CurrentIndex;
 
-        if (l_index + m_MaxBPForPage > m_BulletPointTexts.Count - 1)
-        {
-            m_CurrentIndex = 0;
-        }
-        else
+        if (l_index - m_MaxBPForPage >= 0)
         {
             m_CurrentIndex -= m_MaxBPForPage;
+            return true;
         }
+        return false;
     }
 
     private void ClearBulletPoints()
@@ -145,7 +150,8 @@ public class NotebookUI : MonoBehaviour
     {
         if(m_BulletPointTexts.Count <= m_MaxBPForPage) return;
 
-        SetNextIndex();
+        if(!SetNextIndex()) return;
+
         ClearBulletPoints();
         m_Animator.SetTrigger("NextPage");
 
@@ -156,9 +162,10 @@ public class NotebookUI : MonoBehaviour
     {
         if (m_BulletPointTexts.Count <= m_MaxBPForPage) return;
 
-        SetPreviousPage();
+        if (!SetPreviousIndex()) return;
+
         ClearBulletPoints();
-        m_Animator.SetTrigger("PreviousPage");
+        m_Animator.SetTrigger("PrevPage");
 
         PassPage();
     }

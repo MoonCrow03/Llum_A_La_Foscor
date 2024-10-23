@@ -10,8 +10,9 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float offsetY = 5f;  // Desplazamiento en el eje Y
     [SerializeField] private float smoothSpeed = 0.125f;  // Velocidad de suavizado
 
-    void LateUpdate()
+    private void LateUpdate()
     {
+        if(!GameManager.Instance.CanPlayerMove()) return;
 
         Vector3 desiredPosition = new Vector3(offsetX + player.position.x , offsetY, offsetZ + player.position.z);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);

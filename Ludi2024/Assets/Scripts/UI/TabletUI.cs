@@ -15,7 +15,7 @@ public class TabletUI : MonoBehaviour
 
     private void Start()
     {
-        m_IsTabletEnabled = false;
+        m_IsTabletEnabled = true;
         m_Animator.SetBool("Show", m_IsTabletEnabled);
     }
 
@@ -30,16 +30,19 @@ public class TabletUI : MonoBehaviour
 
     private void OnEnable()
     {
+        MainMenu.OnEnableTablet += OnEnableTablet;
         NotebookUI.OnEnableTablet += OnEnableTablet;
     }
 
     private void OnDisable()
     {
+        MainMenu.OnEnableTablet -= OnEnableTablet;
         NotebookUI.OnEnableTablet -= OnEnableTablet;
     }
 
     private void OnEnableTablet(bool p_IsEnable)
     {
+        GameManager.Instance.EnablePlayerMovement(!p_IsEnable);
         m_Animator.SetBool("Show", p_IsEnable);
     }
 }

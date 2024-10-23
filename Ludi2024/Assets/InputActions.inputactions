@@ -69,15 +69,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Esc",
-                    "type": "Button",
-                    "id": "64ba5ea3-2b89-4558-87d4-bd1f0ce7284a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "LeftClick",
                     "type": "Button",
                     "id": "295c4be7-1614-4316-8fa7-bbc75af8f465",
@@ -90,6 +81,15 @@
                     "name": "RightClick",
                     "type": "Button",
                     "id": "7cd57a2f-5240-4fbc-8029-4bb9ae341dc2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Esc",
+                    "type": "Button",
+                    "id": "64ba5ea3-2b89-4558-87d4-bd1f0ce7284a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -114,6 +114,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Tab",
+                    "type": "Button",
+                    "id": "5c8f7a9a-5ce1-4a46-aa80-c7c16085057a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "E",
                     "type": "Button",
                     "id": "eb1b54ce-ea93-4971-81e5-d2fe4ead833d",
@@ -126,15 +135,6 @@
                     "name": "Q",
                     "type": "Button",
                     "id": "26240ff3-eabc-43e7-9a1a-98f85819618a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Tab",
-                    "type": "Button",
-                    "id": "5c8f7a9a-5ce1-4a46-aa80-c7c16085057a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -332,7 +332,7 @@
                 {
                     "name": "",
                     "id": "fd5855c0-4c54-486d-b749-5a9264652d71",
-                    "path": "",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
