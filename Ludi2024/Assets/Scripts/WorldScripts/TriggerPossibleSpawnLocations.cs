@@ -8,23 +8,23 @@ namespace WorldScripts
     public class TriggerPossibleSpawnLocations : MonoBehaviour
     {
         public List<SceneSpawnLocation> sceneSpawnLocations = new List<SceneSpawnLocation>();
-        private Dictionary<string, List<Transform>> spawnPossibleLocations = new Dictionary<string, List<Transform>>();
+        private Dictionary<ELevelsCompleted, List<Transform>> spawnPossibleLocations = new Dictionary<ELevelsCompleted, List<Transform>>();
 
         private void OnEnable()
         {
-            BasicSceneChanger.OnSceneChange += PlaceTriggerInRandomLocation;
+            BasicSceneChanger.OnSceneChange += StartRandomLocationGen;
         }
         
         private void OnDisable()
         {
-            BasicSceneChanger.OnSceneChange -= PlaceTriggerInRandomLocation;
+            BasicSceneChanger.OnSceneChange -= StartRandomLocationGen;
         }
 
         private void Awake()
         {
             foreach (var item in sceneSpawnLocations)
             {
-                spawnPossibleLocations[item.sceneName] = item.spawnLocations;
+                spawnPossibleLocations[item.sceneID] = item.spawnLocations;
             }
         }
 
@@ -32,25 +32,25 @@ namespace WorldScripts
         {
             foreach (var sceneSpawn in sceneSpawnLocations)
             {
-                PlaceTriggerInRandomLocation(sceneSpawn.sceneName);
+                PlaceTriggerInRandomLocation(sceneSpawn.sceneID);
             }
         }
-        
-        private void PlaceTriggerInRandomLocation(string sceneName)
+
+        private void StartRandomLocationGen()
         {
-            if (GameManager.Instance.IsMiniGameCompleted(sceneName))
+            foreach (var sceneSpawn in sceneSpawnLocations)
             {
-                return;
+                PlaceTriggerInRandomLocation(sceneSpawn.sceneID);
             }
-            if (spawnPossibleLocations.TryGetValue(sceneName, out var possibleLocations))
+        }
+        private void PlaceTriggerInRandomLocation(ELevelsCompleted levelCompleted)
+        {
+            if (spawnPossibleLocations.ContainsKey(levelCompleted))
             {
-                if (possibleLocations.Count > 0)
-                {
-                    int randomIndex = UnityEngine.Random.Range(0, possibleLocations.Count);
-                    Transform randomLocation = possibleLocations[randomIndex];
-                    SceneSpawnLocation sceneSpawnLocation = sceneSpawnLocations.Find(x => x.sceneName == sceneName);
-                    Instantiate(sceneSpawnLocation.spawnTrigger, randomLocation.position, Quaternion.identity);
-                }
+                var spawnLocations = spawnPossibleLocations[levelCompleted];
+                var spawnLocation = sceneSpawnLocations.Find(x => x.sceneID == levelCompleted);
+                var randomLocation = spawnLocations[UnityEngine.Random.Range(0, spawnLocations.Count)];
+                Instantiate(spawnLocation.spawnTrigger, randomLocation.position, randomLocation.rotation);
             }
         }
     }
@@ -58,7 +58,7 @@ namespace WorldScripts
     [Serializable]
     public class SceneSpawnLocation
     {
-        public string sceneName;
+        public ELevelsCompleted sceneID;
         public GameObject spawnTrigger;
         public List<Transform> spawnLocations;
     }

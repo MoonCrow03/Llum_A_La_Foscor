@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1389436001432306713}
   - component: {fileID: 3200889732987086625}
   m_Layer: 0
-  m_Name: CreateWordsMinigame Trigger
+  m_Name: CreateWordsMinigame Level 1 Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

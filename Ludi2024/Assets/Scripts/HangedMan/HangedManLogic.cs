@@ -20,15 +20,19 @@ namespace HangedMan
         [SerializeField] private GameObject letterFromGuessWordPrefab;
         [SerializeField] private Transform letterFromGuessWordParent;
         
+        [Header("Scenes")]
+        [SerializeField] private string worldScene;
+        [SerializeField] private ELevelsCompleted levelCompleted;
+        
         private string wordToGuess;
         private Dictionary<char, bool> availableLetters;
         private Dictionary<char, GameObject> letterObjects;
 
         private static readonly List<char> letters = new List<char>
         {
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+            'a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
             'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-            'u', 'v', 'w', 'x', 'y', 'z', 'ç'
+            'u', 'v', 'w', 'x', 'y', 'z' 
         };
 
         private void Awake()
@@ -144,7 +148,7 @@ namespace HangedMan
             {
                 DisableLetterInteraction(letter.Key);
             }
-            GameManager.Instance.SetMiniGameCompleted("HangedMan");
+            GameManager.Instance.SetMiniGameCompleted(levelCompleted);
         }
 
         private bool IsWordGuessed()

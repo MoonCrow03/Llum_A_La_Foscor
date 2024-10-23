@@ -30,7 +30,7 @@ public class GenerateLetters : MonoBehaviour
             letterTile.Letter = char.ToLower(letter);
         }
         var backspaceTile = Instantiate(BackspacePrefab, LetterParent).GetComponent<BackspaceTile>();
-        backspaceTile.BackspaceChar = "Backspace";
+        backspaceTile.BackspaceChar = "Back";
         
         var enterTile = Instantiate(EnterPrefab, LetterParent).GetComponent<EnterTile>();
         enterTile.EnterChar = "Enter";

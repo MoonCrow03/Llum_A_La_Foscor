@@ -15,11 +15,14 @@ public class PuzzleMinigame : MonoBehaviour
     [Header("Puzzle Settings")]
     [SerializeField] private PuzzleMiniGameType m_PuzzleMiniGameType;
     [SerializeField] private float m_SecondsToComplete;
-    [SerializeField] private string m_WorldScene;
 
     [Header("Debug")]
     [SerializeField] private int m_PieceCounter;
     [SerializeField] private int m_PuzzleSize;
+    
+    [Header("Scene Settings")]
+    [SerializeField] private string m_WorldScene;
+    [SerializeField] private ELevelsCompleted m_LevelCompleted;
 
     private TimeLimit m_TimeLimit;
     private bool m_IsGameCompleted;
@@ -57,7 +60,7 @@ public class PuzzleMinigame : MonoBehaviour
         Debug.Log("Puzzle completed!");
         if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
-        GameManager.Instance.SetMiniGameCompleted("PuzzleMinigame");
+        GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
         BasicSceneChanger.ChangeScene(m_WorldScene);
     }
 

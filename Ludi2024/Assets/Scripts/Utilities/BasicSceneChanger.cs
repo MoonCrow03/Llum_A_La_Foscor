@@ -6,7 +6,8 @@ namespace Utilities
     public class BasicSceneChanger : MonoBehaviour
     {
         public string sceneToLoad;
-        public static event Action<string> OnSceneChange;
+        public ELevelsCompleted level;
+        public static event Action OnSceneChange;
         
         public void ChangeScene()
         {
@@ -16,7 +17,7 @@ namespace Utilities
         public static void ChangeScene(string sceneName)
         {
             UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
-            OnSceneChange?.Invoke(sceneName);
+            OnSceneChange?.Invoke();
         }
 
         private void OnTriggerEnter(Collider other)

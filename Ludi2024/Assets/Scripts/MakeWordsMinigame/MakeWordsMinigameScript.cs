@@ -19,12 +19,16 @@ namespace MakeWordsMinigame
         [SerializeField] private Transform slotsParent;
         [SerializeField] private int extraLetters;
         
+        [Header("Scene Settings")]
+        [SerializeField] private string worldScene;
+        [SerializeField] private ELevelsCompleted levelCompleted;
+        
         private List<char> availableLetters;
         private string selectedWord;
         private int numberOfLetters;
 
         private static readonly List<char> vowels = new List<char> {'a', 'e', 'i', 'o', 'u'};
-        private static readonly List<char> consonants = new List<char> {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v'};
+        private static readonly List<char> consonants = new List<char> {'b', 'c', 'ç', 'd', 'f', 'g', 'h', 'j', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v'};
     
 
         // Start is called before the first frame update
@@ -117,8 +121,9 @@ namespace MakeWordsMinigame
 
         private void OnWordCreated()
         {
-            BasicSceneChanger.ChangeScene("World Scene");
             Debug.Log("Word created!");
+            GameManager.Instance.SetMiniGameCompleted(levelCompleted);
+            BasicSceneChanger.ChangeScene("World Scene");
         }
 
         private void ShuffleList(ref List<char> list)

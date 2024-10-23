@@ -24,6 +24,10 @@ namespace Wordle
         public Tile.TileStates CorrectState;
         public Tile.TileStates WrongSpot;
         public Tile.TileStates IncorrectState;
+
+        [Header("Scene Settings")] 
+        [SerializeField] private string sceneName;
+        [SerializeField] private ELevelsCompleted levelCompleted;
         
         
         private Row[] rows;
@@ -183,7 +187,7 @@ namespace Wordle
 
             if (CheckWordGuessed(ref row))
             {
-                //GameManager.Instance.SetMiniGameCompleted("WordleMinigame");
+                GameManager.Instance.SetMiniGameCompleted(levelCompleted);
                 Debug.Log("2394829348 de iq listisimo");
             }
             

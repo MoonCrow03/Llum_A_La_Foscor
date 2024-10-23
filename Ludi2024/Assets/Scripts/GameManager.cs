@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance => _instance;
 
-    private static Dictionary<string, bool> miniGamesCompleted = new Dictionary<string, bool>();
+    private static Dictionary<ELevelsCompleted, bool> miniGamesCompleted = new Dictionary<ELevelsCompleted, bool>();
     
-    public static Dictionary<string, bool> MiniGamesCompleted => miniGamesCompleted;
+    public static Dictionary<ELevelsCompleted, bool> MiniGamesCompleted => miniGamesCompleted;
 
     public static Action<bool> OnEnableNoteBook;
     public static Action<string> OnAddBulletPoint;
@@ -45,19 +45,15 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
     
-    public void SetMiniGameCompleted(string minigameName)
+    public void SetMiniGameCompleted(ELevelsCompleted minigameName)
     {
-        if (!miniGamesCompleted.ContainsKey(minigameName))
-        {
-            miniGamesCompleted[minigameName] = true;
-        }
-        else
+        if (!miniGamesCompleted.TryAdd(minigameName, true))
         {
             miniGamesCompleted.Add(minigameName, true);
         }
     }
     
-    public bool IsMiniGameCompleted(string minigameName)
+    public bool IsMiniGameCompleted(ELevelsCompleted minigameName)
     {
         return miniGamesCompleted.ContainsKey(minigameName) && miniGamesCompleted[minigameName];
     }

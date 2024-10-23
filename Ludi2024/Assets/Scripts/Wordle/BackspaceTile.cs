@@ -6,7 +6,7 @@ namespace Wordle
 {
     public class BackspaceTile : MonoBehaviour
     {
-        private string backspaceChar = "Backspace";
+        private string backspaceChar = "Back";
 
         public string BackspaceChar
         {

@@ -9,7 +9,12 @@ public class WordsPairManager : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private List<WordsPair> m_WordsSetters;
-
+    
+    [Header("Scene Settings")]
+    [SerializeField] private string m_WorldScene;
+    [SerializeField] private ELevelsCompleted m_LevelCompleted;
+    
+    
     private int m_CorrectPairCount;
 
     private void Awake()
@@ -53,6 +58,7 @@ public class WordsPairManager : MonoBehaviour
         if(m_CorrectPairCount == m_WordsSetters.Count)
         {
             Debug.Log("Finished!");
+            GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
         }
     }
 }

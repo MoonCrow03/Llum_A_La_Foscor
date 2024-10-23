@@ -17,8 +17,9 @@ public class GeodeMinigame : MonoBehaviour
     [SerializeField] private int m_MaxStrikes = 2;
     [SerializeField] private int m_PointsToWin = 3;
 
-    [Header("World Scene")]
+    [Header("Scene Settings")]
     [SerializeField] private string m_WorldScene;
+    [SerializeField] private ELevelsCompleted m_LevelCompleted;
 
     private int m_CurrentStrikes;
     private int m_CurrentPoints;
@@ -59,7 +60,7 @@ public class GeodeMinigame : MonoBehaviour
     private void WinGame()
     {
         Debug.Log("Geode minigame completed!");
-        GameManager.Instance.SetMiniGameCompleted("GeodeMinigame");
+        GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
         BasicSceneChanger.ChangeScene(m_WorldScene);
     }
 
