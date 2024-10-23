@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ public class NotebookUI : MonoBehaviour
 
     private int m_CurrentIndex;
     private bool m_IsNoteBookEnabled;
+
+    public static Action<bool> OnEnableTablet;
 
     private void Start()
     {
@@ -58,13 +61,11 @@ public class NotebookUI : MonoBehaviour
 
     private void OnEnable()
     {
-        TabletUI.OnEnableNoteBook += OnEnableNoteBook;
         GameManager.OnAddBulletPoint += AddBulletPoint;
     }
 
     private void OnDisable()
     {
-        TabletUI.OnEnableNoteBook -= OnEnableNoteBook;
         GameManager.OnAddBulletPoint -= AddBulletPoint;
     }
 
@@ -122,9 +123,9 @@ public class NotebookUI : MonoBehaviour
         }
     }
 
-    public void OnEnableNoteBook(bool p_enable)
+    private void OnEnableNoteBook(bool p_enable)
     {
-        
+        OnEnableTablet?.Invoke(false);
         m_Animator.SetBool("Show", p_enable);
         m_InfoPanel.SetActive(!p_enable);
     }

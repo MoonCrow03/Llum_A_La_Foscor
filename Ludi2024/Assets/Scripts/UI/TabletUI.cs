@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class TabletUI : MonoBehaviour
 {
-    [SerializeField] private Animator m_Animator;
+    private Animator m_Animator;
 
     private bool m_IsTabletEnabled;
-
-    public static Action<bool> OnEnableNoteBook;
+    private void Awake()
+    {
+        m_Animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -26,9 +28,18 @@ public class TabletUI : MonoBehaviour
         }
     }
 
-    public void OnEnableTablet(bool p_IsEnable)
+    private void OnEnable()
     {
-        OnEnableNoteBook?.Invoke(p_IsEnable);
+        NotebookUI.OnEnableTablet += OnEnableTablet;
+    }
+
+    private void OnDisable()
+    {
+        NotebookUI.OnEnableTablet -= OnEnableTablet;
+    }
+
+    private void OnEnableTablet(bool p_IsEnable)
+    {
         m_Animator.SetBool("Show", p_IsEnable);
     }
 }
