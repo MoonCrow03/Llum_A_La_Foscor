@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f798416db400430a8922c470b8a785eb, type: 3}
+  m_Name: HangedManTutorial
+  m_EditorClassIdentifier: 
+  tutorialText: "Skibidi mewing sigma\nSkibidi mewing sigma toilet, chad basado,
+    el piggey, yo y los caballeros, con mi prime cansado jefe y con canye West y
+    Taylor swift en el oye compa Soy un buen compa, poder pol\xEDtico, chiquibai,
+    fire en The hole, roblox descuido venga la alegr\xEDa gogogogo,peso pluma, fortnite
+    pisos picados, ay amigue soy ese, temach, chat, ma\xF1ana lo sube Rub\xE9n tuesta,
+    no busquen el pro, ponte fecha vv, peluche bien aestethic, la onda expandisa,
+    coquette, gogotuti calderon ishowspeed Ronaldo Messi junior, baila como el papu,
+    haz el mini mini, todo eso dijo el \xE1rbol mi amor, h\xE1ganle globo de texto,
+    cuenta en decadencia, ya ya mijo ya, npc, venga la alegr\xEDa, a\xF1a pankekes,
+    fre fire insano un v\xEDdeo M\xE1 mi gente, el Pepe, ete sech, eso tilin, pana
+    fresco, potaxies, potaxio, BTS, wachiwachiwa, pana fresco x papulince, buscar
+    eminem, mi primera chamba, Digital circus, ohio, rizz, loledemouse, xokas, illojuan,
+    the grefg, mrbeast, swiftiefox descuido, octaboy, cocomelon, fernanfloo, UVULUX,
+    Cherry, ayuno, princesa Daffy, mira lo que me hiciste hacer"

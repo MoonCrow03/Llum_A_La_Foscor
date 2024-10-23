@@ -1925,6 +1925,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 5922199370601233844, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_text
+      value: Prem E per obrir
+      objectReference: {fileID: 0}
     - target: {fileID: 7796121421458688460, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
       propertyPath: player

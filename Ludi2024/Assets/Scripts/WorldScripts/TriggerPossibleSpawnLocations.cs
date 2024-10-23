@@ -36,8 +36,7 @@ namespace WorldScripts
             }
         }
 
-        private void StartRandomLocationGen()
-        {
+        private void StartRandomLocationGen() {
             foreach (var sceneSpawn in sceneSpawnLocations)
             {
                 PlaceTriggerInRandomLocation(sceneSpawn.sceneID);
