@@ -187,8 +187,7 @@ namespace Wordle
 
             if (CheckWordGuessed(ref row))
             {
-                GameManager.Instance.SetMiniGameCompleted(levelCompleted);
-                Debug.Log("2394829348 de iq listisimo");
+                GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
             }
             
             rowIndex++;
@@ -197,6 +196,7 @@ namespace Wordle
             if (rowIndex >= rows.Length)
             {
                 enabled = false;
+                GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
             }
         }
 
