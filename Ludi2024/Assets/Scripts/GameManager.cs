@@ -2,18 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public static GameManager Instance => _instance;
 
-    private static Dictionary<ELevelsCompleted, bool> miniGamesCompleted = new Dictionary<ELevelsCompleted, bool>();
+    private static Dictionary<Scenes, bool> miniGamesCompleted = new Dictionary<Scenes, bool>();
     
-    public static Dictionary<ELevelsCompleted, bool> MiniGamesCompleted => miniGamesCompleted;
-
-    public static Action<bool> OnEnableNoteBook;
-    public static Action<string> OnAddBulletPoint;
+    public static Dictionary<Scenes, bool> MiniGamesCompleted => miniGamesCompleted;
 
     private bool m_CanPlayerMove;
 
@@ -44,17 +42,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void EnablePlayerMovement(bool p_enable)
+    public void LoadScene(Scenes p_scene)
     {
-        m_CanPlayerMove = p_enable;
-    }
-
-    public bool CanPlayerMove()
-    {
-        return m_CanPlayerMove;
+        SceneManager.LoadSceneAsync(p_scene.ToString());
     }
     
-    public void SetMiniGameCompleted(ELevelsCompleted minigameName)
+    public void SetMiniGameCompleted(Scenes minigameName)
     {
         if (!miniGamesCompleted.TryAdd(minigameName, true))
         {
@@ -62,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public bool IsMiniGameCompleted(ELevelsCompleted minigameName)
+    public bool IsMiniGameCompleted(Scenes minigameName)
     {
         return miniGamesCompleted.ContainsKey(minigameName) && miniGamesCompleted[minigameName];
     }

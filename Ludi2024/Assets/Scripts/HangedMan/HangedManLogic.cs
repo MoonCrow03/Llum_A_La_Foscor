@@ -22,7 +22,7 @@ namespace HangedMan
         
         [Header("Scenes")]
         [SerializeField] private string worldScene;
-        [SerializeField] private ELevelsCompleted levelCompleted;
+        [SerializeField] private Scenes levelCompleted;
         
         private string wordToGuess;
         private Dictionary<char, bool> availableLetters;
@@ -140,8 +140,7 @@ namespace HangedMan
                 DisableLetterInteraction(letter.Key);
             }
 
-            EngameUI.TriggerSetEndgameMessage("Has perdut!", false);
-            EngameUI.TriggerEnableEndgamePanel(true);
+            GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
         }
 
         private void GameWon()
@@ -152,8 +151,7 @@ namespace HangedMan
                 DisableLetterInteraction(letter.Key);
             }
 
-            EngameUI.TriggerSetEndgameMessage("Felicitats!", true);
-            EngameUI.TriggerEnableEndgamePanel(true);
+            GameEvents.TriggerSetEndgameMessage("Felicitats!", true);
             //GameManager.Instance.SetMiniGameCompleted(levelCompleted);
         }
 

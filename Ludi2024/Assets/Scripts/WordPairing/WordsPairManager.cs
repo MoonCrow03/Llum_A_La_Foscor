@@ -12,7 +12,7 @@ public class WordsPairManager : MonoBehaviour
     
     [Header("Scene Settings")]
     [SerializeField] private string m_WorldScene;
-    [SerializeField] private ELevelsCompleted m_LevelCompleted;
+    [SerializeField] private Scenes m_LevelCompleted;
     
     
     private int m_CorrectPairCount;

@@ -21,7 +21,7 @@ namespace MakeWordsMinigame
         
         [Header("Scene Settings")]
         [SerializeField] private string worldScene;
-        [SerializeField] private ELevelsCompleted levelCompleted;
+        [SerializeField] private Scenes levelCompleted;
         
         private List<char> availableLetters;
         private string selectedWord;

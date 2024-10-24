@@ -6,7 +6,7 @@ namespace Utilities
     public class BasicSceneChanger : MonoBehaviour
     {
         public string sceneToLoad;
-        public ELevelsCompleted level;
+        public Scenes level;
         public static event Action OnSceneChange;
         
         public void ChangeScene()

@@ -8,7 +8,7 @@ namespace WorldScripts
     public class TriggerPossibleSpawnLocations : MonoBehaviour
     {
         public List<SceneSpawnLocation> sceneSpawnLocations = new List<SceneSpawnLocation>();
-        private Dictionary<ELevelsCompleted, List<Transform>> spawnPossibleLocations = new Dictionary<ELevelsCompleted, List<Transform>>();
+        private Dictionary<Scenes, List<Transform>> spawnPossibleLocations = new Dictionary<Scenes, List<Transform>>();
 
         private void OnEnable()
         {
@@ -42,7 +42,7 @@ namespace WorldScripts
                 PlaceTriggerInRandomLocation(sceneSpawn.sceneID);
             }
         }
-        private void PlaceTriggerInRandomLocation(ELevelsCompleted levelCompleted)
+        private void PlaceTriggerInRandomLocation(Scenes levelCompleted)
         {
             if (spawnPossibleLocations.ContainsKey(levelCompleted))
             {
@@ -57,7 +57,7 @@ namespace WorldScripts
     [Serializable]
     public class SceneSpawnLocation
     {
-        public ELevelsCompleted sceneID;
+        public Scenes sceneID;
         public GameObject spawnTrigger;
         public List<Transform> spawnLocations;
     }

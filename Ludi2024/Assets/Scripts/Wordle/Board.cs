@@ -27,7 +27,7 @@ namespace Wordle
 
         [Header("Scene Settings")] 
         [SerializeField] private string sceneName;
-        [SerializeField] private ELevelsCompleted levelCompleted;
+        [SerializeField] private Scenes levelCompleted;
         
         
         private Row[] rows;

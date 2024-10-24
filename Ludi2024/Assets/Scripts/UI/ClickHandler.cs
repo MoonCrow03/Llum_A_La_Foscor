@@ -28,13 +28,13 @@ public class ClickHandler : MonoBehaviour
                 if (hit.collider.transform.CompareTag("Notebook"))
                 {
                     bool l_enable = !m_Notebook.IsNoteBookEnabled();
-                    m_Notebook.OnEnableNoteBook(l_enable);
+                    GameEvents.TriggerEnableNotebook(l_enable);
                 }
 
                 if (hit.collider.transform.CompareTag("Tablet"))
                 {
                     bool l_enable = !m_Tablet.IsTabletEnabled();
-                    m_Tablet.OnEnableTablet(l_enable);
+                    GameEvents.TriggerEnableTablet(l_enable);
                 }
             }
         }

@@ -22,8 +22,6 @@ public class NotebookUI : MonoBehaviour
     private int m_CurrentIndex;
     private bool m_IsNoteBookEnabled;
 
-    public static Action<bool> OnEnableTablet;
-
     private void Start()
     {
         m_BulletPoints = new List<BulletPoint>();
@@ -68,12 +66,14 @@ public class NotebookUI : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.OnAddBulletPoint += AddBulletPoint;
+        GameEvents.OnAddBulletPoint += AddBulletPoint;
+        GameEvents.OnEnableNotebook += OnEnableNoteBook;
     }
 
     private void OnDisable()
     {
-        GameManager.OnAddBulletPoint -= AddBulletPoint;
+        GameEvents.OnAddBulletPoint -= AddBulletPoint;
+        GameEvents.OnEnableNotebook -= OnEnableNoteBook;
     }
 
     private bool SetNextIndex()
@@ -127,10 +127,10 @@ public class NotebookUI : MonoBehaviour
         }
     }
 
-    public void OnEnableNoteBook(bool p_enable)
+    private void OnEnableNoteBook(bool p_enable)
     {
         m_IsNoteBookEnabled = p_enable;
-        OnEnableTablet?.Invoke(false);
+        GameEvents.TriggerEnableTablet(false);
         m_Animator.SetBool("Show", p_enable);
         m_InfoPanel.SetActive(!p_enable);
     }
@@ -140,7 +140,7 @@ public class NotebookUI : MonoBehaviour
         return m_IsNoteBookEnabled;
     }
 
-    public void AddBulletPoint(string p_text)
+    private void AddBulletPoint(string p_text)
     {
         m_BulletPointTexts.Add(p_text);
 

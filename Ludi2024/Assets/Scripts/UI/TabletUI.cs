@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class TabletUI : MonoBehaviour
 {
-    private Camera m_Camera;
     private Animator m_Animator;
 
     private bool m_IsTabletEnabled;
     private void Awake()
     {
-        m_Camera = GetComponentInParent<Camera>();
         m_Animator = GetComponent<Animator>();
     }
 
@@ -31,20 +29,18 @@ public class TabletUI : MonoBehaviour
 
     private void OnEnable()
     {
-        MainMenu.OnEnableTablet += OnEnableTablet;
-        NotebookUI.OnEnableTablet += OnEnableTablet;
+        GameEvents.OnEnableTablet += OnEnableTablet;
     }
 
     private void OnDisable()
     {
-        MainMenu.OnEnableTablet -= OnEnableTablet;
-        NotebookUI.OnEnableTablet -= OnEnableTablet;
+        GameEvents.OnEnableTablet -= OnEnableTablet;
     }
 
-    public void OnEnableTablet(bool p_IsEnable)
+    private void OnEnableTablet(bool p_IsEnable)
     {
         m_IsTabletEnabled = p_IsEnable;
-        GameManager.Instance.EnablePlayerMovement(!p_IsEnable);
+        GameEvents.TriggerEnablePlayerMovement(!p_IsEnable);
         m_Animator.SetBool("Show", p_IsEnable);
     }
 

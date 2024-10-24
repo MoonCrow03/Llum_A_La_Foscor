@@ -568,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Play: {fileID: 3555536079629295736}
   m_Quit: {fileID: 7572789056596499314}
-  m_TabletUI: {fileID: 0}
+  m_TabletUI: {fileID: 3106142642362505734}
 --- !u!114 &5768397553228793210
 MonoBehaviour:
   m_ObjectHideFlags: 0

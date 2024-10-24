@@ -10,8 +10,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button m_Quit;
     [SerializeField] private TabletUI m_TabletUI;
 
-    public static Action<bool> OnEnableTablet;
-
     public void OnShow(bool p_enable)
     {
         gameObject.SetActive(p_enable);
@@ -19,8 +17,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        OnEnableTablet?.Invoke(false);
-        GameManager.Instance.EnablePlayerMovement(true);
+        GameEvents.TriggerEnableTablet(false);
+        GameEvents.TriggerEnablePlayerMovement(true);
     }
 
     public void QuitGame()

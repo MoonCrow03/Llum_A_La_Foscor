@@ -6,35 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class EngameUI : MonoBehaviour
 {
+    [SerializeField] private GameObject m_EndgamePanel;
     [SerializeField] private TextMeshProUGUI m_Message;
-    [SerializeField] private ELevelsCompleted m_MiniGame;
+    [SerializeField] private Scenes m_MiniGame;
+    [SerializeField] private Scenes m_World;
 
     private bool m_GameWon;
-
-    // Delegate for setting the message
-    public delegate void EndgameMessageDelegate(string message, bool p_won);
-    public static event EndgameMessageDelegate OnSetEndgameMessage;
-
-    // Delegate for enabling/disabling the panel
-    public delegate void EndgamePanelDelegate(bool isEnabled);
-    public static event EndgamePanelDelegate OnEnableEndgamePanel;
-
-    // Static methods to trigger events
-    public static void TriggerSetEndgameMessage(string p_message, bool p_won)
-    {
-        if (OnSetEndgameMessage != null)
-        {
-            OnSetEndgameMessage(p_message, p_won);
-        }
-    }
-
-    public static void TriggerEnableEndgamePanel(bool p_isEnabled)
-    {
-        if (OnEnableEndgamePanel != null)
-        {
-            OnEnableEndgamePanel(p_isEnabled);
-        }
-    }
 
     private void Start()
     {
@@ -43,16 +20,17 @@ public class EngameUI : MonoBehaviour
 
     private void OnEnable()
     {
-        // Subscribe to events
-        OnSetEndgameMessage += SetMessage;
-        OnEnableEndgamePanel += EnableEndgamePanel;
+        GameEvents.OnSetEndgameMessage += SetMessage;
     }
 
     private void OnDisable()
     {
-        // Unsubscribe from events
-        OnSetEndgameMessage -= SetMessage;
-        OnEnableEndgamePanel -= EnableEndgamePanel;
+        GameEvents.OnSetEndgameMessage -= SetMessage;
+    }
+
+    private void EnableEndgamePanel(bool isEnabled)
+    {
+        m_EndgamePanel.SetActive(isEnabled);
     }
 
     private void SetMessage(string p_message, bool p_won)
@@ -64,15 +42,17 @@ public class EngameUI : MonoBehaviour
         {
             GameManager.Instance.SetMiniGameCompleted(m_MiniGame);
         }
+
+        EnableEndgamePanel(true);
     }
 
-    private void EnableEndgamePanel(bool isEnabled)
+    public bool WasGameWon()
     {
-        gameObject.SetActive(isEnabled);
+        return m_GameWon;
     }
 
-    public void LoadScene()
+    public void LoadWorldScene()
     {
-        SceneManager.LoadScene("WorldScene 1");
+        GameManager.Instance.LoadScene(m_World);
     }
 }

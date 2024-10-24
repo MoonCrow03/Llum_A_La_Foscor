@@ -22,7 +22,7 @@ public class PuzzleMinigame : MonoBehaviour
     
     [Header("Scene Settings")]
     [SerializeField] private string m_WorldScene;
-    [SerializeField] private ELevelsCompleted m_LevelCompleted;
+    [SerializeField] private Scenes m_LevelCompleted;
 
     private TimeLimit m_TimeLimit;
     private bool m_IsGameCompleted;
