@@ -1,72 +1,77 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Tutorial;
 using UnityEngine;
 
-public class TutorialText : MonoBehaviour
+namespace Tutorial
 {
-    public TutorialTextData tutorialTextData;
-    public TextMeshProUGUI text;
-    public float textSpeed;
+    public class TutorialText : MonoBehaviour
+    {
+        public TutorialTextData tutorialTextData;
+        public TextMeshProUGUI text;
+        public float textSpeed;
+        public GameObject FinishedTextImage;
 
-    private string fullText;
-    private string currentText = "";
-    private int index = 0;
-    private int lastIndex = 0;
-    private bool isTextFinished = false;
+        private string fullText;
+        private string currentText = "";
+        private int index = 0;
+        private int lastIndex = 0;
+        private bool isTextFinished = false;
     
-    void Start()
-    {
-        if (tutorialTextData != null)
+        void Start()
         {
-            fullText = tutorialTextData.tutorialText;
-            StartCoroutine(ShowText());
-        }
-    }
-
-    private void Update()
-    {
-        if (InputManager.Instance.Enter.Tap && isTextFinished)
-        {
-            if (IsAllTextDisplayed())
+            if (tutorialTextData != null)
             {
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                isTextFinished = false;
-                currentText = "";
-                text.text = currentText;
+                fullText = tutorialTextData.tutorialText;
                 StartCoroutine(ShowText());
             }
         }
-    }
 
-    private bool IsAllTextDisplayed()
-    {
-        return index >= fullText.Split(' ').Length;
-    }
-
-    IEnumerator ShowText()
-    {
-        string[] words = fullText.Split(' ');
-        for (index = lastIndex; index < fullText.Split(' ').Length; index++)
+        private void Update()
         {
-            currentText += words[index] + " ";
-            text.text = currentText;
-            text.ForceMeshUpdate();
-
-            if (text.preferredHeight > text.rectTransform.rect.height) // Check if the text is overflowing
+            if (InputManager.Instance.Enter.Tap && isTextFinished)
             {
-                isTextFinished = true;
-                lastIndex = index + 1; // Save the last position
-                yield break;
+                if (IsAllTextDisplayed())
+                {
+                    gameObject.SetActive(false);
+                }
+                else
+                {
+                    isTextFinished = false;
+                    currentText = "";
+                    text.text = currentText;
+                    StartCoroutine(ShowText());
+                }
             }
-
-            yield return new WaitForSeconds(textSpeed);
         }
-        isTextFinished = true;
+
+        private bool IsAllTextDisplayed()
+        {
+            StopCoroutine(ShowText());
+            return index >= fullText.Split(' ').Length;
+        }
+
+        IEnumerator ShowText()
+        {
+            string[] words = fullText.Split(' ');
+            FinishedTextImage.SetActive(false);
+            for (index = lastIndex; index < fullText.Split(' ').Length; index++)
+            {
+                currentText += words[index] + " ";
+                text.text = currentText;
+                text.ForceMeshUpdate();
+
+                if (text.preferredHeight > text.rectTransform.rect.height) 
+                {
+                    FinishedTextImage.SetActive(true);
+                    isTextFinished = true;
+                    lastIndex = index + 1;
+                    yield break;
+                }
+
+                yield return new WaitForSeconds(textSpeed);
+            }
+            FinishedTextImage.SetActive(true);
+            isTextFinished = true;
+        }
     }
 }

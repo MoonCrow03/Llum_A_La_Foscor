@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialText: "Sembla que haurem de desxifrar una paraula per continuar.\r\nAqu\xED
     pots veure el nombre de lletres que t\xE9 la paraula, haur\xE0s de seleccionar
-    els car\xE0cters per descobrir si formen part d'aquesta o no.\nPer\xF2 pensa
+    els car\xE0cters per descobrir si formen part d'aquesta o no.\n Per\xF2 pensa
     detingudament, si falles massa cops perdr\xE0s la partida."
