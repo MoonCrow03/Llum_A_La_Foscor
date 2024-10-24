@@ -48,8 +48,7 @@ public class NotebookUI : MonoBehaviour
     {
         if (InputManager.Instance.Tab.Tap)
         {
-            m_IsNoteBookEnabled = !m_IsNoteBookEnabled;
-            OnEnableNoteBook(m_IsNoteBookEnabled);
+            OnEnableNoteBook(!m_IsNoteBookEnabled);
         }
 
         if(!m_IsNoteBookEnabled) return;
@@ -128,11 +127,17 @@ public class NotebookUI : MonoBehaviour
         }
     }
 
-    private void OnEnableNoteBook(bool p_enable)
+    public void OnEnableNoteBook(bool p_enable)
     {
+        m_IsNoteBookEnabled = p_enable;
         OnEnableTablet?.Invoke(false);
         m_Animator.SetBool("Show", p_enable);
         m_InfoPanel.SetActive(!p_enable);
+    }
+
+    public bool IsNoteBookEnabled()
+    {
+        return m_IsNoteBookEnabled;
     }
 
     public void AddBulletPoint(string p_text)

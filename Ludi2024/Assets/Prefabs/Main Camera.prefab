@@ -740,7 +740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pren E per obrir
+  m_text: Prem TAB per obrir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 951d1dc5f5b11eb45a6b0003380afad5, type: 2}
   m_sharedMaterial: {fileID: -5662530674216377144, guid: 951d1dc5f5b11eb45a6b0003380afad5,
@@ -768,8 +768,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.12
-  m_fontSizeBase: 0.12
+  m_fontSize: 0.11
+  m_fontSizeBase: 0.11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0.001
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.060159802, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -899,6 +899,7 @@ GameObject:
   - component: {fileID: 1388706695449648724}
   - component: {fileID: 8066808914607469216}
   - component: {fileID: 7796121421458688460}
+  - component: {fileID: 6903906273139897000}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -1043,6 +1044,18 @@ MonoBehaviour:
   offsetZ: -7.8
   offsetY: 6.3
   smoothSpeed: 0.125
+--- !u!114 &6903906273139897000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238558130523890578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a3b70c402b742438e4504b7e0e7a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5385718194862146041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,6 +1865,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tablet
       objectReference: {fileID: 0}
+    - target: {fileID: 3021808115921973236, guid: d147d9376a2bd1149aff753cf844ab7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tablet
+      objectReference: {fileID: 0}
     - target: {fileID: 7688486186377157899, guid: d147d9376a2bd1149aff753cf844ab7e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1937,6 +1955,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2671793935738672988}
+    - targetCorrespondingSourceObject: {fileID: 3021808115921973236, guid: d147d9376a2bd1149aff753cf844ab7e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7373946248964105755}
   m_SourcePrefab: {fileID: 100100000, guid: d147d9376a2bd1149aff753cf844ab7e, type: 3}
 --- !u!1 &1878593487764681891 stripped
 GameObject:
@@ -1990,6 +2012,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &7373946248964105755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878593487764681891}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.002351581, y: 0.003853245, z: 0.02291325}
+  m_Center: {x: 0.000068084664, y: 0.0142285405, z: -0.0002915408}
 --- !u!4 &6435496366339425884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7688486186377157899, guid: d147d9376a2bd1149aff753cf844ab7e,
@@ -2064,6 +2107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaperBook
       objectReference: {fileID: 0}
+    - target: {fileID: 7495447678766047398, guid: b55ddc1d72676ab4797ca10abb7694fc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Notebook
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2076,6 +2124,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 4435180354907944888}
+    - targetCorrespondingSourceObject: {fileID: 7495447678766047398, guid: b55ddc1d72676ab4797ca10abb7694fc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6254622945757913449}
   m_SourcePrefab: {fileID: 100100000, guid: b55ddc1d72676ab4797ca10abb7694fc, type: 3}
 --- !u!4 &3479955339616383191 stripped
 Transform:
@@ -2108,6 +2160,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NoteBookAnimator: {fileID: 8288947597321996124}
+--- !u!65 &6254622945757913449
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4453236621442920788}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.48964393, y: 2.2243624, z: 1.0598869}
+  m_Center: {x: -0.42278516, y: 6.257572, z: 16.777712}
 --- !u!95 &8288947597321996124 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2792371420377208494, guid: b55ddc1d72676ab4797ca10abb7694fc,
