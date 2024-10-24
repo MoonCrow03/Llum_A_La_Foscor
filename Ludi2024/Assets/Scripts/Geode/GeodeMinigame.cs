@@ -18,7 +18,7 @@ public class GeodeMinigame : MonoBehaviour
     [SerializeField] private int m_PointsToWin = 3;
 
     [Header("Scene Settings")]
-    [SerializeField] private string m_WorldScene;
+    [SerializeField] private Scenes m_WorldScene;
     [SerializeField] private Scenes m_LevelCompleted;
 
     private int m_CurrentStrikes;
@@ -60,8 +60,8 @@ public class GeodeMinigame : MonoBehaviour
     private void WinGame()
     {
         Debug.Log("Geode minigame completed!");
-        GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
-        BasicSceneChanger.ChangeScene(m_WorldScene);
+        m_TimeLimit.StopTimer();
+        GameEvents.TriggerSetEndgameMessage("Felicitats!", true);
     }
 
     private void LoseGame()
@@ -70,7 +70,8 @@ public class GeodeMinigame : MonoBehaviour
 
         if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
-        BasicSceneChanger.ChangeScene(m_WorldScene);
+
+        GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
     }
 
     private void OnEnable()

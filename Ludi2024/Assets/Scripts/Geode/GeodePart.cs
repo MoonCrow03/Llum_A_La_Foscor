@@ -25,11 +25,15 @@ public class GeodePart : MonoBehaviour
 
     private ParticleSystem m_Particles;
 
+    private MeshRenderer m_MeshRenderer;
+
     public static Action OnStrike;
     public static Action OnHit;
 
     private void Start()
     {
+        m_MeshRenderer = GetComponent<MeshRenderer>();
+
         GameObject l_particles = Instantiate(m_KeyPointType == KeyPointType.Real ? m_RealParticlesPrefab : m_FakeParticlesPrefab,
             transform.position, transform.rotation, transform);
 
@@ -43,7 +47,7 @@ public class GeodePart : MonoBehaviour
             OnHit?.Invoke();
             m_Particles.Stop();
             StartCoroutine(AnimateGeode());
-            Destroy(gameObject);
+            m_MeshRenderer.enabled = false;
         }
 
         if (m_KeyPointType == KeyPointType.Fake)
