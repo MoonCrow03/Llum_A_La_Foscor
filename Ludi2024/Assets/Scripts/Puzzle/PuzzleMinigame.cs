@@ -19,10 +19,6 @@ public class PuzzleMinigame : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private int m_PieceCounter;
     [SerializeField] private int m_PuzzleSize;
-    
-    [Header("Scene Settings")]
-    [SerializeField] private string m_WorldScene;
-    [SerializeField] private Scenes m_LevelCompleted;
 
     private TimeLimit m_TimeLimit;
     private bool m_IsGameCompleted;
@@ -60,8 +56,8 @@ public class PuzzleMinigame : MonoBehaviour
         Debug.Log("Puzzle completed!");
         if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
-        GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
-        BasicSceneChanger.ChangeScene(m_WorldScene);
+        
+        GameEvents.TriggerSetEndgameMessage("Trencaclosques completat!", true);
     }
 
     private void RegisterCorrectPiece()
@@ -81,7 +77,7 @@ public class PuzzleMinigame : MonoBehaviour
     {
         Debug.Log("Ran out of time!");
         m_TimeLimit.StopTimer();
-        BasicSceneChanger.ChangeScene(m_WorldScene);
+        GameEvents.TriggerSetEndgameMessage("T'has quedat!", false);
     }
 
     private void OnEnable()
