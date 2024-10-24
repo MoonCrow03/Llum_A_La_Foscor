@@ -11,6 +11,7 @@ namespace MakeWordsMinigame
 {
     public class MakeWordsMinigameScript : MonoBehaviour
     {
+        
         [Header("Word List")] 
         [SerializeField] private List<string> listOfWords;
         [SerializeField] private GameObject letterPrefab;
@@ -18,14 +19,14 @@ namespace MakeWordsMinigame
         [SerializeField] private Transform letterParent;
         [SerializeField] private Transform slotsParent;
         [SerializeField] private int extraLetters;
-        
-        [Header("Scene Settings")]
-        [SerializeField] private string worldScene;
-        [SerializeField] private Scenes levelCompleted;
+
+        [Header("Timer Settings")] 
+        [SerializeField] private float time;
         
         private List<char> availableLetters;
         private string selectedWord;
         private int numberOfLetters;
+        private TimeLimit timeLimit;
 
         private static readonly List<char> vowels = new List<char> {'a', 'e', 'i', 'o', 'u'};
         private static readonly List<char> consonants = new List<char> {'b', 'c', 'ç', 'd', 'f', 'g', 'h', 'j', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v'};
@@ -34,6 +35,10 @@ namespace MakeWordsMinigame
         // Start is called before the first frame update
         void Start()
         {
+            timeLimit = new TimeLimit(this);
+            timeLimit.StartTimer(time, OnGameFailed);
+            
+            
             availableLetters = new List<char>();
             GenerateRandomLetters();
             ResizeLayouts();
@@ -121,9 +126,14 @@ namespace MakeWordsMinigame
 
         private void OnWordCreated()
         {
-            Debug.Log("Word created!");
-            GameManager.Instance.SetMiniGameCompleted(levelCompleted);
-            BasicSceneChanger.ChangeScene("World Scene");
+            timeLimit.StopTimer();
+            GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
+        }
+
+        private void OnGameFailed()
+        {
+            timeLimit.StopTimer();
+            GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
         }
 
         private void ShuffleList(ref List<char> list)

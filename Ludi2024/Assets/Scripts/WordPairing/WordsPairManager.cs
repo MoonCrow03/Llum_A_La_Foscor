@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Utilities;
 
 public class WordsPairManager : MonoBehaviour
 {
@@ -9,13 +10,14 @@ public class WordsPairManager : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private List<WordsPair> m_WordsSetters;
-    
-    [Header("Scene Settings")]
-    [SerializeField] private string m_WorldScene;
-    [SerializeField] private Scenes m_LevelCompleted;
+
+    [Header("Time Settings")] 
+    [SerializeField] private float m_Time;
     
     
     private int m_CorrectPairCount;
+    private TimeLimit m_TimeLimit;
+    private bool m_IsGameCompleted = false;
 
     private void Awake()
     {
@@ -27,6 +29,8 @@ public class WordsPairManager : MonoBehaviour
 
     private void Start()
     {
+        m_TimeLimit = new TimeLimit(this);
+        m_TimeLimit.StartTimer(m_Time, EndGameFailed);
         m_CorrectPairCount = 0;
     }
 
@@ -57,8 +61,17 @@ public class WordsPairManager : MonoBehaviour
     {
         if(m_CorrectPairCount == m_WordsSetters.Count)
         {
+            m_IsGameCompleted = true;
             Debug.Log("Finished!");
-            GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
+            GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
+            //GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
         }
+    }
+    
+    private void EndGameFailed()
+    {
+        if (m_IsGameCompleted) return;
+        Debug.Log("Failed!");
+        GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
     }
 }

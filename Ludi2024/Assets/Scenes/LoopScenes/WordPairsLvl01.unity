@@ -1123,6 +1123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
         type: 3}
+      propertyPath: m_Time
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
       propertyPath: m_WordsSetters.Array.size
       value: 4
       objectReference: {fileID: 0}
