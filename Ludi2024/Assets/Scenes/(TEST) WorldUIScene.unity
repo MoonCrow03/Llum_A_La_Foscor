@@ -1928,7 +1928,22 @@ PrefabInstance:
     - target: {fileID: 5922199370601233844, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
       propertyPath: m_text
-      value: Prem E per obrir
+      value: Prem TAB per obrir
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922199370601233844, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922199370601233844, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 0.060159802
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922199370601233844, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 7796121421458688460, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
