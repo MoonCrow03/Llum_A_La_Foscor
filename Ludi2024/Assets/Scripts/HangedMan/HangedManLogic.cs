@@ -139,6 +139,9 @@ namespace HangedMan
             {
                 DisableLetterInteraction(letter.Key);
             }
+
+            EngameUI.TriggerSetEndgameMessage("Has perdut!", false);
+            EngameUI.TriggerEnableEndgamePanel(true);
         }
 
         private void GameWon()
@@ -148,7 +151,10 @@ namespace HangedMan
             {
                 DisableLetterInteraction(letter.Key);
             }
-            GameManager.Instance.SetMiniGameCompleted(levelCompleted);
+
+            EngameUI.TriggerSetEndgameMessage("Felicitats!", true);
+            EngameUI.TriggerEnableEndgamePanel(true);
+            //GameManager.Instance.SetMiniGameCompleted(levelCompleted);
         }
 
         private bool IsWordGuessed()

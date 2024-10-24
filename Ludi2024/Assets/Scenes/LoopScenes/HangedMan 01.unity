@@ -314,6 +314,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5923728060609490219, guid: a9701c9e0e5d43a4bb199b356b0724e0,
+        type: 3}
+      propertyPath: m_MiniGame
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283074399498482461, guid: a9701c9e0e5d43a4bb199b356b0724e0,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 500491278}
     - target: {fileID: 8896589714082016415, guid: a9701c9e0e5d43a4bb199b356b0724e0,
         type: 3}
       propertyPath: m_Name
@@ -757,6 +767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 5375649267646012682, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6510696627631011404, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -1004,6 +1019,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342683827839369146, guid: 1af5a30b80d9c4c4c891458befae482e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
