@@ -161,6 +161,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""F"",
+                    ""type"": ""Button"",
+                    ""id"": ""1686c7e7-2ef3-4fff-9809-ebedb6c20ab2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -372,6 +381,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Tab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce7038f0-02f0-46fe-b23d-7f13753df17b"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""F"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -395,6 +415,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Main_Tab = m_Main.FindAction("Tab", throwIfNotFound: true);
         m_Main_E = m_Main.FindAction("E", throwIfNotFound: true);
         m_Main_Q = m_Main.FindAction("Q", throwIfNotFound: true);
+        m_Main_F = m_Main.FindAction("F", throwIfNotFound: true);
     }
 
     ~@InputActions()
@@ -476,6 +497,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Tab;
     private readonly InputAction m_Main_E;
     private readonly InputAction m_Main_Q;
+    private readonly InputAction m_Main_F;
     public struct MainActions
     {
         private @InputActions m_Wrapper;
@@ -495,6 +517,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Tab => m_Wrapper.m_Main_Tab;
         public InputAction @E => m_Wrapper.m_Main_E;
         public InputAction @Q => m_Wrapper.m_Main_Q;
+        public InputAction @F => m_Wrapper.m_Main_F;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -549,6 +572,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Q.started += instance.OnQ;
             @Q.performed += instance.OnQ;
             @Q.canceled += instance.OnQ;
+            @F.started += instance.OnF;
+            @F.performed += instance.OnF;
+            @F.canceled += instance.OnF;
         }
 
         private void UnregisterCallbacks(IMainActions instance)
@@ -598,6 +624,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Q.started -= instance.OnQ;
             @Q.performed -= instance.OnQ;
             @Q.canceled -= instance.OnQ;
+            @F.started -= instance.OnF;
+            @F.performed -= instance.OnF;
+            @F.canceled -= instance.OnF;
         }
 
         public void RemoveCallbacks(IMainActions instance)
@@ -632,5 +661,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnTab(InputAction.CallbackContext context);
         void OnE(InputAction.CallbackContext context);
         void OnQ(InputAction.CallbackContext context);
+        void OnF(InputAction.CallbackContext context);
     }
 }

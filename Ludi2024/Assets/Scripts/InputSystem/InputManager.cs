@@ -20,7 +20,7 @@ public class InputManager : MonoBehaviour
 
     public ButtonInputHandler Backspace;
 
-    public ButtonInputHandler Q, E;
+    public ButtonInputHandler Q, E,F;
     
     public Vector2 MovementInput { private set; get; }
     public Vector2 MousePosition { private set; get; }
@@ -70,6 +70,7 @@ public class InputManager : MonoBehaviour
 
         Q = new ButtonInputHandler(_actions.Main.Q);
         E = new ButtonInputHandler(_actions.Main.E);
+        F = new ButtonInputHandler(_actions.Main.F);
     }
 }
 
