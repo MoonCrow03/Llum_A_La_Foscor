@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f798416db400430a8922c470b8a785eb, type: 3}
+  m_Name: GeodeTutorial
+  m_EditorClassIdentifier: 
+  tutorialText: "Ens han informat que a l'interior d'aquesta geoda es troba alguna
+    cosa que ens pot donar informaci\xF3 valuosa.\r\n Tracta d'obrir la geoda per
+    descobrir que amaga, per fer-ho nom\xE9s haur\xE0s de fer pressi\xF3 en els punts
+    que ressalten.\r\n Aix\xF2 s\xED, haur\xE0s d'anar amb compte, hi ha alguns punts
+    molt delicats, si interactues amb aquest, \xE9s possible que la geoda es trenqui,
+    perdent el seu contingut."
