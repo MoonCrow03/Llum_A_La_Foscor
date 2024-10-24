@@ -11,10 +11,12 @@ public class EngameUI : MonoBehaviour
     [SerializeField] private Scenes m_MiniGame;
     [SerializeField] private Scenes m_World;
 
+    private Animation m_Animation;
     private bool m_GameWon;
 
     private void Start()
     {
+        m_Animation = GetComponent<Animation>();
         EnableEndgamePanel(false);
     }
 
@@ -35,6 +37,11 @@ public class EngameUI : MonoBehaviour
 
     private void SetMessage(string p_message, bool p_won)
     {
+        if (m_Animation != null)
+        {
+            m_Animation.Play();
+        }
+
         m_Message.text = p_message;
         m_GameWon = p_won;
 
