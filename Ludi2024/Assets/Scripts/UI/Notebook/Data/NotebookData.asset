@@ -13,24 +13,27 @@ MonoBehaviour:
   m_Name: NotebookData
   m_EditorClassIdentifier: 
   Notes:
-  - Key: 2
-    Content: Hi
-    IsCompleted: 0
   - Key: 4
-    Content: 
-    IsCompleted: 0
+    Content: Tendeixen a portar un mirall o una pinta daurada
+    IsCompleted: 1
   - Key: 6
-    Content: 
-    IsCompleted: 0
+    Content: "Se les veu amb m\xE9s facilitat la nit de Sant Joan"
+    IsCompleted: 1
   - Key: 8
-    Content: 
-    IsCompleted: 0
+    Content: Donen riquesa als seus enamorats
+    IsCompleted: 1
   - Key: 10
-    Content: 
-    IsCompleted: 0
+    Content: "Nom\xE9s se les pot veure d'amagat, si et veuen tractaran d'escapar "
+    IsCompleted: 1
   - Key: 12
-    Content: 
-    IsCompleted: 0
+    Content: "S\xF3n dones atractives que s\xF3n vistes prop de fonts d'aigua com
+      rius"
+    IsCompleted: 1
   - Key: 14
-    Content: 
-    IsCompleted: 0
+    Content: Al riu de Mirmanda, La Cantarana, es troben construccions de pissarra
+      relacionades amb estructures de les fades
+    IsCompleted: 1
+  - Key: 2
+    Content: "S\xF3n dones atractives que s\xF3n vistes prop de fonts d'aigua com
+      rius"
+    IsCompleted: 1
