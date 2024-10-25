@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 using Utilities;
@@ -33,13 +34,21 @@ namespace Wordle
         private TextMeshProUGUI timeLeft;
         [SerializeField] private Scenes levelCompleted;
         
+        [Header("Audio")]
+        public EventReference AudioEventWin;
+        public EventReference AudioEventLose;
+        
         
         private Row[] rows;
         private string[] validWords;
         private string solutionWord;
         private int rowIndex;
         private int columnIndex;
+        
         private TimeLimit timeLimit;
+        
+        private FMOD.Studio.EventInstance AudioInstanceWin;
+        private FMOD.Studio.EventInstance AudioInstanceLose;
 
         
         private static readonly string[] SEPARATOR = new string[] { "\r\n", "\r", "\n" };
@@ -64,6 +73,8 @@ namespace Wordle
 
         private void Start()
         {
+            AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
+            AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
             timeLimit = new TimeLimit(this);
             timeLimit.StartTimer(timeToBeat, EndGameFailed);
             LoadWordsFromTxt();
@@ -208,6 +219,7 @@ namespace Wordle
             if (CheckWordGuessed(ref row))
             {
                 GameManager.Instance.SetMiniGameCompleted(levelCompleted);
+                AudioInstanceWin.start();
                 GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
             }
             
@@ -217,6 +229,7 @@ namespace Wordle
             if (rowIndex >= rows.Length)
             {
                 enabled = false;
+                AudioInstanceLose.start();
                 GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
             }
         }
@@ -239,6 +252,7 @@ namespace Wordle
         
         private void EndGameFailed()
         {
+            AudioInstanceLose.start();
             GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
         }
 
@@ -287,6 +301,12 @@ namespace Wordle
             {
                 SubmitRow(currentRow);
             }
+        }
+
+        private void OnDestroy()
+        {
+            AudioInstanceWin.release();
+            AudioInstanceLose.release();
         }
     }
 }

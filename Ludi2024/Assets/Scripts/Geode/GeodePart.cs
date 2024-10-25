@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -22,6 +23,9 @@ public class GeodePart : MonoBehaviour
     [Header("Components")]
     [SerializeField] private GameObject m_RealParticlesPrefab;
     [SerializeField] private GameObject m_FakeParticlesPrefab;
+
+    
+    
 
     private ParticleSystem m_Particles;
 
@@ -56,6 +60,7 @@ public class GeodePart : MonoBehaviour
             StartCoroutine(Vibrate());
         }
     }
+
 
     private IEnumerator AnimateGeode()
     {

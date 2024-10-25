@@ -25,7 +25,7 @@ public class PuzzleMinigame : MonoBehaviour
 
     private TimeLimit m_TimeLimit;
     private bool m_IsGameCompleted;
-
+    
     private void Start()
     {
         SetPlayablePieces();

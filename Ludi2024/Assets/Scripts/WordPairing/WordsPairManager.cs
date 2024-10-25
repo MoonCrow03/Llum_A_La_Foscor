@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using FMODUnity;
 using UnityEngine;
 using Utilities;
 
@@ -17,10 +19,17 @@ public class WordsPairManager : MonoBehaviour
     [Header("Scene Settings")]
     [SerializeField] private Scenes m_LevelCompleted;
     
+    [Header("Audio")]
+    public EventReference m_AudioEventWin;
+    public EventReference m_AudioEventLose;
+    
     
     private int m_CorrectPairCount;
     private TimeLimit m_TimeLimit;
     private bool m_IsGameCompleted = false;
+    
+    private FMOD.Studio.EventInstance m_AudioInstanceWin;
+    private FMOD.Studio.EventInstance m_AudioInstanceLose;
 
     private void Awake()
     {
@@ -32,6 +41,9 @@ public class WordsPairManager : MonoBehaviour
 
     private void Start()
     {
+        m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
+        m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
+        
         m_TimeLimit = new TimeLimit(this);
         m_TimeLimit.StartTimer(m_Time, EndGameFailed);
         m_CorrectPairCount = 0;
@@ -65,9 +77,9 @@ public class WordsPairManager : MonoBehaviour
         if(m_CorrectPairCount >= m_WordsSetters.Count)
         {
             m_IsGameCompleted = true;
-            Debug.Log("Finished!");
-            GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
+            m_AudioInstanceWin.start();
             GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
+            GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
         }
     }
     
@@ -75,6 +87,13 @@ public class WordsPairManager : MonoBehaviour
     {
         if (m_IsGameCompleted) return;
         Debug.Log("Failed!");
+        m_AudioInstanceLose.start();
         GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
+    }
+
+    private void OnDestroy()
+    {
+        m_AudioInstanceWin.release();
+        m_AudioInstanceLose.release();
     }
 }

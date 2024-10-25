@@ -838,6 +838,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
         type: 3}
+      propertyPath: AudioEventWin.Path
+      value: event:/Success
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
+      propertyPath: AudioEventLose.Path
+      value: event:/Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
+      propertyPath: AudioEventWin.Guid.Data1
+      value: -1779214306
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
+      propertyPath: AudioEventWin.Guid.Data2
+      value: 1083828906
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
+      propertyPath: AudioEventWin.Guid.Data3
+      value: 161118593
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
+      propertyPath: AudioEventWin.Guid.Data4
+      value: 1583326310
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
+      propertyPath: AudioEventLose.Guid.Data1
+      value: 802803812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
+      propertyPath: AudioEventLose.Guid.Data2
+      value: 1248482276
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
+      propertyPath: AudioEventLose.Guid.Data3
+      value: -1723131512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
+      propertyPath: AudioEventLose.Guid.Data4
+      value: -1260990358
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
+        type: 3}
       propertyPath: listOfPossibleSolutions.Array.size
       value: 16
       objectReference: {fileID: 0}

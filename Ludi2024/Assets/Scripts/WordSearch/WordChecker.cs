@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using FMOD;
+using FMODUnity;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +13,11 @@ using Debug = UnityEngine.Debug;
 public class WordChecker : MonoBehaviour
 {
     [SerializeField] private BoardData m_BoardData;
+    [SerializeField] private Scenes m_Scene;
+    
+    [Header("Audio")]
+    public EventReference m_AudioEventWin;
+    public EventReference m_AudioEventLose;
 
     private string m_Word;
     private int m_AssignedPoints;
@@ -26,9 +32,15 @@ public class WordChecker : MonoBehaviour
 
     private Vector3 m_RayStartPosition;
     private List<int> m_CorrectSquareList;
+    
+    private FMOD.Studio.EventInstance m_AudioInstanceWin;
+    private FMOD.Studio.EventInstance m_AudioInstanceLose;
 
     private void Start()
     {
+        m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
+        m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
+        
         m_AssignedPoints = 0;
         m_CompletedWords = 0;
         m_CorrectSquareList = new List<int>();
@@ -199,6 +211,8 @@ public class WordChecker : MonoBehaviour
     {
         if (m_BoardData.m_SearchWords.Count == m_CompletedWords)
         {
+            GameManager.Instance.SetMiniGameCompleted(m_Scene);
+            m_AudioInstanceWin.start();
             GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
             Debug.Log("Game Ended!");
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -21,8 +22,11 @@ namespace HangedMan
         [SerializeField] private Transform letterFromGuessWordParent;
         
         [Header("Scenes")]
-        [SerializeField] private string worldScene;
         [SerializeField] private Scenes levelCompleted;
+        
+        [Header("Audio")]
+        public EventReference AudioEventWin;
+        public EventReference AudioEventLose;
         
         private string wordToGuess;
         private Dictionary<char, bool> availableLetters;
@@ -34,6 +38,9 @@ namespace HangedMan
             'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
             'u', 'v', 'w', 'x', 'y', 'z' 
         };
+        
+        private FMOD.Studio.EventInstance AudioInstanceWin;
+        private FMOD.Studio.EventInstance AudioInstanceLose;
 
         private void Awake()
         {
@@ -43,6 +50,8 @@ namespace HangedMan
 
         private void Start()
         {
+            AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
+            AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
             SelectRandomWord();
             GenerateEmptyLetters();
             GenerateLetters();
@@ -133,26 +142,25 @@ namespace HangedMan
 
         private void GameFailed()
         {
-            Debug.Log("Failed! The word was: " + wordToGuess);
 
             foreach (var letter in availableLetters)
             {
                 DisableLetterInteraction(letter.Key);
             }
-
+            
+            AudioInstanceLose.start();
             GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
         }
 
         private void GameWon()
         {
-            Debug.Log("Hangman completed! The word was: " + wordToGuess);
             foreach (var letter in availableLetters)
             {
                 DisableLetterInteraction(letter.Key);
             }
-
+            AudioInstanceWin.start();
+            GameManager.Instance.SetMiniGameCompleted(levelCompleted);
             GameEvents.TriggerSetEndgameMessage("Felicitats!", true);
-            //GameManager.Instance.SetMiniGameCompleted(levelCompleted);
         }
 
         private bool IsWordGuessed()
@@ -166,6 +174,12 @@ namespace HangedMan
             }
 
             return true;
+        }
+
+        private void OnDestroy()
+        {
+            AudioInstanceWin.release();
+            AudioInstanceLose.release();
         }
     }
 }

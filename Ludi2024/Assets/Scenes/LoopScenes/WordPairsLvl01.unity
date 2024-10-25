@@ -1133,8 +1133,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
         type: 3}
+      propertyPath: m_AudioEventWin.Path
+      value: event:/Success
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_AudioEventLose.Path
+      value: event:/Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
       propertyPath: m_WordsSetters.Array.size
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data1
+      value: -1779214306
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data2
+      value: 1083828906
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data3
+      value: 161118593
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data4
+      value: 1583326310
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data1
+      value: 802803812
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data2
+      value: 1248482276
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data3
+      value: -1723131512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data4
+      value: -1260990358
       objectReference: {fileID: 0}
     - target: {fileID: 3585829743546811089, guid: a10573bfea6227040ace69cb984ac9c8,
         type: 3}

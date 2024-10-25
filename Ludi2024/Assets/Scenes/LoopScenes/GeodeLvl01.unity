@@ -461,8 +461,28 @@ MonoBehaviour:
   m_Time: 50
   m_MaxStrikes: 1
   m_PointsToWin: 2
-  m_WorldScene: 0
-  m_LevelCompleted: 0
+  m_LevelCompleted: 4
+  AudioEvent:
+    Guid:
+      Data1: 998357901
+      Data2: 1337431273
+      Data3: 719369658
+      Data4: -1883301981
+    Path: event:/GeodeBreaks
+  AudioEventWin:
+    Guid:
+      Data1: -1779214306
+      Data2: 1083828906
+      Data3: 161118593
+      Data4: 1583326310
+    Path: event:/Success
+  AudioEventLose:
+    Guid:
+      Data1: 802803812
+      Data2: 1248482276
+      Data3: -1723131512
+      Data4: -1260990358
+    Path: event:/Lose
 --- !u!1001 &961471411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -762,6 +782,7 @@ GameObject:
   - component: {fileID: 1556972425}
   - component: {fileID: 1556972424}
   - component: {fileID: 1556972427}
+  - component: {fileID: 1556972428}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -887,6 +908,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1556972428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556972423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1001 &1667384528
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,10 @@ namespace MakeWordsMinigame
         [Header("Scene Settings")]
         [SerializeField] private Scenes levelCompleted;
         
+        [Header("Audio")]
+        public EventReference AudioEventWin;
+        public EventReference AudioEventLose;
+        
         private List<char> availableLetters;
         private string selectedWord;
         private int numberOfLetters;
@@ -33,14 +38,17 @@ namespace MakeWordsMinigame
 
         private static readonly List<char> vowels = new List<char> {'a', 'e', 'i', 'o', 'u'};
         private static readonly List<char> consonants = new List<char> {'b', 'c', 'ç', 'd', 'f', 'g', 'h', 'j', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v'};
-    
-
+        
+        private FMOD.Studio.EventInstance AudioInstanceWin;
+        private FMOD.Studio.EventInstance AudioInstanceLose;
+        
         // Start is called before the first frame update
         void Start()
         {
             timeLimit = new TimeLimit(this);
             timeLimit.StartTimer(time, OnGameFailed);
-            
+            AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
+            AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
             
             availableLetters = new List<char>();
             GenerateRandomLetters();
@@ -130,6 +138,7 @@ namespace MakeWordsMinigame
         private void OnWordCreated()
         {
             timeLimit.StopTimer();
+            AudioInstanceWin.start();
             GameManager.Instance.SetMiniGameCompleted(levelCompleted);
             GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
         }
@@ -137,6 +146,7 @@ namespace MakeWordsMinigame
         private void OnGameFailed()
         {
             timeLimit.StopTimer();
+            AudioInstanceLose.start();
             GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
         }
 
@@ -174,6 +184,12 @@ namespace MakeWordsMinigame
             // Set both the width and height of each slot to the calculated size to make them squares
             slotGridLayout.cellSize = new Vector2(slotSize, slotSize);
             letterGridLayout.cellSize = new Vector2(slotSize, slotSize);
+        }
+
+        private void OnDestroy()
+        {
+            AudioInstanceWin.release();
+            AudioInstanceLose.release();
         }
     }
 }
