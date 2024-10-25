@@ -62,7 +62,7 @@ public class WordsPairManager : MonoBehaviour
 
     private void EndGame()
     {
-        if(m_CorrectPairCount == m_WordsSetters.Count)
+        if(m_CorrectPairCount >= m_WordsSetters.Count)
         {
             m_IsGameCompleted = true;
             Debug.Log("Finished!");
