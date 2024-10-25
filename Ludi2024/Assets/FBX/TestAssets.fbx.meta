@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Puzzle1
+    second: {fileID: 2100000, guid: a1dd456976fed0d4ea5d26d525c23648, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Tabla_Miramanda
     second: {fileID: 2100000, guid: 7376773af7bafe94291e2c586dada726, type: 2}
   materials:
