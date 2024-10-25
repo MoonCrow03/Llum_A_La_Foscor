@@ -693,6 +693,7 @@ MonoBehaviour:
   slotsParent: {fileID: 2098700375}
   extraLetters: 1
   time: 5
+  levelCompleted: 8
 --- !u!4 &1286561291
 Transform:
   m_ObjectHideFlags: 0
