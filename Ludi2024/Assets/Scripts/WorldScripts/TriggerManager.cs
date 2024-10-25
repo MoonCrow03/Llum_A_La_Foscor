@@ -15,10 +15,12 @@ namespace WorldScripts
             {
                 if (GameManager.Instance.IsMiniGameCompleted(trigger.sceneToLoad))
                 {
+                    trigger.gameObject.SetActive(false);
                     continue;
                 }
                 Transform spawnLocation = trigger.spawnLocations[Random.Range(0, trigger.spawnLocations.Count)];
-                Instantiate(trigger, spawnLocation.position, Quaternion.identity);
+                trigger.transform.position = spawnLocation.position;
+                trigger.transform.rotation = spawnLocation.rotation;
             }
         }
 
