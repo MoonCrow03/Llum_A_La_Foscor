@@ -147,12 +147,12 @@ public class NotebookUI : MonoBehaviour
 
     private void AddBulletPoint(string p_text)
     {
-        m_BulletPointTexts.Add(p_text);
-
-        foreach (var bp in m_BulletPoints.Where(bp => bp.IsEmpty()))
+        for (int i = 0; i < m_BulletPointTexts.Count; i++)
         {
-            bp.SetText(p_text);
-            break;
+            if (m_BulletPointTexts[i].Equals(""))
+            {
+                m_BulletPointTexts[i] = p_text;
+            }
         }
     }
 
