@@ -200,7 +200,6 @@ public class WordChecker : MonoBehaviour
         if (m_BoardData.m_SearchWords.Count == m_CompletedWords)
         {
             GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
-            //GameManager.Instance.SetMiniGameCompleted(); TODO: Setear la escena de completed aqui
             Debug.Log("Game Ended!");
         }
     }
