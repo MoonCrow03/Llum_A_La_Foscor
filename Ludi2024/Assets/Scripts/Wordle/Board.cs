@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using Utilities;
 using Random = UnityEngine.Random;
 
 namespace Wordle
 {
     public class Board : MonoBehaviour
     {
-        [Header("Word Settings")]
+        [Header("Wordle Settings")]
         public List<string> listOfPossibleSolutions = new List<string>();
+        [SerializeField] private float timeToBeat;
         
         [NonSerialized] public int WordLength;
 
@@ -24,8 +27,10 @@ namespace Wordle
         public Tile.TileStates CorrectState;
         public Tile.TileStates WrongSpot;
         public Tile.TileStates IncorrectState;
+        
 
-        [Header("Scene Settings")] 
+        [Header("Scene Settings")] [SerializeField]
+        private TextMeshProUGUI timeLeft;
         [SerializeField] private string sceneName;
         [SerializeField] private Scenes levelCompleted;
         
@@ -35,7 +40,7 @@ namespace Wordle
         private string solutionWord;
         private int rowIndex;
         private int columnIndex;
-        
+        private TimeLimit timeLimit;
 
         
         private static readonly string[] SEPARATOR = new string[] { "\r\n", "\r", "\n" };
@@ -60,6 +65,8 @@ namespace Wordle
 
         private void Start()
         {
+            timeLimit = new TimeLimit(this);
+            timeLimit.StartTimer(timeToBeat, EndGameFailed);
             LoadWordsFromTxt();
         }
 
@@ -112,6 +119,14 @@ namespace Wordle
         private void Update()
         {
             Row currentRow = rows[rowIndex];
+            
+            TimeSpan timeSpan = TimeSpan.FromSeconds(timeLimit.GetTimeRemaining());
+            timeLeft.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
+            
+            if (timeLeft.text == "00:00")
+            {
+               timeLeft.text = "00:00";
+            }
             
             if (InputManager.Instance.Backspace.Tap)
             {
@@ -220,6 +235,11 @@ namespace Wordle
             {
                 letterTile.SetTextToWhite();
             }
+        }
+        
+        private void EndGameFailed()
+        {
+            GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
         }
 
         private bool IsValidWord(string word)
