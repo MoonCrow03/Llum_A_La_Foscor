@@ -17,6 +17,9 @@ public class GenerateLetters : MonoBehaviour
         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
     };
 
+    public static Dictionary<char,LetterTile> LetterTiles = new Dictionary<char, LetterTile>();
+    
+    
     private void Start()
     {
         GenerateLetter();
@@ -28,6 +31,7 @@ public class GenerateLetters : MonoBehaviour
         {
             var letterTile = Instantiate(LetterPrefab, LetterParent).GetComponent<LetterTile>();
             letterTile.Letter = char.ToLower(letter);
+            LetterTiles[char.ToLower(letter)] = letterTile;
         }
         var backspaceTile = Instantiate(BackspacePrefab, LetterParent).GetComponent<BackspaceTile>();
         backspaceTile.BackspaceChar = "Back";

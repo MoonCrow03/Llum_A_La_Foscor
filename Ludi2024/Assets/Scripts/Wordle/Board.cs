@@ -155,12 +155,15 @@ namespace Wordle
                 if (tile.Letter == solutionWord[i])
                 {
                     tile.SetTileState(CorrectState);
+                    UpdateLetterTileColor(tile.Letter, CorrectState);
                     remaining = remaining.Remove(1, 1);
                     remaining = remaining.Insert(1, " ");
                 }
                 else if (!solutionWord.Contains(tile.Letter))
                 {
                     tile.SetTileState(IncorrectState);
+                    UpdateLetterTileColor(tile.Letter, IncorrectState);
+                    UpdateLetterTextToWhite(tile.Letter);
                 }
             }
 
@@ -173,6 +176,7 @@ namespace Wordle
                     if (remaining.Contains(tile.Letter))
                     {
                         tile.SetTileState(WrongSpot);
+                        UpdateLetterTileColor(tile.Letter, WrongSpot);
                         
                         int index = remaining.IndexOf(tile.Letter);
                         remaining = remaining.Remove(index, 1);
@@ -181,6 +185,8 @@ namespace Wordle
                     else
                     {
                         tile.SetTileState(IncorrectState);
+                        UpdateLetterTileColor(tile.Letter, IncorrectState);
+                        UpdateLetterTextToWhite(tile.Letter);
                     }
                 }
             }
@@ -197,6 +203,22 @@ namespace Wordle
             {
                 enabled = false;
                 GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
+            }
+        }
+
+        private void UpdateLetterTileColor(char tileLetter, Tile.TileStates correctState)
+        {
+            if (GenerateLetters.LetterTiles.TryGetValue(tileLetter, out var letterTile))
+            {
+                letterTile.SetTileState(correctState);
+            }
+        }
+        
+        private void UpdateLetterTextToWhite(char tileLetter)
+        {
+            if (GenerateLetters.LetterTiles.TryGetValue(tileLetter, out var letterTile))
+            {
+                letterTile.SetTextToWhite();
             }
         }
 
