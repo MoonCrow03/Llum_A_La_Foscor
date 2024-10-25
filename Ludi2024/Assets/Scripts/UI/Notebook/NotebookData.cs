@@ -29,5 +29,6 @@ public class NotebookData : ScriptableObject
     public void SetNoteCompleted(Scenes p_scene)
     {
         Notes.Find(l_note => l_note.Key == p_scene).IsCompleted = true;
+        Notes.Sort((note1, note2) => note2.IsCompleted.CompareTo(note1.IsCompleted));
     }
 }
