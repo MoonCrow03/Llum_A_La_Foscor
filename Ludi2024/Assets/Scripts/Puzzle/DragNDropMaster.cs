@@ -31,6 +31,8 @@ public class DragNDropMaster : MonoBehaviour
                     m_SelectedObject = hit.collider.gameObject.transform;
                     m_PuzzlePiece = m_SelectedObject.GetComponent<PuzzlePiece>();
 
+                    // TODO: Audio feedback when picking up a piece
+
                     if (!m_PuzzlePiece.CanDrag())
                     {
                         m_PuzzlePiece = null;
@@ -58,6 +60,8 @@ public class DragNDropMaster : MonoBehaviour
                     m_SelectedObject.rotation.eulerAngles.x + m_RotationAngle.x,
                     m_SelectedObject.rotation.eulerAngles.y + m_RotationAngle.y,
                     m_SelectedObject.rotation.eulerAngles.z + m_RotationAngle.z));
+
+                // TODO: Audio feedback when rotating a piece
             }
         }
 
