@@ -43,12 +43,9 @@ public class NotebookUI : MonoBehaviour
 
         NotebookData l_notebookData = GameManager.Instance.GetNotebookData();
 
-        foreach (var t_note in l_notebookData.Notes)
+        foreach (var t_note in l_notebookData.Notes.Where(t_note => t_note.IsCompleted))
         {
-            if (t_note.IsCompleted)
-            {
-                AddBulletPoint(t_note.Content);
-            }
+            AddBulletPoint(t_note.Content);
         }
     }
 
