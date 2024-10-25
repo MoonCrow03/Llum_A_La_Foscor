@@ -37,14 +37,14 @@ public class GameEvents
         }
     }
 
-    public delegate void AddBulletPoint(string p_text);
-    public static event AddBulletPoint OnAddBulletPoint;
+    public delegate void SetMiniGameCompleted(Scenes p_minigameName);
+    public static event SetMiniGameCompleted OnSetMiniGameCompleted;
 
-    public static void TriggerAddBulletPoint(string p_text)
+    public static void TriggerSetMiniGameCompleted(Scenes p_minigameName)
     {
-        if (OnAddBulletPoint != null)
+        if (OnSetMiniGameCompleted != null)
         {
-            OnAddBulletPoint(p_text);
+            OnSetMiniGameCompleted(p_minigameName);
         }
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,14 +10,11 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance => _instance;
 
+    [SerializeField] private NotebookData m_NotebookData;
+
     private static Dictionary<Scenes, bool> miniGamesCompleted = new Dictionary<Scenes, bool>();
     
     public static Dictionary<Scenes, bool> MiniGamesCompleted => miniGamesCompleted;
-
-    private bool m_CanPlayerMove;
-
-    //TODO: Crear enum para trackear que minijuegos de cada nivel se han completado
-
 
     private void Awake()
     {
@@ -32,14 +30,9 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    public ref NotebookData GetNotebookData()
     {
-        m_CanPlayerMove = false;
-    }
-
-    private void Update()
-    {
-
+        return ref m_NotebookData;
     }
 
     public void LoadScene(Scenes p_scene)
@@ -47,16 +40,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(p_scene.ToString());
     }
     
-    public void SetMiniGameCompleted(Scenes minigameName)
+    public void SetMiniGameCompleted(Scenes p_scene)
     {
-        if (!miniGamesCompleted.TryAdd(minigameName, true))
-        {
-            miniGamesCompleted.Add(minigameName, true);
-        }
+        m_NotebookData.SetNoteCompleted(p_scene);
     }
     
-    public bool IsMiniGameCompleted(Scenes minigameName)
+    public bool IsMiniGameCompleted(Scenes p_scene)
     {
-        return miniGamesCompleted.ContainsKey(minigameName) && miniGamesCompleted[minigameName];
+        return m_NotebookData.IsNoteCompleted(p_scene);
     }
 }

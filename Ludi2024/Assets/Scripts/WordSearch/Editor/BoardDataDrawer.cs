@@ -120,14 +120,14 @@ public class BoardDataDrawer : Editor
         EditorGUILayout.EndHorizontal();
     }
 
-    private void InitializeReorderableList(ref ReorderableList p_list, string p_propertyName, string p_listLable)
+    private void InitializeReorderableList(ref ReorderableList p_list, string p_propertyName, string p_listLabel)
     {
         p_list = new ReorderableList(serializedObject, serializedObject.FindProperty(p_propertyName),
             true, true, true, true);
 
         p_list.drawHeaderCallback = (Rect rect) =>
         {
-            EditorGUI.LabelField(rect, p_listLable);
+            EditorGUI.LabelField(rect, p_listLabel);
         };
 
         var l = p_list;

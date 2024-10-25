@@ -40,6 +40,16 @@ public class NotebookUI : MonoBehaviour
 
         m_CurrentIndex = 0;
         m_IsNoteBookEnabled = false;
+
+        NotebookData l_notebookData = GameManager.Instance.GetNotebookData();
+
+        foreach (var t_note in l_notebookData.Notes)
+        {
+            if (t_note.IsCompleted)
+            {
+                AddBulletPoint(t_note.Content);
+            }
+        }
     }
 
     private void Update()
@@ -66,13 +76,11 @@ public class NotebookUI : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEvents.OnAddBulletPoint += AddBulletPoint;
         GameEvents.OnEnableNotebook += OnEnableNoteBook;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnAddBulletPoint -= AddBulletPoint;
         GameEvents.OnEnableNotebook -= OnEnableNoteBook;
     }
 
@@ -151,7 +159,7 @@ public class NotebookUI : MonoBehaviour
         }
     }
 
-    public void NextPage()
+    private void NextPage()
     {
         if(m_BulletPointTexts.Count <= m_MaxBPForPage) return;
 
@@ -163,7 +171,7 @@ public class NotebookUI : MonoBehaviour
         PassPage();
     }
 
-    public void PreviousPage()
+    private void PreviousPage()
     {
         if (m_BulletPointTexts.Count <= m_MaxBPForPage) return;
 
