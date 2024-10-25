@@ -1845,8 +1845,7 @@ MonoBehaviour:
   m_BulletPointPrefab: {fileID: 2664275855400666531, guid: fbacaf9bf017fcc48a602834094b3ee9,
     type: 3}
   m_Animator: {fileID: 8288947597321996124}
-  m_MaxBPForPage: 4
-  m_NumBulletPoints: 6
+  m_MaxBPForPage: 2
 --- !u!1001 &3746296331987622743
 PrefabInstance:
   m_ObjectHideFlags: 0

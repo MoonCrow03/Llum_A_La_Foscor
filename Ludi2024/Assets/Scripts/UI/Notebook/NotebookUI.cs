@@ -13,12 +13,12 @@ public class NotebookUI : MonoBehaviour
     [SerializeField] private Animator m_Animator;
 
     [Header("Settings")]
-    [SerializeField] private int m_MaxBPForPage = 4;
-    [SerializeField] private int m_NumBulletPoints = 7;
+    [SerializeField] private int m_MaxBPForPage = 2;
 
     private List<BulletPoint> m_BulletPoints;
     private List<string> m_BulletPointTexts;
 
+    private int m_NumBulletPoints;
     private int m_CurrentIndex;
     private bool m_IsNoteBookEnabled;
 
@@ -26,6 +26,8 @@ public class NotebookUI : MonoBehaviour
     {
         m_BulletPoints = new List<BulletPoint>();
         m_BulletPointTexts = new List<string>();
+
+        m_NumBulletPoints = GameManager.Instance.GetNotebookData().Notes.Count;
 
         for (int i = 0; i < m_MaxBPForPage; i++)
         {
@@ -147,12 +149,11 @@ public class NotebookUI : MonoBehaviour
 
     private void AddBulletPoint(string p_text)
     {
-        for (int i = 0; i < m_BulletPointTexts.Count; i++)
+        int l_empty = m_BulletPointTexts.IndexOf("");
+
+        if (l_empty != -1)
         {
-            if (m_BulletPointTexts[i].Equals(""))
-            {
-                m_BulletPointTexts[i] = p_text;
-            }
+            m_BulletPointTexts[l_empty] = p_text;
         }
     }
 
