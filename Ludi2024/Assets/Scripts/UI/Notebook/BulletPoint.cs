@@ -11,12 +11,7 @@ public class BulletPoint : MonoBehaviour
     private void Awake()
     {
         m_Text = GetComponent<TextMeshProUGUI>();
-    }
-
-    private void Start()
-    {
         m_EmptyText = "- ";
-        m_Text.text = m_EmptyText;
     }
 
     public bool IsEmpty()

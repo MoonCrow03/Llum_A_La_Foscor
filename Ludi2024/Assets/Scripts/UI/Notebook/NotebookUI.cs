@@ -29,12 +29,6 @@ public class NotebookUI : MonoBehaviour
 
         m_NumBulletPoints = GameManager.Instance.GetNotebookData().Notes.Count;
 
-        for (int i = 0; i < m_MaxBPForPage; i++)
-        {
-            GameObject bulletPoint = Instantiate(m_BulletPointPrefab, m_BulletPointHolder.transform);
-            m_BulletPoints.Add(bulletPoint.GetComponent<BulletPoint>());
-        }
-
         for (int i = 0; i < m_NumBulletPoints; i++)
         {
             m_BulletPointTexts.Add(string.Empty);
@@ -48,6 +42,14 @@ public class NotebookUI : MonoBehaviour
         foreach (var t_note in l_notebookData.Notes.Where(t_note => t_note.IsCompleted))
         {
             AddBulletPoint(t_note.Content);
+        }
+
+        for (int i = 0; i < m_MaxBPForPage; i++)
+        {
+            GameObject l_gameObject = Instantiate(m_BulletPointPrefab, m_BulletPointHolder.transform);
+            BulletPoint l_bulletPoint = l_gameObject.GetComponent<BulletPoint>();
+            l_bulletPoint.SetText(m_BulletPointTexts[i]);
+            m_BulletPoints.Add(l_bulletPoint);
         }
     }
 
@@ -149,7 +151,7 @@ public class NotebookUI : MonoBehaviour
 
     private void AddBulletPoint(string p_text)
     {
-        int l_empty = m_BulletPointTexts.IndexOf("");
+        int l_empty = m_BulletPointTexts.IndexOf(string.Empty);
 
         if (l_empty != -1)
         {
