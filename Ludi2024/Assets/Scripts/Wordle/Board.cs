@@ -31,7 +31,6 @@ namespace Wordle
 
         [Header("Scene Settings")] [SerializeField]
         private TextMeshProUGUI timeLeft;
-        [SerializeField] private string sceneName;
         [SerializeField] private Scenes levelCompleted;
         
         
@@ -208,6 +207,7 @@ namespace Wordle
 
             if (CheckWordGuessed(ref row))
             {
+                GameManager.Instance.SetMiniGameCompleted(levelCompleted);
                 GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
             }
             

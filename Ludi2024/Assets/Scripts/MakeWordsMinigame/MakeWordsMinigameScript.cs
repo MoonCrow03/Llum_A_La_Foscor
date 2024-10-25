@@ -23,6 +23,9 @@ namespace MakeWordsMinigame
         [Header("Timer Settings")] 
         [SerializeField] private float time;
         
+        [Header("Scene Settings")]
+        [SerializeField] private Scenes levelCompleted;
+        
         private List<char> availableLetters;
         private string selectedWord;
         private int numberOfLetters;
@@ -127,6 +130,7 @@ namespace MakeWordsMinigame
         private void OnWordCreated()
         {
             timeLimit.StopTimer();
+            GameManager.Instance.SetMiniGameCompleted(levelCompleted);
             GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
         }
 

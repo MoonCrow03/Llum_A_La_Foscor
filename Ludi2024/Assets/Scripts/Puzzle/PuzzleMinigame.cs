@@ -19,6 +19,9 @@ public class PuzzleMinigame : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private int m_PieceCounter;
     [SerializeField] private int m_PuzzleSize;
+    
+    [Header("Scene Settings")]
+    [SerializeField] private Scenes m_LevelCompleted;
 
     private TimeLimit m_TimeLimit;
     private bool m_IsGameCompleted;
@@ -57,6 +60,7 @@ public class PuzzleMinigame : MonoBehaviour
         if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
         
+        GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
         GameEvents.TriggerSetEndgameMessage("Trencaclosques completat!", true);
     }
 

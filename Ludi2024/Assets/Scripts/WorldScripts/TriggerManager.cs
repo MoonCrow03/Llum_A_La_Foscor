@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace WorldScripts
 {
@@ -11,11 +13,18 @@ namespace WorldScripts
         {
             foreach (var trigger in triggers)
             {
+                if (GameManager.Instance.IsMiniGameCompleted(trigger.sceneToLoad))
+                {
+                    continue;
+                }
                 Transform spawnLocation = trigger.spawnLocations[Random.Range(0, trigger.spawnLocations.Count)];
                 Instantiate(trigger, spawnLocation.position, Quaternion.identity);
             }
         }
-        
-        
+
+        private void Start()
+        {
+            PlaceTriggers();
+        }
     }
 }
