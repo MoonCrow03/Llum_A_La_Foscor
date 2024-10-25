@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f798416db400430a8922c470b8a785eb, type: 3}
   m_Name: HangedManTutorial
   m_EditorClassIdentifier: 
-  tutorialText: "Sembla que haurem de desxifrar una paraula per continuar.\r\nAqu\xED
+  tutorialText: "Sembla que haurem de desxifrar una paraula per continuar.\r\n Aqu\xED
     pots veure el nombre de lletres que t\xE9 la paraula, haur\xE0s de seleccionar
     els car\xE0cters per descobrir si formen part d'aquesta o no.\n Per\xF2 pensa
     detingudament, si falles massa cops perdr\xE0s la partida."

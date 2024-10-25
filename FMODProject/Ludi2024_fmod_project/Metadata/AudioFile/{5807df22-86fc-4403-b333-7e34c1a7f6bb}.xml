@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5807df22-86fc-4403-b333-7e34c1a7f6bb}">
+		<property name="assetPath">
+			<value>loose.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.2392290249433104</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ee8cb5a-b855-44cd-a997-4ca341686b61}</destination>
+		</relationship>
+	</object>
+</objects>

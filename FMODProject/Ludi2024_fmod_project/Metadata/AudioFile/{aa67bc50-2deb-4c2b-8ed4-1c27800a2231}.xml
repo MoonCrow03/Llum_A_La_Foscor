@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{aa67bc50-2deb-4c2b-8ed4-1c27800a2231}">
+		<property name="assetPath">
+			<value>Rotate.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.23510204081632652</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ee8cb5a-b855-44cd-a997-4ca341686b61}</destination>
+		</relationship>
+	</object>
+</objects>
