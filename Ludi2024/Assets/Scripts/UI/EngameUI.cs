@@ -47,7 +47,7 @@ public class EngameUI : MonoBehaviour
 
         if (p_won)
         {
-            GameManager.Instance.SetMiniGameCompleted(m_MiniGame);
+            //GameManager.Instance.SetMiniGameCompleted(m_MiniGame);
         }
 
         EnableEndgamePanel(true);
