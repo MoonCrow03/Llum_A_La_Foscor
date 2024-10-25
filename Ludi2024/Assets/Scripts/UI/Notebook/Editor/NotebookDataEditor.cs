@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(NotebookData), false)]
+[CustomEditor(typeof(NotebookData))]
+[System.Serializable]
+[CanEditMultipleObjects]
 public class NotebookDataEditor : Editor
 {
     private NotebookData m_NotebookData => target as NotebookData;
@@ -44,5 +46,11 @@ public class NotebookDataEditor : Editor
         }
 
         serializedObject.ApplyModifiedProperties();
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(m_NotebookData);
+            Repaint();
+        }
     }
 }
