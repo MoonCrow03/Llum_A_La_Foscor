@@ -28,7 +28,6 @@ namespace HangedMan
         
 
         [Header("Scenes")]
-        [SerializeField] private Scenes levelCompleted;
         [SerializeField] private TextMeshProUGUI clockText;
         
         [Header("Audio")]
