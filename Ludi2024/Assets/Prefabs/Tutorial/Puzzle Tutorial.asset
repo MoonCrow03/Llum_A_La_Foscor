@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Puzzle Tutorial
   m_EditorClassIdentifier: 
   tutorialText: "T'han enviat peces d'una nova troballa, necessitem un expert perqu\xE8
-    ho reconstrueixi.\r\n Arrossega les peces i rota-les usant la R per ajuntar-les
-    amb la pe\xE7a que est\xE0 al mig, reconstruint aix\xED el trencaclosques."
+    ho reconstrueixi.\r\n Arrossega les peces i rota-les usant la R per \n ajuntar-les
+    amb la pe\xE7a que est\xE0 al mig, reconstruint aix\xED el \n trencaclosques."

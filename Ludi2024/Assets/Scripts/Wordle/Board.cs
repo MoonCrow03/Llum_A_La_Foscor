@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using FMODUnity;
 using TMPro;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Utilities;
@@ -32,8 +33,9 @@ namespace Wordle
         public Tile.TileStates IncorrectState;
         
 
-        [Header("Scene Settings")] [SerializeField]
-        private TextMeshProUGUI timeLeft;
+        [Header("Scene Settings")] 
+        [SerializeField] private TextMeshProUGUI timeLeft;
+        [SerializeField] private bool isTutorial;
         
         [Header("Audio")]
         public EventReference AudioEventWin;
@@ -77,8 +79,12 @@ namespace Wordle
         {
             AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
             AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
-            timeLimit = new TimeLimit(this);
-            timeLimit.StartTimer(timeToBeat, EndGameFailed);
+
+            if (!isTutorial)
+            {
+                timeLimit = new TimeLimit(this);
+                timeLimit.StartTimer(timeToBeat, EndGameFailed);
+            }
             LoadWordsFromTxt();
         }
 
@@ -131,14 +137,13 @@ namespace Wordle
         private void Update()
         {
             Row currentRow = rows[rowIndex];
-            
-            TimeSpan timeSpan = TimeSpan.FromSeconds(timeLimit.GetTimeRemaining());
-            timeLeft.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
-            
-            if (timeLeft.text == "00:00")
+
+            if (timeLimit == null)
             {
-               timeLeft.text = "00:00";
+                return;
             }
+            
+            UpdateClock();
             
             if (InputManager.Instance.Backspace.Tap)
             {
@@ -164,6 +169,17 @@ namespace Wordle
                     columnIndex++;
                     break;
                 }
+            }
+        }
+
+        private void UpdateClock()
+        {
+            TimeSpan timeSpan = TimeSpan.FromSeconds(timeLimit.GetTimeRemaining());
+            timeLeft.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
+            
+            if (timeLeft.text == "00:00")
+            {
+                timeLeft.text = "00:00";
             }
         }
 
@@ -314,6 +330,22 @@ namespace Wordle
         {
             AudioInstanceWin.release();
             AudioInstanceLose.release();
+        }
+
+        private void OnEnable()
+        {
+            TutorialText.OnTutorialFinished += StartTimer;
+        }
+
+        private void StartTimer()
+        {
+            timeLimit = new TimeLimit(this);
+            timeLimit.StartTimer(timeToBeat, EndGameFailed);
+        }
+
+        private void OnDisable()
+        {
+            TutorialText.OnTutorialFinished -= StartTimer;
         }
     }
 }

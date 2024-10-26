@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WordSearch Tutorial
   m_EditorClassIdentifier: 
   tutorialText: "Per redactar l'informe hem de buscar algunes especificacions!\r\n
-    Busca en aquest sopa de lletres les paraules indicades, per fer-ho nom\xE9s prem
-    a la primera lletra de la paraula i arrossega el cursor fins al final, en la
-    direcci\xF3 d'aquesta."
+    Busca en aquest sopa de lletres les paraules indicades, \n per fer-ho nom\xE9s
+    prem a la primera lletra de la paraula \n i arrossega el cursor fins al final,
+    en la direcci\xF3 d'aquesta."

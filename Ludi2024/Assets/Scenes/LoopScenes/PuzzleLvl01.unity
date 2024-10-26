@@ -256,6 +256,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2151636857988886578, guid: 9bece6ac0ae36654bb5bdfb122373e86,
+        type: 3}
+      propertyPath: tutorialTextData
+      value: 
+      objectReference: {fileID: 11400000, guid: e9f6b907c58389645b9b9e9528a399e9,
+        type: 2}
     - target: {fileID: 5429043939283823504, guid: 9bece6ac0ae36654bb5bdfb122373e86,
         type: 3}
       propertyPath: m_Name
@@ -1612,7 +1618,7 @@ PrefabInstance:
     - target: {fileID: 5344007945119208327, guid: f0d4f665af0120341afc2c07a04528f8,
         type: 3}
       propertyPath: m_MiniGame
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5970761558630968125, guid: f0d4f665af0120341afc2c07a04528f8,
         type: 3}
@@ -1887,6 +1893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LevelCompleted
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_SecondsToComplete
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
         type: 3}

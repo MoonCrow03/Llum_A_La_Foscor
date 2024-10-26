@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: HangedManTutorial
   m_EditorClassIdentifier: 
   tutorialText: "Sembla que haurem de desxifrar una paraula per continuar.\r\n Aqu\xED
-    pots veure el nombre de lletres que t\xE9 la paraula, haur\xE0s de seleccionar
-    els car\xE0cters per descobrir si formen part d'aquesta o no.\n Per\xF2 pensa
-    detingudament, si falles massa cops perdr\xE0s la partida."
+    pots veure el nombre de lletres que t\xE9 la paraula,\n haur\xE0s  de seleccionar
+    els car\xE0cters per descobrir si \n formen part d'aquesta o no.\n Per\xF2 pensa
+    detingudament, si falles massa \n cops perdr\xE0s la partida."

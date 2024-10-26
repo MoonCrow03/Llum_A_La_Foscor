@@ -112,7 +112,9 @@ public class WordsPairManager : MonoBehaviour
         {
             m_IsGameCompleted = true;
             m_AudioInstanceWin.start();
-
+            
+            m_TimeLimit.StopTimer();
+            
             GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointMultiplier);
 
             int l_stars = 3;
@@ -125,6 +127,7 @@ public class WordsPairManager : MonoBehaviour
         if (m_IsGameCompleted) return;
         Debug.Log("Failed!");
         m_AudioInstanceLose.start();
+        m_TimeLimit.StopTimer();
         GameEvents.TriggerSetEndgameMessage("Has perdut!", false, 0);
     }
 
