@@ -17,6 +17,7 @@ public class NotebookUI : MonoBehaviour
 
     private List<BulletPoint> m_BulletPoints;
     private List<string> m_BulletPointTexts;
+    private List<AnimationClip> m_Clips;
 
     private int m_NumBulletPoints;
     private int m_CurrentIndex;
@@ -26,6 +27,8 @@ public class NotebookUI : MonoBehaviour
     {
         m_BulletPoints = new List<BulletPoint>();
         m_BulletPointTexts = new List<string>();
+
+        m_Clips = m_Animator.runtimeAnimatorController.animationClips.ToList();
 
         m_NumBulletPoints = GameManager.Instance.GetNotebookData().Notes.Count;
 
@@ -166,7 +169,7 @@ public class NotebookUI : MonoBehaviour
         if(!SetNextIndex()) return;
 
         ClearBulletPoints();
-        m_Animator.SetTrigger("NextPage");
+        StartCoroutine(HideText("NextPage"));
 
         PassPage();
     }
@@ -178,8 +181,18 @@ public class NotebookUI : MonoBehaviour
         if (!SetPreviousIndex()) return;
 
         ClearBulletPoints();
-        m_Animator.SetTrigger("PrevPage");
+        StartCoroutine(HideText("PrevPage"));
 
         PassPage();
+    }
+
+    private IEnumerator HideText(string p_trigger)
+    {
+        m_Animator.SetTrigger(p_trigger);
+        m_BulletPointHolder.SetActive(false);
+
+        yield return new WaitForSeconds(m_Clips.Find(clip => clip.name.Equals("Armature|NextPage")).length);
+
+        m_BulletPointHolder.SetActive(true);
     }
 }

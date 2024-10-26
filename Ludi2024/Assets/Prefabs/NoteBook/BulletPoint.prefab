@@ -78,8 +78,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Al riu de Mirmanda, La Cantarana, es troben construccions de pissarra
-    relacionades amb estructures de les fades'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 951d1dc5f5b11eb45a6b0003380afad5, type: 2}
   m_sharedMaterial: {fileID: -5662530674216377144, guid: 951d1dc5f5b11eb45a6b0003380afad5,
@@ -107,8 +106,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.1
-  m_fontSizeBase: 0.1
+  m_fontSize: 0.11
+  m_fontSizeBase: 0.11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0.00000001
