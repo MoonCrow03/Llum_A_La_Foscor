@@ -1901,8 +1901,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
         type: 3}
+      propertyPath: m_AudioEventWin.Path
+      value: event:/Success
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
       propertyPath: m_PuzzleMiniGameType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioEventLose.Path
+      value: event:/Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data1
+      value: -1779214306
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data2
+      value: 1083828906
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data3
+      value: 161118593
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data4
+      value: 1583326310
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data1
+      value: 802803812
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data2
+      value: 1248482276
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data3
+      value: -1723131512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data4
+      value: -1260990358
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

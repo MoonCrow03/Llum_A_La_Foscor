@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using TMPro;
 using Tutorial;
 using Unity.VisualScripting;
@@ -20,6 +21,10 @@ public class PuzzleMinigame : MonoBehaviour
     [SerializeField] private PuzzleMiniGameType m_PuzzleMiniGameType;
     [SerializeField] private float m_SecondsToComplete;
     [SerializeField] private float m_PointsMultiplier = 1.0f;
+    
+    [Header("Audio")]
+    [SerializeField] private EventReference m_AudioEventWin;
+    [SerializeField] private EventReference m_AudioEventLose;
 
     [Header("Debug")]
     [SerializeField] private int m_PieceCounter;
@@ -31,6 +36,9 @@ public class PuzzleMinigame : MonoBehaviour
     private TimeLimit m_TimeLimit;
     private bool m_GameStarted = false;
     private bool m_IsGameCompleted = false;
+    
+    private FMOD.Studio.EventInstance m_AudioInstanceWin;
+    private FMOD.Studio.EventInstance m_AudioInstanceLose;
     
     private void Start()
     {
@@ -98,6 +106,7 @@ public class PuzzleMinigame : MonoBehaviour
         
         GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointsMultiplier);
         int l_stars = 3;
+        m_AudioInstanceWin.start();
         GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
     }
 
@@ -119,6 +128,7 @@ public class PuzzleMinigame : MonoBehaviour
         if (m_IsGameCompleted) return;
         Debug.Log("Ran out of time!");
         m_TimeLimit.StopTimer();
+        m_AudioInstanceLose.start();
         GameEvents.TriggerSetEndgameMessage("T'has quedat sense temps!", false, 0);
     }
 
@@ -132,5 +142,11 @@ public class PuzzleMinigame : MonoBehaviour
     {
         PuzzlePiece.OnPiecePlaced -= RegisterCorrectPiece;
         TutorialText.OnTutorialFinished -= StartGame;
+    }
+
+    private void OnDestroy()
+    {
+        m_AudioInstanceLose.release();
+        m_AudioInstanceWin.release();
     }
 }
