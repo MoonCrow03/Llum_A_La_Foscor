@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using FMODUnity;
+using Tutorial;
 using UnityEngine;
 using Utilities;
 
@@ -19,6 +20,7 @@ public class WordsPairManager : MonoBehaviour
     [Header("Scene Settings")]
     [SerializeField] private Scenes m_LevelCompleted;
     [SerializeField] private TMPro.TextMeshProUGUI m_ClockText;
+    [SerializeField] private bool m_IsTutorial;
     
     [Header("Audio")]
     public EventReference m_AudioEventWin;
@@ -45,8 +47,12 @@ public class WordsPairManager : MonoBehaviour
         m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
         m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
         
-        m_TimeLimit = new TimeLimit(this);
-        m_TimeLimit.StartTimer(m_Time, EndGameFailed);
+        if (!m_IsTutorial)
+        {
+            m_TimeLimit = new TimeLimit(this);
+            m_TimeLimit.StartTimer(m_Time, EndGameFailed);
+        }
+        
         m_CorrectPairCount = 0;
     }
 
@@ -57,6 +63,7 @@ public class WordsPairManager : MonoBehaviour
     
     private void UpdateClockText()
     {
+        if (m_TimeLimit == null) return;
         if (m_TimeLimit.GetTimeRemaining() <= 0)
         {
             m_ClockText.text = "00:00";
@@ -68,14 +75,22 @@ public class WordsPairManager : MonoBehaviour
         }
     }
 
+    private void StartTimer()
+    {
+        m_TimeLimit = new TimeLimit(this);
+        m_TimeLimit.StartTimer(m_Time, EndGameFailed);
+    }
+
     private void OnEnable()
     {
         WordPairSlot.OnWordDropped += CheckPairs;
+        TutorialText.OnTutorialFinished += StartTimer;
     }
 
     private void OnDisable()
     {
         WordPairSlot.OnWordDropped -= CheckPairs;
+        TutorialText.OnTutorialFinished -= StartTimer;
     }
 
     public void CheckPairs()

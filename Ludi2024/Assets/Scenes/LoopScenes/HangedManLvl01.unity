@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 500491278}
   - component: {fileID: 500491277}
   - component: {fileID: 500491276}
+  - component: {fileID: 500491280}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -497,6 +498,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &500491280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500491275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1001 &604926223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -819,6 +834,11 @@ PrefabInstance:
       propertyPath: clockText
       value: 
       objectReference: {fileID: 290308848}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3884758223218532840, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
       propertyPath: m_LocalPosition.x

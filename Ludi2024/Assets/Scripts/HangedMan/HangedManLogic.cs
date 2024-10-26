@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FMODUnity;
 using TMPro;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ namespace HangedMan
         [SerializeField] private List<string> wordList;
         [SerializeField] private int maxGuesses;
         [SerializeField] private float timeLeft;
+        [SerializeField] private bool isTutorial;
         
         [Header("Canvas Settings")]
         [SerializeField] private GameObject letterButtonPrefab;
@@ -57,8 +59,12 @@ namespace HangedMan
         {
             AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
             AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
-            timeLimit = new TimeLimit(this);
-            timeLimit.StartTimer(timeLeft, GameFailed);
+            if (!isTutorial)
+            {
+                timeLimit = new TimeLimit(this);
+                timeLimit.StartTimer(timeLeft, GameFailed);
+            }
+            
             SelectRandomWord();
             GenerateEmptyLetters();
             GenerateLetters();
@@ -207,6 +213,22 @@ namespace HangedMan
             return true;
         }
 
+        private void OnEnable()
+        {
+            TutorialText.OnTutorialFinished += StartTimer;
+        }
+        
+        private void OnDisable()
+        {
+            TutorialText.OnTutorialFinished -= StartTimer;
+        }
+
+        private void StartTimer()
+        {
+            timeLimit = new TimeLimit(this);
+            timeLimit.StartTimer(timeLeft, GameFailed);
+        }
+        
         private void OnDestroy()
         {
             AudioInstanceWin.release();
