@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f798416db400430a8922c470b8a785eb, type: 3}
+  m_Name: SortLetters Tutorial
+  m_EditorClassIdentifier: 
+  tutorialText: "Els nostres especialistes estan tenint problemes trobant la paraula
+    adient per l'informe, necessiten que els ajudis.\r\n Arrossega les lletres a
+    la seva posici\xF3 per formar una paraula. Tingues en compte que no totes les
+    lletres seran necess\xE0ries."

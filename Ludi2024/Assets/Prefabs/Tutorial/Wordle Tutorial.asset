@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f798416db400430a8922c470b8a785eb, type: 3}
+  m_Name: Wordle Tutorial
+  m_EditorClassIdentifier: 
+  tutorialText: "Hem de completar l'informe amb el l\xE8xic pertinent, per\xF2 necessitem
+    una mica d'ajuda.\r\n Per trobar la paraula adient, haur\xE0s d'escriure paraules
+    existents i el nostre programari t'indicar\xE0 si les lletres posicionades correctament
+    (color verd), si estan a la paraula, per\xF2 no a la posici\xF3 correcta (color
+    groc) o si, per contra, no formen part d'aquesta."
