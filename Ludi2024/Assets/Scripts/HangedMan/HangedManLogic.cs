@@ -79,6 +79,8 @@ namespace HangedMan
 
         private void UpdateClockText()
         {
+            if (timeLimit == null) return;
+            
             if (timeLimit.GetTimeRemaining() <= 0)
             {
                 clockText.text = "00:00";
