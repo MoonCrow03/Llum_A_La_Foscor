@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Tutorial;
 using Unity.VisualScripting;
 using UnityEngine;
 using Utilities;
@@ -27,20 +28,20 @@ public class PuzzleMinigame : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_ClockText;
 
     private TimeLimit m_TimeLimit;
+    private bool m_GameStarted = false;
     private bool m_IsGameCompleted = false;
     
     private void Start()
     {
         SetPlayablePieces();
 
-        if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
-        {
-            SetUpTimer();
-        }
+        m_GameStarted = false;
     }
 
     private void Update()
     {
+        if(!m_GameStarted) return;
+
         if (m_PuzzleMiniGameType != PuzzleMiniGameType.TimeLimit) return;
         
         UpdateClockText();
@@ -75,6 +76,15 @@ public class PuzzleMinigame : MonoBehaviour
         }
     }
 
+    private void StartGame()
+    {
+        m_GameStarted = true;
+
+        if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
+        {
+            SetUpTimer();
+        }
+    }
     private void EndGame()
     {
         if (m_PieceCounter != m_PuzzleSize) return;
@@ -112,10 +122,12 @@ public class PuzzleMinigame : MonoBehaviour
     private void OnEnable()
     {
         PuzzlePiece.OnPiecePlaced += RegisterCorrectPiece;
+        TutorialText.OnTutorialFinished += StartGame;
     }
 
     private void OnDisable()
     {
         PuzzlePiece.OnPiecePlaced -= RegisterCorrectPiece;
+        TutorialText.OnTutorialFinished -= StartGame;
     }
 }

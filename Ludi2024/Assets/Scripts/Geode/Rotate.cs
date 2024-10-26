@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tutorial;
 using UnityEngine;
 
 public class Rotate : MonoBehaviour
@@ -7,6 +8,7 @@ public class Rotate : MonoBehaviour
     [Header("Rotation Settings")]
     [SerializeField] private float m_RotationSpeed = 50.0f;
 
+    private bool m_GameStarted;
     private bool m_IsRotating;
     private float m_StartMousePosition = 1.0f;
 
@@ -14,11 +16,14 @@ public class Rotate : MonoBehaviour
 
     void Start()
     {
+        m_GameStarted = false;
         m_IsRotating = false;
     }
 
     void Update()
     {
+        if(!m_GameStarted) return;
+
         if (InputManager.Instance.RightClick.Tap)
         {
             m_IsRotating = true;
@@ -38,5 +43,20 @@ public class Rotate : MonoBehaviour
 
             m_StartMousePosition = InputManager.Instance.MousePosition.x;
         }
+    }
+
+    private void StartGame()
+    {
+        m_GameStarted = true;
+    }
+
+    private void OnEnable()
+    {
+        TutorialText.OnTutorialFinished += StartGame;
+    }
+
+    private void OnDisable()
+    {
+        TutorialText.OnTutorialFinished -= StartGame;
     }
 }

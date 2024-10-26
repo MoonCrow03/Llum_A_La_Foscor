@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using FMOD.Studio;
 using FMODUnity;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,7 +20,8 @@ public class DragNDropMaster : MonoBehaviour
     [Header("Audio")] 
     [SerializeField] private EventReference m_AudioRotateEvent;
     [SerializeField] private EventReference m_AudioDropEvent;
-    
+
+    private bool m_GameStarted;
 
     private Transform m_SelectedObject;
     private PuzzlePiece m_PuzzlePiece;
@@ -31,10 +33,14 @@ public class DragNDropMaster : MonoBehaviour
     {
         m_AudioDropInstance = FMODUnity.RuntimeManager.CreateInstance(m_AudioDropEvent);
         m_AudioRotateInstance = FMODUnity.RuntimeManager.CreateInstance(m_AudioRotateEvent);
+
+        m_GameStarted = false;
     }
 
     private void Update()
     {
+        if(!m_GameStarted) return;
+
         // Pick up object
         if (InputManager.Instance.LeftClick.Tap)  // Detect when left click starts
         {
@@ -96,6 +102,11 @@ public class DragNDropMaster : MonoBehaviour
             m_SelectedObject = null;
             Cursor.visible = true;
         }
+    }
+
+    private void StartGame()
+    {
+        m_GameStarted = true;
     }
 
     private RaycastHit CastRay()
@@ -164,5 +175,15 @@ public class DragNDropMaster : MonoBehaviour
     {
         m_AudioDropInstance.release();
         m_AudioRotateInstance.release();
+    }
+
+    private void OnEnable()
+    {
+        TutorialText.OnTutorialFinished += StartGame;
+    }
+
+    private void OnDisable()
+    {
+        TutorialText.OnTutorialFinished -= StartGame;
     }
 }

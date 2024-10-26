@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Tutorial;
 using UnityEngine;
 
 public class GeodePartMaster : MonoBehaviour
 {
     private GameObject m_SelectedObject;
+    private bool m_GameStarted = false;
 
     private void Update()
     {
+        if (!m_GameStarted) return;
+
         if (InputManager.Instance.LeftClick.Tap)
         {
             if (m_SelectedObject == null)
@@ -40,5 +44,20 @@ public class GeodePartMaster : MonoBehaviour
         Physics.Raycast(l_worldMousePosNear, l_worldMousePosFar - l_worldMousePosNear, out l_hit);
 
         return l_hit;
+    }
+
+    private void StartGame()
+    {
+        m_GameStarted = true;
+    }
+
+    private void OnEnable()
+    {
+        TutorialText.OnTutorialFinished += StartGame;
+    }
+
+    private void OnDisable()
+    {
+        TutorialText.OnTutorialFinished -= StartGame;
     }
 }

@@ -24,9 +24,6 @@ public class GeodePart : MonoBehaviour
     [SerializeField] private GameObject m_RealParticlesPrefab;
     [SerializeField] private GameObject m_FakeParticlesPrefab;
 
-    
-    
-
     private ParticleSystem m_Particles;
 
     private MeshRenderer m_MeshRenderer;
@@ -60,7 +57,6 @@ public class GeodePart : MonoBehaviour
             StartCoroutine(Vibrate());
         }
     }
-
 
     private IEnumerator AnimateGeode()
     {

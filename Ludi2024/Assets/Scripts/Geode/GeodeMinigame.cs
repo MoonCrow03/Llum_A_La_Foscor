@@ -32,6 +32,7 @@ public class GeodeMinigame : MonoBehaviour
     private int m_CurrentStrikes;
     private int m_CurrentPoints;
     private TimeLimit m_TimeLimit;
+    private bool m_GameStarted = false;
     private bool m_IsGameCompleted = false;
     
     private FMOD.Studio.EventInstance m_AudioInstance;
