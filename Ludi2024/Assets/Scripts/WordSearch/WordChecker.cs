@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using FMODUnity;
 using TMPro;
+using Tutorial;
 using UnityEngine;
 using Utilities;
 using Debug = UnityEngine.Debug;
@@ -50,7 +51,6 @@ public class WordChecker : MonoBehaviour
         m_CurrentRay = new Ray();
         
         m_TimeLimit = new TimeLimit(this);
-        m_TimeLimit.StartTimer(m_Time, LoseGame);
 
         m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
         m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
@@ -78,12 +78,19 @@ public class WordChecker : MonoBehaviour
     {
         WordSearchEvents.OnCheckSquare += SquareSelected;
         WordSearchEvents.OnClearSelection += ClearSelection;
+        TutorialText.OnTutorialFinished += StartGame;
     }
 
     private void OnDisable()
     {
         WordSearchEvents.OnCheckSquare -= SquareSelected;
         WordSearchEvents.OnClearSelection -= ClearSelection;
+        TutorialText.OnTutorialFinished -= StartGame;
+    }
+
+    private void StartGame()
+    {
+        m_TimeLimit.StartTimer(m_Time, LoseGame);
     }
 
     private void SquareSelected(string p_letter, Vector3 p_squarePosition, int p_squareIndex)
