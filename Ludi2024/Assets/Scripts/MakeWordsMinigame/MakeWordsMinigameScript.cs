@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FMODUnity;
 using TMPro;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -21,11 +22,12 @@ namespace MakeWordsMinigame
         [SerializeField] private Transform letterParent;
         [SerializeField] private Transform slotsParent;
         [SerializeField] private int extraLetters;
+        
 
         [Header("Game Settings")] 
         [SerializeField] private float time;
-
-        [SerializeField] private int pointsMultiplier;
+        [SerializeField] private bool isTutorial;
+        [SerializeField] private float pointsMultiplier = 1.0f;
         
         [Header("Scene Settings")]
         [SerializeField] private Scenes levelCompleted;
@@ -50,8 +52,12 @@ namespace MakeWordsMinigame
         // Start is called before the first frame update
         void Start()
         {
-            timeLimit = new TimeLimit(this);
-            timeLimit.StartTimer(time, OnGameFailed);
+            if (!isTutorial)
+            {
+                timeLimit = new TimeLimit(this);
+                timeLimit.StartTimer(time, OnGameFailed);
+            }
+            
             AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
             AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
             
@@ -69,6 +75,7 @@ namespace MakeWordsMinigame
 
         private void UpdateClockText()
         {
+            if (timeLimit == null) return;
             if (timeLimit.GetTimeRemaining() <= 0)
             {
                 clockText.text = "00:00";
@@ -83,11 +90,19 @@ namespace MakeWordsMinigame
         private void OnEnable()
         {
             LetterFormDrop.OnLetterDropped += CheckWordFormed;
+            TutorialText.OnTutorialFinished += StartTimer;
         }
-        
+
+        private void StartTimer()
+        {
+            timeLimit = new TimeLimit(this);
+            timeLimit.StartTimer(time, OnGameFailed);
+        }
+
         private void OnDisable()
         {
             LetterFormDrop.OnLetterDropped -= CheckWordFormed;
+            TutorialText.OnTutorialFinished -= StartTimer;
         }
 
         private void GenerateRandomLetters()
@@ -217,5 +232,6 @@ namespace MakeWordsMinigame
             AudioInstanceWin.release();
             AudioInstanceLose.release();
         }
+        
     }
 }
