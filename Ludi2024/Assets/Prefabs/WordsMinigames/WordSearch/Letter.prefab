@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-  m_SelectedColor: {r: 1, g: 0.9194028, b: 0, a: 1}
-  m_CorrectColor: {r: 0.27302432, g: 1, b: 0, a: 1}
+  m_SelectedColor: {r: 0.32941177, g: 0.6392157, b: 0.8470589, a: 1}
+  m_CorrectColor: {r: 0.2750167, g: 0.5943396, b: 0.1541919, a: 1}
   m_Letter: 
 --- !u!1 &4692127809140751053
 GameObject:
@@ -160,8 +160,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: A
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ac73fb3bca7e4db4c8810423eb4cea0f, type: 2}
+  m_sharedMaterial: {fileID: 3560867858399515499, guid: ac73fb3bca7e4db4c8810423eb4cea0f,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -185,8 +186,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 82.9
-  m_fontSizeBase: 82.9
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
