@@ -44,6 +44,7 @@ namespace Wordle
         private string solutionWord;
         private int rowIndex;
         private int columnIndex;
+        private bool gameCompleted = false;
         
         private TimeLimit timeLimit;
         
@@ -218,6 +219,8 @@ namespace Wordle
 
             if (CheckWordGuessed(ref row))
             {
+                gameCompleted = true;
+                timeLimit.StopTimer();
                 GameManager.Instance.SetMiniGameCompleted(levelCompleted);
                 AudioInstanceWin.start();
                 GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
@@ -228,6 +231,8 @@ namespace Wordle
 
             if (rowIndex >= rows.Length)
             {
+                gameCompleted = true;
+                timeLimit.StopTimer();
                 enabled = false;
                 AudioInstanceLose.start();
                 GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
@@ -252,6 +257,7 @@ namespace Wordle
         
         private void EndGameFailed()
         {
+            if (gameCompleted) return;
             AudioInstanceLose.start();
             GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
         }

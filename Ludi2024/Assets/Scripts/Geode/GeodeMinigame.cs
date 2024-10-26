@@ -20,6 +20,7 @@ public class GeodeMinigame : MonoBehaviour
 
     [Header("Scene Settings")]
     [SerializeField] private Scenes m_LevelCompleted;
+    [SerializeField] private TMPro.TextMeshProUGUI m_clockTimeLeft;
     
     [Header("Audio")]
     public EventReference AudioEvent;
@@ -29,6 +30,7 @@ public class GeodeMinigame : MonoBehaviour
     private int m_CurrentStrikes;
     private int m_CurrentPoints;
     private TimeLimit m_TimeLimit;
+    private bool m_IsGameCompleted = false;
     
     private FMOD.Studio.EventInstance m_AudioInstance;
     private FMOD.Studio.EventInstance m_AudioInstanceWin;
@@ -48,6 +50,25 @@ public class GeodeMinigame : MonoBehaviour
         m_AudioInstance = FMODUnity.RuntimeManager.CreateInstance(AudioEvent);
         m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
         m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
+    }
+
+    private void Update()
+    {
+        if (m_GeodeMiniGameType != GeodeMiniGameType.TimeLimit) return;
+        UpdateClock();
+    }
+
+    private void UpdateClock()
+    {
+        if (m_TimeLimit.GetTimeRemaining() <= 0)
+        {
+            m_clockTimeLeft.text = "00:00";
+        }
+        else
+        {
+            TimeSpan timeSpan = TimeSpan.FromSeconds(m_TimeLimit.GetTimeRemaining());
+            m_clockTimeLeft.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
+        }
     }
 
     private void RegisterPoints()
@@ -73,7 +94,7 @@ public class GeodeMinigame : MonoBehaviour
 
     private void WinGame()
     {
-        Debug.Log("Geode minigame completed!");
+        m_IsGameCompleted = true;
         m_TimeLimit.StopTimer();
         GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
         m_AudioInstanceWin.start();
@@ -82,6 +103,7 @@ public class GeodeMinigame : MonoBehaviour
 
     private void LoseGame()
     {
+        if (m_IsGameCompleted) return;
         Debug.Log("Geode minigame failed!");
         m_AudioInstanceLose.start();
         if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit)

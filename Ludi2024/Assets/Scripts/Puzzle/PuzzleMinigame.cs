@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using Utilities;
@@ -22,9 +24,10 @@ public class PuzzleMinigame : MonoBehaviour
     
     [Header("Scene Settings")]
     [SerializeField] private Scenes m_LevelCompleted;
+    [SerializeField] private TextMeshProUGUI m_ClockText;
 
     private TimeLimit m_TimeLimit;
-    private bool m_IsGameCompleted;
+    private bool m_IsGameCompleted = false;
     
     private void Start()
     {
@@ -33,6 +36,26 @@ public class PuzzleMinigame : MonoBehaviour
         if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
         {
             SetUpTimer();
+        }
+    }
+
+    private void Update()
+    {
+        if (m_PuzzleMiniGameType != PuzzleMiniGameType.TimeLimit) return;
+        
+        UpdateClockText();
+    }
+
+    private void UpdateClockText()
+    {
+        if (m_TimeLimit.GetTimeRemaining() <= 0)
+        {
+            m_ClockText.text = "00:00";
+        }
+        else
+        {
+            TimeSpan timeSpan = TimeSpan.FromSeconds(m_TimeLimit.GetTimeRemaining());
+            m_ClockText.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
         }
     }
 
@@ -55,11 +78,12 @@ public class PuzzleMinigame : MonoBehaviour
     private void EndGame()
     {
         if (m_PieceCounter != m_PuzzleSize) return;
-
+        
         Debug.Log("Puzzle completed!");
         if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
         
+        m_IsGameCompleted = true;
         GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
         GameEvents.TriggerSetEndgameMessage("Trencaclosques completat!", true);
     }
@@ -79,6 +103,7 @@ public class PuzzleMinigame : MonoBehaviour
 
     private void RanOutOfTime()
     {
+        if (m_IsGameCompleted) return;
         Debug.Log("Ran out of time!");
         m_TimeLimit.StopTimer();
         GameEvents.TriggerSetEndgameMessage("T'has quedat!", false);

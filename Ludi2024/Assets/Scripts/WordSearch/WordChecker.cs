@@ -1,24 +1,27 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using FMOD;
 using FMODUnity;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using static WordSearchEvents;
+using Utilities;
 using Debug = UnityEngine.Debug;
 
 public class WordChecker : MonoBehaviour
 {
     [SerializeField] private BoardData m_BoardData;
+    
+    [Header("Scene Settings")]
     [SerializeField] private Scenes m_Scene;
     
     [Header("Audio")]
     public EventReference m_AudioEventWin;
     public EventReference m_AudioEventLose;
-
+    
+    [Header("Time")]
+    [SerializeField] private float m_Time;
+    [SerializeField] private TextMeshProUGUI m_ClockText;
+    
+    
     private string m_Word;
     private int m_AssignedPoints;
     private int m_CompletedWords;
@@ -33,8 +36,13 @@ public class WordChecker : MonoBehaviour
     private Vector3 m_RayStartPosition;
     private List<int> m_CorrectSquareList;
     
+    private TimeLimit m_TimeLimit;
+    private bool m_IsGameCompleted = false;
+    
     private FMOD.Studio.EventInstance m_AudioInstanceWin;
     private FMOD.Studio.EventInstance m_AudioInstanceLose;
+    
+    
 
     private void Start()
     {
@@ -45,6 +53,9 @@ public class WordChecker : MonoBehaviour
         m_CompletedWords = 0;
         m_CorrectSquareList = new List<int>();
         m_CurrentRay = new Ray();
+        
+        m_TimeLimit = new TimeLimit(this);
+        m_TimeLimit.StartTimer(m_Time, LoseGame);
     }
 
     private void Update()
@@ -211,10 +222,19 @@ public class WordChecker : MonoBehaviour
     {
         if (m_BoardData.m_SearchWords.Count == m_CompletedWords)
         {
+            m_IsGameCompleted = true;
+            m_TimeLimit.StopTimer();
             GameManager.Instance.SetMiniGameCompleted(m_Scene);
             m_AudioInstanceWin.start();
             GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
-            Debug.Log("Game Ended!");
         }
+    }
+    
+    private void LoseGame()
+    {
+        if (m_IsGameCompleted) return;
+        m_TimeLimit.StopTimer();
+        m_AudioInstanceLose.start();
+        GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
     }
 }

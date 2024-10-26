@@ -18,6 +18,7 @@ public class WordsPairManager : MonoBehaviour
     
     [Header("Scene Settings")]
     [SerializeField] private Scenes m_LevelCompleted;
+    [SerializeField] private TMPro.TextMeshProUGUI m_ClockText;
     
     [Header("Audio")]
     public EventReference m_AudioEventWin;
@@ -47,6 +48,24 @@ public class WordsPairManager : MonoBehaviour
         m_TimeLimit = new TimeLimit(this);
         m_TimeLimit.StartTimer(m_Time, EndGameFailed);
         m_CorrectPairCount = 0;
+    }
+
+    private void Update()
+    {
+        UpdateClockText();
+    }
+    
+    private void UpdateClockText()
+    {
+        if (m_TimeLimit.GetTimeRemaining() <= 0)
+        {
+            m_ClockText.text = "00:00";
+        }
+        else
+        {
+            TimeSpan timeSpan = TimeSpan.FromSeconds(m_TimeLimit.GetTimeRemaining());
+            m_ClockText.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
+        }
     }
 
     private void OnEnable()

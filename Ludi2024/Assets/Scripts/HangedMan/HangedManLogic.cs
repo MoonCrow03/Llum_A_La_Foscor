@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Utilities;
 using Random = System.Random;
 
 namespace HangedMan
@@ -14,6 +15,7 @@ namespace HangedMan
         [Header("Game Settings")] 
         [SerializeField] private List<string> wordList;
         [SerializeField] private int maxGuesses;
+        [SerializeField] private float timeLeft;
         
         [Header("Canvas Settings")]
         [SerializeField] private GameObject letterButtonPrefab;
@@ -23,6 +25,7 @@ namespace HangedMan
         
         [Header("Scenes")]
         [SerializeField] private Scenes levelCompleted;
+        [SerializeField] private TextMeshProUGUI clockText;
         
         [Header("Audio")]
         public EventReference AudioEventWin;
@@ -31,6 +34,8 @@ namespace HangedMan
         private string wordToGuess;
         private Dictionary<char, bool> availableLetters;
         private Dictionary<char, GameObject> letterObjects;
+        private TimeLimit timeLimit;
+        private bool gameCompleted = false;
 
         private static readonly List<char> letters = new List<char>
         {
@@ -52,9 +57,29 @@ namespace HangedMan
         {
             AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
             AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
+            timeLimit = new TimeLimit(this);
+            timeLimit.StartTimer(timeLeft, GameFailed);
             SelectRandomWord();
             GenerateEmptyLetters();
             GenerateLetters();
+        }
+
+        private void Update()
+        {
+            UpdateClockText();
+        }
+
+        private void UpdateClockText()
+        {
+            if (timeLimit.GetTimeRemaining() <= 0)
+            {
+                clockText.text = "00:00";
+            }
+            else
+            {
+                TimeSpan timeSpan = TimeSpan.FromSeconds(timeLimit.GetTimeRemaining());
+                clockText.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
+            }
         }
 
         private void GenerateLetters()
@@ -142,11 +167,14 @@ namespace HangedMan
 
         private void GameFailed()
         {
-
+            if (gameCompleted) return;
+            
             foreach (var letter in availableLetters)
             {
                 DisableLetterInteraction(letter.Key);
             }
+            
+            timeLimit.StopTimer();
             
             AudioInstanceLose.start();
             GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
@@ -154,10 +182,13 @@ namespace HangedMan
 
         private void GameWon()
         {
+            gameCompleted = true;
             foreach (var letter in availableLetters)
             {
                 DisableLetterInteraction(letter.Key);
             }
+            timeLimit.StopTimer();
+            
             AudioInstanceWin.start();
             GameManager.Instance.SetMiniGameCompleted(levelCompleted);
             GameEvents.TriggerSetEndgameMessage("Felicitats!", true);

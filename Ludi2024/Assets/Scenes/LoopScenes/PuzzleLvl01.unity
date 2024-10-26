@@ -236,6 +236,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 368fc215e11f57f4c87e8263737fc879, type: 3}
+--- !u!114 &15982483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2649590977930003607, guid: 368fc215e11f57f4c87e8263737fc879,
+    type: 3}
+  m_PrefabInstance: {fileID: 15982482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &50161431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,6 +1655,86 @@ PrefabInstance:
       propertyPath: m_RotationAngle.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioDropEvent.Path
+      value: event:/PlacePuzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioPickupEvent.Path
+      value: event:/PlacePuzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioRotateEvent.Path
+      value: event:/Rotate
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioDropEvent.Guid.Data1
+      value: 1783420825
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioDropEvent.Guid.Data2
+      value: 1175609899
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioDropEvent.Guid.Data3
+      value: 1307231158
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioDropEvent.Guid.Data4
+      value: 1405080837
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioPickupEvent.Guid.Data1
+      value: 1783420825
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioPickupEvent.Guid.Data2
+      value: 1175609899
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioPickupEvent.Guid.Data3
+      value: 1307231158
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioPickupEvent.Guid.Data4
+      value: 1405080837
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioRotateEvent.Guid.Data1
+      value: -1349260129
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioRotateEvent.Guid.Data2
+      value: 1109614456
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioRotateEvent.Guid.Data3
+      value: -305493063
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838003076915397375, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_AudioRotateEvent.Guid.Data4
+      value: -2036119586
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
+        type: 3}
+      propertyPath: m_ClockText
+      value: 
+      objectReference: {fileID: 15982483}
     - target: {fileID: 8373481172528730004, guid: b1082974e2f80d84ebf40bdedcbba914,
         type: 3}
       propertyPath: m_WorldScene

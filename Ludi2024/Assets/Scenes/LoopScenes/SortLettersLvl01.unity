@@ -596,6 +596,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 368fc215e11f57f4c87e8263737fc879, type: 3}
+--- !u!114 &757159225 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2649590977930003607, guid: 368fc215e11f57f4c87e8263737fc879,
+    type: 3}
+  m_PrefabInstance: {fileID: 757159224}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1021445288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -775,8 +787,9 @@ MonoBehaviour:
   letterParent: {fileID: 1021445289}
   slotsParent: {fileID: 2098700375}
   extraLetters: 1
-  time: 5
+  time: 40
   levelCompleted: 8
+  clockText: {fileID: 757159225}
   AudioEventWin:
     Guid:
       Data1: -1779214306

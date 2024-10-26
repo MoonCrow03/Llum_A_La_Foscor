@@ -26,6 +26,7 @@ namespace MakeWordsMinigame
         
         [Header("Scene Settings")]
         [SerializeField] private Scenes levelCompleted;
+        [SerializeField] private TextMeshProUGUI clockText;
         
         [Header("Audio")]
         public EventReference AudioEventWin;
@@ -35,6 +36,7 @@ namespace MakeWordsMinigame
         private string selectedWord;
         private int numberOfLetters;
         private TimeLimit timeLimit;
+        private bool gameCompleted = false;
 
         private static readonly List<char> vowels = new List<char> {'a', 'e', 'i', 'o', 'u'};
         private static readonly List<char> consonants = new List<char> {'b', 'c', 'ç', 'd', 'f', 'g', 'h', 'j', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v'};
@@ -56,7 +58,24 @@ namespace MakeWordsMinigame
             CreateLetterObjects();
             CreatePlaceableSlots();
         }
-        
+
+        private void Update()
+        {
+            UpdateClockText();
+        }
+
+        private void UpdateClockText()
+        {
+            if (timeLimit.GetTimeRemaining() <= 0)
+            {
+                clockText.text = "00:00";
+            }
+            else
+            {
+                TimeSpan timeSpan = TimeSpan.FromSeconds(timeLimit.GetTimeRemaining());
+                clockText.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
+            }
+        }
 
         private void OnEnable()
         {
@@ -139,12 +158,14 @@ namespace MakeWordsMinigame
         {
             timeLimit.StopTimer();
             AudioInstanceWin.start();
+            gameCompleted = true;
             GameManager.Instance.SetMiniGameCompleted(levelCompleted);
             GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
         }
 
         private void OnGameFailed()
         {
+            if (gameCompleted) return;
             timeLimit.StopTimer();
             AudioInstanceLose.start();
             GameEvents.TriggerSetEndgameMessage("Has perdut!", false);

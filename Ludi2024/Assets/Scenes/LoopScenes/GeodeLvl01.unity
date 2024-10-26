@@ -462,6 +462,7 @@ MonoBehaviour:
   m_MaxStrikes: 1
   m_PointsToWin: 2
   m_LevelCompleted: 4
+  m_clockTimeLeft: {fileID: 1428930665}
   AudioEvent:
     Guid:
       Data1: 998357901
@@ -702,6 +703,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1428930665 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2649590977930003607, guid: 368fc215e11f57f4c87e8263737fc879,
+    type: 3}
+  m_PrefabInstance: {fileID: 1669390046}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1529031430
 PrefabInstance:
   m_ObjectHideFlags: 0

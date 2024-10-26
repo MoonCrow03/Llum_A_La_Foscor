@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DragNDropMaster : MonoBehaviour
 {
@@ -12,8 +16,22 @@ public class DragNDropMaster : MonoBehaviour
     [Header("Rotation Settings")]
     [SerializeField] private Vector3 m_RotationAngle;
 
+    [Header("Audio")] 
+    [SerializeField] private EventReference m_AudioRotateEvent;
+    [SerializeField] private EventReference m_AudioDropEvent;
+    
+
     private Transform m_SelectedObject;
     private PuzzlePiece m_PuzzlePiece;
+
+    private FMOD.Studio.EventInstance m_AudioRotateInstance;
+    private FMOD.Studio.EventInstance m_AudioDropInstance;
+
+    private void Start()
+    {
+        m_AudioDropInstance = FMODUnity.RuntimeManager.CreateInstance(m_AudioDropEvent);
+        m_AudioRotateInstance = FMODUnity.RuntimeManager.CreateInstance(m_AudioRotateEvent);
+    }
 
     private void Update()
     {
@@ -61,13 +79,15 @@ public class DragNDropMaster : MonoBehaviour
                     m_SelectedObject.rotation.eulerAngles.y + m_RotationAngle.y,
                     m_SelectedObject.rotation.eulerAngles.z + m_RotationAngle.z));
 
-                // TODO: Audio feedback when rotating a piece
+                m_AudioRotateInstance.start();
             }
         }
 
         // Release the object
         if (InputManager.Instance.LeftClick.Release)
         {
+            m_AudioDropInstance.start();
+            
             Release();
 
             m_PuzzlePiece.Snap();
@@ -138,5 +158,11 @@ public class DragNDropMaster : MonoBehaviour
     public float GetYGrounded()
     {
         return m_YGrounded;
+    }
+
+    private void OnDestroy()
+    {
+        m_AudioDropInstance.release();
+        m_AudioRotateInstance.release();
     }
 }
