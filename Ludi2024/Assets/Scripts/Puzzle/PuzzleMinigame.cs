@@ -119,7 +119,7 @@ public class PuzzleMinigame : MonoBehaviour
         if (m_IsGameCompleted) return;
         Debug.Log("Ran out of time!");
         m_TimeLimit.StopTimer();
-        GameEvents.TriggerSetEndgameMessage("T'has quedat!", false, 0);
+        GameEvents.TriggerSetEndgameMessage("T'has quedat sense temps!", false, 0);
     }
 
     private void OnEnable()
