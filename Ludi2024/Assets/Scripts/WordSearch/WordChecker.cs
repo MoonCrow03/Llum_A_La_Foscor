@@ -10,9 +10,6 @@ public class WordChecker : MonoBehaviour
 {
     [SerializeField] private BoardData m_BoardData;
     
-    [Header("Scene Settings")]
-    [SerializeField] private Scenes m_Scene;
-    
     [Header("Audio")]
     public EventReference m_AudioEventWin;
     public EventReference m_AudioEventLose;
@@ -41,14 +38,9 @@ public class WordChecker : MonoBehaviour
     
     private FMOD.Studio.EventInstance m_AudioInstanceWin;
     private FMOD.Studio.EventInstance m_AudioInstanceLose;
-    
-    
 
     private void Start()
     {
-        m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
-        m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
-        
         m_AssignedPoints = 0;
         m_CompletedWords = 0;
         m_CorrectSquareList = new List<int>();
@@ -56,6 +48,9 @@ public class WordChecker : MonoBehaviour
         
         m_TimeLimit = new TimeLimit(this);
         m_TimeLimit.StartTimer(m_Time, LoseGame);
+
+        m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
+        m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
     }
 
     private void Update()
@@ -144,22 +139,33 @@ public class WordChecker : MonoBehaviour
 
     private bool IsPointOnTheRay(Ray p_currentRay, Vector3 p_point)
     {
+        // Convert Vector3 to Vector2 for 2D calculations
+        Vector2 l_rayOrigin = new Vector2(p_currentRay.origin.x, p_currentRay.origin.y);
+        Vector2 l_rayDirection = new Vector2(p_currentRay.direction.x, p_currentRay.direction.y).normalized;
+        Vector2 l_point = new Vector2(p_point.x, p_point.y);
+
         // Get the vector from the ray's origin to the point
-        Vector3 l_originToPoint = p_point - p_currentRay.origin;
+        Vector2 l_originToPoint = l_point - l_rayOrigin;
 
         // Project the vector onto the ray's direction
-        float l_projectionLength = Vector3.Dot(l_originToPoint, p_currentRay.direction.normalized);
+        float l_projectionLength = Vector2.Dot(l_originToPoint, l_rayDirection);
 
-        // Get the closest point on the ray to p_point
-        Vector3 l_closestPointOnRay = p_currentRay.origin + p_currentRay.direction.normalized * l_projectionLength;
+        // If projection length is negative, the point is behind the ray's origin
+        if (l_projectionLength < 0)
+        {
+            return false;
+        }
+
+        // Get the closest point on the ray to the target point
+        Vector2 l_closestPointOnRay = l_rayOrigin + l_rayDirection * l_projectionLength;
 
         // Calculate the distance between the point and the closest point on the ray
-        float l_distanceToRay = Vector3.Distance(p_point, l_closestPointOnRay);
+        float l_distanceToRay = Vector2.Distance(l_point, l_closestPointOnRay);
 
-        // Define a tolerance for how close the point should be to the ray
-        float l_tolerance = 0.1f; // Adjust this value depending on the accuracy you need
+        // Adjust the tolerance value if necessary
+        float l_tolerance = 0.1f;
 
-        // Return true if the distance is less than the tolerance
+        // Return true if the distance is within the tolerance
         return l_distanceToRay < l_tolerance;
     }
 
@@ -224,7 +230,6 @@ public class WordChecker : MonoBehaviour
         {
             m_IsGameCompleted = true;
             m_TimeLimit.StopTimer();
-            GameManager.Instance.SetMiniGameCompleted(m_Scene);
             m_AudioInstanceWin.start();
             GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
         }
