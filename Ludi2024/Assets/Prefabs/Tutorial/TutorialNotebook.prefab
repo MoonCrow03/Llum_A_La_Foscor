@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Text: {fileID: 6237090519054465224}
   m_Animator: {fileID: 2744091475740656985}
-  m_MaxPages: 2
+  m_MaxPages: 5
 --- !u!1 &6756689172945011825
 GameObject:
   m_ObjectHideFlags: 0

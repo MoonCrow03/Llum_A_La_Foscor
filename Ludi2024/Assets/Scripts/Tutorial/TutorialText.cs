@@ -19,6 +19,7 @@ namespace Tutorial
         private bool isTextFinished = false;
         
         public static Action OnTutorialFinished;
+        public static Action OnPageFinished;
     
         void Start()
         {
@@ -40,6 +41,7 @@ namespace Tutorial
                 }
                 else
                 {
+                    OnPageFinished?.Invoke();
                     isTextFinished = false;
                     currentText = "";
                     text.text = currentText;
@@ -51,16 +53,15 @@ namespace Tutorial
         private bool IsAllTextDisplayed()
         {
             StopCoroutine(ShowText());
-            return index >= fullText.Split(' ').Length;
+            return index >= fullText.Length;
         }
 
         IEnumerator ShowText()
         {
-            string[] words = fullText.Split(' ');
             FinishedTextImage.SetActive(false);
-            for (index = lastIndex; index < fullText.Split(' ').Length; index++)
+            for (index = lastIndex; index < fullText.Length; index++)
             {
-                currentText += words[index] + " ";
+                currentText += fullText[index];
                 text.text = currentText;
                 text.ForceMeshUpdate();
 

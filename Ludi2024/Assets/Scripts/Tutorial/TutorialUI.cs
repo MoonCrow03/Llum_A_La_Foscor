@@ -6,7 +6,7 @@ using Tutorial;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutoriaUI : MonoBehaviour
+public class TutorialUI : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private TextMeshProUGUI m_Text;
@@ -121,11 +121,18 @@ public class TutoriaUI : MonoBehaviour
 
     private void OnEnable()
     {
+        TutorialText.OnPageFinished += PassPageAnimation;
         TutorialText.OnTutorialFinished += OnDisableTutorialNoteBook;
     }
 
     private void OnDisable()
     {
+        TutorialText.OnPageFinished -= PassPageAnimation;
         TutorialText.OnTutorialFinished -= OnDisableTutorialNoteBook;
+    }
+
+    private void PassPageAnimation()
+    {
+        m_Animator.SetTrigger("NextPage");
     }
 }
