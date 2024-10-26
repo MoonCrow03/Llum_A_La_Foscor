@@ -16,6 +16,14 @@ public class GameManager : MonoBehaviour
     
     public static Dictionary<Scenes, bool> MiniGamesCompleted => miniGamesCompleted;
 
+    private int points;
+    
+    public int Points
+    {
+        get => points;
+        set => points = value;
+    }
+
     private void Awake()
     {
         if (_instance == null)

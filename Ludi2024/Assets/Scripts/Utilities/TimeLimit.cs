@@ -9,6 +9,7 @@ namespace Utilities
         private float timeRemaining;
         private Action onTimerEnd;
         private MonoBehaviour coroutineOwner;
+        
 
         public TimeLimit(MonoBehaviour owner)
         {
@@ -37,15 +38,17 @@ namespace Utilities
         {
             coroutineOwner.StopAllCoroutines();
         }
-
-        public bool IsTimeUp()
-        {
-            return timeRemaining <= 0;
-        }
+        
         
         public float GetTimeRemaining()
         {
             return timeRemaining;
+        }
+        
+
+        public int GetPoints(float multiplier)
+        {
+            return Mathf.CeilToInt(timeRemaining * 100 * multiplier);
         }
     }
     

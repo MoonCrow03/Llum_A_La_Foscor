@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using FMODUnity;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 using Random = UnityEngine.Random;
 
@@ -13,6 +14,7 @@ namespace Wordle
         [Header("Wordle Settings")]
         public List<string> listOfPossibleSolutions = new List<string>();
         [SerializeField] private float timeToBeat;
+        [SerializeField] private float pointsMultiplier = 1.0f;
         
         [NonSerialized] public int WordLength;
 
@@ -223,6 +225,7 @@ namespace Wordle
                 timeLimit.StopTimer();
                 GameManager.Instance.SetMiniGameCompleted(levelCompleted);
                 AudioInstanceWin.start();
+                GameManager.Instance.Points += timeLimit.GetPoints(pointsMultiplier);
                 GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
             }
             

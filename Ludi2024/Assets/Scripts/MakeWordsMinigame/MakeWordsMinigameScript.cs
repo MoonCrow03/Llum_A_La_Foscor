@@ -4,6 +4,7 @@ using System.Linq;
 using FMODUnity;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Utilities;
 using Random = UnityEngine.Random;
@@ -21,8 +22,10 @@ namespace MakeWordsMinigame
         [SerializeField] private Transform slotsParent;
         [SerializeField] private int extraLetters;
 
-        [Header("Timer Settings")] 
+        [Header("Game Settings")] 
         [SerializeField] private float time;
+
+        [SerializeField] private int pointsMultiplier;
         
         [Header("Scene Settings")]
         [SerializeField] private Scenes levelCompleted;

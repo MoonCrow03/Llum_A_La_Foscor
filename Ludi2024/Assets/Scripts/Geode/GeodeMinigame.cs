@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using FMODUnity;
 using Tutorial;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 
 public class GeodeMinigame : MonoBehaviour
@@ -19,6 +20,7 @@ public class GeodeMinigame : MonoBehaviour
     [SerializeField] private int m_MaxStrikes = 2;
     [SerializeField] private int m_PointsToWin = 3;
     [SerializeField] private bool m_IsTutorial;
+    [SerializeField] private float m_PointsMultiplier = 1.0f;
 
     [Header("Scene Settings")]
     [SerializeField] private Scenes m_LevelCompleted;
@@ -108,6 +110,7 @@ public class GeodeMinigame : MonoBehaviour
         m_TimeLimit.StopTimer();
         GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
         m_AudioInstanceWin.start();
+        GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointsMultiplier);
         GameEvents.TriggerSetEndgameMessage("Felicitats!", true);
     }
 
@@ -118,7 +121,7 @@ public class GeodeMinigame : MonoBehaviour
         m_AudioInstanceLose.start();
         if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
-
+        
         GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
     }
 

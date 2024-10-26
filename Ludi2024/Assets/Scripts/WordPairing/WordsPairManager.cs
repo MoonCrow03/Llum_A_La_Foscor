@@ -14,8 +14,9 @@ public class WordsPairManager : MonoBehaviour
     [Header("Components")]
     [SerializeField] private List<WordsPair> m_WordsSetters;
 
-    [Header("Time Settings")] 
+    [Header("Game Settings")] 
     [SerializeField] private float m_Time;
+    [SerializeField] private float m_PointMultiplier = 1.0f;
     
     [Header("Scene Settings")]
     [SerializeField] private Scenes m_LevelCompleted;
@@ -113,6 +114,7 @@ public class WordsPairManager : MonoBehaviour
             m_IsGameCompleted = true;
             m_AudioInstanceWin.start();
             GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
+            GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointMultiplier);
             GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
         }
     }

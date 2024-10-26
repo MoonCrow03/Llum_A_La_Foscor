@@ -18,6 +18,9 @@ public class WordChecker : MonoBehaviour
     [SerializeField] private float m_Time;
     [SerializeField] private TextMeshProUGUI m_ClockText;
     
+    [Header("Points")]
+    [SerializeField] private float m_PointsMultiplier = 1.0f;
+    
     
     private string m_Word;
     private int m_AssignedPoints;
@@ -231,6 +234,8 @@ public class WordChecker : MonoBehaviour
             m_IsGameCompleted = true;
             m_TimeLimit.StopTimer();
             m_AudioInstanceWin.start();
+            
+            GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointsMultiplier);
             GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
         }
     }

@@ -5,6 +5,7 @@ using TMPro;
 using Tutorial;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utilities;
 
 public class PuzzleMinigame : MonoBehaviour
@@ -18,6 +19,7 @@ public class PuzzleMinigame : MonoBehaviour
     [Header("Puzzle Settings")]
     [SerializeField] private PuzzleMiniGameType m_PuzzleMiniGameType;
     [SerializeField] private float m_SecondsToComplete;
+    [SerializeField] private float m_PointsMultiplier = 1.0f;
 
     [Header("Debug")]
     [SerializeField] private int m_PieceCounter;
@@ -95,6 +97,7 @@ public class PuzzleMinigame : MonoBehaviour
         
         m_IsGameCompleted = true;
         GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
+        GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointsMultiplier);
         GameEvents.TriggerSetEndgameMessage("Trencaclosques completat!", true);
     }
 

@@ -18,12 +18,14 @@ namespace HangedMan
         [SerializeField] private int maxGuesses;
         [SerializeField] private float timeLeft;
         [SerializeField] private bool isTutorial;
+        [SerializeField] private float pointsMultiplier = 1.0f;
         
         [Header("Canvas Settings")]
         [SerializeField] private GameObject letterButtonPrefab;
         [SerializeField] private Transform letterParent;
         [SerializeField] private GameObject letterFromGuessWordPrefab;
         [SerializeField] private Transform letterFromGuessWordParent;
+        
         
         [Header("Scenes")]
         [SerializeField] private Scenes levelCompleted;
@@ -194,8 +196,8 @@ namespace HangedMan
                 DisableLetterInteraction(letter.Key);
             }
             timeLimit.StopTimer();
-            
             AudioInstanceWin.start();
+            GameManager.Instance.Points += timeLimit.GetPoints(pointsMultiplier);
             GameManager.Instance.SetMiniGameCompleted(levelCompleted);
             GameEvents.TriggerSetEndgameMessage("Felicitats!", true);
         }
