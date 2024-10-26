@@ -818,7 +818,7 @@ PrefabInstance:
     - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
         type: 3}
       propertyPath: m_Time
-      value: 10000
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
         type: 3}
@@ -951,10 +951,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5205822895020176061, guid: 030e1045a5a854a42837d24998b858d1,
         type: 3}
+      propertyPath: m_MaxRows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205822895020176061, guid: 030e1045a5a854a42837d24998b858d1,
+        type: 3}
       propertyPath: m_BoardData
       value: 
       objectReference: {fileID: 11400000, guid: 374a24840b8b463409a968729253bbef,
         type: 2}
+    - target: {fileID: 5205822895020176061, guid: 030e1045a5a854a42837d24998b858d1,
+        type: 3}
+      propertyPath: m_MaxColumns
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6288213736865172463, guid: 030e1045a5a854a42837d24998b858d1,
         type: 3}
       propertyPath: m_Pivot.x

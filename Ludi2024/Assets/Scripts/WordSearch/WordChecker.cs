@@ -55,7 +55,7 @@ public class WordChecker : MonoBehaviour
 
     private void Update()
     {
-        if (m_AssignedPoints > 0 && Application.isEditor)
+        /*if (m_AssignedPoints > 0 && Application.isEditor)
         {
             Debug.DrawRay(m_RayUp.origin, m_RayUp.direction * 4);
             Debug.DrawRay(m_RayDown.origin, m_RayDown.direction * 4);
@@ -65,7 +65,10 @@ public class WordChecker : MonoBehaviour
             Debug.DrawRay(m_RayDiagonalLeftDown.origin, m_RayDiagonalLeftDown.direction * 4);
             Debug.DrawRay(m_RayDiagonalRightUp.origin, m_RayDiagonalRightUp.direction * 4);
             Debug.DrawRay(m_RayDiagonalRightDown.origin, m_RayDiagonalRightDown.direction * 4);
-        }
+        }*/
+
+        TimeSpan timeSpan = TimeSpan.FromSeconds(m_TimeLimit.GetTimeRemaining());
+        m_ClockText.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
     }
 
     private void OnEnable()
@@ -125,7 +128,7 @@ public class WordChecker : MonoBehaviour
     {
         foreach (var t_searchingWord in m_BoardData.m_SearchWords)
         {
-            if (m_Word.Equals(t_searchingWord.m_Word))
+            if (m_Word.Equals(t_searchingWord.m_Word) || m_Word.Equals(ReverseString(t_searchingWord.m_Word)))
             {
                 WordSearchEvents.CorrectWordMethod(m_Word, m_CorrectSquareList);
                 m_Word = string.Empty;
@@ -135,6 +138,13 @@ public class WordChecker : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private string ReverseString(string p_word)
+    {
+        char[] l_charArray = p_word.ToCharArray();
+        Array.Reverse(l_charArray);
+        return new string(l_charArray);
     }
 
     private bool IsPointOnTheRay(Ray p_currentRay, Vector3 p_point)
