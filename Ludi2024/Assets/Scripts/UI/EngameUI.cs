@@ -35,7 +35,7 @@ public class EngameUI : MonoBehaviour
         m_EndgamePanel.SetActive(isEnabled);
     }
 
-    private void SetMessage(string p_message, bool p_won)
+    private void SetMessage(string p_message, bool p_won, int p_stars)
     {
         if (m_Animation != null)
         {
@@ -47,10 +47,11 @@ public class EngameUI : MonoBehaviour
 
         if (p_won)
         {
-            //GameManager.Instance.SetMiniGameCompleted(m_MiniGame);
+            GameManager.Instance.SetMiniGameCompleted(m_MiniGame);
         }
 
         EnableEndgamePanel(true);
+        GameEvents.TriggerShowStars(p_stars);
     }
 
     public bool WasGameWon()

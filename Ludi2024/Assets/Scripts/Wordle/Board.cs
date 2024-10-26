@@ -15,7 +15,7 @@ namespace Wordle
         public List<string> listOfPossibleSolutions = new List<string>();
         [SerializeField] private float timeToBeat;
         [SerializeField] private float pointsMultiplier = 1.0f;
-        
+
         [NonSerialized] public int WordLength;
 
         private const int EASY_WORD_LENGTH = 3;
@@ -225,8 +225,8 @@ namespace Wordle
                 timeLimit.StopTimer();
                 GameManager.Instance.SetMiniGameCompleted(levelCompleted);
                 AudioInstanceWin.start();
-                GameManager.Instance.Points += timeLimit.GetPoints(pointsMultiplier);
-                GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
+                int l_stars = 3;
+                GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
             }
             
             rowIndex++;
@@ -238,7 +238,7 @@ namespace Wordle
                 timeLimit.StopTimer();
                 enabled = false;
                 AudioInstanceLose.start();
-                GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
+                GameEvents.TriggerSetEndgameMessage("Has perdut!", false, 0);
             }
         }
 
@@ -262,7 +262,7 @@ namespace Wordle
         {
             if (gameCompleted) return;
             AudioInstanceLose.start();
-            GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
+            GameEvents.TriggerSetEndgameMessage("Has perdut!", false, 0);
         }
 
         private bool IsValidWord(string word)

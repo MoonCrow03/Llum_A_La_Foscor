@@ -26,14 +26,14 @@ public class GameEvents
         }
     }
 
-    public delegate void ShowEndgameMessage(string message, bool p_won);
+    public delegate void ShowEndgameMessage(string message, bool p_won, int p_stars);
     public static event ShowEndgameMessage OnSetEndgameMessage;
 
-    public static void TriggerSetEndgameMessage(string p_message, bool p_won)
+    public static void TriggerSetEndgameMessage(string p_message, bool p_won, int p_stars)
     {
         if (OnSetEndgameMessage != null)
         {
-            OnSetEndgameMessage(p_message, p_won);
+            OnSetEndgameMessage(p_message, p_won, p_stars);
         }
     }
 
@@ -56,6 +56,17 @@ public class GameEvents
         if (OnEnablePlayerMovement != null)
         {
             OnEnablePlayerMovement(p_enable);
+        }
+    }
+
+    public delegate void ShowStars(int p_numberOfStars);
+    public static event ShowStars OnShowStars;
+
+    public static void TriggerShowStars(int p_numberOfStars)
+    {
+        if (OnShowStars != null)
+        {
+            OnShowStars(p_numberOfStars);
         }
     }
 }

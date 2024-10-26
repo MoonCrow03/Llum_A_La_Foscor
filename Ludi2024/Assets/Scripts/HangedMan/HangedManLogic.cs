@@ -19,14 +19,14 @@ namespace HangedMan
         [SerializeField] private float timeLeft;
         [SerializeField] private bool isTutorial;
         [SerializeField] private float pointsMultiplier = 1.0f;
-        
+
         [Header("Canvas Settings")]
         [SerializeField] private GameObject letterButtonPrefab;
         [SerializeField] private Transform letterParent;
         [SerializeField] private GameObject letterFromGuessWordPrefab;
         [SerializeField] private Transform letterFromGuessWordParent;
         
-        
+
         [Header("Scenes")]
         [SerializeField] private Scenes levelCompleted;
         [SerializeField] private TextMeshProUGUI clockText;
@@ -185,7 +185,7 @@ namespace HangedMan
             timeLimit.StopTimer();
             
             AudioInstanceLose.start();
-            GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
+            GameEvents.TriggerSetEndgameMessage("Has perdut!", false, 0);
         }
 
         private void GameWon()
@@ -197,9 +197,9 @@ namespace HangedMan
             }
             timeLimit.StopTimer();
             AudioInstanceWin.start();
-            GameManager.Instance.Points += timeLimit.GetPoints(pointsMultiplier);
-            GameManager.Instance.SetMiniGameCompleted(levelCompleted);
-            GameEvents.TriggerSetEndgameMessage("Felicitats!", true);
+
+            int l_stars = 3;
+            GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
         }
 
         private bool IsWordGuessed()

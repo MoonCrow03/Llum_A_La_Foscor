@@ -96,9 +96,10 @@ public class PuzzleMinigame : MonoBehaviour
             m_TimeLimit.StopTimer();
         
         m_IsGameCompleted = true;
-        GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
+        
         GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointsMultiplier);
-        GameEvents.TriggerSetEndgameMessage("Trencaclosques completat!", true);
+        int l_stars = 3;
+        GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
     }
 
     private void RegisterCorrectPiece()
@@ -119,7 +120,7 @@ public class PuzzleMinigame : MonoBehaviour
         if (m_IsGameCompleted) return;
         Debug.Log("Ran out of time!");
         m_TimeLimit.StopTimer();
-        GameEvents.TriggerSetEndgameMessage("T'has quedat!", false);
+        GameEvents.TriggerSetEndgameMessage("T'has quedat!", false, 0);
     }
 
     private void OnEnable()

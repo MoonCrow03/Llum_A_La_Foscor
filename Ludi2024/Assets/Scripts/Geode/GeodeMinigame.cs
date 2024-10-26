@@ -23,7 +23,6 @@ public class GeodeMinigame : MonoBehaviour
     [SerializeField] private float m_PointsMultiplier = 1.0f;
 
     [Header("Scene Settings")]
-    [SerializeField] private Scenes m_LevelCompleted;
     [SerializeField] private TMPro.TextMeshProUGUI m_clockTimeLeft;
     
     [Header("Audio")]
@@ -108,10 +107,13 @@ public class GeodeMinigame : MonoBehaviour
     {
         m_IsGameCompleted = true;
         m_TimeLimit.StopTimer();
-        GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
+
         m_AudioInstanceWin.start();
+
         GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointsMultiplier);
-        GameEvents.TriggerSetEndgameMessage("Felicitats!", true);
+
+        int l_stars = 3;
+        GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
     }
 
     private void LoseGame()
@@ -121,8 +123,8 @@ public class GeodeMinigame : MonoBehaviour
         m_AudioInstanceLose.start();
         if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
-        
-        GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
+
+        GameEvents.TriggerSetEndgameMessage("Has perdut!", false, 0);
     }
 
     private void OnEnable()

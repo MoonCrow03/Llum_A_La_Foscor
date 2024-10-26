@@ -20,8 +20,8 @@ public class WordChecker : MonoBehaviour
     
     [Header("Points")]
     [SerializeField] private float m_PointsMultiplier = 1.0f;
-    
-    
+
+
     private string m_Word;
     private int m_AssignedPoints;
     private int m_CompletedWords;
@@ -244,9 +244,11 @@ public class WordChecker : MonoBehaviour
             m_IsGameCompleted = true;
             m_TimeLimit.StopTimer();
             m_AudioInstanceWin.start();
-            
+
             GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointsMultiplier);
-            GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
+
+            int l_stars = 3;
+            GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
         }
     }
     
@@ -255,6 +257,6 @@ public class WordChecker : MonoBehaviour
         if (m_IsGameCompleted) return;
         m_TimeLimit.StopTimer();
         m_AudioInstanceLose.start();
-        GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
+        GameEvents.TriggerSetEndgameMessage("Has perdut!", false, 0);
     }
 }

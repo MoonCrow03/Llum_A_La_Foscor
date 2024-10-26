@@ -14,10 +14,10 @@ public class WordsPairManager : MonoBehaviour
     [Header("Components")]
     [SerializeField] private List<WordsPair> m_WordsSetters;
 
-    [Header("Game Settings")] 
+    [Header("Game Settings")]
     [SerializeField] private float m_Time;
     [SerializeField] private float m_PointMultiplier = 1.0f;
-    
+
     [Header("Scene Settings")]
     [SerializeField] private Scenes m_LevelCompleted;
     [SerializeField] private TMPro.TextMeshProUGUI m_ClockText;
@@ -113,9 +113,11 @@ public class WordsPairManager : MonoBehaviour
         {
             m_IsGameCompleted = true;
             m_AudioInstanceWin.start();
-            GameManager.Instance.SetMiniGameCompleted(m_LevelCompleted);
+
             GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointMultiplier);
-            GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
+
+            int l_stars = 3;
+            GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
         }
     }
     
@@ -124,7 +126,7 @@ public class WordsPairManager : MonoBehaviour
         if (m_IsGameCompleted) return;
         Debug.Log("Failed!");
         m_AudioInstanceLose.start();
-        GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
+        GameEvents.TriggerSetEndgameMessage("Has perdut!", false, 0);
     }
 
     private void OnDestroy()

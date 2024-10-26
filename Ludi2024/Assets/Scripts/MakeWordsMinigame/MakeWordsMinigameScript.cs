@@ -162,8 +162,10 @@ namespace MakeWordsMinigame
             timeLimit.StopTimer();
             AudioInstanceWin.start();
             gameCompleted = true;
-            GameManager.Instance.SetMiniGameCompleted(levelCompleted);
-            GameEvents.TriggerSetEndgameMessage("Has guanyat!", true);
+            //GameManager.Instance.SetMiniGameCompleted(levelCompleted);
+
+            int l_stars = 3;
+            GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
         }
 
         private void OnGameFailed()
@@ -171,7 +173,7 @@ namespace MakeWordsMinigame
             if (gameCompleted) return;
             timeLimit.StopTimer();
             AudioInstanceLose.start();
-            GameEvents.TriggerSetEndgameMessage("Has perdut!", false);
+            GameEvents.TriggerSetEndgameMessage("Has perdut!", false, 0);
         }
 
         private void ShuffleList(ref List<char> list)
