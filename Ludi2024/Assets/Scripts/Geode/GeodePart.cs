@@ -19,6 +19,10 @@ public class GeodePart : MonoBehaviour
     [SerializeField] private float m_VibrationIntensity = 0.05f;
     [SerializeField] private float m_VibrationDuration = 0.5f;
     [SerializeField] private float m_VibrationSpeed = 50.0f;
+    
+    [Header("Audio")]
+    [SerializeField] private EventReference m_AudioEventHit;
+    [SerializeField] private EventReference m_AudioEventHitFake;
 
     [Header("Components")]
     [SerializeField] private GameObject m_RealParticlesPrefab;
@@ -27,6 +31,9 @@ public class GeodePart : MonoBehaviour
     private ParticleSystem m_Particles;
 
     private MeshRenderer m_MeshRenderer;
+    
+    private FMOD.Studio.EventInstance m_AudioInstanceHit;
+    private FMOD.Studio.EventInstance m_AudioInstanceHitFake;
 
     public static Action OnStrike;
     public static Action OnHit;
@@ -34,6 +41,9 @@ public class GeodePart : MonoBehaviour
     private void Start()
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
+        
+        m_AudioInstanceHit = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventHit);
+        m_AudioInstanceHitFake = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventHitFake);
 
         GameObject l_particles = Instantiate(m_KeyPointType == KeyPointType.Real ? m_RealParticlesPrefab : m_FakeParticlesPrefab,
             transform.position, transform.rotation, transform);
@@ -48,12 +58,14 @@ public class GeodePart : MonoBehaviour
             OnHit?.Invoke();
             m_Particles.Stop();
             StartCoroutine(AnimateGeode());
+            m_AudioInstanceHit.start();
             m_MeshRenderer.enabled = false;
         }
 
         if (m_KeyPointType == KeyPointType.Fake)
         {
             OnStrike?.Invoke();
+            m_AudioInstanceHitFake.start();
             StartCoroutine(Vibrate());
         }
     }
@@ -90,5 +102,11 @@ public class GeodePart : MonoBehaviour
 
         // Reset the position back to the original
         transform.parent.position = l_originalPosition;
+    }
+
+    private void OnDestroy()
+    {
+        m_AudioInstanceHit.release();
+        m_AudioInstanceHitFake.release();
     }
 }

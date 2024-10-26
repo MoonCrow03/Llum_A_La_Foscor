@@ -26,7 +26,6 @@ public class GeodeMinigame : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI m_clockTimeLeft;
     
     [Header("Audio")]
-    public EventReference AudioEvent;
     public EventReference AudioEventWin;
     public EventReference AudioEventLose;
 
@@ -35,7 +34,6 @@ public class GeodeMinigame : MonoBehaviour
     private TimeLimit m_TimeLimit;
     private bool m_IsGameCompleted = false;
     
-    private FMOD.Studio.EventInstance m_AudioInstance;
     private FMOD.Studio.EventInstance m_AudioInstanceWin;
     private FMOD.Studio.EventInstance m_AudioInstanceLose;
 
@@ -50,7 +48,6 @@ public class GeodeMinigame : MonoBehaviour
             m_TimeLimit.StartTimer(m_Time, LoseGame);
         }
         
-        m_AudioInstance = FMODUnity.RuntimeManager.CreateInstance(AudioEvent);
         m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
         m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
     }
@@ -78,7 +75,6 @@ public class GeodeMinigame : MonoBehaviour
     private void RegisterPoints()
     {
         m_CurrentPoints++;
-        m_AudioInstance.start();
 
         if (m_CurrentPoints == m_PointsToWin)
         {
@@ -142,7 +138,6 @@ public class GeodeMinigame : MonoBehaviour
 
     private void OnDestroy()
     {
-        m_AudioInstance.release();
         m_AudioInstanceWin.release();
         m_AudioInstanceLose.release();
     }

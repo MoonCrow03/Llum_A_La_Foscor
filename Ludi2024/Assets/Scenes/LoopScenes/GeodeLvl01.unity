@@ -135,6 +135,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Path
+      value: event:/Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Path
+      value: event:/GeodeBreaks
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Guid.Data1
+      value: -1097385877
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Guid.Data2
+      value: 1179103589
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Guid.Data3
+      value: 1185353641
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Guid.Data4
+      value: -129688694
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Guid.Data1
+      value: 998357901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Guid.Data2
+      value: 1337431273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Guid.Data3
+      value: 719369658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Guid.Data4
+      value: -1883301981
+      objectReference: {fileID: 0}
     - target: {fileID: 4020126722174400775, guid: bd847336cd4a5d847a4b8bd384ef903c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -464,13 +514,6 @@ MonoBehaviour:
   m_IsTutorial: 1
   m_PointsMultiplier: 1
   m_clockTimeLeft: {fileID: 1428930665}
-  AudioEvent:
-    Guid:
-      Data1: 998357901
-      Data2: 1337431273
-      Data3: 719369658
-      Data4: -1883301981
-    Path: event:/GeodeBreaks
   AudioEventWin:
     Guid:
       Data1: -1779214306
@@ -949,6 +992,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Path
+      value: event:/Pickaxe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Path
+      value: event:/GeodeBreaks
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Guid.Data1
+      value: -1097385877
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Guid.Data2
+      value: 1179103589
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Guid.Data3
+      value: 1185353641
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHit.Guid.Data4
+      value: -129688694
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Guid.Data1
+      value: 998357901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Guid.Data2
+      value: 1337431273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Guid.Data3
+      value: 719369658
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684467673760052329, guid: bd847336cd4a5d847a4b8bd384ef903c,
+        type: 3}
+      propertyPath: m_AudioEventHitFake.Guid.Data4
+      value: -1883301981
+      objectReference: {fileID: 0}
     - target: {fileID: 4020126722174400775, guid: bd847336cd4a5d847a4b8bd384ef903c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1265,6 +1358,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2151636857988886578, guid: 9bece6ac0ae36654bb5bdfb122373e86,
+        type: 3}
+      propertyPath: tutorialTextData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b7a5e4cb2e2d974fbe59fd2a0be307e,
+        type: 2}
     - target: {fileID: 5429043939283823504, guid: 9bece6ac0ae36654bb5bdfb122373e86,
         type: 3}
       propertyPath: m_Name
