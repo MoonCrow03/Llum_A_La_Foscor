@@ -36,7 +36,6 @@ namespace Tutorial
             {
                 if (IsAllTextDisplayed())
                 {
-                    gameObject.SetActive(false);
                     OnTutorialFinished?.Invoke();
                 }
                 else
