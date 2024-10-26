@@ -403,7 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialTextData: {fileID: 11400000, guid: f7aa0f8a4dc5e8a4aaeef1ce30e8bf09, type: 2}
   text: {fileID: 8228577285764132476}
-  textSpeed: 0.01
+  textSpeed: 0.05
   FinishedTextImage: {fileID: 1267004713660399418}
 --- !u!1 &8986646186408490789
 GameObject:

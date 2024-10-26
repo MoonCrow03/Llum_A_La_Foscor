@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using FMODUnity;
+using Tutorial;
 using UnityEngine;
 using Utilities;
 
@@ -17,6 +18,7 @@ public class GeodeMinigame : MonoBehaviour
     [SerializeField] private float m_Time = 20.0f;
     [SerializeField] private int m_MaxStrikes = 2;
     [SerializeField] private int m_PointsToWin = 3;
+    [SerializeField] private bool m_IsTutorial;
 
     [Header("Scene Settings")]
     [SerializeField] private Scenes m_LevelCompleted;
@@ -41,7 +43,7 @@ public class GeodeMinigame : MonoBehaviour
         m_CurrentPoints = 0;
         m_CurrentStrikes = 0;
 
-        if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit)
+        if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit && !m_IsTutorial)
         {
             m_TimeLimit = new TimeLimit(this);
             m_TimeLimit.StartTimer(m_Time, LoseGame);
@@ -60,6 +62,7 @@ public class GeodeMinigame : MonoBehaviour
 
     private void UpdateClock()
     {
+        if (m_TimeLimit == null) return;
         if (m_TimeLimit.GetTimeRemaining() <= 0)
         {
             m_clockTimeLeft.text = "00:00";
@@ -91,6 +94,12 @@ public class GeodeMinigame : MonoBehaviour
             LoseGame();
         }
     }
+    
+    private void StartTimer()
+    {
+        m_TimeLimit = new TimeLimit(this);
+        m_TimeLimit.StartTimer(m_Time, LoseGame);
+    }
 
     private void WinGame()
     {
@@ -116,12 +125,14 @@ public class GeodeMinigame : MonoBehaviour
     {
         GeodePart.OnStrike += RegisterStrike;
         GeodePart.OnHit += RegisterPoints;
+        TutorialText.OnTutorialFinished += StartTimer;
     }
 
     private void OnDisable()
     {
         GeodePart.OnStrike -= RegisterStrike;
         GeodePart.OnHit -= RegisterPoints;
+        TutorialText.OnTutorialFinished -= StartTimer;
     }
 
     private void OnDestroy()

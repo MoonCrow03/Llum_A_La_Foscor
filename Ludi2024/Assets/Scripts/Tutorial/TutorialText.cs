@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace Tutorial
         private int index = 0;
         private int lastIndex = 0;
         private bool isTextFinished = false;
+        
+        public static Action OnTutorialFinished;
     
         void Start()
         {
@@ -33,6 +36,7 @@ namespace Tutorial
                 if (IsAllTextDisplayed())
                 {
                     gameObject.SetActive(false);
+                    OnTutorialFinished?.Invoke();
                 }
                 else
                 {
