@@ -34,7 +34,6 @@ namespace Wordle
 
         [Header("Scene Settings")] [SerializeField]
         private TextMeshProUGUI timeLeft;
-        [SerializeField] private Scenes levelCompleted;
         
         [Header("Audio")]
         public EventReference AudioEventWin;
@@ -223,7 +222,6 @@ namespace Wordle
             {
                 gameCompleted = true;
                 timeLimit.StopTimer();
-                GameManager.Instance.SetMiniGameCompleted(levelCompleted);
                 AudioInstanceWin.start();
                 int l_stars = 3;
                 GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);

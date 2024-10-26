@@ -26,7 +26,6 @@ public class PuzzleMinigame : MonoBehaviour
     [SerializeField] private int m_PuzzleSize;
     
     [Header("Scene Settings")]
-    [SerializeField] private Scenes m_LevelCompleted;
     [SerializeField] private TextMeshProUGUI m_ClockText;
 
     private TimeLimit m_TimeLimit;
