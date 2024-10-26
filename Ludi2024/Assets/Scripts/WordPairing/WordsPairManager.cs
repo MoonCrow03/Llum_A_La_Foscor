@@ -19,7 +19,6 @@ public class WordsPairManager : MonoBehaviour
     [SerializeField] private float m_PointMultiplier = 1.0f;
 
     [Header("Scene Settings")]
-    [SerializeField] private Scenes m_LevelCompleted;
     [SerializeField] private TMPro.TextMeshProUGUI m_ClockText;
     [SerializeField] private bool m_IsTutorial;
     
