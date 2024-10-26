@@ -969,6 +969,56 @@ PrefabInstance:
       propertyPath: m_ClockText
       value: 
       objectReference: {fileID: 806757919}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventWin.Path
+      value: event:/Success
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventLose.Path
+      value: event:/Lose
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data1
+      value: -1779214306
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data2
+      value: 1083828906
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data3
+      value: 161118593
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventWin.Guid.Data4
+      value: 1583326310
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data1
+      value: 802803812
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data2
+      value: 1248482276
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data3
+      value: -1723131512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946779303571080928, guid: d917b05d860da4d4d9a2c861018e69fa,
+        type: 3}
+      propertyPath: m_AudioEventLose.Guid.Data4
+      value: -1260990358
+      objectReference: {fileID: 0}
     - target: {fileID: 4195777494939174587, guid: d917b05d860da4d4d9a2c861018e69fa,
         type: 3}
       propertyPath: m_Pivot.x

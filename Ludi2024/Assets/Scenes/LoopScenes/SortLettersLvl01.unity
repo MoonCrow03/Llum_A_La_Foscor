@@ -853,7 +853,8 @@ MonoBehaviour:
   slotsParent: {fileID: 2098700375}
   extraLetters: 1
   time: 40
-  pointsMultiplier: 0
+  isTutorial: 1
+  pointsMultiplier: 1
   levelCompleted: 8
   clockText: {fileID: 757159225}
   AudioEventWin:
