@@ -28,6 +28,8 @@ public class WordPairDrag : DragNDrop2D
             m_WordPair.Item1 : m_WordPair.Item2;
 
         m_TextMeshProUGUI.text = m_WordShown;
+
+        WordsPairManager.Instance.SetWordPairDrag(this);
     }
 
     public void SetWords((string p_wordA, string p_wordB) p_wordPair, int p_id)
