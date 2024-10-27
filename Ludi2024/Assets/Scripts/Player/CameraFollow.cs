@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,11 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float smoothSpeed = 0.125f;  // Velocidad de suavizado
 
     private bool m_CanMove;
+
+    private void Start()
+    {
+        m_CanMove = true;
+    }
 
     private void OnEnable()
     {

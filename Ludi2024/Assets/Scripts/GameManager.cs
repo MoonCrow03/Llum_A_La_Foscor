@@ -48,14 +48,8 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-        if (!m_IsTutorialCompleted)
-        {
-            EnableTutorialWorld();
-        }
-        else
-        {
-            GameEvents.TriggerEnablePlayerMovement(true);
-        }
+        EnableTutorialWorld();
+        
         
         if(m_IsWorld01Completed || m_IsWorld02Completed)
         {

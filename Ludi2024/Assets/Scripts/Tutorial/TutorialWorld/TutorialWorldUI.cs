@@ -13,12 +13,10 @@ public class TutorialWorldUI : MonoBehaviour
     [SerializeField] private Animator m_Animator;
     
     private List<AnimationClip> m_Clips;
-    private bool m_IsNoteBookEnabled;
 
-    private void Start()
+    private void Awake()
     {
         m_Clips = m_Animator.runtimeAnimatorController.animationClips.ToList();
-        m_IsNoteBookEnabled = false;
         m_TutorialUI.SetActive(false);
     }
 
@@ -36,7 +34,6 @@ public class TutorialWorldUI : MonoBehaviour
 
     private void EnableTutorialUI(bool p_enable)
     {
-        m_IsNoteBookEnabled = p_enable;
         m_TutorialUI.SetActive(p_enable);
 
         if (p_enable)
@@ -53,8 +50,6 @@ public class TutorialWorldUI : MonoBehaviour
     
     private void PassPageAnimation()
     {
-        if(!m_IsNoteBookEnabled) return;
-
         m_Animator.SetTrigger("NextPage");
     }
 

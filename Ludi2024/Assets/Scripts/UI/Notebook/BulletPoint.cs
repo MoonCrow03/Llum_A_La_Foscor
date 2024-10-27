@@ -5,14 +5,8 @@ using UnityEngine;
 
 public class BulletPoint : MonoBehaviour
 {
-    private TextMeshProUGUI m_Text;
-    private string m_EmptyText;
-
-    private void Awake()
-    {
-        m_Text = GetComponent<TextMeshProUGUI>();
-        m_EmptyText = "- ";
-    }
+    [SerializeField] private TextMeshProUGUI m_Text;
+    private string m_EmptyText = "- ";
 
     public bool IsEmpty()
     {
