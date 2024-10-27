@@ -843,7 +843,7 @@ PrefabInstance:
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
       propertyPath: timeLeft
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
@@ -854,6 +854,51 @@ PrefabInstance:
         type: 3}
       propertyPath: isTutorial
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[1]
+      value: poal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[2]
+      value: llaurador
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[3]
+      value: encantada
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[4]
+      value: servei
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[5]
+      value: fades
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[6]
+      value: riquesa
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[7]
+      value: sort
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[8]
+      value: amor
       objectReference: {fileID: 0}
     - target: {fileID: 3884758223218532840, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}

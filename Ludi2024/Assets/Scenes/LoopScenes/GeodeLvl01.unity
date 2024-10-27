@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GeodeMiniGameType: 1
-  m_Time: 50
+  m_Time: 20
   m_MaxStrikes: 1
   m_PointsToWin: 2
   m_IsTutorial: 1
