@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f798416db400430a8922c470b8a785eb, type: 3}
   m_Name: WorldTutorial
   m_EditorClassIdentifier: 
-  tutorialText: "Benvinguda a la investigaci\xF3 doctora, \xE9s un plaer comptar
-    amb vost\xE8 per a ajudar-nos amb les troballes.\r\n La investigaci\xF3 de la
-    ciutat perduda de Mirmanda \xE9s molt fructuosa. Els nostres especialistes ens
-    han informat que creuen que Mirmanda va ser habitat d'algunes fades i \xE9ssers
-    m\xE0gics.      Entre aquest es troben els nostres subjectes d'investigaci\xF3
-    actuals, les Dones d'Aigua, tamb\xE9 conegudes com les Encantades.\r\n Comptem
-    amb la teva ajuda per descobrir m\xE9s sobre aquestes misterioses criatures.\r\n
-    Per impulsar la investigaci\xF3 busca els punts d'inter\xE8s per la mina en qu\xE8
-    et trobes i investiga'ls prenent la tecla F.\r\n A m\xE9s, cada cop que acabis
-    una de les taques, descobrir\xE0s nova informaci\xF3, que ser\xE0 anotada a la
-    teva llibreta, aix\xED que no oblidis comprovar-la de tant en tant."
+  tutorialText: "Benvinguda a la investigaci\xF3, doctora! \xC9s un plaer comptar
+    amb vost\xE8 per a ajudar-nos amb les troballes. La investigaci\xF3 de la ciutat
+    perduda de Mirmanda \xE9s molt fructuosa. Els nostres  especialistes ens han
+    informat que creuen que Mirmanda va ser habitat d'algunes fades i \xE9ssers m\xE0gics.
+    Entre aquests es troben els nostres subjectes d'investigaci\xF3        actuals,
+    les Dones d'Aigua, tamb\xE9 conegudes com les Encantades. Comptem amb la teva
+    ajuda per descobrir m\xE9s   sobre aquestes misterioses criatures. Per impulsar
+    la investigaci\xF3 busca els punts d'inter\xE8s per la mina en qu\xE8 et    trobes
+    i investiga'ls prenent la tecla F. A m\xE9s, cada cop que acabis una de les taques,
+    descobrir\xE0s nova informaci\xF3, que ser\xE0 anotada a la teva llibreta, aix\xED
+    que no oblidis comprovar-la de tant en tant."
