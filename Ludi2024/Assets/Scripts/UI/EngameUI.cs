@@ -37,11 +37,6 @@ public class EngameUI : MonoBehaviour
 
     private void SetMessage(string p_message, bool p_won, int p_stars)
     {
-        if (m_Animation != null)
-        {
-            m_Animation.Play();
-        }
-
         m_Message.text = p_message;
         m_GameWon = p_won;
 
@@ -51,7 +46,15 @@ public class EngameUI : MonoBehaviour
         }
 
         EnableEndgamePanel(true);
-        GameEvents.TriggerShowStars(p_stars);
+
+        if (m_Animation != null)
+        {
+            StartCoroutine(WaitForTabletToAppear(p_stars));
+        }
+        else
+        {
+            GameEvents.TriggerShowStars(p_stars);
+        }
     }
 
     public bool WasGameWon()
@@ -62,5 +65,12 @@ public class EngameUI : MonoBehaviour
     public void LoadWorldScene()
     {
         GameManager.Instance.LoadScene(m_World);
+    }
+
+    private IEnumerator WaitForTabletToAppear(int p_stars)
+    {
+        m_Animation.Play();
+        yield return new WaitForSeconds(m_Animation.clip.length);
+        GameEvents.TriggerShowStars(p_stars);
     }
 }

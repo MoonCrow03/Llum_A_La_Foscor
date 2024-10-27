@@ -22,14 +22,6 @@ public class StarsManager : MonoBehaviour
         GameEvents.OnShowStars -= ShowStars;
     }
 
-    private void Update()
-    {
-        if (InputManager.Instance.Enter.Tap)
-        {
-            ShowStars(3);
-        }
-    }
-
     private void ShowStars(int p_numberOfStars)
     {
         StartCoroutine(ShowStarsRoutine(p_numberOfStars));

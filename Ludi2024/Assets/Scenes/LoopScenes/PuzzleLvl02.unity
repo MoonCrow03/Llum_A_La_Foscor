@@ -1411,6 +1411,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puzzle1
       objectReference: {fileID: 0}
+    - target: {fileID: 1508425569150197942, guid: a3658486ccec3d7419755d1c6865b114,
+        type: 3}
+      propertyPath: m_TagString
+      value: Drag
+      objectReference: {fileID: 0}
+    - target: {fileID: 2061542838486172332, guid: a3658486ccec3d7419755d1c6865b114,
+        type: 3}
+      propertyPath: m_TagString
+      value: Drag
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328247180902746365, guid: a3658486ccec3d7419755d1c6865b114,
+        type: 3}
+      propertyPath: m_TagString
+      value: Drag
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212503851831746696, guid: a3658486ccec3d7419755d1c6865b114,
+        type: 3}
+      propertyPath: m_TagString
+      value: Drag
+      objectReference: {fileID: 0}
     - target: {fileID: 8012172143872145658, guid: a3658486ccec3d7419755d1c6865b114,
         type: 3}
       propertyPath: m_LocalPosition.x
