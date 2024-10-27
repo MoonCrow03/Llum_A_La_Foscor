@@ -10,7 +10,12 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float offsetY = 5f;  // Desplazamiento en el eje Y
     [SerializeField] private float smoothSpeed = 0.125f;  // Velocidad de suavizado
 
-    private bool m_CanMove;
+    [SerializeField] private bool m_CanMove;
+    
+    private void Start()
+    {
+        m_CanMove = true;
+    }
 
     private void OnEnable()
     {
