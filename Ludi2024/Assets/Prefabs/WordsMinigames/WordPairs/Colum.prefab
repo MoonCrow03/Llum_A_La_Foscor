@@ -3995,6 +3995,24 @@ MonoBehaviour:
   - {fileID: 5270826982552183765}
   - {fileID: 3683193632430409112}
   - {fileID: 3267792373541507374}
+  m_Time: 0
+  m_PointMultiplier: 1
+  m_ClockText: {fileID: 0}
+  m_IsTutorial: 0
+  m_AudioEventWin:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  m_AudioEventLose:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &8274154403535106853
 MonoBehaviour:
   m_ObjectHideFlags: 0
