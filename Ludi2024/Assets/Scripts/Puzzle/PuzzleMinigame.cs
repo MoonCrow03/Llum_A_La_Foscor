@@ -45,6 +45,8 @@ public class PuzzleMinigame : MonoBehaviour
         SetPlayablePieces();
 
         m_GameStarted = false;
+        m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
+        m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
     }
 
     private void Update()
