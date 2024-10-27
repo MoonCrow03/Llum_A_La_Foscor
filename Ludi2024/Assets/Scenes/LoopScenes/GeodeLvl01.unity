@@ -1579,7 +1579,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d0363dcc7018aed4185692bf16a6162a,
         type: 3}
       propertyPath: m_Name
-      value: cave Variant 1 (1)
+      value: cave Variant 1 FBX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

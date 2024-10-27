@@ -729,6 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ca7269d4dcc524f8b579259fa63a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsTutorial: 0
 --- !u!114 &598546009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,7 +1896,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d0363dcc7018aed4185692bf16a6162a,
         type: 3}
       propertyPath: m_Name
-      value: cave Variant 1 (1)
+      value: cave Variant 1 FBX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
