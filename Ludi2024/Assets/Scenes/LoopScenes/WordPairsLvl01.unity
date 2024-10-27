@@ -411,6 +411,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialNotebook
       objectReference: {fileID: 0}
+    - target: {fileID: 5429043939283823504, guid: 9bece6ac0ae36654bb5bdfb122373e86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7549299620999014849, guid: 9bece6ac0ae36654bb5bdfb122373e86,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1223,7 +1228,7 @@ PrefabInstance:
     - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
         type: 3}
       propertyPath: m_IsTutorial
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
         type: 3}

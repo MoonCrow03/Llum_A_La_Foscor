@@ -26,8 +26,7 @@ public class WordsPairManager : MonoBehaviour
     public EventReference m_AudioEventWin;
     public EventReference m_AudioEventLose;
     
-    
-    private int m_CorrectPairCount;
+    private List<WordPairDrag> m_WordPairDragList;
     private TimeLimit m_TimeLimit;
     private bool m_IsGameCompleted = false;
     
@@ -40,20 +39,25 @@ public class WordsPairManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        m_WordPairDragList = new List<WordPairDrag>();
     }
 
     private void Start()
     {
-        m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
-        m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
-        
         if (!m_IsTutorial)
         {
             m_TimeLimit = new TimeLimit(this);
             m_TimeLimit.StartTimer(m_Time, EndGameFailed);
         }
-        
-        m_CorrectPairCount = 0;
+
+        m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
+        m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
+    }
+
+    public void SetWordPairDrag(WordPairDrag p_pair)
+    {
+        m_WordPairDragList.Add(p_pair);
     }
 
     private void Update()
@@ -100,7 +104,6 @@ public class WordsPairManager : MonoBehaviour
             if (!t_pair.IsPair()) continue;
 
             t_pair.LockWords(true);
-            m_CorrectPairCount++;
         }
 
         EndGame();
@@ -108,17 +111,23 @@ public class WordsPairManager : MonoBehaviour
 
     private void EndGame()
     {
-        if(m_CorrectPairCount >= m_WordsSetters.Count)
+        foreach (var t_word in m_WordPairDragList)
         {
-            m_IsGameCompleted = true;
-            m_AudioInstanceWin.start();
-            
-            m_TimeLimit.StopTimer();
-            
-            GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointMultiplier);
-            int l_stars = m_TimeLimit.GetNumOfStars();
-            GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
+            if (!t_word.IsLocked())
+            {
+                return;
+            }
         }
+
+        m_IsGameCompleted = true;
+        m_AudioInstanceWin.start();
+        
+        m_TimeLimit.StopTimer();
+        
+        GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointMultiplier);
+        int l_stars = m_TimeLimit.GetNumOfStars();
+        GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
+        
     }
     
     private void EndGameFailed()
