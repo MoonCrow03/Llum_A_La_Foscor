@@ -41,15 +41,15 @@ public class GeodePart : MonoBehaviour
     private void Start()
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
-        
-        m_AudioInstanceHit = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventHit);
-        m_AudioInstanceHitFake = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventHitFake);
 
         GameObject l_particles = Instantiate(m_KeyPointType == KeyPointType.Real ? m_RealParticlesPrefab : m_FakeParticlesPrefab,
             transform.position, transform.rotation, transform);
 
         m_Particles = l_particles.GetComponent<ParticleSystem>();
         m_Particles.Play();
+
+        m_AudioInstanceHit = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventHit);
+        m_AudioInstanceHitFake = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventHitFake);
     }
     public void OnKeyPointClicked()
     {

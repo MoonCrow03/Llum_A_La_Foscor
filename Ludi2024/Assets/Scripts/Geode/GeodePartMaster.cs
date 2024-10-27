@@ -8,7 +8,17 @@ public class GeodePartMaster : MonoBehaviour
     private GameObject m_SelectedObject;
     private bool m_GameStarted = false;
 
-    private void Update()
+    [SerializeField] private bool m_IsTutorial;
+
+    private void Start()
+    {
+        if (!m_IsTutorial)
+        {
+            m_GameStarted = true;
+        }
+    }
+
+private void Update()
     {
         if (!m_GameStarted) return;
 
