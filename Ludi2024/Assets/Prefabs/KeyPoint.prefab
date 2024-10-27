@@ -103,6 +103,20 @@ MonoBehaviour:
   m_VibrationIntensity: 0.05
   m_VibrationDuration: 0.5
   m_VibrationSpeed: 50
+  m_AudioEventHit:
+    Guid:
+      Data1: -1097385877
+      Data2: 1179103589
+      Data3: 1185353641
+      Data4: -129688694
+    Path: event:/Pickaxe
+  m_AudioEventHitFake:
+    Guid:
+      Data1: 998357901
+      Data2: 1337431273
+      Data3: 719369658
+      Data4: -1883301981
+    Path: event:/GeodeBreaks
   m_RealParticlesPrefab: {fileID: 1159518993244889725, guid: b33e7c8c1d976984dbfd3e6d1706e2c8,
     type: 3}
   m_FakeParticlesPrefab: {fileID: 1159518993244889725, guid: f05a687b296b4ee478422a1073060da1,
