@@ -39,4 +39,11 @@ public class NotebookData : ScriptableObject
             .Where(note => note.Key.ToString().Contains("Lvl01"))
             .All(note => note.IsCompleted);
     }
+
+    public bool AreAllLevel2NotesCompleted()
+    {
+        return Notes
+            .Where(note => note.Key.ToString().Contains("Lvl02"))
+            .All(note => note.IsCompleted);
+    }
 }

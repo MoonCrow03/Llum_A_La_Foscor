@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Player is not moving");
             IsMoving = false;
             // Desactivar la animación de movimiento
             animator.SetBool("isMoving", false);

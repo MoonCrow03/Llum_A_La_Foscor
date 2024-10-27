@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
 
     private int points;
     
+    public bool m_IsWorld01Completed = false;
+    
+    public bool m_IsWorld02Completed = false;
+    
+    
     public int Points
     {
         get => points;
@@ -50,9 +55,11 @@ public class GameManager : MonoBehaviour
         {
             if (AreAllLevel1MiniGamesCompleted())
             {
+                m_IsWorld01Completed = true;
                 Debug.Log("All level 1 minigames completed");
-                return;
             }
+            
+            
         }
         SceneManager.LoadSceneAsync(p_scene.ToString());
     }
@@ -70,6 +77,11 @@ public class GameManager : MonoBehaviour
     public bool AreAllLevel1MiniGamesCompleted()
     {
         return m_NotebookData.AreAllLevel1NotesCompleted();
+    }
+    
+    public bool AreAllLevel2MiniGamesCompleted()
+    {
+        return m_NotebookData.AreAllLevel2NotesCompleted();
     }
     
     
