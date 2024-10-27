@@ -50,9 +50,7 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     public virtual void OnDrag(PointerEventData eventData)
     {
         if (IsLocked()) return;
-
-        Debug.Log("OnDrag");
-
+        
         // Get the camera associated with the World Space canvas
         Camera l_worldCamera = m_Canvas.worldCamera;
 
@@ -93,7 +91,6 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     {
         if (IsLocked()) return;
 
-        Debug.Log("OnEndDrag");
 
         if (m_ParentAfterDrag != null)
         {
