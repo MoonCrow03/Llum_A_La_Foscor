@@ -1891,6 +1891,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5344007945119208327, guid: f0d4f665af0120341afc2c07a04528f8,
         type: 3}
+      propertyPath: m_World
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344007945119208327, guid: f0d4f665af0120341afc2c07a04528f8,
+        type: 3}
       propertyPath: m_MiniGame
       value: 3
       objectReference: {fileID: 0}

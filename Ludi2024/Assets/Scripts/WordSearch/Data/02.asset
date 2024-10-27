@@ -10,61 +10,70 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe3ca2656ae8c0745a2ecafd71972841, type: 3}
-  m_Name: Test
+  m_Name: 02
   m_EditorClassIdentifier: 
   m_TimeInSeconds: 0
-  m_Columns: 6
+  m_Columns: 7
   m_Rows: 6
   m_Board:
   - m_Size: 6
     m_Row:
-    - M
-    - V
-    - X
-    - E
-    - D
-    - P
-  - m_Size: 6
-    m_Row:
-    - Q
-    - B
-    - A
-    - Y
-    - C
     - O
-  - m_Size: 6
-    m_Row:
-    - W
-    - L
-    - L
-    - X
-    - W
-    - A
-  - m_Size: 6
-    m_Row:
     - J
-    - D
-    - A
-    - H
-    - D
+    - N
+    - N
+    - T
     - L
   - m_Size: 6
     m_Row:
-    - S
-    - O
-    - R
     - T
+    - O
+    - Z
     - I
-    - R
+    - T
+    - T
   - m_Size: 6
     m_Row:
+    - D
+    - C
     - "\xC7"
-    - X
-    - F
+    - P
+    - T
+    - E
+  - m_Size: 6
+    m_Row:
+    - C
+    - A
     - S
-    - F
+    - E
+    - S
+    - L
+  - m_Size: 6
+    m_Row:
+    - R
+    - I
+    - H
+    - J
+    - M
+    - L
+  - m_Size: 6
+    m_Row:
+    - K
+    - X
+    - J
     - Y
+    - E
+    - O
+  - m_Size: 6
+    m_Row:
+    - P
+    - A
+    - Y
+    - K
+    - E
+    - F
   m_SearchWords:
-  - m_Word: XALAR
-  - m_Word: POAL
-  - m_Word: SORTIR
+  - m_Word: CAIXA
+  - m_Word: FOLLET
+  - m_Word: NIT
+  - m_Word: CASES

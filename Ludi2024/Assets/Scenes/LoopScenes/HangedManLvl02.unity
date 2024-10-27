@@ -435,6 +435,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 634822020698194658, guid: a9701c9e0e5d43a4bb199b356b0724e0,
         type: 3}
+      propertyPath: m_World
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 634822020698194658, guid: a9701c9e0e5d43a4bb199b356b0724e0,
+        type: 3}
       propertyPath: m_MiniGame
       value: 7
       objectReference: {fileID: 0}
