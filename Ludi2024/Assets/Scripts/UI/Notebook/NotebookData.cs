@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -30,5 +31,12 @@ public class NotebookData : ScriptableObject
     {
         Notes.Find(l_note => l_note.Key == p_scene).IsCompleted = true;
         Notes.Sort((note1, note2) => note2.IsCompleted.CompareTo(note1.IsCompleted));
+    }
+
+    public bool AreAllLevel1NotesCompleted()
+    {
+        return Notes
+            .Where(note => note.Key.ToString().Contains("Lvl01"))
+            .All(note => note.IsCompleted);
     }
 }

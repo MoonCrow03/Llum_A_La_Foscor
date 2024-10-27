@@ -45,6 +45,14 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(Scenes p_scene)
     {
+        if (p_scene == Scenes.World01)
+        {
+            if (AreAllLevel1MiniGamesCompleted())
+            {
+                Debug.Log("All level 1 minigames completed");
+                return;
+            }
+        }
         SceneManager.LoadSceneAsync(p_scene.ToString());
     }
     
@@ -57,4 +65,10 @@ public class GameManager : MonoBehaviour
     {
         return m_NotebookData.IsNoteCompleted(p_scene);
     }
+    
+    public bool AreAllLevel1MiniGamesCompleted()
+    {
+        return m_NotebookData.AreAllLevel1NotesCompleted();
+    }
+    
 }
