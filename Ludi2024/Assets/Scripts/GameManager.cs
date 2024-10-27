@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
         {
             EnableTutorialWorld();
         }
+        else
+        {
+            GameEvents.TriggerEnablePlayerMovement(true);
+        }
         
         if(m_IsWorld01Completed || m_IsWorld02Completed)
         {

@@ -14,6 +14,7 @@ public class LevelCompleteUI : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        GameManager.Instance.m_IsWorld01Completed = false;
         GameManager.Instance.LoadScene(m_NextScene);
     }
 }

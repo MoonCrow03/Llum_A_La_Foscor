@@ -34,6 +34,7 @@ public class TutorialTextWorld : MonoBehaviour
                 if (IsAllTextDisplayed())
                 {
                     GameEvents.TriggerEnableTutorialWorldUI(false);
+                    GameEvents.TriggerEnablePlayerMovement(true);
                     enabled = false;
                 }
                 else

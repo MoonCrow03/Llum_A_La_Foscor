@@ -15,5 +15,6 @@
     WordSearchLvl01,
     WordSearchLvl02,
     WordPairsLvl01,
-    WordPairsLvl02
+    WordPairsLvl02,
+    End
 }

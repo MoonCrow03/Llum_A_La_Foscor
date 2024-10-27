@@ -46,7 +46,6 @@ public class TutorialWorldUI : MonoBehaviour
         else
         {
             m_Animator.SetBool("Show", p_enable);
-            GameEvents.TriggerEnablePlayerMovement(true);
         }
         
         m_NotebookUI.SetActive(!p_enable);
