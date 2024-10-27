@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance => _instance;
 
     [SerializeField] private NotebookData m_NotebookData;
-    [SerializeField] private bool m_IsTutorialCompleted;
+    
 
     private static Dictionary<Scenes, bool> miniGamesCompleted = new Dictionary<Scenes, bool>();
     
@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public bool m_IsWorld01Completed = false;
     
     public bool m_IsWorld02Completed = false;
+    
+    public bool m_IsTutorialCompleted;
     
     
     public int Points
