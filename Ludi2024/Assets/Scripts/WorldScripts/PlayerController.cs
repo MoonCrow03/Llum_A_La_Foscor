@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -32,12 +34,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform cam;
-
+    
 
     [SerializeField] private float speed = 6f;
     [SerializeField] private float turnSmoothTime = 0.1f;
     [SerializeField] private float turnSmoothVelocity;
     [SerializeField] private Animator animator;
+
+    public static bool IsMoving;
+    
 
     void Update()
     {
@@ -49,6 +54,7 @@ public class PlayerController : MonoBehaviour
         // Si el jugador está moviéndose en alguna dirección
         if (direction.magnitude >= 0.1f)
         {
+            IsMoving = true;
             // Activar la animación de movimiento
             animator.SetBool("isMoving", true);
             
@@ -64,10 +70,15 @@ public class PlayerController : MonoBehaviour
             // Mover al personaje en la dirección hacia la que está rotando
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
-        }else
+        }
+        else
         {
+            Debug.Log("Player is not moving");
+            IsMoving = false;
             // Desactivar la animación de movimiento
             animator.SetBool("isMoving", false);
         }
     }
+
+    
 }
