@@ -19,7 +19,7 @@ public class GeodePart : MonoBehaviour
     [SerializeField] private float m_VibrationIntensity = 0.05f;
     [SerializeField] private float m_VibrationDuration = 0.5f;
     [SerializeField] private float m_VibrationSpeed = 50.0f;
-    
+
     [Header("Audio")]
     [SerializeField] private EventReference m_AudioEventHit;
     [SerializeField] private EventReference m_AudioEventHitFake;

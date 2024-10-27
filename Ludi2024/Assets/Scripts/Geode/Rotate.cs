@@ -8,6 +8,8 @@ public class Rotate : MonoBehaviour
     [Header("Rotation Settings")]
     [SerializeField] private float m_RotationSpeed = 50.0f;
 
+    [SerializeField] private bool m_IsTutorial;
+
     private bool m_GameStarted;
     private bool m_IsRotating;
     private float m_StartMousePosition = 1.0f;
@@ -18,6 +20,11 @@ public class Rotate : MonoBehaviour
     {
         m_GameStarted = false;
         m_IsRotating = false;
+
+        if (!m_IsTutorial)
+        {
+            m_GameStarted = true;
+        }
     }
 
     void Update()
