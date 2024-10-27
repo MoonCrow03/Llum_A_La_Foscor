@@ -58,8 +58,6 @@ namespace HangedMan
 
         private void Start()
         {
-            AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
-            AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
             if (!isTutorial)
             {
                 timeLimit = new TimeLimit(this);
@@ -69,6 +67,9 @@ namespace HangedMan
             SelectRandomWord();
             GenerateEmptyLetters();
             GenerateLetters();
+
+            AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
+            AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
         }
 
         private void Update()
@@ -107,9 +108,31 @@ namespace HangedMan
         
         private void GenerateEmptyLetters()
         {
-            for (int i = 0; i < wordToGuess.Length; i++)
+            // Get the available width and height of the parent container in world space
+            RectTransform parentRectTransform = letterFromGuessWordParent.GetComponent<RectTransform>();
+            float parentWidth = parentRectTransform.rect.width;
+            float parentHeight = parentRectTransform.rect.height;
+
+            // Get the horizontal layout spacing
+            HorizontalLayoutGroup layoutGroup = letterFromGuessWordParent.GetComponent<HorizontalLayoutGroup>();
+            float spacing = layoutGroup.spacing;
+
+            // Calculate the maximum size for each letter square based on the length of the word and spacing
+            int numLetters = wordToGuess.Length;
+            float totalSpacing = (numLetters - 1) * spacing;
+            float maxSize = Mathf.Min((parentWidth - totalSpacing) / numLetters, parentHeight); // Ensure square shape
+
+
+            for (int i = 0; i < numLetters; i++)
             {
+                // Instantiate the letter prefab
                 GameObject obj = Instantiate(letterFromGuessWordPrefab, letterFromGuessWordParent);
+
+                // Set the size of the prefab
+                RectTransform rectTransform = obj.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector2(maxSize, maxSize);
+
+                // Set initial text to underscore for blank spaces
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = "_";
             }
         }
