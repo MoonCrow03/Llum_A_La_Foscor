@@ -69,4 +69,37 @@ public class GameEvents
             OnShowStars(p_numberOfStars);
         }
     }
+    
+    public delegate void EnableTutorialWorldUI(bool p_enable);
+    public static event EnableTutorialWorldUI OnEnableTutorialWorldUI;
+    
+    public static void TriggerEnableTutorialWorldUI(bool p_enable)
+    {
+        if (OnEnableTutorialWorldUI != null)
+        {
+            OnEnableTutorialWorldUI(p_enable);
+        }
+    }
+
+    public delegate void StartTutorialWorld();
+    public static event StartTutorialWorld OnStartTutorialWorld;
+    
+    public static void TriggerStartTutorialWorld()
+    {
+        if (OnStartTutorialWorld != null)
+        {
+            OnStartTutorialWorld();
+        }
+    }
+    
+    public delegate void PageFinished();
+    public static event PageFinished OnPageFinished;
+    
+    public static void TriggerPageFinished()
+    {
+        if (OnPageFinished != null)
+        {
+            OnPageFinished();
+        }
+    }
 }

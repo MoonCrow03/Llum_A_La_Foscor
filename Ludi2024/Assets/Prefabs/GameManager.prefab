@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotebookData: {fileID: 11400000, guid: f7de58a98c5108e468a53d2c98912dc4, type: 2}
+  m_IsTutorialCompleted: 1
 --- !u!114 &368854135283492833
 MonoBehaviour:
   m_ObjectHideFlags: 0

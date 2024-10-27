@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance => _instance;
 
     [SerializeField] private NotebookData m_NotebookData;
+    [SerializeField] private bool m_IsTutorialCompleted;
 
     private static Dictionary<Scenes, bool> miniGamesCompleted = new Dictionary<Scenes, bool>();
     
@@ -71,4 +72,17 @@ public class GameManager : MonoBehaviour
         return m_NotebookData.AreAllLevel1NotesCompleted();
     }
     
+    
+    public bool IsTutorialCompleted()
+    {
+        return m_IsTutorialCompleted;
+    }
+
+    public void EnableTutorialWorld()
+    {
+        if(m_IsTutorialCompleted) return;
+        
+        m_IsTutorialCompleted = true;
+        GameEvents.TriggerEnableTutorialWorldUI(true);
+    }
 }

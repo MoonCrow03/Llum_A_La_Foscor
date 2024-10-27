@@ -6,8 +6,9 @@ using UnityEngine;
 public class TabletUI : MonoBehaviour
 {
     private Animator m_Animator;
-
+    
     private bool m_IsTabletEnabled;
+    
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();

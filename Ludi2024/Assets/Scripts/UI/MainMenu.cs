@@ -19,6 +19,11 @@ public class MainMenu : MonoBehaviour
     {
         GameEvents.TriggerEnableTablet(false);
         GameEvents.TriggerEnablePlayerMovement(true);
+        
+        if(!GameManager.Instance.IsTutorialCompleted())
+        {
+            GameManager.Instance.EnableTutorialWorld();
+        }
     }
 
     public void QuitGame()

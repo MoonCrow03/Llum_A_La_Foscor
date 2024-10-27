@@ -1,32 +1,29 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using Tutorial;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Tutorial
-{
-    public class TutorialText : MonoBehaviour
-    {
-        public TutorialTextData tutorialTextData;
-        public TextMeshProUGUI text;
-        public float textSpeed;
-        public GameObject FinishedTextImage;
+public class TutorialTextWorld : MonoBehaviour
+{ 
+        [SerializeField] private TutorialTextData m_TutorialTextData;
+        [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] private float textSpeed;
+        [SerializeField] private GameObject FinishedTextImage;
 
         private string fullText;
         private string currentText = "";
         private int index = 0;
         private int lastIndex = 0;
         private bool isTextFinished = false;
-        
-        public static Action OnTutorialFinished;
-        public static Action OnPageFinished;
     
         private void Start()
         {
-            if (tutorialTextData != null)
+            if (m_TutorialTextData != null)
             {
-                fullText = tutorialTextData.tutorialText;
-                StartCoroutine(ShowText());
+                fullText = m_TutorialTextData.tutorialText;
             }
         }
 
@@ -36,11 +33,12 @@ namespace Tutorial
             {
                 if (IsAllTextDisplayed())
                 {
-                    OnTutorialFinished?.Invoke();
+                    GameEvents.TriggerEnableTutorialWorldUI(false);
+                    enabled = false;
                 }
                 else
                 {
-                    OnPageFinished?.Invoke();
+                    GameEvents.TriggerPageFinished();
                     isTextFinished = false;
                     currentText = "";
                     text.text = currentText;
@@ -49,13 +47,28 @@ namespace Tutorial
             }
         }
 
+        private void OnEnable()
+        {
+            GameEvents.OnStartTutorialWorld += StartTutorialWorld;
+        }
+        
+        private void OnDisable()
+        {
+            GameEvents.OnStartTutorialWorld -= StartTutorialWorld;
+        }
+
+        private void StartTutorialWorld()
+        {
+            StartCoroutine(ShowText());
+        }
+
         private bool IsAllTextDisplayed()
         {
             StopCoroutine(ShowText());
             return index >= fullText.Length;
         }
 
-        private IEnumerator ShowText()
+        protected IEnumerator ShowText()
         {
             FinishedTextImage.SetActive(false);
             text.text = ""; 
@@ -91,5 +104,5 @@ namespace Tutorial
 
             return preferredHeight > text.rectTransform.rect.height;
         }
-    }
 }
+
