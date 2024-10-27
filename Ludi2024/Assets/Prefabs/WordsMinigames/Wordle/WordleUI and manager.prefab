@@ -202,12 +202,14 @@ MonoBehaviour:
   - fugit
   - molls
   - nimfa
+  timeToBeat: 0
+  pointsMultiplier: 1
   EmptyState:
     FillColor: {r: 0.47450984, g: 0.8313726, b: 0.9490197, a: 1}
-    OutlineColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+    OutlineColor: {r: 0.24688502, g: 0.6004284, b: 0.7169812, a: 1}
   OccupiedState:
-    FillColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-    OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    FillColor: {r: 0.31764707, g: 0.38431373, b: 0.40392157, a: 1}
+    OutlineColor: {r: 0.17755428, g: 0.34652814, b: 0.3962264, a: 1}
   CorrectState:
     FillColor: {r: 0.3254902, g: 0.5529412, b: 0.30588236, a: 1}
     OutlineColor: {r: 0.3254902, g: 0.5529412, b: 0.30588236, a: 1}
@@ -217,6 +219,22 @@ MonoBehaviour:
   IncorrectState:
     FillColor: {r: 0.22745098, g: 0.22745098, b: 0.23529412, a: 1}
     OutlineColor: {r: 0.22745098, g: 0.22745098, b: 0.23529412, a: 1}
+  timeLeft: {fileID: 0}
+  isTutorial: 0
+  AudioEventWin:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  AudioEventLose:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &7095377402648077787
 GameObject:
   m_ObjectHideFlags: 0
