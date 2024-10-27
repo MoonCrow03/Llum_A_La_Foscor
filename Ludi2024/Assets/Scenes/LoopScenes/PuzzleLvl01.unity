@@ -2228,7 +2228,7 @@ GameObject:
   - component: {fileID: 1799471646}
   - component: {fileID: 1799471645}
   m_Layer: 0
-  m_Name: Plane (1)
+  m_Name: BlackPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2315,8 +2315,8 @@ Transform:
   m_GameObject: {fileID: 1799471644}
   serializedVersion: 2
   m_LocalRotation: {x: -0.067018, y: -0, z: -0, w: 0.99775183}
-  m_LocalPosition: {x: 0.8, y: -1.91, z: 1.79}
-  m_LocalScale: {x: 6.8436294, y: 6.8436294, z: 6.8436294}
+  m_LocalPosition: {x: 0.80000305, y: -1.9099998, z: 1.79}
+  m_LocalScale: {x: 6.843629, y: 6.843629, z: 6.843629}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
