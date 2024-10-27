@@ -1353,6 +1353,12 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2618623668654447016, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_TutorialTextData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1840d707497a1054082fe55dc7bab169,
+        type: 2}
     - target: {fileID: 3895964605596128254, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3193,6 +3199,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 2cdf085300adba848a868b5ab8d2e9f0,
         type: 2}
+    - target: {fileID: 3749921550010570555, guid: ad5d2bf89938d3846bf81776a95a13be,
+        type: 3}
+      propertyPath: m_IsTutorialCompleted
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
