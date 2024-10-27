@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class NotebookUI : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private GameObject m_InfoPanel;
+    [SerializeField] private GameObject m_InfoPanelTop;
+    [SerializeField] private GameObject m_InfoPanelBellow;
     [SerializeField] private GameObject m_BulletPointHolder;
     [SerializeField] private GameObject m_BulletPointPrefab;
     [SerializeField] private Animator m_Animator;
@@ -34,7 +36,7 @@ public class NotebookUI : MonoBehaviour
 
         for (int i = 0; i < m_NumBulletPoints; i++)
         {
-            m_BulletPointTexts.Add(string.Empty);
+            m_BulletPointTexts.Add("??????????");
         }
 
         m_CurrentIndex = 0;
@@ -144,7 +146,7 @@ public class NotebookUI : MonoBehaviour
         m_IsNoteBookEnabled = p_enable;
         GameEvents.TriggerEnableTablet(false);
         m_Animator.SetBool("Show", p_enable);
-        m_InfoPanel.SetActive(!p_enable);
+        m_InfoPanelTop.SetActive(!p_enable);
     }
 
     public bool IsNoteBookEnabled()
@@ -190,9 +192,11 @@ public class NotebookUI : MonoBehaviour
     {
         m_Animator.SetTrigger(p_trigger);
         m_BulletPointHolder.SetActive(false);
+        m_InfoPanelBellow.SetActive(false);
 
         yield return new WaitForSeconds(m_Clips.Find(clip => clip.name.Equals("Armature|NextPage")).length);
 
         m_BulletPointHolder.SetActive(true);
+        m_InfoPanelBellow.SetActive(true);
     }
 }

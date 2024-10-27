@@ -102,4 +102,15 @@ public class GameEvents
             OnPageFinished();
         }
     }
+    
+    public delegate void LevelComplete();
+    public static event LevelComplete OnLevelComplete;
+    
+    public static void TriggerLevelComplete()
+    {
+        if (OnLevelComplete != null)
+        {
+            OnLevelComplete();
+        }
+    }
 }

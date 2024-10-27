@@ -19,6 +19,7 @@ public class TutorialWorldUI : MonoBehaviour
     {
         m_Clips = m_Animator.runtimeAnimatorController.animationClips.ToList();
         m_IsNoteBookEnabled = false;
+        m_TutorialUI.SetActive(false);
     }
 
     private void OnEnable()
@@ -45,6 +46,7 @@ public class TutorialWorldUI : MonoBehaviour
         else
         {
             m_Animator.SetBool("Show", p_enable);
+            GameEvents.TriggerEnablePlayerMovement(true);
         }
         
         m_NotebookUI.SetActive(!p_enable);

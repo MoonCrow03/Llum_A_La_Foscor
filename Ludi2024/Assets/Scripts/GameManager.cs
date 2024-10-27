@@ -43,6 +43,20 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+    
+    private void Start()
+    {
+        if (!m_IsTutorialCompleted)
+        {
+            EnableTutorialWorld();
+        }
+        
+        if(m_IsWorld01Completed || m_IsWorld02Completed)
+        {
+            GameEvents.TriggerLevelComplete();
+            GameEvents.TriggerEnablePlayerMovement(false);
+        }
+    }
 
     public ref NotebookData GetNotebookData()
     {
@@ -58,9 +72,17 @@ public class GameManager : MonoBehaviour
                 m_IsWorld01Completed = true;
                 Debug.Log("All level 1 minigames completed");
             }
-            
-            
         }
+
+        if (p_scene == Scenes.World02)
+        {
+            if (AreAllLevel2MiniGamesCompleted())
+            {
+                m_IsWorld02Completed = true;
+                Debug.Log("All level 2 minigames completed");
+            }
+        }
+
         SceneManager.LoadSceneAsync(p_scene.ToString());
     }
     
@@ -83,18 +105,13 @@ public class GameManager : MonoBehaviour
     {
         return m_NotebookData.AreAllLevel2NotesCompleted();
     }
-    
-    
-    public bool IsTutorialCompleted()
-    {
-        return m_IsTutorialCompleted;
-    }
 
-    public void EnableTutorialWorld()
+    private void EnableTutorialWorld()
     {
         if(m_IsTutorialCompleted) return;
         
         m_IsTutorialCompleted = true;
         GameEvents.TriggerEnableTutorialWorldUI(true);
+        GameEvents.TriggerEnablePlayerMovement(false);
     }
 }
