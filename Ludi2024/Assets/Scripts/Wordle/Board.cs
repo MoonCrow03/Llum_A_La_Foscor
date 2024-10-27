@@ -239,7 +239,7 @@ namespace Wordle
                 gameCompleted = true;
                 timeLimit.StopTimer();
                 AudioInstanceWin.start();
-                int l_stars = 3;
+                int l_stars = timeLimit.GetNumOfStars();
                 GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
             }
             

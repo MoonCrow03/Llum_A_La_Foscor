@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SortLetters Tutorial
   m_EditorClassIdentifier: 
   tutorialText: "Els nostres especialistes estan tenint problemes trobant la paraula
-    adient per l'informe, necessiten que els ajudis.\r\n Arrossega les lletres a
-    la seva posici\xF3 per formar una paraula. Tingues en compte que no totes les
+    adient per l'informe, necessiten que els ajudis.           Arrossega les lletres
+    a la seva posici\xF3 per formar una paraula. Tingues en compte que no totes les
     lletres seran necess\xE0ries."

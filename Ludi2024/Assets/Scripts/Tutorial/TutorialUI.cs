@@ -11,12 +11,14 @@ public class TutorialUI : MonoBehaviour
     [Header("Components")]
     [SerializeField] private TextMeshProUGUI m_Text;
     [SerializeField] private Animator m_Animator;
+    [SerializeField] private Canvas m_BlockingCanvas;
 
     [Header("Settings")]
     [SerializeField] private bool m_IsNoteBookEnabled;
 
     private void OnDisableTutorialNoteBook()
     {
+        m_BlockingCanvas.enabled = false;
         m_IsNoteBookEnabled = false;
         m_Animator.SetTrigger("Hide");
     }

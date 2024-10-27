@@ -105,7 +105,7 @@ public class PuzzleMinigame : MonoBehaviour
         m_IsGameCompleted = true;
         
         GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointsMultiplier);
-        int l_stars = 3;
+        int l_stars = m_TimeLimit.GetNumOfStars();
         m_AudioInstanceWin.start();
         GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
     }

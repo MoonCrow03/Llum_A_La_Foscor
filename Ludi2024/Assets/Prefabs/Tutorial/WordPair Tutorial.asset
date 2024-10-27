@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f798416db400430a8922c470b8a785eb, type: 3}
   m_Name: WordPair Tutorial
   m_EditorClassIdentifier: 
-  tutorialText: "Sembla que en el nostre equip hi ha gent de fora de \n Barcelona
-    fent informes.\r\n Assegurat que entens totes les expressions \n dialectals que
-    han utilitzat, relacionant-les amb \n les seves contraparts del Catal\xE0 Central."
+  tutorialText: "Sembla que en el nostre equip hi ha gent de fora de Barcelona fent
+    informes. Assegurat que entens totes les expressions dialectals que     han utilitzat,
+    relacionant-les amb les seves contraparts del Catal\xE0 Central."

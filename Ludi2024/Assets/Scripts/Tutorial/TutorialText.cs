@@ -58,24 +58,38 @@ namespace Tutorial
         IEnumerator ShowText()
         {
             FinishedTextImage.SetActive(false);
+            text.text = ""; 
+
             for (index = lastIndex; index < fullText.Length; index++)
             {
-                currentText += fullText[index];
-                text.text = currentText;
-                text.ForceMeshUpdate();
+                string simulatedText = currentText + fullText[index];
 
-                if (text.preferredHeight > text.rectTransform.rect.height) 
+                text.text = simulatedText;
+                text.ForceMeshUpdate(); 
+
+                if (IsTextExceedingBounds())
                 {
                     FinishedTextImage.SetActive(true);
                     isTextFinished = true;
-                    lastIndex = index + 1;
+                    lastIndex = index; 
                     yield break;
                 }
 
+                currentText = simulatedText;
+                text.text = currentText;
+
                 yield return new WaitForSeconds(textSpeed);
             }
+
             FinishedTextImage.SetActive(true);
             isTextFinished = true;
+        }
+
+        private bool IsTextExceedingBounds()
+        {
+            float preferredHeight = text.preferredHeight;
+
+            return preferredHeight > text.rectTransform.rect.height;
         }
     }
 }

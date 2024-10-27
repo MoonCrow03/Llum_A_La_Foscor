@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f798416db400430a8922c470b8a785eb, type: 3}
   m_Name: Wordle Tutorial
   m_EditorClassIdentifier: 
-  tutorialText: "Hem de completar l'informe amb el l\xE8xic pertinent, \n per\xF2
-    necessitem una mica d'ajuda.\r\n Per trobar la paraula adient, \n haur\xE0s d'escriure
-    paraules existents i \n el nostre programari t'indicar\xE0 si les lletres posicionades
-    \n correctament (color verd), si estan a la paraula, per\xF2 no a la \n posici\xF3
-    correcta (color groc) o si, per contra, no formen part \n d'aquesta."
+  tutorialText: "Hem de completar l'informe amb el l\xE8xic pertinent, per\xF2 necessitem
+    una mica d'ajuda. Per trobar la paraula adient, haur\xE0s               d'escriure
+    paraules existents i el nostre programari t'indicar\xE0 si les lletres posicionades    
+    \ncorrectament     (color verd), si estan a la paraula, per\xF2 no a la posici\xF3
+    correcta (color groc) o si, per contra, no formen part d'aquesta."

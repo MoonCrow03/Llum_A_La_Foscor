@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GeodeTutorial
   m_EditorClassIdentifier: 
   tutorialText: "Ens han informat que a l'interior d'aquesta geoda es troba alguna
-    cosa que ens pot donar informaci\xF3 valuosa.\r\n Tracta d'obrir la geoda per
-    descobrir que amaga, per fer-ho nom\xE9s haur\xE0s de fer pressi\xF3 en els punts
-    que ressalten.\r\n Aix\xF2 s\xED, haur\xE0s d'anar amb compte, hi ha alguns punts
-    molt delicats, si interactues amb aquest, \xE9s possible que la geoda es trenqui,
-    perdent el seu contingut."
+    cosa que ens pot donar informaci\xF3 valuosa. Tracta d'obrir la geoda per descobrir
+    que amaga, per fer-ho nom\xE9s haur\xE0s de fer pressi\xF3 en els punts que ressalten.
+    Aix\xF2 s\xED, haur\xE0s d'anar amb compte, hi ha alguns punts molt delicats,
+    si interactues amb aquests, \xE9s possible que la geoda es trenqui, perdent el
+    seu contingut."

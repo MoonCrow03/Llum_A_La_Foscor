@@ -116,8 +116,7 @@ public class WordsPairManager : MonoBehaviour
             m_TimeLimit.StopTimer();
             
             GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointMultiplier);
-
-            int l_stars = 3;
+            int l_stars = m_TimeLimit.GetNumOfStars();
             GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
         }
     }

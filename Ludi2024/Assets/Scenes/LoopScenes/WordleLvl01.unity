@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 1805388643}
   - component: {fileID: 1805388642}
   - component: {fileID: 1805388641}
+  - component: {fileID: 1805388645}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -445,6 +446,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1805388645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805388640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1001 &1901265731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +528,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248323235911494805, guid: 9bece6ac0ae36654bb5bdfb122373e86,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0015122294
+      objectReference: {fileID: 0}
+    - target: {fileID: 8248323235911494805, guid: 9bece6ac0ae36654bb5bdfb122373e86,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.023211062
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -254,7 +254,7 @@ public class WordChecker : MonoBehaviour
 
             GameManager.Instance.Points += m_TimeLimit.GetPoints(m_PointsMultiplier);
 
-            int l_stars = 3;
+            int l_stars = m_TimeLimit.GetNumOfStars();
             GameEvents.TriggerSetEndgameMessage("Felicitats!", true, l_stars);
         }
     }
