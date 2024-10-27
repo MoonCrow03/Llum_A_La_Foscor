@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: c13e23c9067e2a74ca96dfbca0f9efc2
+guid: d0363dcc7018aed4185692bf16a6162a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Emisivo
-    second: {fileID: 2100000, guid: 6a63131594ef881479579a7d9fc37fd1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
