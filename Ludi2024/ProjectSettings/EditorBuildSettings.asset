@@ -21,15 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LoopScenes/WordleLvl01.unity
     guid: 76efbb683a7b7be42b32257902b9f642
   - enabled: 1
-    path: Assets/Scenes/LoopScenes/PuzzleLvl02.unity
-    guid: 4986be733c2035242b304693a54e3db2
+    path: Assets/Scenes/LoopScenes/PuzzleLvl01.unity
+    guid: c587237c2b8d0b645993817d9e176c2c
   - enabled: 1
     path: Assets/Scenes/LoopScenes/WordSearchLvl01.unity
     guid: d1e9b3d6299173e42834e50bff4d5a05
   - enabled: 1
     path: Assets/Scenes/LoopScenes/WordPairsLvl01.unity
     guid: bd45ff3eb6c67534ea74059cb593ce37
-  - enabled: 1
-    path: Assets/Scenes/LoopScenes/PuzzleLvl02.unity
-    guid: 14e677562e61dfe428648a58b083e654
   m_configObjects: {}
