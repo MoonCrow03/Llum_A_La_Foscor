@@ -145,6 +145,10 @@ namespace Wordle
             
             UpdateClock();
             
+            if (InputManager.Instance.SpaceBar.Tap || InputManager.Instance.SpaceBar.Hold || InputManager.Instance.SpaceBar.Release)
+            {
+                return;
+            }
             if (InputManager.Instance.Backspace.Tap)
             {
                 columnIndex = Mathf.Max(columnIndex - 1, 0);
