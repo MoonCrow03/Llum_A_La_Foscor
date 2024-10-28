@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoopScenes/MainMenu.unity
+    guid: ccb40963c709e9f489dc51630be0d19f
+  - enabled: 1
     path: Assets/Scenes/LoopScenes/World01.unity
     guid: bd36450eea283c54f8dff2bcbef6852b
   - enabled: 1

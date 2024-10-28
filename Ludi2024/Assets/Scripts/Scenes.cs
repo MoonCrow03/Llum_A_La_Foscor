@@ -16,5 +16,6 @@
     WordSearchLvl02,
     WordPairsLvl01,
     WordPairsLvl02,
-    End
+    End,
+    MainMenu
 }
