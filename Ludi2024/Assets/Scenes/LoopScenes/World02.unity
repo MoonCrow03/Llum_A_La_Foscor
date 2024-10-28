@@ -1435,6 +1435,11 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1937100176094524618, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_overflowMode
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2618623668654447016, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
       propertyPath: m_TutorialTextData
