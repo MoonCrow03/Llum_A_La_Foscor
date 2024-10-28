@@ -45,6 +45,7 @@ namespace Tutorial
 
         private void Update()
         {
+           
             if ((InputManager.Instance.Enter.Tap || InputManager.Instance.LeftClick.Tap) && isTextFinished)
             {
                 if (IsAllTextDisplayed())
@@ -62,6 +63,10 @@ namespace Tutorial
                 }
             }
 
+            if (IsAllTextDisplayed())
+            {
+                return;
+            }
             if (InputManager.Instance.SpaceBar.Hold || InputManager.Instance.RightClick.Hold)
             {
                 textSpeed = 0;
