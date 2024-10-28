@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -17,6 +19,9 @@ public class NotebookUI : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private int m_MaxBPForPage = 2;
+    
+    [Header("Audio")]
+    [SerializeField] private EventReference m_NextPageSound;
 
     private List<BulletPoint> m_BulletPoints;
     private List<string> m_BulletPointTexts;
@@ -27,9 +32,12 @@ public class NotebookUI : MonoBehaviour
     private bool m_IsNoteBookEnabled;
 
     private string m_EmptyString = "??????????";
+    
+    private EventInstance m_NextPageSoundInstance;
 
     private void Start()
     {
+        m_NextPageSoundInstance = RuntimeManager.CreateInstance(m_NextPageSound);
         m_BulletPoints = new List<BulletPoint>();
         m_BulletPointTexts = new List<string>();
 
@@ -195,7 +203,8 @@ public class NotebookUI : MonoBehaviour
 
     private IEnumerator HideText(string p_trigger)
     {
-        // TODO: Add pass page sound effect
+        m_NextPageSoundInstance.start();
+        
         m_Animator.SetTrigger(p_trigger);
         m_BulletPointHolder.SetActive(false);
         m_InfoPanelBellow.SetActive(false);
@@ -204,5 +213,10 @@ public class NotebookUI : MonoBehaviour
 
         m_BulletPointHolder.SetActive(true);
         m_InfoPanelBellow.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        m_NextPageSoundInstance.release();
     }
 }

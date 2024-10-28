@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using FMOD.Studio;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 
@@ -12,12 +14,22 @@ public class TutorialWorldUI : MonoBehaviour
     [SerializeField] private GameObject m_NotebookUI;
     [SerializeField] private Animator m_Animator;
     
+    [Header("Audio")]
+    [SerializeField] private EventReference m_NextPageSound;
+    
+    private EventInstance m_NextPageSoundInstance;
+    
     private List<AnimationClip> m_Clips;
 
     private void Awake()
     {
         m_Clips = m_Animator.runtimeAnimatorController.animationClips.ToList();
         m_TutorialUI.SetActive(false);
+    }
+
+    private void Start()
+    {
+        m_NextPageSoundInstance = RuntimeManager.CreateInstance(m_NextPageSound);
     }
 
     private void OnEnable()
@@ -50,7 +62,7 @@ public class TutorialWorldUI : MonoBehaviour
     
     private void PassPageAnimation()
     {
-        // TODO: Add pass page sound effect
+        m_NextPageSoundInstance.start();
         m_Animator.SetTrigger("NextPage");
     }
 
@@ -59,5 +71,10 @@ public class TutorialWorldUI : MonoBehaviour
         m_Animator.SetBool("Show", p_enable);
         yield return new WaitForSeconds(m_Clips.Find(clip => clip.name.Equals("ShowNoteBook")).length);
         GameEvents.TriggerStartTutorialWorld();
+    }
+
+    private void OnDestroy()
+    {
+        m_NextPageSoundInstance.release();
     }
 }

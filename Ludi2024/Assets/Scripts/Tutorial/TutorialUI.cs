@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using FMOD.Studio;
+using FMODUnity;
 using TMPro;
 using Tutorial;
 using UnityEngine;
@@ -13,8 +16,18 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private Animator m_Animator;
     [SerializeField] private Canvas m_BlockingCanvas;
 
+    [Header("Audio")] 
+    [SerializeField] private EventReference m_NextPageSound;
+
     [Header("Settings")]
     [SerializeField] private bool m_IsNoteBookEnabled;
+    
+    private EventInstance m_NextPageSoundInstance;
+
+    private void Start()
+    {
+        m_NextPageSoundInstance = RuntimeManager.CreateInstance(m_NextPageSound);
+    }
 
     private void OnDisableTutorialNoteBook()
     {
@@ -39,7 +52,12 @@ public class TutorialUI : MonoBehaviour
     {
         if(!m_IsNoteBookEnabled) return;
         
-        // TODO: Add pass page sound effect
         m_Animator.SetTrigger("NextPage");
+        m_NextPageSoundInstance.start();
+    }
+
+    private void OnDestroy()
+    {
+        m_NextPageSoundInstance.release();
     }
 }

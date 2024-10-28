@@ -6372,6 +6372,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Path
+      value: event:/NextPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Guid.Data1
+      value: -880726049
+      objectReference: {fileID: 0}
+    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Guid.Data2
+      value: 1237630058
+      objectReference: {fileID: 0}
+    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Guid.Data3
+      value: 1528649093
+      objectReference: {fileID: 0}
+    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Guid.Data4
+      value: -1153378468
+      objectReference: {fileID: 0}
     - target: {fileID: 870160928620727210, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
       propertyPath: m_text
@@ -6475,6 +6500,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Path
+      value: event:/NextPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Guid.Data1
+      value: -880726049
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Guid.Data2
+      value: 1237630058
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Guid.Data3
+      value: 1528649093
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_NextPageSound.Guid.Data4
+      value: -1153378468
       objectReference: {fileID: 0}
     - target: {fileID: 7796121421458688460, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}

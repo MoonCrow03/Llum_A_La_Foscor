@@ -541,6 +541,13 @@ MonoBehaviour:
   m_Text: {fileID: 6237090519054465224}
   m_Animator: {fileID: 2744091475740656985}
   m_BlockingCanvas: {fileID: 1469709960171847783}
+  m_NextPageSound:
+    Guid:
+      Data1: -880726049
+      Data2: 1237630058
+      Data3: 1528649093
+      Data4: -1153378468
+    Path: event:/NextPage
   m_IsNoteBookEnabled: 1
 --- !u!114 &2151636857988886578
 MonoBehaviour:
