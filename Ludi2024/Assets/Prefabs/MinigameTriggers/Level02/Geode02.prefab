@@ -159,6 +159,7 @@ MonoBehaviour:
   - {fileID: 3486631189028846560}
   - {fileID: 3406124237789746753}
   sceneToLoad: 5
+  interactkeyUI: {fileID: 0}
 --- !u!199 &7304592842983066210
 ParticleSystemRenderer:
   serializedVersion: 6
