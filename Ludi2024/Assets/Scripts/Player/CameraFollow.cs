@@ -26,6 +26,7 @@ public class CameraFollow : MonoBehaviour
     private void OnDisable()
     {
         GameEvents.OnEnablePlayerMovement -= EnablePlayerMovement;
+
     }
 
     private void EnablePlayerMovement(bool p_enable)
@@ -35,8 +36,6 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(!m_CanMove) return;
-
         Vector3 desiredPosition = new Vector3(offsetX + player.position.x , offsetY, offsetZ + player.position.z);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         
