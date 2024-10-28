@@ -62,18 +62,9 @@ namespace Tutorial
                     StartCoroutine(ShowText());
                 }
             }
-
-            if (IsAllTextDisplayed())
-            {
-                return;
-            }
-            if (InputManager.Instance.SpaceBar.Hold || InputManager.Instance.RightClick.Hold)
+            if (InputManager.Instance.SpaceBar.Tap || InputManager.Instance.RightClick.Tap)
             {
                 textSpeed = 0;
-            }
-            else
-            {
-                textSpeed = originalTextSpeed;
             }
         }
 
