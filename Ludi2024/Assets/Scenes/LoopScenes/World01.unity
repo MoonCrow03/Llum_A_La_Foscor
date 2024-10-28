@@ -1022,6 +1022,11 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7611429980488321900, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_text
+      value: Pressiona Space per accelerar el text
+      objectReference: {fileID: 0}
     - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
       propertyPath: m_NextPageSound.Path
@@ -2262,18 +2267,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 508175589140165426}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9145415485181556774 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4273312291005851506, guid: 2c75a3131f0ab8b47aeecda2c510d669,
-    type: 3}
-  m_PrefabInstance: {fileID: 508175589140165426}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8756496378614440220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9145415485181556775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2286,7 +2279,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3b811652064965aa756fb90476ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StepSoundEmitter: {fileID: 9145415485181556774}
+  m_StepSoundEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
