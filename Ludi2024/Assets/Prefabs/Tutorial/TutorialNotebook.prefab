@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mantenir pressionat Space per accelerar el text
+  m_text: Pressiona Space per accelerar el text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 951d1dc5f5b11eb45a6b0003380afad5, type: 2}
   m_sharedMaterial: {fileID: -5662530674216377144, guid: 951d1dc5f5b11eb45a6b0003380afad5,
@@ -701,6 +701,7 @@ MonoBehaviour:
   text: {fileID: 6237090519054465224}
   textSpeed: 0.05
   FinishedTextImage: {fileID: 5080732043162841442}
+  scene: 0
   FasterTextImage: {fileID: 2358375377524366259}
 --- !u!1 &6756689172945011825
 GameObject:
