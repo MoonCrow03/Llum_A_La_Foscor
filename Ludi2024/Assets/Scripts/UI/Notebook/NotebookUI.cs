@@ -25,6 +25,8 @@ public class NotebookUI : MonoBehaviour
     private int m_CurrentIndex;
     private bool m_IsNoteBookEnabled;
 
+    private string m_EmptyString = "??????????";
+
     private void Start()
     {
         m_BulletPoints = new List<BulletPoint>();
@@ -36,7 +38,7 @@ public class NotebookUI : MonoBehaviour
 
         for (int i = 0; i < m_NumBulletPoints; i++)
         {
-            m_BulletPointTexts.Add("??????????");
+            m_BulletPointTexts.Add(m_EmptyString);
         }
 
         m_CurrentIndex = 0;
@@ -69,13 +71,11 @@ public class NotebookUI : MonoBehaviour
 
         if (InputManager.Instance.Q.Tap)
         {
-            Debug.Log("Previous Page");
             PreviousPage();
         }
 
         if (InputManager.Instance.E.Tap)
         {
-            Debug.Log("Next Page");
             NextPage();
         }
     }
@@ -156,7 +156,7 @@ public class NotebookUI : MonoBehaviour
 
     private void AddBulletPoint(string p_text)
     {
-        int l_empty = m_BulletPointTexts.IndexOf(string.Empty);
+        int l_empty = m_BulletPointTexts.IndexOf(m_EmptyString);
 
         if (l_empty != -1)
         {
