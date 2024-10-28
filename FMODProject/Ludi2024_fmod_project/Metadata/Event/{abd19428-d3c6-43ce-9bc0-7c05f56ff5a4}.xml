@@ -257,9 +257,6 @@
 		<property name="length">
 			<value>91.272062500000004</value>
 		</property>
-		<relationship name="fadeInCurve">
-			<destination>{89d3b50b-cde6-4493-b3fc-6b597c0f0b30}</destination>
-		</relationship>
 		<relationship name="fadeOutCurve">
 			<destination>{c056f031-71fd-4a6e-83f6-4aa4ccaddd43}</destination>
 		</relationship>
@@ -429,17 +426,6 @@
 		</relationship>
 		<relationship name="endPoint">
 			<destination>{e55f9ef3-49d3-451a-89ec-f7353be13c4c}</destination>
-		</relationship>
-	</object>
-	<object class="FadeCurve" id="{89d3b50b-cde6-4493-b3fc-6b597c0f0b30}">
-		<relationship name="startPoint">
-			<destination>{5413b481-d082-435b-bf22-b3438bfd13bd}</destination>
-		</relationship>
-		<relationship name="endPoint">
-			<destination>{60a48593-049d-4253-b2c5-9604605aca23}</destination>
-		</relationship>
-		<relationship name="relatedModule">
-			<destination>{8992b29a-0b2a-4ce0-9e31-231d7dfcd436}</destination>
 		</relationship>
 	</object>
 	<object class="FadeCurve" id="{c056f031-71fd-4a6e-83f6-4aa4ccaddd43}">
@@ -647,7 +633,7 @@
 	</object>
 	<object class="AutomationPoint" id="{67764155-3704-41d9-8312-2d24ef553946}">
 		<property name="position">
-			<value>184.77069213019979</value>
+			<value>190</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -708,25 +694,6 @@
 		</property>
 		<property name="value">
 			<value>0</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{5413b481-d082-435b-bf22-b3438bfd13bd}">
-		<property name="position">
-			<value>273.81618750000001</value>
-		</property>
-		<property name="value">
-			<value>0</value>
-		</property>
-		<property name="curveShape">
-			<value>-0.2547189</value>
-		</property>
-	</object>
-	<object class="AutomationPoint" id="{60a48593-049d-4253-b2c5-9604605aca23}">
-		<property name="position">
-			<value>351.27187500000002</value>
-		</property>
-		<property name="value">
-			<value>1</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{5c7ea3a4-d613-4ead-a8f6-916f17c48c61}">
