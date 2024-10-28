@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameEvents
 {
     public delegate void EnableTablet(bool p_enable);
     public static event EnableTablet OnEnableTablet;
-
+    
     public static void TriggerEnableTablet(bool p_enable)
     {
         if (OnEnableTablet != null)
@@ -26,6 +28,8 @@ public class GameEvents
         }
     }
 
+    
+    
     public delegate void ShowEndgameMessage(string message, bool p_won, int p_stars);
     public static event ShowEndgameMessage OnSetEndgameMessage;
 
@@ -50,12 +54,15 @@ public class GameEvents
 
     public delegate void EnablePlayerMovement(bool p_enable);
     public static event EnablePlayerMovement OnEnablePlayerMovement;
+    public static Action<bool> OnEnablePlayerMovementAction;
 
     public static void TriggerEnablePlayerMovement(bool p_enable)
     {
         if (OnEnablePlayerMovement != null)
         {
             OnEnablePlayerMovement(p_enable);
+            Debug.Log("<color=green>TriggerEnablePlayerMovement</color>");
+            OnEnablePlayerMovementAction?.Invoke(p_enable);
         }
     }
 

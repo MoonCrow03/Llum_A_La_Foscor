@@ -20,7 +20,7 @@ public class TutorialWorldUI : MonoBehaviour
     private EventInstance m_NextPageSoundInstance;
     
     private List<AnimationClip> m_Clips;
-
+    
     private void Awake()
     {
         m_Clips = m_Animator.runtimeAnimatorController.animationClips.ToList();

@@ -103,7 +103,7 @@ public class ButtonInputHandler
         get
         {
             var usedLastFrame = _tapUsed;
-            _tapUsed = Input();
+            _tapUsed = Input() ;
             return usedLastFrame ? false : _tapUsed;
         }
     }

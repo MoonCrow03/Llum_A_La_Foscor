@@ -11,13 +11,18 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float offsetY = 5f;  // Desplazamiento en el eje Y
     [SerializeField] private float smoothSpeed = 0.125f; // Velocidad de suavizado
     
-    [SerializeField] private CharacterController m_CharacterController;
+    [SerializeField] private PlayerController m_PlayerController;
+     [SerializeField] private GameManager m_GameManager;
 
     private bool m_CanMove;
 
     private void Awake()
     {
-        m_CharacterController.enabled = false;
+        m_PlayerController.enabled = false;
+        m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
+        if(m_GameManager.m_IsTutorialCompleted)
+            EnablePlayerMovement(true);
     }
 
     private void Start()
@@ -28,17 +33,20 @@ public class CameraFollow : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnEnablePlayerMovement += EnablePlayerMovement;
+        GameEvents.OnEnablePlayerMovementAction += EnablePlayerMovement;
     }
 
     private void OnDisable()
     {
         GameEvents.OnEnablePlayerMovement -= EnablePlayerMovement;
+        GameEvents.OnEnablePlayerMovementAction -= EnablePlayerMovement;
     }
 
     private void EnablePlayerMovement(bool p_enable)
     {
+        
         m_CanMove = p_enable;
-        m_CharacterController.enabled = p_enable;
+        m_PlayerController.enabled = p_enable;
     }
 
     private void LateUpdate()

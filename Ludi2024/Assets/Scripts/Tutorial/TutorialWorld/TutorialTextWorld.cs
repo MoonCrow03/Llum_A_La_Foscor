@@ -20,6 +20,8 @@ public class TutorialTextWorld : MonoBehaviour
         private int index = 0;
         private int lastIndex = 0;
         private bool isTextFinished = false;
+
+        private bool skippingText = false;
         
         private void Awake()
         {
@@ -52,16 +54,13 @@ public class TutorialTextWorld : MonoBehaviour
                     currentText = "";
                     text.text = currentText;
                     StartCoroutine(ShowText());
+                    skippingText = false;
                 }
             }
             
-            if (InputManager.Instance.SpaceBar.Hold)
+            if (InputManager.Instance.SpaceBar.Tap || InputManager.Instance.RightClick.Tap)
             {
                 textSpeed = 0;
-            }
-            else
-            {
-                textSpeed = originalTextSpeed;
             }
         }
 
@@ -117,6 +116,7 @@ public class TutorialTextWorld : MonoBehaviour
             FasterTextImage.SetActive(false);
             FinishedTextImage.SetActive(true);
             isTextFinished = true;
+            skippingText = false;
         }
 
         private bool IsTextExceedingBounds()
