@@ -8,6 +8,7 @@ public class PuzzleShade : MonoBehaviour
 {
     
     [SerializeField] private Animator m_Animator;
+    [SerializeField] private string m_AnimationName;
     
     private AnimationClip m_AnimationClip;
 
@@ -24,7 +25,7 @@ public class PuzzleShade : MonoBehaviour
     private IEnumerator SetShadeRoutine(int p_stars)
     {
         Debug.Log("SetShadeRoutine", gameObject);
-        m_Animator.Play("Puzzle1Shade");
+        m_Animator.Play(m_AnimationName);
         
         yield return new WaitForSeconds(m_AnimationClip.length);
         
