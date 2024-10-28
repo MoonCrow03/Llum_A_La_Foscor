@@ -139,4 +139,15 @@ public class GameEvents
             OnSetPlayerPosition();
         }
     }
+
+    public delegate void ActivatePuzzleShader(int p_stars);
+    public static event ActivatePuzzleShader OnActivatePuzzleShader;
+    
+    public static void TriggerActivatePuzzleShader(int p_stars)
+    {
+        if (OnActivatePuzzleShader != null)
+        {
+            OnActivatePuzzleShader(p_stars);
+        }
+    }
 }
