@@ -813,16 +813,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4328469042181058300, guid: da63d7f420014f7408ce32b178153c32,
-        type: 3}
-      propertyPath: m_Spacing.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4328469042181058300, guid: da63d7f420014f7408ce32b178153c32,
-        type: 3}
-      propertyPath: m_Spacing.y
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 8631305576330970926, guid: da63d7f420014f7408ce32b178153c32,
         type: 3}
       propertyPath: m_Name
@@ -1356,16 +1346,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8338670043690014300}
     m_Modifications:
-    - target: {fileID: 2145773308406552355, guid: baa13c44d106b58418ae0ff36758d72b,
-        type: 3}
-      propertyPath: m_Spacing.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145773308406552355, guid: baa13c44d106b58418ae0ff36758d72b,
-        type: 3}
-      propertyPath: m_Spacing.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2718931480528956949, guid: baa13c44d106b58418ae0ff36758d72b,
         type: 3}
       propertyPath: m_Name
