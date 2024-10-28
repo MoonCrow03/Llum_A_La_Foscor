@@ -7,11 +7,15 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private Button m_Play;
-    [SerializeField] private Button m_Quit;
+    [Header("Components")]
+    [SerializeField] private GameObject m_NextLevelMessage;
+    [SerializeField] private GameObject m_PopUp;
+    [SerializeField] private GameObject m_Options;
 
     public void StartGame()
     {
+        OnShowPopUp(false);
+        m_NextLevelMessage.SetActive(false);
         GameEvents.TriggerEnableTablet(false);
         GameEvents.TriggerEnablePlayerMovement(true);
     }
@@ -24,6 +28,26 @@ public class MainMenu : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadSceneAsync(Scenes.World01.ToString());
+    }
+
+    public void LoadNextLevel()
+    {
+        if (GameManager.Instance.m_IsWorldCompleted)
+        {
+            m_Options.SetActive(false);
+            m_PopUp.SetActive(false);
+            m_NextLevelMessage.SetActive(true);
+        }
+        else
+        {
+            OnShowPopUp(true);
+        }
+    }
+
+    public void OnShowPopUp(bool p_enable)
+    {
+        m_PopUp.SetActive(p_enable);
+        m_Options.SetActive(!p_enable);
     }
 
     public void LoadMainMenu()

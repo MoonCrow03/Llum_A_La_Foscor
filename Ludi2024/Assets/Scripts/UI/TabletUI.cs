@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class TabletUI : MonoBehaviour
 {
-    [SerializeField] private GameObject m_LevelCompleteUI;
-    [SerializeField] private GameObject m_MainMenu;
-    
     private Animator m_Animator;
     
     private bool m_IsTabletEnabled;
@@ -15,8 +12,6 @@ public class TabletUI : MonoBehaviour
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
-        m_MainMenu.gameObject.SetActive(true);
-        m_LevelCompleteUI.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -36,21 +31,11 @@ public class TabletUI : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnEnableTablet += OnEnableTablet;
-        GameEvents.OnLevelComplete += ShowLevelCompleteUI;
     }
 
     private void OnDisable()
     {
         GameEvents.OnEnableTablet -= OnEnableTablet;
-        GameEvents.OnLevelComplete -= ShowLevelCompleteUI;
-    }
-    
-    private void ShowLevelCompleteUI()
-    {
-        m_MainMenu.gameObject.SetActive(false);
-        m_LevelCompleteUI.gameObject.SetActive(true);
-        GameEvents.TriggerEnableTablet(true);
-        GameEvents.TriggerEnablePlayerMovement(false);
     }
 
     private void OnEnableTablet(bool p_IsEnable)

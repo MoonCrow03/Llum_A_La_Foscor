@@ -896,7 +896,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -916,11 +922,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 6e3b1905-5d29-47fa-9180-cd1a6d22e780
+  cloudProjectId: e484c308-0c04-469e-a4d6-1771b8f81819
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Ludi2024
-  organizationId: randombush
+  organizationId: mooncrow03
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

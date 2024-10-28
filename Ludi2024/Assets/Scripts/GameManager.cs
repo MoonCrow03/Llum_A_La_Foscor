@@ -49,13 +49,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         EnableTutorialWorld();
-        
-        
-        if(m_IsWorldCompleted)
-        {
-            GameEvents.TriggerLevelComplete();
-            GameEvents.TriggerEnablePlayerMovement(false);
-        }
     }
 
     public List<NotebookData.Note> GetNotebookData01()
