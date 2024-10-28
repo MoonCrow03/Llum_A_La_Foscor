@@ -22,9 +22,10 @@ public class GameManager : MonoBehaviour
     
     public bool m_IsWorldCompleted = false;
     
-    
     public bool m_IsTutorialCompleted;
     
+    public Vector3 m_StartPosition;
+    public Quaternion m_StartRotation;
     
     public int Points
     {

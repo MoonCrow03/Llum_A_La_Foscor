@@ -113,4 +113,15 @@ public class GameEvents
             OnLevelComplete();
         }
     }
+    
+    public delegate void SetPlayerPosition();
+    public static event SetPlayerPosition OnSetPlayerPosition;
+    
+    public static void TriggerSetPlayerPosition()
+    {
+        if (OnSetPlayerPosition != null)
+        {
+            OnSetPlayerPosition();
+        }
+    }
 }

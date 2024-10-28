@@ -15,6 +15,7 @@ namespace WorldScripts
             {
                 if (InputManager.Instance.F.Tap)
                 {
+                    GameEvents.TriggerSetPlayerPosition();
                     GameManager.Instance.LoadScene(sceneToLoad);
                 }
             }
