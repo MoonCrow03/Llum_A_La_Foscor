@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{7a103a60-0406-423e-ade5-ba5000f049b3}">
+		<property name="assetPath">
+			<value>LudiAroa-PianoLeftHand.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>91.272062500000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ee8cb5a-b855-44cd-a997-4ca341686b61}</destination>
+		</relationship>
+	</object>
+</objects>

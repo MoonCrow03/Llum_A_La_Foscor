@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c5077292-e394-4d7f-84d0-7d136b024c87}">
+		<property name="assetPath">
+			<value>LudiAroa-Bansuri.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>91.271874999999994</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ee8cb5a-b855-44cd-a997-4ca341686b61}</destination>
+		</relationship>
+	</object>
+</objects>
