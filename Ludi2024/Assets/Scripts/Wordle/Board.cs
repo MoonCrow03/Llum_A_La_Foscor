@@ -80,7 +80,7 @@ namespace Wordle
             AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(AudioEventWin);
             AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(AudioEventLose);
 
-            if (!isTutorial)
+            if (!isTutorial || GameManager.TutorialsShown.ContainsKey(Scenes.WordleLvl01))
             {
                 timeLimit = new TimeLimit(this);
                 timeLimit.StartTimer(timeToBeat, EndGameFailed);

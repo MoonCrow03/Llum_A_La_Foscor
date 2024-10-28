@@ -58,7 +58,7 @@ namespace HangedMan
 
         private void Start()
         {
-            if (!isTutorial)
+            if (!isTutorial || GameManager.TutorialsShown.ContainsKey(Scenes.HangedManLvl01))
             {
                 timeLimit = new TimeLimit(this);
                 timeLimit.StartTimer(timeLeft, GameFailed);

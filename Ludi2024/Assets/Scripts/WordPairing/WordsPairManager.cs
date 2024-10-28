@@ -45,7 +45,7 @@ public class WordsPairManager : MonoBehaviour
 
     private void Start()
     {
-        if (!m_IsTutorial)
+        if (!m_IsTutorial || GameManager.TutorialsShown.ContainsKey(Scenes.WordPairsLvl01))
         {
             m_TimeLimit = new TimeLimit(this);
             m_TimeLimit.StartTimer(m_Time, EndGameFailed);

@@ -30,7 +30,6 @@ namespace MakeWordsMinigame
         [SerializeField] private float pointsMultiplier = 1.0f;
         
         [Header("Scene Settings")]
-        [SerializeField] private Scenes levelCompleted;
         [SerializeField] private TextMeshProUGUI clockText;
         
         [Header("Audio")]
@@ -52,7 +51,7 @@ namespace MakeWordsMinigame
         // Start is called before the first frame update
         void Start()
         {
-            if (!isTutorial)
+            if (!isTutorial || GameManager.TutorialsShown.ContainsKey(Scenes.SortLettersLvl01))
             {
                 timeLimit = new TimeLimit(this);
                 timeLimit.StartTimer(time, OnGameFailed);

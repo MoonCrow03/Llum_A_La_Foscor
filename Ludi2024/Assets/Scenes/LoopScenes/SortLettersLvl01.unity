@@ -1103,7 +1103,6 @@ MonoBehaviour:
   time: 30
   isTutorial: 1
   pointsMultiplier: 1
-  levelCompleted: 8
   clockText: {fileID: 757159225}
   AudioEventWin:
     Guid:
@@ -1462,6 +1461,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2151636857988886578, guid: 9bece6ac0ae36654bb5bdfb122373e86,
+        type: 3}
+      propertyPath: scene
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3962880432495238411, guid: 9bece6ac0ae36654bb5bdfb122373e86,
         type: 3}
       propertyPath: m_Camera

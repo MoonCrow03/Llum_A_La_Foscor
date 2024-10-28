@@ -42,7 +42,7 @@ public class GeodeMinigame : MonoBehaviour
         m_CurrentPoints = 0;
         m_CurrentStrikes = 0;
 
-        if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit && !m_IsTutorial)
+        if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit && (!m_IsTutorial || GameManager.TutorialsShown.ContainsKey(Scenes.GeodeLvl01)))
         {
             m_TimeLimit = new TimeLimit(this);
             m_TimeLimit.StartTimer(m_Time, LoseGame);

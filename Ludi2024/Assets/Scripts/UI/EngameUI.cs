@@ -44,6 +44,8 @@ public class EngameUI : MonoBehaviour
         {
             GameManager.Instance.SetMiniGameCompleted(m_MiniGame);
         }
+        
+        GameEvents.TriggerMarkTutorialAsSeen(m_MiniGame);
 
         EnableEndgamePanel(true);
 

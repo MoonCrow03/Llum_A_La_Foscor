@@ -44,7 +44,16 @@ public class PuzzleMinigame : MonoBehaviour
     {
         SetPlayablePieces();
 
+        
         m_GameStarted = false;
+        
+        if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit && GameManager.TutorialsShown.ContainsKey(Scenes.PuzzleLvl01))
+        {
+            m_TimeLimit = new TimeLimit(this);
+            m_TimeLimit.StartTimer(m_SecondsToComplete, RanOutOfTime);
+            m_GameStarted = true;
+        }
+        
         m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
         m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
     }
@@ -91,7 +100,7 @@ public class PuzzleMinigame : MonoBehaviour
     {
         m_GameStarted = true;
 
-        if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit)
+        if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit )
         {
             SetUpTimer();
         }

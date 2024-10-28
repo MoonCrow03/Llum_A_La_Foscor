@@ -725,6 +725,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2151636857988886578, guid: 9bece6ac0ae36654bb5bdfb122373e86,
         type: 3}
+      propertyPath: scene
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2151636857988886578, guid: 9bece6ac0ae36654bb5bdfb122373e86,
+        type: 3}
       propertyPath: tutorialTextData
       value: 
       objectReference: {fileID: 11400000, guid: f7aa0f8a4dc5e8a4aaeef1ce30e8bf09,

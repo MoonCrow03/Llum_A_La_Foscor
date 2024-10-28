@@ -12,6 +12,7 @@ namespace Tutorial
         public float textSpeed;
         private float originalTextSpeed;
         public GameObject FinishedTextImage;
+        public Scenes scene;
 
         private string fullText;
         private string currentText = "";
@@ -25,6 +26,11 @@ namespace Tutorial
         private void Awake()
         {
             originalTextSpeed = textSpeed;
+            if (GameManager.TutorialsShown.ContainsKey(scene))
+            {
+                gameObject.SetActive(false);
+                OnTutorialFinished?.Invoke();
+            }
         }
 
         private void Start()

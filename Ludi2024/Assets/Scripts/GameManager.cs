@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     
     public static Dictionary<Scenes, bool> MiniGamesCompleted => miniGamesCompleted;
 
+    private static Dictionary<Scenes, bool> tutorialsShown = new Dictionary<Scenes, bool>();
+    
+    public static Dictionary<Scenes, bool> TutorialsShown => tutorialsShown;
+
     private int points;
     
     public bool m_IsWorldCompleted = false;
@@ -116,5 +120,20 @@ public class GameManager : MonoBehaviour
         m_IsTutorialCompleted = true;
         GameEvents.TriggerEnableTutorialWorldUI(true);
         GameEvents.TriggerEnablePlayerMovement(false);
+    }
+    
+    public void MarkTutorialsAsShown(Scenes p_scene)
+    {
+        tutorialsShown[p_scene] = true;
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.OnMarkTutorialAsSeen += MarkTutorialsAsShown;
+    }
+    
+    private void OnDisable()
+    {
+        GameEvents.OnMarkTutorialAsSeen -= MarkTutorialsAsShown;
     }
 }

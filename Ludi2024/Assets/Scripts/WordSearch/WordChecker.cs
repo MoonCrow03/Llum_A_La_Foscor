@@ -51,6 +51,11 @@ public class WordChecker : MonoBehaviour
         m_CurrentRay = new Ray();
         
         m_TimeLimit = new TimeLimit(this);
+        
+        if (GameManager.TutorialsShown.ContainsKey(Scenes.WordSearchLvl01))
+        {
+            m_TimeLimit.StartTimer(m_Time, LoseGame);
+        }
 
         m_AudioInstanceWin = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventWin);
         m_AudioInstanceLose = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventLose);
@@ -90,6 +95,7 @@ public class WordChecker : MonoBehaviour
 
     private void StartGame()
     {
+        if (GameManager.TutorialsShown[Scenes.WordSearchLvl01]) return;
         m_TimeLimit.StartTimer(m_Time, LoseGame);
     }
 

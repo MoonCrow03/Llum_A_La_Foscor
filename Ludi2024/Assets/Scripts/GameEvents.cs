@@ -113,4 +113,12 @@ public class GameEvents
             OnLevelComplete();
         }
     }
+
+    public delegate void MarkTutorialAsSeen(Scenes p_scene);
+    public static event MarkTutorialAsSeen OnMarkTutorialAsSeen;
+    
+    public static void TriggerMarkTutorialAsSeen(Scenes p_scene)
+    {
+        if (OnMarkTutorialAsSeen != null) OnMarkTutorialAsSeen(p_scene);
+    }
 }
