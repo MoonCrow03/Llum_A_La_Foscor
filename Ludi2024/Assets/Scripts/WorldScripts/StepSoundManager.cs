@@ -36,6 +36,7 @@ namespace WorldScripts
 
         private void OnDestroy()
         {
+            m_StepSoundEmitter.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             m_StepSoundEmitter.release();
         }
     }
