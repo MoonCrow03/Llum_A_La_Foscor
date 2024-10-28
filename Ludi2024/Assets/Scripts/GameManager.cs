@@ -127,14 +127,21 @@ public class GameManager : MonoBehaviour
     {
         tutorialsShown[p_scene] = true;
     }
+    
+    public void PlayWritingSound()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Write");
+    }
 
     private void OnEnable()
     {
         GameEvents.OnMarkTutorialAsSeen += MarkTutorialsAsShown;
+        NotebookData.OnNotebookUpdated += PlayWritingSound;
     }
     
     private void OnDisable()
     {
         GameEvents.OnMarkTutorialAsSeen -= MarkTutorialsAsShown;
+        NotebookData.OnNotebookUpdated -= PlayWritingSound;
     }
 }

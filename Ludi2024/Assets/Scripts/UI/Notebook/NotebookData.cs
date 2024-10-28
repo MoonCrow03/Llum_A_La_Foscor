@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ public class NotebookData : ScriptableObject
         public string Content;
         public bool IsCompleted;
     }
+    
+    
+    public static Action OnNotebookUpdated;
 
     public List<Note> Notes = new List<Note>();
 
@@ -31,6 +35,7 @@ public class NotebookData : ScriptableObject
     {
         Notes.Find(l_note => l_note.Key == p_scene).IsCompleted = true;
         Notes.Sort((note1, note2) => note2.IsCompleted.CompareTo(note1.IsCompleted));
+        OnNotebookUpdated?.Invoke();
     }
 
     public bool AreAllLevel1NotesCompleted()
