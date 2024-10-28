@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     public Vector3 m_StartPosition;
     public Quaternion m_StartRotation;
     
+    public Vector3 m_OriginalPlayerPosition;
+    public Quaternion m_OriginalPlayerRotation;
+    
     public int Points
     {
         get => points;
@@ -49,10 +52,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-    }
-    
-    private void Start()
-    {
         EnableTutorialWorld();
     }
 
