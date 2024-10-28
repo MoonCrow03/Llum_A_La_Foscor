@@ -10,6 +10,7 @@ namespace Tutorial
         public TutorialTextData tutorialTextData;
         public TextMeshProUGUI text;
         public float textSpeed;
+        private float originalTextSpeed;
         public GameObject FinishedTextImage;
 
         private string fullText;
@@ -20,7 +21,12 @@ namespace Tutorial
         
         public static Action OnTutorialFinished;
         public static Action OnPageFinished;
-    
+
+        private void Awake()
+        {
+            originalTextSpeed = textSpeed;
+        }
+
         private void Start()
         {
             if (tutorialTextData != null)
@@ -40,12 +46,18 @@ namespace Tutorial
                 }
                 else
                 {
+                    textSpeed = originalTextSpeed;
                     OnPageFinished?.Invoke();
                     isTextFinished = false;
                     currentText = "";
                     text.text = currentText;
                     StartCoroutine(ShowText());
                 }
+            }
+
+            if (InputManager.Instance.SpaceBar.Tap)
+            {
+                textSpeed = 0;
             }
         }
 

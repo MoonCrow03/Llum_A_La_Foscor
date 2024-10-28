@@ -170,6 +170,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpaceBar"",
+                    ""type"": ""Button"",
+                    ""id"": ""b61a76b5-53b9-48a0-bf2c-510cd03ad062"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -392,6 +401,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""F"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e04e1936-0051-4421-8c99-7c9bb1baf958"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpaceBar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -416,6 +436,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Main_E = m_Main.FindAction("E", throwIfNotFound: true);
         m_Main_Q = m_Main.FindAction("Q", throwIfNotFound: true);
         m_Main_F = m_Main.FindAction("F", throwIfNotFound: true);
+        m_Main_SpaceBar = m_Main.FindAction("SpaceBar", throwIfNotFound: true);
     }
 
     ~@InputActions()
@@ -498,6 +519,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_E;
     private readonly InputAction m_Main_Q;
     private readonly InputAction m_Main_F;
+    private readonly InputAction m_Main_SpaceBar;
     public struct MainActions
     {
         private @InputActions m_Wrapper;
@@ -518,6 +540,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @E => m_Wrapper.m_Main_E;
         public InputAction @Q => m_Wrapper.m_Main_Q;
         public InputAction @F => m_Wrapper.m_Main_F;
+        public InputAction @SpaceBar => m_Wrapper.m_Main_SpaceBar;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -575,6 +598,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @F.started += instance.OnF;
             @F.performed += instance.OnF;
             @F.canceled += instance.OnF;
+            @SpaceBar.started += instance.OnSpaceBar;
+            @SpaceBar.performed += instance.OnSpaceBar;
+            @SpaceBar.canceled += instance.OnSpaceBar;
         }
 
         private void UnregisterCallbacks(IMainActions instance)
@@ -627,6 +653,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @F.started -= instance.OnF;
             @F.performed -= instance.OnF;
             @F.canceled -= instance.OnF;
+            @SpaceBar.started -= instance.OnSpaceBar;
+            @SpaceBar.performed -= instance.OnSpaceBar;
+            @SpaceBar.canceled -= instance.OnSpaceBar;
         }
 
         public void RemoveCallbacks(IMainActions instance)
@@ -662,5 +691,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnE(InputAction.CallbackContext context);
         void OnQ(InputAction.CallbackContext context);
         void OnF(InputAction.CallbackContext context);
+        void OnSpaceBar(InputAction.CallbackContext context);
     }
 }

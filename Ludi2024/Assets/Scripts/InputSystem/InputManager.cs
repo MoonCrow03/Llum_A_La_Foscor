@@ -20,6 +20,8 @@ public class InputManager : MonoBehaviour
 
     public ButtonInputHandler Backspace;
 
+    public ButtonInputHandler SpaceBar;
+
     public ButtonInputHandler Q, E,F;
     
     public Vector2 MovementInput { private set; get; }
@@ -67,6 +69,7 @@ public class InputManager : MonoBehaviour
         Tab = new ButtonInputHandler(_actions.Main.Tab);
         Enter = new ButtonInputHandler(_actions.Main.Enter);
         Backspace = new ButtonInputHandler(_actions.Main.Backspace);
+        SpaceBar = new ButtonInputHandler(_actions.Main.SpaceBar);
 
         Q = new ButtonInputHandler(_actions.Main.Q);
         E = new ButtonInputHandler(_actions.Main.E);
