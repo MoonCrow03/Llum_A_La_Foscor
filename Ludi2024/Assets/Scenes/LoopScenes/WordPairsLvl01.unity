@@ -730,6 +730,11 @@ PrefabInstance:
       propertyPath: m_ClockText
       value: 
       objectReference: {fileID: 1884486933}
+    - target: {fileID: 3567329080144711733, guid: a10573bfea6227040ace69cb984ac9c8,
+        type: 3}
+      propertyPath: m_IsTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3578228802442764103, guid: a10573bfea6227040ace69cb984ac9c8,
         type: 3}
       propertyPath: m_AnchorMax.y
