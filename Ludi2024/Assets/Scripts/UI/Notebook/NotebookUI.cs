@@ -107,7 +107,7 @@ public class NotebookUI : MonoBehaviour
     {
         int l_index = m_CurrentIndex;
 
-        if (l_index + m_MaxBPForPage < m_BulletPointTexts.Count - 1)
+        if (l_index + m_MaxBPForPage < m_BulletPointTexts.Count)
         {
             m_CurrentIndex += m_MaxBPForPage;
             return true;
