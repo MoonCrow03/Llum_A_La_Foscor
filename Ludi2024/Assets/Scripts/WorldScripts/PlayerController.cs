@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform cam;
     
-
     [SerializeField] private float speed = 6f;
     [SerializeField] private float turnSmoothTime = 0.1f;
     [SerializeField] private float turnSmoothVelocity;
@@ -18,7 +17,12 @@ public class PlayerController : MonoBehaviour
 
     public static bool IsMoving;
     
-
+    private void Start()
+    {
+        transform.position = GameManager.Instance.m_StartPosition;
+        transform.rotation = GameManager.Instance.m_StartRotation;
+    }
+    
     void Update()
     {
         // Obtener las entradas horizontales y verticales del jugador (WASD)
@@ -54,5 +58,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        GameEvents.OnSetPlayerPosition += SetPlayerPosition;
+    }
     
+    private void OnDisable()
+    {
+        GameEvents.OnSetPlayerPosition -= SetPlayerPosition;
+    }
+
+    private void SetPlayerPosition()
+    {
+        GameManager.Instance.m_StartPosition = transform.position;
+        GameManager.Instance.m_StartRotation = transform.rotation;
+    }
 }

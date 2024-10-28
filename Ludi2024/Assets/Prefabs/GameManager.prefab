@@ -48,6 +48,8 @@ MonoBehaviour:
   m_NotebookData: {fileID: 11400000, guid: f7de58a98c5108e468a53d2c98912dc4, type: 2}
   m_IsWorldCompleted: 0
   m_IsTutorialCompleted: 1
+  m_StartPosition: {x: -12.14, y: 2.69, z: -13.45}
+  m_StartRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
 --- !u!114 &368854135283492833
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -121,4 +121,15 @@ public class GameEvents
     {
         if (OnMarkTutorialAsSeen != null) OnMarkTutorialAsSeen(p_scene);
     }
+    
+    public delegate void SetPlayerPosition();
+    public static event SetPlayerPosition OnSetPlayerPosition;
+    
+    public static void TriggerSetPlayerPosition()
+    {
+        if (OnSetPlayerPosition != null)
+        {
+            OnSetPlayerPosition();
+        }
+    }
 }

@@ -13,6 +13,7 @@ namespace Tutorial
         private float originalTextSpeed;
         public GameObject FinishedTextImage;
         public Scenes scene;
+        public GameObject FasterTextImage;
 
         private string fullText;
         private string currentText = "";
@@ -61,9 +62,13 @@ namespace Tutorial
                 }
             }
 
-            if (InputManager.Instance.SpaceBar.Tap)
+            if (InputManager.Instance.SpaceBar.Hold)
             {
                 textSpeed = 0;
+            }
+            else
+            {
+                textSpeed = originalTextSpeed;
             }
         }
 
@@ -76,6 +81,7 @@ namespace Tutorial
         private IEnumerator ShowText()
         {
             FinishedTextImage.SetActive(false);
+            FasterTextImage.SetActive(true);
             text.text = ""; 
 
             for (index = lastIndex; index < fullText.Length; index++)
@@ -88,6 +94,7 @@ namespace Tutorial
                 if (IsTextExceedingBounds())
                 {
                     FinishedTextImage.SetActive(true);
+                    FasterTextImage.SetActive(false);
                     isTextFinished = true;
                     lastIndex = index; 
                     yield break;
@@ -98,7 +105,8 @@ namespace Tutorial
 
                 yield return new WaitForSeconds(textSpeed);
             }
-
+            
+            FasterTextImage.SetActive(false);
             FinishedTextImage.SetActive(true);
             isTextFinished = true;
         }

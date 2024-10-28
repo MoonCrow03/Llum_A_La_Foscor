@@ -31252,6 +31252,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2586493438590681258, guid: 64f7d47ea3a72cf4c8214a251fc56158,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586493438590681258, guid: 64f7d47ea3a72cf4c8214a251fc56158,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586493438590681258, guid: 64f7d47ea3a72cf4c8214a251fc56158,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586493438590681258, guid: 64f7d47ea3a72cf4c8214a251fc56158,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586493438590681258, guid: 64f7d47ea3a72cf4c8214a251fc56158,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2586493438590681258, guid: 64f7d47ea3a72cf4c8214a251fc56158,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3449609704411234671, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
       propertyPath: m_Name
@@ -31260,22 +31290,22 @@ PrefabInstance:
     - target: {fileID: 4148958808413879964, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -12.14
       objectReference: {fileID: 0}
     - target: {fileID: 4148958808413879964, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2.69
       objectReference: {fileID: 0}
     - target: {fileID: 4148958808413879964, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -13.45
       objectReference: {fileID: 0}
     - target: {fileID: 4148958808413879964, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4148958808413879964, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
@@ -31285,7 +31315,7 @@ PrefabInstance:
     - target: {fileID: 4148958808413879964, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4148958808413879964, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
@@ -31300,7 +31330,7 @@ PrefabInstance:
     - target: {fileID: 4148958808413879964, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 4148958808413879964, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
@@ -31312,31 +31342,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 303350360}
-    - target: {fileID: 8884350914638778242, guid: 64f7d47ea3a72cf4c8214a251fc56158,
-        type: 3}
-      propertyPath: m_AudioEventSteps.Path
-      value: event:/Step
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884350914638778242, guid: 64f7d47ea3a72cf4c8214a251fc56158,
-        type: 3}
-      propertyPath: m_AudioEventSteps.Guid.Data1
-      value: 2078500254
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884350914638778242, guid: 64f7d47ea3a72cf4c8214a251fc56158,
-        type: 3}
-      propertyPath: m_AudioEventSteps.Guid.Data2
-      value: 1301840468
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884350914638778242, guid: 64f7d47ea3a72cf4c8214a251fc56158,
-        type: 3}
-      propertyPath: m_AudioEventSteps.Guid.Data3
-      value: -1262417251
-      objectReference: {fileID: 0}
-    - target: {fileID: 8884350914638778242, guid: 64f7d47ea3a72cf4c8214a251fc56158,
-        type: 3}
-      propertyPath: m_AudioEventSteps.Guid.Data4
-      value: 186678874
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
