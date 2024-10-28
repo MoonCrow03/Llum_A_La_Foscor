@@ -1173,7 +1173,7 @@ PrefabInstance:
     - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
         type: 3}
       propertyPath: timeToBeat
-      value: 31
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 1253109994505974535, guid: 5023d114e6667bf43bd7e664cbdc579e,
         type: 3}
