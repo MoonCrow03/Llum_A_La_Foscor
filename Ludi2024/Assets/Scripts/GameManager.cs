@@ -100,15 +100,20 @@ public class GameManager : MonoBehaviour
     {
         return m_NotebookData.IsNoteCompleted(p_scene);
     }
-    
-    public bool AreAllLevel1MiniGamesCompleted()
+
+    private bool AreAllLevel1MiniGamesCompleted()
     {
         return m_NotebookData.AreAllLevel1NotesCompleted();
     }
-    
-    public bool AreAllLevel2MiniGamesCompleted()
+
+    private bool AreAllLevel2MiniGamesCompleted()
     {
         return m_NotebookData.AreAllLevel2NotesCompleted();
+    }
+    
+    public void ResetMiniGames()
+    {
+        m_NotebookData.ResetNotes();
     }
 
     private void EnableTutorialWorld()

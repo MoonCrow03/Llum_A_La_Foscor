@@ -46,4 +46,12 @@ public class NotebookData : ScriptableObject
             .Where(note => note.Key.ToString().Contains("Lvl02"))
             .All(note => note.IsCompleted);
     }
+
+    public void ResetNotes()
+    {
+        foreach (var note in Notes)
+        {
+            note.IsCompleted = false;
+        }
+    }
 }

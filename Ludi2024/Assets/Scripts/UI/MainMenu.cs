@@ -25,4 +25,15 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(Scenes.World01.ToString());
     }
+
+    public void LoadMainMenu()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetMiniGames();
+            Destroy(GameManager.Instance.gameObject);
+        }
+        
+        SceneManager.LoadSceneAsync(Scenes.MainMenu.ToString());
+    }
 }
