@@ -38,7 +38,8 @@ public class TutorialUI : MonoBehaviour
     private void PassPageAnimation()
     {
         if(!m_IsNoteBookEnabled) return;
-
+        
+        // TODO: Add pass page sound effect
         m_Animator.SetTrigger("NextPage");
     }
 }

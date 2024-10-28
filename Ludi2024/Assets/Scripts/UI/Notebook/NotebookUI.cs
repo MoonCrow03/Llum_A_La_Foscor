@@ -195,6 +195,7 @@ public class NotebookUI : MonoBehaviour
 
     private IEnumerator HideText(string p_trigger)
     {
+        // TODO: Add pass page sound effect
         m_Animator.SetTrigger(p_trigger);
         m_BulletPointHolder.SetActive(false);
         m_InfoPanelBellow.SetActive(false);
