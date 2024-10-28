@@ -95,7 +95,7 @@ public class WordChecker : MonoBehaviour
 
     private void StartGame()
     {
-        if (GameManager.TutorialsShown[Scenes.WordSearchLvl01]) return;
+        if (GameManager.TutorialsShown.ContainsKey(Scenes.WordSearchLvl01)) return;
         m_TimeLimit.StartTimer(m_Time, LoseGame);
     }
 
