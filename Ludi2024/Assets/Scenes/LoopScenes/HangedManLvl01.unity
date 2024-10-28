@@ -1136,6 +1136,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
+      propertyPath: m_WrongLetterColor.a
+      value: 0.6862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: m_WrongLetterColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: m_WrongLetterColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: m_WrongLetterColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
       propertyPath: wordList.Array.data[1]
       value: poal
       objectReference: {fileID: 0}

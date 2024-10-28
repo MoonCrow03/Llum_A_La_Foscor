@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -257,9 +257,11 @@ MonoBehaviour:
   letterButtonPrefab: {fileID: 5107654295513464289, guid: 8db2b2cebd8c1944780a515ea78ed31e,
     type: 3}
   letterParent: {fileID: 1395439343094415224}
-  letterFromGuessWordPrefab: {fileID: 5107654295513464289, guid: 8db2b2cebd8c1944780a515ea78ed31e,
+  letterFromGuessWordPrefab: {fileID: 5107654295513464289, guid: 4216909e0491ee64cb17e306fa080bca,
     type: 3}
   letterFromGuessWordParent: {fileID: 643423803583534683}
+  m_WrongLetterColor: {r: 1, g: 0, b: 0, a: 0.6862745}
+  m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.6862745}
   clockText: {fileID: 0}
   AudioEventWin:
     Guid:

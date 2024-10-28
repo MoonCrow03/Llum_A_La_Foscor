@@ -25,6 +25,8 @@ namespace HangedMan
         [SerializeField] private Transform letterParent;
         [SerializeField] private GameObject letterFromGuessWordPrefab;
         [SerializeField] private Transform letterFromGuessWordParent;
+        [SerializeField] private Color m_WrongLetterColor;
+        [SerializeField] private Color m_DisabledColor;
         
 
         [Header("Scenes")]
@@ -162,7 +164,7 @@ namespace HangedMan
             }
             else
             {
-                ChangeLetterColor(letterGuessed, Color.red);
+                ChangeLetterColor(letterGuessed, m_WrongLetterColor);
                 maxGuesses--;
             }
 
@@ -175,6 +177,7 @@ namespace HangedMan
         private void DisableLetterInteraction(char letterGuessed)
         {
             letterObjects[letterGuessed].GetComponentInChildren<Button>().interactable = false;
+            ChangeLetterColor(letterGuessed, m_DisabledColor);
         }
 
         private void ChangeLetterColor(char letterGuessed, Color color)
