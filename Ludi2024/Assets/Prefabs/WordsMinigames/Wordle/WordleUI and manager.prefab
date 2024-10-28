@@ -205,20 +205,20 @@ MonoBehaviour:
   timeToBeat: 0
   pointsMultiplier: 1
   EmptyState:
-    FillColor: {r: 0.47450984, g: 0.8313726, b: 0.9490197, a: 1}
-    OutlineColor: {r: 0.24688502, g: 0.6004284, b: 0.7169812, a: 1}
+    FillColor: {r: 0.47450984, g: 0.8313726, b: 0.9490197, a: 0.78431374}
+    OutlineColor: {r: 0.24688502, g: 0.6004284, b: 0.7169812, a: 0.78431374}
   OccupiedState:
-    FillColor: {r: 0.31764707, g: 0.38431373, b: 0.40392157, a: 1}
-    OutlineColor: {r: 0.17755428, g: 0.34652814, b: 0.3962264, a: 1}
+    FillColor: {r: 0, g: 0, b: 0, a: 0.39215687}
+    OutlineColor: {r: 0, g: 0, b: 0, a: 0.39215687}
   CorrectState:
-    FillColor: {r: 0.3254902, g: 0.5529412, b: 0.30588236, a: 1}
-    OutlineColor: {r: 0.3254902, g: 0.5529412, b: 0.30588236, a: 1}
+    FillColor: {r: 0.3254902, g: 0.5529412, b: 0.30588236, a: 0.78431374}
+    OutlineColor: {r: 0.3254902, g: 0.5529412, b: 0.30588236, a: 0.78431374}
   WrongSpot:
-    FillColor: {r: 0.70980394, g: 0.62352943, b: 0.23137255, a: 1}
-    OutlineColor: {r: 0.70980394, g: 0.62352943, b: 0.23137255, a: 1}
+    FillColor: {r: 0.70980394, g: 0.62352943, b: 0.23137255, a: 0.78431374}
+    OutlineColor: {r: 0.70980394, g: 0.62352943, b: 0.23137255, a: 0.78431374}
   IncorrectState:
-    FillColor: {r: 0.22745098, g: 0.22745098, b: 0.23529412, a: 1}
-    OutlineColor: {r: 0.22745098, g: 0.22745098, b: 0.23529412, a: 1}
+    FillColor: {r: 0, g: 0, b: 0, a: 0.49019608}
+    OutlineColor: {r: 0, g: 0, b: 0, a: 0.49019608}
   timeLeft: {fileID: 0}
   isTutorial: 0
   AudioEventWin:
@@ -289,7 +289,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
