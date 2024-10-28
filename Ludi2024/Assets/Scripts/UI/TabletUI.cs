@@ -15,6 +15,8 @@ public class TabletUI : MonoBehaviour
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
+        m_MainMenu.gameObject.SetActive(true);
+        m_LevelCompleteUI.gameObject.SetActive(false);
     }
 
     private void Start()

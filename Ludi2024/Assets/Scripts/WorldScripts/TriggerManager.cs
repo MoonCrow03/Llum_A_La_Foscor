@@ -8,6 +8,11 @@ namespace WorldScripts
     public class TriggerManager : MonoBehaviour
     {
         [SerializeField] private List<Trigger> triggers;
+        
+        private void Start()
+        {
+            PlaceTriggers();
+        }
 
         private void PlaceTriggers()
         {
@@ -22,11 +27,6 @@ namespace WorldScripts
                 trigger.transform.position = spawnLocation.position;
                 trigger.transform.rotation = spawnLocation.rotation;
             }
-        }
-
-        private void Start()
-        {
-            PlaceTriggers();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class NotebookUI : MonoBehaviour
@@ -33,9 +34,12 @@ public class NotebookUI : MonoBehaviour
         m_BulletPointTexts = new List<string>();
 
         m_Clips = m_Animator.runtimeAnimatorController.animationClips.ToList();
-
-        m_NumBulletPoints = GameManager.Instance.GetNotebookData().Notes.Count;
-
+        
+        Scene l_scene = SceneManager.GetActiveScene();
+        
+        m_NumBulletPoints = l_scene.name.Equals(Scenes.World01.ToString()) ? GameManager.Instance.GetNotebookData01().Count :
+            GameManager.Instance.GetNotebookData02().Count;
+        
         for (int i = 0; i < m_NumBulletPoints; i++)
         {
             m_BulletPointTexts.Add(m_EmptyString);
@@ -44,9 +48,10 @@ public class NotebookUI : MonoBehaviour
         m_CurrentIndex = 0;
         m_IsNoteBookEnabled = false;
 
-        NotebookData l_notebookData = GameManager.Instance.GetNotebookData();
+        List<NotebookData.Note> l_notebookData = l_scene.name.Equals(Scenes.World01.ToString()) ? GameManager.Instance.GetNotebookData01() :
+            GameManager.Instance.GetNotebookData02();
 
-        foreach (var t_note in l_notebookData.Notes.Where(t_note => t_note.IsCompleted))
+        foreach (var t_note in l_notebookData.Where(t_note => t_note.IsCompleted))
         {
             AddBulletPoint(t_note.Content);
         }

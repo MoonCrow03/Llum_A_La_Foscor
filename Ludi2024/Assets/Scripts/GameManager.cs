@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,9 +20,8 @@ public class GameManager : MonoBehaviour
 
     private int points;
     
-    public bool m_IsWorld01Completed = false;
+    public bool m_IsWorldCompleted = false;
     
-    public bool m_IsWorld02Completed = false;
     
     public bool m_IsTutorialCompleted;
     
@@ -51,16 +51,21 @@ public class GameManager : MonoBehaviour
         EnableTutorialWorld();
         
         
-        if(m_IsWorld01Completed || m_IsWorld02Completed)
+        if(m_IsWorldCompleted)
         {
             GameEvents.TriggerLevelComplete();
             GameEvents.TriggerEnablePlayerMovement(false);
         }
     }
 
-    public ref NotebookData GetNotebookData()
+    public List<NotebookData.Note> GetNotebookData01()
     {
-        return ref m_NotebookData;
+        return new List<NotebookData.Note>(m_NotebookData.Notes.Where(note => note.Key.ToString().Contains("Lvl01")));
+    }
+    
+    public List<NotebookData.Note> GetNotebookData02()
+    {
+        return new List<NotebookData.Note>(m_NotebookData.Notes.Where(note => note.Key.ToString().Contains("Lvl02")));
     }
 
     public void LoadScene(Scenes p_scene)
@@ -69,7 +74,7 @@ public class GameManager : MonoBehaviour
         {
             if (AreAllLevel1MiniGamesCompleted())
             {
-                m_IsWorld01Completed = true;
+                m_IsWorldCompleted = true;
                 Debug.Log("All level 1 minigames completed");
             }
         }
@@ -78,7 +83,7 @@ public class GameManager : MonoBehaviour
         {
             if (AreAllLevel2MiniGamesCompleted())
             {
-                m_IsWorld02Completed = true;
+                m_IsWorldCompleted = true;
                 Debug.Log("All level 2 minigames completed");
             }
         }

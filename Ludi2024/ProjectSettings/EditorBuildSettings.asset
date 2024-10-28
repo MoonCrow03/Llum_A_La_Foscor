@@ -9,24 +9,51 @@ EditorBuildSettings:
     path: Assets/Scenes/LoopScenes/World01.unity
     guid: bd36450eea283c54f8dff2bcbef6852b
   - enabled: 1
-    path: Assets/Scenes/LoopScenes/GeodeLvl01.unity
-    guid: 382e9cc00f133a64c96c7d8c99dabbda
-  - enabled: 1
-    path: Assets/Scenes/LoopScenes/HangedManLvl01.unity
-    guid: bce5ab6428ec7c444bc3ead4ba54c908
-  - enabled: 1
-    path: Assets/Scenes/LoopScenes/SortLettersLvl01.unity
-    guid: 4cca4f28ab940af4da894bb1eaee18fc
-  - enabled: 1
-    path: Assets/Scenes/LoopScenes/WordleLvl01.unity
-    guid: 76efbb683a7b7be42b32257902b9f642
+    path: Assets/Scenes/LoopScenes/World02.unity
+    guid: 85552cce4513eec49b757580fa90cdd4
   - enabled: 1
     path: Assets/Scenes/LoopScenes/PuzzleLvl01.unity
     guid: c587237c2b8d0b645993817d9e176c2c
   - enabled: 1
+    path: Assets/Scenes/LoopScenes/PuzzleLvl02.unity
+    guid: 4986be733c2035242b304693a54e3db2
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/GeodeLvl01.unity
+    guid: 382e9cc00f133a64c96c7d8c99dabbda
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/GeodeLvl02.unity
+    guid: f6a5c74a69b1fa44b940340e6d16e1c8
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/HangedManLvl01.unity
+    guid: bce5ab6428ec7c444bc3ead4ba54c908
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/HangedManLvl02.unity
+    guid: 8ce262fc5a5c33d43a1232baab62bd0a
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/SortLettersLvl01.unity
+    guid: 4cca4f28ab940af4da894bb1eaee18fc
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/SortLettersLvl02.unity
+    guid: caef64bda7089ec48b848360a739e787
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/WordleLvl01.unity
+    guid: 76efbb683a7b7be42b32257902b9f642
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/WordleLvl02.unity
+    guid: 963a5a690bf1bc342929cd804847c7f5
+  - enabled: 1
     path: Assets/Scenes/LoopScenes/WordSearchLvl01.unity
     guid: d1e9b3d6299173e42834e50bff4d5a05
   - enabled: 1
+    path: Assets/Scenes/LoopScenes/WordSearchLvl02.unity
+    guid: 3e25c71092c905b49bcb2edab4546f6b
+  - enabled: 1
     path: Assets/Scenes/LoopScenes/WordPairsLvl01.unity
     guid: bd45ff3eb6c67534ea74059cb593ce37
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/WordPairsLvl02.unity
+    guid: 15c7a1bf4601e8e4aa429414750854be
+  - enabled: 1
+    path: Assets/Scenes/LoopScenes/End.unity
+    guid: 4aa29cac1915e0f43b0680251d3fbd79
   m_configObjects: {}
