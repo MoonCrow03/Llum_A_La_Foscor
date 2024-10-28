@@ -62,7 +62,7 @@ namespace Tutorial
                 }
             }
 
-            if (InputManager.Instance.SpaceBar.Hold)
+            if (InputManager.Instance.SpaceBar.Hold || InputManager.Instance.RightClick.Hold)
             {
                 textSpeed = 0;
             }
