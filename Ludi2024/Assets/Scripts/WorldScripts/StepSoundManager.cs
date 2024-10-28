@@ -25,7 +25,6 @@ namespace WorldScripts
             {
                 float randomPitch = UnityEngine.Random.Range(0.5f, 2f);
                 m_StepSoundEmitter.setPitch(randomPitch);
-                Debug.Log("Playing sound with pitch: " + randomPitch);
                 if (playbackState == PLAYBACK_STATE.PLAYING) return;
                 m_StepSoundEmitter.start();
             }
