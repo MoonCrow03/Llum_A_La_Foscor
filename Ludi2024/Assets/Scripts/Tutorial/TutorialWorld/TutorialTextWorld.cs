@@ -12,12 +12,19 @@ public class TutorialTextWorld : MonoBehaviour
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private float textSpeed;
         [SerializeField] private GameObject FinishedTextImage;
-
+        [SerializeField] private GameObject FasterTextImage;
+        
+        private float originalTextSpeed;
         private string fullText;
         private string currentText = "";
         private int index = 0;
         private int lastIndex = 0;
         private bool isTextFinished = false;
+        
+        private void Awake()
+        {
+            originalTextSpeed = textSpeed;
+        }
     
         private void Start()
         {
@@ -39,12 +46,22 @@ public class TutorialTextWorld : MonoBehaviour
                 }
                 else
                 {
+                    textSpeed = originalTextSpeed;
                     GameEvents.TriggerPageFinished();
                     isTextFinished = false;
                     currentText = "";
                     text.text = currentText;
                     StartCoroutine(ShowText());
                 }
+            }
+            
+            if (InputManager.Instance.SpaceBar.Hold)
+            {
+                textSpeed = 0;
+            }
+            else
+            {
+                textSpeed = originalTextSpeed;
             }
         }
 
@@ -69,9 +86,10 @@ public class TutorialTextWorld : MonoBehaviour
             return index >= fullText.Length;
         }
 
-        protected IEnumerator ShowText()
+        private IEnumerator ShowText()
         {
             FinishedTextImage.SetActive(false);
+            FasterTextImage.SetActive(true);
             text.text = ""; 
 
             for (index = lastIndex; index < fullText.Length; index++)
@@ -84,6 +102,7 @@ public class TutorialTextWorld : MonoBehaviour
                 if (IsTextExceedingBounds())
                 {
                     FinishedTextImage.SetActive(true);
+                    FasterTextImage.SetActive(false);
                     isTextFinished = true;
                     lastIndex = index; 
                     yield break;
@@ -94,7 +113,8 @@ public class TutorialTextWorld : MonoBehaviour
 
                 yield return new WaitForSeconds(textSpeed);
             }
-
+            
+            FasterTextImage.SetActive(false);
             FinishedTextImage.SetActive(true);
             isTextFinished = true;
         }
