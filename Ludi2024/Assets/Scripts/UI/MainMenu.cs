@@ -22,6 +22,12 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetMiniGames();
+            Destroy(GameManager.Instance.gameObject);
+        }
+        
         Application.Quit();
     }
 
