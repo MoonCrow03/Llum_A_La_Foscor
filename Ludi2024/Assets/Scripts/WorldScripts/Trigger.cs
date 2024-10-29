@@ -9,7 +9,7 @@ namespace WorldScripts
         public List<Transform> spawnLocations;
         public Scenes sceneToLoad;
 
-        [SerializeField] SpriteRenderer interactkeyUI;
+        [SerializeField] private SpriteRenderer interactkeyUI;
         [SerializeField] private GameManager m_GameManager;
 
         private void Start()

@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class LookAlwaysCam : MonoBehaviour
 {
-    //make the object always look at the camera
     [SerializeField] private Transform m_Camera;
+    [SerializeField] private SpriteRenderer m_SpriteRenderer;
+
+    private void Start()
+    {
+        m_SpriteRenderer.enabled = false;
+    }
     
-    void Update()
+    private void Update()
     {
         transform.LookAt(m_Camera);
     }
