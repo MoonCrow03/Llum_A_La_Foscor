@@ -21,7 +21,7 @@ public class TabletUI : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.Instance.Esc.Tap)
+        if (InputManager.Instance.Esc.Tap || InputManager.Instance.LeftShift.Tap)
         {
             OnEnableTablet(!m_IsTabletEnabled);
         }
