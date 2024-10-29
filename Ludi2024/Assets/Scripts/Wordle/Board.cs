@@ -261,11 +261,24 @@ namespace Wordle
             }
         }
 
-        private void UpdateLetterTileColor(char tileLetter, Tile.TileStates correctState)
+        private void UpdateLetterTileColor(char tileLetter, Tile.TileStates newState)
         {
-            if (GenerateLetters.LetterTiles.TryGetValue(tileLetter, out var letterTile))
+            if (GenerateLetters.LetterTiles.TryGetValue(tileLetter, out LetterTile letterTile))
             {
-                letterTile.SetTileState(correctState);
+                // Caso para IncorrectState: solo lo aplicamos si no está en Correct o WrongSpot
+                if (newState == IncorrectState && letterTile.GetCurrentState() != CorrectState && letterTile.GetCurrentState() != WrongSpot)
+                {
+                    letterTile.SetTileState(newState);
+                }
+                // Si es Correct o WrongSpot, aplicamos con prioridad
+                else if (newState == CorrectState || newState == WrongSpot)
+                {
+                    // Aplicamos solo si tiene mayor prioridad que el estado actual
+                    if (HasHigherPriority(letterTile.GetCurrentState(), newState))
+                    {
+                        letterTile.SetTileState(newState);
+                    }
+                }
             }
         }
         
@@ -351,6 +364,15 @@ namespace Wordle
         private void OnDisable()
         {
             TutorialText.OnTutorialFinished -= StartTimer;
+        }
+        
+        private bool HasHigherPriority(Tile.TileStates currentState, Tile.TileStates newState)
+        {
+            if (newState == CorrectState)
+                return true; // Correct siempre tiene la prioridad más alta
+            if (newState == WrongSpot && currentState != CorrectState)
+                return true; // WrongSpot tiene prioridad sobre Invalid
+            return newState == IncorrectState && currentState == EmptyState; // Invalid solo si estaba vacío
         }
     }
 }

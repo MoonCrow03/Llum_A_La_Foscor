@@ -9,6 +9,7 @@ namespace Wordle
     {
         private char letter;
         
+        private Tile.TileStates currentState;
         public char Letter
         {
             get => letter;
@@ -38,6 +39,7 @@ namespace Wordle
 
         public void SetTileState(Tile.TileStates correctState)
         {
+            currentState = correctState;
             fillImage.color = correctState.FillColor;
             outline.effectColor = correctState.OutlineColor;
         }
@@ -45,6 +47,11 @@ namespace Wordle
         public void SetTextToWhite()
         {
             textMeshProUGUI.color = Color.white;
+        }
+        
+        public Tile.TileStates GetCurrentState()
+        {
+            return currentState;
         }
     }
 }
