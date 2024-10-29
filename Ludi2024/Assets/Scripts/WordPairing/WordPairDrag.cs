@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class WordPairDrag : DragNDrop2D
 {
-    private enum WhichWordPair
+    public enum WhichWordPair
     {
         A,
         B

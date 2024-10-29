@@ -36,4 +36,14 @@ public class ColorChanger : MonoBehaviour
         m_PointA.color = p_color;
         m_PointB.color = p_color;
     }
+    
+    public void ChangePointAColor()
+    {
+        m_PointA.color = m_CorrectColor;
+    }
+    
+    public void ChangePointBColor()
+    {
+        m_PointB.color = m_CorrectColor;
+    }
 }
