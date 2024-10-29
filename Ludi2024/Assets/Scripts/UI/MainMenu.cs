@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +13,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject m_NextLevelMessage;
     [SerializeField] private GameObject m_PopUp;
     [SerializeField] private GameObject m_Options;
+    
+    [Header("Audio")]
+    [SerializeField] private EventReference m_UIErrorSound;
+    
+    private EventInstance m_UIErrorSoundInstance;
+
+    private void Start()
+    {
+        m_UIErrorSoundInstance = RuntimeManager.CreateInstance(m_UIErrorSound);
+    }
 
     public void StartGame()
     {
@@ -46,6 +58,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
+            m_UIErrorSoundInstance.start();
             OnShowPopUp(true);
         }
     }
@@ -65,5 +78,10 @@ public class MainMenu : MonoBehaviour
         }
         
         SceneManager.LoadSceneAsync(Scenes.MainMenu.ToString());
+    }
+
+    private void OnDestroy()
+    {
+        m_UIErrorSoundInstance.release();
     }
 }
