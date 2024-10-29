@@ -938,11 +938,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1937100176094524618, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_overflowMode
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3895964605596128254, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
       propertyPath: m_LocalPosition.x
