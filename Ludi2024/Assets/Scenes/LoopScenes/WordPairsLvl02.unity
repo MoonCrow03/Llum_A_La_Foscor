@@ -1519,6 +1519,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 631920225}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &835590813 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2804931388462969678, guid: a10573bfea6227040ace69cb984ac9c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 631920225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &846582643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,6 +2023,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6233618824585989556, guid: 29cd3486c35eb1248a07fcf04bd6a433,
+        type: 3}
+      propertyPath: m_Canvas
+      value: 
+      objectReference: {fileID: 835590813}
     - target: {fileID: 7288999229983731117, guid: 29cd3486c35eb1248a07fcf04bd6a433,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2047,6 +2058,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8239232408714367596, guid: 29cd3486c35eb1248a07fcf04bd6a433,
+        type: 3}
+      propertyPath: m_Canvas
+      value: 
+      objectReference: {fileID: 835590813}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
