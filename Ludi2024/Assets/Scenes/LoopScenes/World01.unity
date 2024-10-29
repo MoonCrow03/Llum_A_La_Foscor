@@ -4459,13 +4459,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3749921550010570555, guid: ad5d2bf89938d3846bf81776a95a13be,
         type: 3}
-      propertyPath: m_IsWorldCompleted
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3749921550010570555, guid: ad5d2bf89938d3846bf81776a95a13be,
-        type: 3}
       propertyPath: m_IsTutorialCompleted
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
