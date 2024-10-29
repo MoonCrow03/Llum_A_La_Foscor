@@ -1707,6 +1707,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 9145415483777381158, guid: 8b88c9ed47c626e439cc12ad2cccdbef,
+        type: 3}
+      propertyPath: EventPlayTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1608290939473129589, guid: 8b88c9ed47c626e439cc12ad2cccdbef, type: 3}
     m_RemovedGameObjects: []
