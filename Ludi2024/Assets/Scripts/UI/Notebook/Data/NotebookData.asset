@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: NotebookData
   m_EditorClassIdentifier: 
   Notes:
+  - Key: 13
+    Content: "Hi ha regions, com a Menorca, que el follet \xE9s considerat un esperit
+      diab\xF2lic"
+    IsCompleted: 1
   - Key: 2
     Content: "S\xF3n dones atractives que s\xF3n vistes prop de fonts d'aigua com
       rius"
@@ -52,10 +56,6 @@ MonoBehaviour:
   - Key: 11
     Content: "Poden atorgar propietats m\xE0giques als portadors com la capacitat
       de poder desapar\xE8ixer"
-    IsCompleted: 0
-  - Key: 13
-    Content: "Hi ha regions, com a Menorca, que el follet \xE9s considerat un esperit
-      diab\xF2lic"
     IsCompleted: 0
   - Key: 15
     Content: "Quan s'obre la caixa preguntaran per la seva feina, si no se'ls hi

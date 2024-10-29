@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 0}
+  m_SpriteRenderer: {fileID: 6999202496483130672}
 --- !u!1 &3449609704411234671
 GameObject:
   m_ObjectHideFlags: 0
