@@ -1067,6 +1067,11 @@ PrefabInstance:
       objectReference: {fileID: 290308848}
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
+      propertyPath: maxGuesses
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
       propertyPath: wordList.Array.size
       value: 7
       objectReference: {fileID: 0}
