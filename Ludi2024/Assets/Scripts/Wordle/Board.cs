@@ -173,6 +173,7 @@ namespace Wordle
                     if (c == '\u0008') continue; // Caracter basura generado por mantener la tecla de Backspace
                     if (c == '\n' || c == '\r') continue;
                     if (c == ' ') continue;
+                    if (c == '\t') continue;
                     currentRow.Tiles[columnIndex].SetLetter(c);
                     currentRow.Tiles[columnIndex].SetTileState(OccupiedState);
                     
