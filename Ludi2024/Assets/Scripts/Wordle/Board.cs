@@ -159,7 +159,9 @@ namespace Wordle
                 currentRow.Tiles[columnIndex].SetLetter('\0');
                 currentRow.Tiles[columnIndex].SetTileState(EmptyState);
             }
-            else if (columnIndex >= rows[rowIndex].Tiles.Length)
+            
+            
+            if (columnIndex >= rows[rowIndex].Tiles.Length)
             {
                 if (InputManager.Instance.Enter.Tap)
                 {
