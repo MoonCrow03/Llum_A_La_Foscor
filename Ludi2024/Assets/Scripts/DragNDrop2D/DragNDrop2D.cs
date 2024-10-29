@@ -12,7 +12,7 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     [SerializeField] private Canvas m_Canvas;
 
     private Transform m_ParentAfterDrag;
-    private SlotContainer2D mCurrentSlotContainer2D;
+    private SlotContainer2D m_CurrentSlotContainer2D;
 
     private Image m_Image;
     private TextMeshProUGUI m_Text;
@@ -23,7 +23,7 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     {
         m_Image = GetComponent<Image>();
         m_Text = GetComponentInChildren<TextMeshProUGUI>();
-        mCurrentSlotContainer2D = GetComponentInParent<SlotContainer2D>();
+        m_CurrentSlotContainer2D = GetComponentInParent<SlotContainer2D>();
     }
     private void Start()
     {
@@ -35,7 +35,7 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
         if(IsLocked()) return;
 
         Debug.Log("OnBeginDrag");
-
+        
         m_ParentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
@@ -113,12 +113,12 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
 
     public void SetCurrentSlot(SlotContainer2D slotContainer2D)
     {
-        mCurrentSlotContainer2D = slotContainer2D;
+        m_CurrentSlotContainer2D = slotContainer2D;
     }
 
     public SlotContainer2D GetCurrentSlot()
     {
-        return mCurrentSlotContainer2D;
+        return m_CurrentSlotContainer2D;
     }
 
     public virtual bool IsLocked()
@@ -133,6 +133,6 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     
     public virtual void SetCanvas()
     {
-        m_Canvas = GetComponentInParent<Canvas>();
+        m_Canvas = gameObject.transform.root.GetComponent<Canvas>();
     }
 }

@@ -869,6 +869,8 @@ MonoBehaviour:
     type: 3}
   slotPrefab: {fileID: 6085060054342828097, guid: 4b9c204ef488e3b4fa90dd5e081e4091,
     type: 3}
+  slotLetterPrefab: {fileID: 6085060054342828097, guid: a19cd097e7e50ad41bc4fd91d9ab7f67,
+    type: 3}
   letterParent: {fileID: 1021445289}
   slotsParent: {fileID: 2098700375}
   extraLetters: 3
