@@ -16,11 +16,8 @@ namespace WorldScripts
         {
             interactkeyUI = GameObject.Find("FkeyInteract").GetComponent<SpriteRenderer>();
             interactkeyUI.enabled = false;
-
-
-            m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
             
-            if (m_GameManager != null && m_GameManager.m_IsWorldCompleted)
+            if (GameManager.Instance != null && GameManager.Instance.m_IsWorldCompleted)
             {
                 interactkeyUI.enabled = false;
             }
@@ -31,8 +28,7 @@ namespace WorldScripts
             if (other.CompareTag("Player"))
             {
                 interactkeyUI.enabled = true;
-
-
+                
                 if (InputManager.Instance.F.Tap)
                 {
                     GameEvents.TriggerSetPlayerPosition();

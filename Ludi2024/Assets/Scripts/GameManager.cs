@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-
-    private void Start()
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         EnableTutorialWorld();
     }
@@ -140,11 +140,13 @@ public class GameManager : MonoBehaviour
     {
         GameEvents.OnMarkTutorialAsSeen += MarkTutorialsAsShown;
         NotebookData.OnNotebookUpdated += PlayWritingSound;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     
     private void OnDisable()
     {
         GameEvents.OnMarkTutorialAsSeen -= MarkTutorialsAsShown;
         NotebookData.OnNotebookUpdated -= PlayWritingSound;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
