@@ -1131,8 +1131,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
+      propertyPath: maxGuesses
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
       propertyPath: wordList.Array.size
-      value: 8
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
@@ -1157,42 +1162,62 @@ PrefabInstance:
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
       propertyPath: wordList.Array.data[1]
-      value: llaurador
-      objectReference: {fileID: 0}
-    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
-        type: 3}
-      propertyPath: wordList.Array.data[2]
-      value: encantada
-      objectReference: {fileID: 0}
-    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
-        type: 3}
-      propertyPath: wordList.Array.data[3]
       value: servei
       objectReference: {fileID: 0}
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
-      propertyPath: wordList.Array.data[4]
-      value: fades
+      propertyPath: wordList.Array.data[2]
+      value: fada
       objectReference: {fileID: 0}
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
-      propertyPath: wordList.Array.data[5]
-      value: riquesa
-      objectReference: {fileID: 0}
-    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
-        type: 3}
-      propertyPath: wordList.Array.data[6]
+      propertyPath: wordList.Array.data[3]
       value: sort
       objectReference: {fileID: 0}
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
-      propertyPath: wordList.Array.data[7]
+      propertyPath: wordList.Array.data[4]
       value: amor
       objectReference: {fileID: 0}
     - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
+      propertyPath: wordList.Array.data[5]
+      value: dona
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[6]
+      value: nits
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[7]
+      value: pinta
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
       propertyPath: wordList.Array.data[8]
-      value: amor
+      value: mirall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[9]
+      value: llacs
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[10]
+      value: ocult
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[11]
+      value: poble
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590424693563249744, guid: 9cbb6b4d93624104581848e891c96105,
+        type: 3}
+      propertyPath: wordList.Array.data[12]
+      value: aprop
       objectReference: {fileID: 0}
     - target: {fileID: 3884758223218532840, guid: 9cbb6b4d93624104581848e891c96105,
         type: 3}
