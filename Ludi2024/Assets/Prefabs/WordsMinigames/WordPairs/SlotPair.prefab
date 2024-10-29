@@ -471,6 +471,7 @@ MonoBehaviour:
   m_SlotPairB: {fileID: 5249661287228762029}
   m_PointA: {fileID: 9036929572739229187}
   m_PointB: {fileID: 7884100211785688611}
+  m_ColorChanger: {fileID: 8291392736859005636}
   IsLocked: 0
 --- !u!114 &8291392736859005636
 MonoBehaviour:
