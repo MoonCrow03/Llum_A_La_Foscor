@@ -354,7 +354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prem Enter o clic esquerre
+  m_text: Prem Enter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 951d1dc5f5b11eb45a6b0003380afad5, type: 2}
   m_sharedMaterial: {fileID: -5662530674216377144, guid: 951d1dc5f5b11eb45a6b0003380afad5,
@@ -1069,6 +1069,13 @@ MonoBehaviour:
   m_NextLevelMessage: {fileID: 295903402494095669}
   m_PopUp: {fileID: 6041515270531357810}
   m_Options: {fileID: 4100438832574700505}
+  m_UIErrorSound:
+    Guid:
+      Data1: 247249701
+      Data2: 1157346085
+      Data3: -1479640158
+      Data4: 189031070
+    Path: event:/UI_Error
 --- !u!114 &5768397553228793210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,6 +2276,7 @@ GameObject:
   - component: {fileID: 8066808914607469216}
   - component: {fileID: 7796121421458688460}
   - component: {fileID: 6903906273139897000}
+  - component: {fileID: 4311454645551927964}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -2427,6 +2435,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a3b70c402b742438e4504b7e0e7a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4311454645551927964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238558130523890578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &5385718194862146041
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,11 +3562,11 @@ MonoBehaviour:
   m_MaxBPForPage: 2
   m_NextPageSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -880726049
+      Data2: 1237630058
+      Data3: 1528649093
+      Data4: -1153378468
+    Path: event:/NextPage
 --- !u!114 &384214638448454402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3562,11 +3584,11 @@ MonoBehaviour:
   m_Animator: {fileID: 8288947597321996124}
   m_NextPageSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -880726049
+      Data2: 1237630058
+      Data3: 1528649093
+      Data4: -1153378468
+    Path: event:/NextPage
 --- !u!114 &2618623668654447016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3861,7 +3883,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tutorial here
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 951d1dc5f5b11eb45a6b0003380afad5, type: 2}
   m_sharedMaterial: {fileID: -5662530674216377144, guid: 951d1dc5f5b11eb45a6b0003380afad5,
