@@ -160,4 +160,26 @@ public class GameEvents
             OnEnableExclamationMark(p_enable);
         }
     }
+    
+    public delegate void EnableExMarkTablet1(bool p_enable);
+    public static event EnableExMarkTablet1 OnEnableExMarkTablet1;
+    
+    public static void TriggerEnableExMarkTablet1(bool p_enable)
+    {
+        if (OnEnableExMarkTablet1 != null)
+        {
+            OnEnableExMarkTablet1(p_enable);
+        }
+    }
+    
+    public delegate void EnableExMarkTablet2(bool p_enable);
+    public static event EnableExMarkTablet2 OnEnableExMarkTablet2;
+    
+    public static void TriggerEnableExMarkTablet2(bool p_enable)
+    {
+        if (OnEnableExMarkTablet2 != null)
+        {
+            OnEnableExMarkTablet2(p_enable);
+        }
+    }
 }
