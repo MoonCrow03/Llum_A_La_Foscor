@@ -861,10 +861,12 @@ MonoBehaviour:
   listOfWords:
   - canut
   - diminuts
-  - responsables
   - follets
   - esperit
   - invisible
+  - capsa
+  - feiners
+  - 'roques '
   letterPrefab: {fileID: 6922772525889845904, guid: b2b436d97cc59964c90c014a9c6c0fef,
     type: 3}
   slotPrefab: {fileID: 6085060054342828097, guid: 4b9c204ef488e3b4fa90dd5e081e4091,
