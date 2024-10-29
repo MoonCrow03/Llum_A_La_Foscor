@@ -54,7 +54,7 @@ public class NotebookUI : MonoBehaviour
         }
 
         m_CurrentIndex = 0;
-        m_IsNoteBookEnabled = true;
+        m_IsNoteBookEnabled = false;
 
         List<NotebookData.Note> l_notebookData = l_scene.name.Equals(Scenes.World01.ToString()) ? GameManager.Instance.GetNotebookData01() :
             GameManager.Instance.GetNotebookData02();
