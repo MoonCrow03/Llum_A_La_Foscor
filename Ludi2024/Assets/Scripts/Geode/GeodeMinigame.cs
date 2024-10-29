@@ -114,8 +114,9 @@ public class GeodeMinigame : MonoBehaviour
     private void LoseGame()
     {
         if (m_IsGameCompleted) return;
-        Debug.Log("Geode minigame failed!");
+        
         m_AudioInstanceLose.start();
+        
         if (m_GeodeMiniGameType == GeodeMiniGameType.TimeLimit)
             m_TimeLimit.StopTimer();
 

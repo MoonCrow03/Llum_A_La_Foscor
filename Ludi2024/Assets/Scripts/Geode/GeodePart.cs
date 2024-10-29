@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -51,6 +52,7 @@ public class GeodePart : MonoBehaviour
         m_AudioInstanceHit = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventHit);
         m_AudioInstanceHitFake = FMODUnity.RuntimeManager.CreateInstance(m_AudioEventHitFake);
     }
+    
     public void OnKeyPointClicked()
     {
         if (m_KeyPointType == KeyPointType.Real)
@@ -64,8 +66,6 @@ public class GeodePart : MonoBehaviour
 
         if (m_KeyPointType == KeyPointType.Fake)
         {
-            OnStrike?.Invoke();
-            m_AudioInstanceHitFake.start();
             StartCoroutine(Vibrate());
         }
     }
@@ -88,7 +88,10 @@ public class GeodePart : MonoBehaviour
         Vector3 l_originalPosition = transform.parent.position;
         float l_elapsedTime = 0.0f;
         
-        while (l_elapsedTime < m_VibrationDuration)
+        float l_audioLength = GetAudioLenght();
+        m_AudioInstanceHitFake.start();
+        
+        while (l_elapsedTime < l_audioLength)
         {
             // Randomly change the position within a small range to simulate vibration
             Vector3 l_randomPosition = l_originalPosition + (Random.insideUnitSphere * m_VibrationIntensity);
@@ -99,14 +102,23 @@ public class GeodePart : MonoBehaviour
             l_elapsedTime += Time.deltaTime;
             yield return null;
         }
-
+        
         // Reset the position back to the original
         transform.parent.position = l_originalPosition;
+        
+        OnStrike?.Invoke();
     }
 
     private void OnDestroy()
     {
         m_AudioInstanceHit.release();
         m_AudioInstanceHitFake.release();
+    }
+
+    private float GetAudioLenght()
+    {
+        m_AudioInstanceHitFake.getDescription(out EventDescription l_description);
+        l_description.getLength(out int l_length);
+        return l_length / 1000f;
     }
 }
