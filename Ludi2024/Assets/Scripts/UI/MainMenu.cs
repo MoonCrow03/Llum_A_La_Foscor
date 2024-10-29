@@ -84,6 +84,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(Scenes.MainMenu.ToString());
     }
 
+    public void LoadCredits()
+    {
+        SceneManager.LoadSceneAsync(Scenes.End.ToString());
+    }
+
     private void OnDestroy()
     {
         m_UIErrorSoundInstance.release();
