@@ -119,10 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c7c02f68424242ba711f0d6c23b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_WhichWordPairToLock: 0
   m_WordAComponent: {fileID: 4033376349675791708}
   m_WordBComponent: {fileID: 1381636520012659332}
   m_SlotPairA: {fileID: 2922384816633860551}
   m_SlotPairB: {fileID: 969478379051847837}
+  m_PointA: {fileID: 4091330880989385011}
+  m_PointB: {fileID: 2938386609260466451}
   IsLocked: 0
 --- !u!114 &3944658015748183540
 MonoBehaviour:
@@ -1481,10 +1484,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c7c02f68424242ba711f0d6c23b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_WhichWordPairToLock: 0
   m_WordAComponent: {fileID: 3007767564965245418}
   m_WordBComponent: {fileID: 966125310072155698}
   m_SlotPairA: {fileID: 3948169510311560561}
   m_SlotPairB: {fileID: 1382769679681733675}
+  m_PointA: {fileID: 2775203649044317573}
+  m_PointB: {fileID: 3928244760475518373}
   IsLocked: 0
 --- !u!114 &2952935638045000002
 MonoBehaviour:
@@ -5482,10 +5488,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c7c02f68424242ba711f0d6c23b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_WhichWordPairToLock: 0
   m_WordAComponent: {fileID: 6018309406467168167}
   m_WordBComponent: {fileID: 8597571761232578687}
   m_SlotPairA: {fileID: 5544599019902853948}
   m_SlotPairB: {fileID: 7568437283971637862}
+  m_PointA: {fileID: 0}
+  m_PointB: {fileID: 0}
   IsLocked: 0
 --- !u!114 &5963337100952364815
 MonoBehaviour:
@@ -5792,10 +5801,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c7c02f68424242ba711f0d6c23b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_WhichWordPairToLock: 0
   m_WordAComponent: {fileID: 6782043706467305742}
   m_WordBComponent: {fileID: 8848246855730255574}
   m_SlotPairA: {fileID: 4713477959837531541}
   m_SlotPairB: {fileID: 7247278929416158415}
+  m_PointA: {fileID: 0}
+  m_PointB: {fileID: 0}
   IsLocked: 0
 --- !u!114 &6870798865106876838
 MonoBehaviour:
@@ -6638,10 +6650,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f4c7c02f68424242ba711f0d6c23b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_WhichWordPairToLock: 0
   m_WordAComponent: {fileID: 5190356348328188250}
   m_WordBComponent: {fileID: 7841392481163216514}
   m_SlotPairA: {fileID: 6300767270395997633}
   m_SlotPairB: {fileID: 8253673707321830555}
+  m_PointA: {fileID: 0}
+  m_PointB: {fileID: 0}
   IsLocked: 0
 --- !u!114 &5278370916877330930
 MonoBehaviour:
