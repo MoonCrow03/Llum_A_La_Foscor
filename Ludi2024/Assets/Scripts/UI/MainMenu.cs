@@ -16,12 +16,15 @@ public class MainMenu : MonoBehaviour
     
     [Header("Audio")]
     [SerializeField] private EventReference m_UIErrorSound;
+    [SerializeField] private EventReference m_UISuccesSound;
     
     private EventInstance m_UIErrorSoundInstance;
+    private EventInstance m_UISuccesSoundInstance;
 
     private void Start()
     {
         m_UIErrorSoundInstance = RuntimeManager.CreateInstance(m_UIErrorSound);
+        m_UISuccesSoundInstance = RuntimeManager.CreateInstance(m_UISuccesSound);
     }
 
     public void StartGame()
@@ -52,6 +55,7 @@ public class MainMenu : MonoBehaviour
     {
         if (GameManager.Instance.m_IsWorldCompleted)
         {
+            m_UISuccesSoundInstance.start();
             m_Options.SetActive(false);
             m_PopUp.SetActive(false);
             m_NextLevelMessage.SetActive(true);
@@ -83,5 +87,6 @@ public class MainMenu : MonoBehaviour
     private void OnDestroy()
     {
         m_UIErrorSoundInstance.release();
+        m_UISuccesSoundInstance.release();
     }
 }
