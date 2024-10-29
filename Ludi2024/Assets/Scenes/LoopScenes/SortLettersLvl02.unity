@@ -871,7 +871,7 @@ MonoBehaviour:
     type: 3}
   letterParent: {fileID: 1021445289}
   slotsParent: {fileID: 2098700375}
-  extraLetters: 1
+  extraLetters: 3
   time: 43
   isTutorial: 0
   pointsMultiplier: 1
