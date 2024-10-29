@@ -19,6 +19,7 @@ namespace HangedMan
         [SerializeField] private float timeLeft;
         [SerializeField] private bool isTutorial;
         [SerializeField] private float pointsMultiplier = 1.0f;
+        [SerializeField] private TextMeshProUGUI strikesText;
 
         [Header("Canvas Settings")]
         [SerializeField] private GameObject letterButtonPrefab;
@@ -28,7 +29,6 @@ namespace HangedMan
         [SerializeField] private Color m_WrongLetterColor;
         [SerializeField] private Color m_DisabledColor;
         
-
         [Header("Scenes")]
         [SerializeField] private TextMeshProUGUI clockText;
         
@@ -41,6 +41,7 @@ namespace HangedMan
         private Dictionary<char, GameObject> letterObjects;
         private TimeLimit timeLimit;
         private bool gameCompleted = false;
+        private int currentGuesses;
 
         private static readonly List<char> letters = new List<char>
         {
@@ -66,6 +67,7 @@ namespace HangedMan
                 timeLimit.StartTimer(timeLeft, GameFailed);
             }
             
+            currentGuesses = 0;
             SelectRandomWord();
             GenerateEmptyLetters();
             GenerateLetters();
@@ -77,6 +79,12 @@ namespace HangedMan
         private void Update()
         {
             UpdateClockText();
+            UpdateStrikesText();
+        }
+
+        private void UpdateStrikesText()
+        {
+            strikesText.text = $"{currentGuesses}/{maxGuesses}";
         }
 
         private void UpdateClockText()
@@ -165,10 +173,10 @@ namespace HangedMan
             else
             {
                 ChangeLetterColor(letterGuessed, m_WrongLetterColor);
-                maxGuesses--;
+                currentGuesses++;
             }
 
-            if (maxGuesses == 0)
+            if (currentGuesses == maxGuesses)
             {
                 GameFailed();
             }
