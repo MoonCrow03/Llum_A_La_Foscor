@@ -439,12 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3a54fd25d544d9bcb73eb4a238319d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!143 &209901670 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 356486787565619898, guid: 64f7d47ea3a72cf4c8214a251fc56158,
-    type: 3}
-  m_PrefabInstance: {fileID: 877110218680759248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &303350360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3895964605596128254, guid: d0af240ba6db4a745a1aa531d8aa499e,
@@ -840,12 +834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3a54fd25d544d9bcb73eb4a238319d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &635797075 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3173122402422539110, guid: 64f7d47ea3a72cf4c8214a251fc56158,
-    type: 3}
-  m_PrefabInstance: {fileID: 877110218680759248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &724672223
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,63 +926,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Path
-      value: event:/NextPage
-      objectReference: {fileID: 0}
-    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Guid.Data1
-      value: -880726049
-      objectReference: {fileID: 0}
-    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Guid.Data2
-      value: 1237630058
-      objectReference: {fileID: 0}
-    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Guid.Data3
-      value: 1528649093
-      objectReference: {fileID: 0}
-    - target: {fileID: 384214638448454402, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Guid.Data4
-      value: -1153378468
-      objectReference: {fileID: 0}
-    - target: {fileID: 870160928620727210, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_text
-      value: "Ant p\xE0g: Q\nSeg p\xE0g: E"
-      objectReference: {fileID: 0}
-    - target: {fileID: 870160928620727210, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 951d1dc5f5b11eb45a6b0003380afad5,
-        type: 2}
-    - target: {fileID: 870160928620727210, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -5662530674216377144, guid: 951d1dc5f5b11eb45a6b0003380afad5,
-        type: 2}
-    - target: {fileID: 870160928620727210, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1937100176094524618, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_overflowMode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618623668654447016, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: textSpeed
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 3895964605596128254, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1049,83 +980,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 5922199370601233844, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 951d1dc5f5b11eb45a6b0003380afad5,
-        type: 2}
-    - target: {fileID: 5922199370601233844, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -5662530674216377144, guid: 951d1dc5f5b11eb45a6b0003380afad5,
-        type: 2}
-    - target: {fileID: 5922199370601233844, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7611429980488321900, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_text
-      value: Pressiona Space per accelerar el text
-      objectReference: {fileID: 0}
-    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Path
-      value: event:/NextPage
-      objectReference: {fileID: 0}
-    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Guid.Data1
-      value: -880726049
-      objectReference: {fileID: 0}
-    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Guid.Data2
-      value: 1237630058
-      objectReference: {fileID: 0}
-    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Guid.Data3
-      value: 1528649093
-      objectReference: {fileID: 0}
-    - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_NextPageSound.Guid.Data4
-      value: -1153378468
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796121421458688460, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 635797075}
-    - target: {fileID: 7796121421458688460, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_PlayerController
-      value: 
-      objectReference: {fileID: 1262037835}
-    - target: {fileID: 7796121421458688460, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 209901670}
-    - target: {fileID: 8899246815707174414, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.238
-      objectReference: {fileID: 0}
-    - target: {fileID: 8899246815707174414, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 8899246815707174414, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 16.015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1459,18 +1313,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b88c9ed47c626e439cc12ad2cccdbef, type: 3}
---- !u!114 &1262037835 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8884350914638778242, guid: 64f7d47ea3a72cf4c8214a251fc56158,
-    type: 3}
-  m_PrefabInstance: {fileID: 877110218680759248}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33023783b49195240aadf69054cf8e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1348426663
 GameObject:
   m_ObjectHideFlags: 0

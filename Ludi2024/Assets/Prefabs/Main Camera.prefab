@@ -1699,7 +1699,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mantenir pressionat Space per accelerar el text
+  m_text: Pressiona Space o clic dret per accelerar el text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 951d1dc5f5b11eb45a6b0003380afad5, type: 2}
   m_sharedMaterial: {fileID: -5662530674216377144, guid: 951d1dc5f5b11eb45a6b0003380afad5,
@@ -2413,6 +2413,8 @@ MonoBehaviour:
   offsetZ: -7.8
   offsetY: 6.3
   smoothSpeed: 0.125
+  m_PlayerController: {fileID: 0}
+  m_GameManager: {fileID: 0}
 --- !u!114 &6903906273139897000
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1559,11 +1559,6 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7611429980488321900, guid: d0af240ba6db4a745a1aa531d8aa499e,
-        type: 3}
-      propertyPath: m_text
-      value: Pressiona Space per accelerar el text
-      objectReference: {fileID: 0}
     - target: {fileID: 7784089027446477993, guid: d0af240ba6db4a745a1aa531d8aa499e,
         type: 3}
       propertyPath: m_NextPageSound.Path
