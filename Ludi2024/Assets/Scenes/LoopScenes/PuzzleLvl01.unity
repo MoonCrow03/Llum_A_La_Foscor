@@ -1582,7 +1582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PuzzleMiniGameType: 1
-  m_SecondsToComplete: 15
+  m_SecondsToComplete: 20
   m_PointsMultiplier: 1
   m_AudioEventWin:
     Guid:
