@@ -136,6 +136,10 @@ namespace Wordle
 
         private void Update()
         {
+            if (rowIndex >= rows.Length)
+            {
+                return;
+            }
             Row currentRow = rows[rowIndex];
 
             if (timeLimit == null)
@@ -168,6 +172,7 @@ namespace Wordle
                 {
                     if (c == '\u0008') continue; // Caracter basura generado por mantener la tecla de Backspace
                     if (c == '\n' || c == '\r') continue;
+                    if (c == ' ') continue;
                     currentRow.Tiles[columnIndex].SetLetter(c);
                     currentRow.Tiles[columnIndex].SetTileState(OccupiedState);
                     
@@ -251,7 +256,7 @@ namespace Wordle
             rowIndex++;
             columnIndex = 0;
 
-            if (rowIndex >= rows.Length)
+            if (rowIndex >= rows.Length + 1)
             {
                 gameCompleted = true;
                 timeLimit.StopTimer();
