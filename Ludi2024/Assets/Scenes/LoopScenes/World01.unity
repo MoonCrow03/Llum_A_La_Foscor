@@ -1003,6 +1003,31 @@ PrefabInstance:
       propertyPath: m_PlayerController
       value: 
       objectReference: {fileID: 482352897}
+    - target: {fileID: 8855525427137840772, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_UIErrorSound.Path
+      value: event:/UI_Error
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855525427137840772, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_UIErrorSound.Guid.Data1
+      value: 247249701
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855525427137840772, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_UIErrorSound.Guid.Data2
+      value: 1157346085
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855525427137840772, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_UIErrorSound.Guid.Data3
+      value: -1479640158
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855525427137840772, guid: d0af240ba6db4a745a1aa531d8aa499e,
+        type: 3}
+      propertyPath: m_UIErrorSound.Guid.Data4
+      value: 189031070
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
