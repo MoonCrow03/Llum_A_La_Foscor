@@ -4399,6 +4399,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5052751402431912001, guid: 64f7d47ea3a72cf4c8214a251fc56158,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534602212105803103, guid: 64f7d47ea3a72cf4c8214a251fc56158,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8884350914638778242, guid: 64f7d47ea3a72cf4c8214a251fc56158,
         type: 3}
       propertyPath: cam
