@@ -167,6 +167,7 @@ namespace Wordle
                 foreach (char c in Input.inputString)
                 {
                     if (c == '\u0008') continue; // Caracter basura generado por mantener la tecla de Backspace
+                    if (c == '\n' || c == '\r') continue;
                     currentRow.Tiles[columnIndex].SetLetter(c);
                     currentRow.Tiles[columnIndex].SetTileState(OccupiedState);
                     
