@@ -7,6 +7,8 @@ public abstract class SlotContainer2D : MonoBehaviour, IDropHandler
 {
     public virtual void OnDrop(PointerEventData eventData)
     {
+        //TODO: Arreglar esto, pillar la slot y comprobar si esta bloqueada. Si esta bloqueada la casilla solucion, return.
+        
         GameObject l_droppedObject = eventData.pointerDrag;
         DragNDrop2D l_draggableObject = l_droppedObject.GetComponent<DragNDrop2D>();
 
