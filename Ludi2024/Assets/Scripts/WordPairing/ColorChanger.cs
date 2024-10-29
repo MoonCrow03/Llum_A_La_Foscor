@@ -15,7 +15,7 @@ public class ColorChanger : MonoBehaviour
     [SerializeField] private Color m_CorrectColor;
     [SerializeField] private Color m_WrongColor;
 
-    private void Start()
+    private void Awake()
     {
         ChangeColor(m_WrongColor);
     }

@@ -12,6 +12,7 @@ public class WordMixer : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private List<WordsPair> m_WordsSetters;
+    [SerializeField] private WordPairDrag.WhichWordPair m_WhichWordPairToLock;
 
     private void Awake()
     {
@@ -62,49 +63,62 @@ public class WordMixer : MonoBehaviour
 
             m_WordsSetters[i].SetWordB(l_pair, l_wordId);
         }
+        
+        LockWords();
     }
 
-// Shuffle word pairs while ensuring that no wordB remains in the same position as it was initially
-private List<(string wordA, string wordB)> ShuffleWithConstraint(List<(string wordA, string wordB)> p_wordPairs)
-{
-    List<(string wordA, string wordB)> shuffledPairs = new List<(string wordA, string wordB)>(p_wordPairs);
-    int l_attempts = 0;
-
-    do
+    // Shuffle word pairs while ensuring that no wordB remains in the same position as it was initially
+    private List<(string wordA, string wordB)> ShuffleWithConstraint(List<(string wordA, string wordB)> p_wordPairs)
     {
-        // Step 1: Shuffle the list
-        for (int i = shuffledPairs.Count - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            var temp = shuffledPairs[i];
+        List<(string wordA, string wordB)> shuffledPairs = new List<(string wordA, string wordB)>(p_wordPairs);
+        int l_attempts = 0;
 
-            shuffledPairs[i] = shuffledPairs[randomIndex];
-            shuffledPairs[randomIndex] = temp;
+        do
+        {
+            // Step 1: Shuffle the list
+            for (int i = shuffledPairs.Count - 1; i > 0; i--)
+            {
+                int randomIndex = Random.Range(0, i + 1);
+                var temp = shuffledPairs[i];
+
+                shuffledPairs[i] = shuffledPairs[randomIndex];
+                shuffledPairs[randomIndex] = temp;
+            }
+
+            // Step 2: Check if any wordB coincides with its original position
+            l_attempts++;
+        }
+        while (HasSameIndexElements(p_wordPairs, shuffledPairs) && l_attempts < 100);
+
+        if (l_attempts >= 100)
+        {
+            Debug.LogError("Failed to shuffle without matching positions after 100 attempts.");
         }
 
-        // Step 2: Check if any wordB coincides with its original position
-        l_attempts++;
-    }
-    while (HasSameIndexElements(p_wordPairs, shuffledPairs) && l_attempts < 100);
-
-    if (l_attempts >= 100)
-    {
-        Debug.LogError("Failed to shuffle without matching positions after 100 attempts.");
+        return shuffledPairs;
     }
 
-    return shuffledPairs;
-}
-
-// Helper method to check if any wordB in shuffledPairs is at the same index as in originalPairs
-private bool HasSameIndexElements(List<(string wordA, string wordB)> originalPairs, List<(string wordA, string wordB)> shuffledPairs)
-{
-    for (int i = 0; i < originalPairs.Count; i++)
+    // Helper method to check if any wordB in shuffledPairs is at the same index as in originalPairs
+    private bool HasSameIndexElements(List<(string wordA, string wordB)> originalPairs, List<(string wordA, string wordB)> shuffledPairs)
     {
-        if (originalPairs[i].wordB.Equals(shuffledPairs[i].wordB))
+        for (int i = 0; i < originalPairs.Count; i++)
         {
-            return true; // wordB is in the same index as in the original list
+            if (originalPairs[i].wordB.Equals(shuffledPairs[i].wordB))
+            {
+                return true; // wordB is in the same index as in the original list
+            }
+        }
+        return false;
+    }
+
+    private void LockWords()
+    {
+        foreach (var t_wordSetter in m_WordsSetters)
+        {
+            if (m_WhichWordPairToLock == WordPairDrag.WhichWordPair.A)
+                t_wordSetter.LockA();
+            else
+                t_wordSetter.LockB();
         }
     }
-    return false;
-}
 }

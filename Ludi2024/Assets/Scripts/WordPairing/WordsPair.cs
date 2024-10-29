@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class WordsPair : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] private WordPairDrag.WhichWordPair m_WhichWordPairToLock;
-    
     [Header("Components")]
     [SerializeField] private WordPairDrag m_WordAComponent;
     [SerializeField] private WordPairDrag m_WordBComponent;
@@ -18,18 +15,6 @@ public class WordsPair : MonoBehaviour
     [SerializeField] private ColorChanger m_ColorChanger;
     
     public bool IsLocked;
-
-    private void Start()
-    {
-        if (m_WhichWordPairToLock == WordPairDrag.WhichWordPair.A)
-        {
-            LockA();
-        }
-        else
-        {
-            LockB();
-        }
-    }
 
     public void SetBothWords((string p_wordA, string p_wordB) p_wordPair, int p_index)
     {
@@ -60,13 +45,13 @@ public class WordsPair : MonoBehaviour
         m_SlotPairB.GetWordDrag().Lock(true);
     }
 
-    private void LockA()
+    public void LockA()
     {
         m_WordAComponent.Lock(true);
         m_ColorChanger.ChangePointAColor();
     }
     
-    private void LockB()
+    public void LockB()
     {
         m_WordBComponent.Lock(true);
         m_ColorChanger.ChangePointBColor();
