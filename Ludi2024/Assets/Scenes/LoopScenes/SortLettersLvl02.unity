@@ -872,7 +872,7 @@ MonoBehaviour:
   letterParent: {fileID: 1021445289}
   slotsParent: {fileID: 2098700375}
   extraLetters: 3
-  time: 43
+  time: 55
   isTutorial: 0
   pointsMultiplier: 1
   clockText: {fileID: 757159225}
