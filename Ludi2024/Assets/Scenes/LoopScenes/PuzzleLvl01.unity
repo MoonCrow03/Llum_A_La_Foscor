@@ -1316,6 +1316,7 @@ MonoBehaviour:
   m_PieceCounter: 0
   m_PuzzleSize: 4
   m_ClockText: {fileID: 15982483}
+  m_IsTutorial: 1
 --- !u!114 &1090506342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,6 +1347,7 @@ MonoBehaviour:
       Data3: 1307231158
       Data4: 1405080837
     Path: event:/PlacePuzzle
+  m_IsTutorial: 1
 --- !u!1 &1150119370
 GameObject:
   m_ObjectHideFlags: 0

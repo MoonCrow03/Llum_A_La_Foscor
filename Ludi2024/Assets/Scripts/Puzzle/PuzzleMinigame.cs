@@ -32,6 +32,9 @@ public class PuzzleMinigame : MonoBehaviour
     
     [Header("Scene Settings")]
     [SerializeField] private TextMeshProUGUI m_ClockText;
+    
+    [Header("Tutorial")]
+    [SerializeField] private bool m_IsTutorial;
 
     private TimeLimit m_TimeLimit;
     private bool m_GameStarted = false;
@@ -43,11 +46,17 @@ public class PuzzleMinigame : MonoBehaviour
     private void Start()
     {
         SetPlayablePieces();
-
         
-        m_GameStarted = false;
+        m_GameStarted = !m_IsTutorial;
         
         if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit && GameManager.TutorialsShown.ContainsKey(Scenes.PuzzleLvl01))
+        {
+            m_TimeLimit = new TimeLimit(this);
+            m_TimeLimit.StartTimer(m_SecondsToComplete, RanOutOfTime);
+            m_GameStarted = true;
+        }
+        
+        if (!m_IsTutorial)
         {
             m_TimeLimit = new TimeLimit(this);
             m_TimeLimit.StartTimer(m_SecondsToComplete, RanOutOfTime);

@@ -20,7 +20,10 @@ public class DragNDropMaster : MonoBehaviour
     [Header("Audio")] 
     [SerializeField] private EventReference m_AudioRotateEvent;
     [SerializeField] private EventReference m_AudioDropEvent;
-
+    
+    [Header("Tutorial")]
+    [SerializeField] private bool m_IsTutorial;
+    
     private bool m_GameStarted;
 
     private Transform m_SelectedObject;
@@ -33,8 +36,8 @@ public class DragNDropMaster : MonoBehaviour
     {
         m_AudioDropInstance = FMODUnity.RuntimeManager.CreateInstance(m_AudioDropEvent);
         m_AudioRotateInstance = FMODUnity.RuntimeManager.CreateInstance(m_AudioRotateEvent);
-
-        m_GameStarted = false;
+        
+        m_GameStarted = !m_IsTutorial;
     }
 
     private void Update()
