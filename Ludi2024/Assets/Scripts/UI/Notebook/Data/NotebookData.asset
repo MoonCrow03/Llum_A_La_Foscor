@@ -15,52 +15,52 @@ MonoBehaviour:
   Notes:
   - Key: 10
     Content: "Nom\xE9s se les pot veure d'amagat, si et veuen tractaran d'escapar "
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 4
     Content: Tendeixen a portar un mirall o una pinta daurada
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 12
     Content: "S\xF3n dones atractives que s\xF3n vistes prop de fonts d'aigua com
       rius"
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 2
     Content: "S\xF3n dones atractives que s\xF3n vistes prop de fonts d'aigua com
       rius"
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 8
     Content: Donen riquesa als seus enamorats
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 14
     Content: Al riu de Mirmanda, La Cantarana, es troben construccions de pissarra
       relacionades amb estructures de les fades
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 6
     Content: "Se les veu amb m\xE9s facilitat la nit de Sant Joan"
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 5
     Content: "S\xF3n \xE9ssers de mida diminuta, fins al punt que es poden portar
       milers en una petita caixeta"
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 7
     Content: Generalment, se'ls considera invisibles, tot i que vegades se'ls atribueix
       una forma animal
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 9
     Content: "Tenen un car\xE0cter feiner i s\xF3n amants de l'orde, per\xF2 tamb\xE9
       s\xF3n juganers i a a les nits fan malifetes"
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 11
     Content: "Poden atorgar propietats m\xE0giques als portadors com la capacitat
       de poder desapar\xE8ixer"
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 13
     Content: "Hi ha regions, com a Menorca, que el follet \xE9s considerat un esperit
       diab\xF2lic"
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 15
     Content: "Quan s'obre la caixa preguntaran per la seva feina, si no se'ls hi
       demana res, es tornen \xE9ssers agressius. "
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 3
     Content: "Es diu que les tarteres dels Pirineus s\xF3n obres d'aquests \xE9ssers,
       que se'ls hi demanava apilar pedres"
