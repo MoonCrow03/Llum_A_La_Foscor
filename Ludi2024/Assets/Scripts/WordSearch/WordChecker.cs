@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using FMODUnity;
 using TMPro;
 using Tutorial;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utilities;
 using Debug = UnityEngine.Debug;
 
@@ -15,13 +17,15 @@ public class WordChecker : MonoBehaviour
     public EventReference m_AudioEventWin;
     public EventReference m_AudioEventLose;
     
+    [Header("Tutorial")]
+    [SerializeField] private bool m_IsTutorial;
+    
     [Header("Time")]
     [SerializeField] private float m_Time;
     [SerializeField] private TextMeshProUGUI m_ClockText;
     
     [Header("Points")]
     [SerializeField] private float m_PointsMultiplier = 1.0f;
-
 
     private string m_Word;
     private int m_AssignedPoints;
@@ -52,7 +56,9 @@ public class WordChecker : MonoBehaviour
         
         m_TimeLimit = new TimeLimit(this);
         
-        if (GameManager.TutorialsShown.ContainsKey(Scenes.WordSearchLvl01))
+        Scene l_currentScene = SceneManager.GetActiveScene();
+        
+        if ((GameManager.TutorialsShown.ContainsKey(Scenes.WordSearchLvl01) && m_IsTutorial) || (!m_IsTutorial && l_currentScene.name.Equals("WordSearchLvl02")))
         {
             m_TimeLimit.StartTimer(m_Time, LoseGame);
         }
@@ -63,18 +69,6 @@ public class WordChecker : MonoBehaviour
 
     private void Update()
     {
-        /*if (m_AssignedPoints > 0 && Application.isEditor)
-        {
-            Debug.DrawRay(m_RayUp.origin, m_RayUp.direction * 4);
-            Debug.DrawRay(m_RayDown.origin, m_RayDown.direction * 4);
-            Debug.DrawRay(m_RayLeft.origin, m_RayLeft.direction * 4);
-            Debug.DrawRay(m_RayRight.origin, m_RayRight.direction * 4);
-            Debug.DrawRay(m_RayDiagonalLeftUp.origin, m_RayDiagonalLeftUp.direction * 4);
-            Debug.DrawRay(m_RayDiagonalLeftDown.origin, m_RayDiagonalLeftDown.direction * 4);
-            Debug.DrawRay(m_RayDiagonalRightUp.origin, m_RayDiagonalRightUp.direction * 4);
-            Debug.DrawRay(m_RayDiagonalRightDown.origin, m_RayDiagonalRightDown.direction * 4);
-        }*/
-
         TimeSpan timeSpan = TimeSpan.FromSeconds(m_TimeLimit.GetTimeRemaining());
         m_ClockText.text = $"{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
     }
