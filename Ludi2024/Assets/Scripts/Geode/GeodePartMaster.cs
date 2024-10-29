@@ -12,7 +12,7 @@ public class GeodePartMaster : MonoBehaviour
 
     private void Start()
     {
-        if (!m_IsTutorial)
+        if (!m_IsTutorial || GameManager.TutorialsShown.ContainsKey(Scenes.GeodeLvl01))
         {
             m_GameStarted = true;
         }
@@ -20,6 +20,7 @@ public class GeodePartMaster : MonoBehaviour
 
 private void Update()
     {
+        //TODO: Arreglar esto
         if (!m_GameStarted) return;
 
         if (InputManager.Instance.LeftClick.Tap)

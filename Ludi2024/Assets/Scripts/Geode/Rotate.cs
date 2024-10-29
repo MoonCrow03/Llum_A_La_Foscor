@@ -21,7 +21,7 @@ public class Rotate : MonoBehaviour
         m_GameStarted = false;
         m_IsRotating = false;
 
-        if (!m_IsTutorial)
+        if (!m_IsTutorial || GameManager.TutorialsShown.ContainsKey(Scenes.GeodeLvl01))
         {
             m_GameStarted = true;
         }
