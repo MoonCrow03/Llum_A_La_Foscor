@@ -10,11 +10,6 @@ using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Audio")] [SerializeField] private EventReference m_ErrorSound;
-    
-    private EventInstance m_ErrorSoundInstance;
-    
-    
     private static GameManager _instance;
     public static GameManager Instance => _instance;
 
@@ -61,11 +56,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        m_ErrorSoundInstance = RuntimeManager.CreateInstance(m_ErrorSound);
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         EnableTutorialWorld();
@@ -90,22 +80,13 @@ public class GameManager : MonoBehaviour
                 m_IsWorldCompleted = true;
                 Debug.Log("All level 1 minigames completed");
             }
-            else
-            {
-                m_ErrorSoundInstance.start();
-            }
         }
-
         if (p_scene == Scenes.World02)
         {
             if (AreAllLevel2MiniGamesCompleted())
             {
                 m_IsWorldCompleted = true;
                 Debug.Log("All level 2 minigames completed");
-            }
-            else
-            {
-                m_ErrorSoundInstance.start();
             }
         }
 
@@ -169,9 +150,5 @@ public class GameManager : MonoBehaviour
         NotebookData.OnNotebookUpdated -= PlayWritingSound;
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
-    private void OnDestroy()
-    {
-        m_ErrorSoundInstance.release();
-    }
+    
 }
