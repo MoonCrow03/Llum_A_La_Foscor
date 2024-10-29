@@ -19,24 +19,24 @@ MonoBehaviour:
     IsCompleted: 0
   - Key: 4
     Content: Tendeixen a portar un mirall o una pinta daurada
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 10
     Content: "Nom\xE9s se les pot veure d'amagat, si et veuen tractaran d'escapar "
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 12
     Content: "S\xF3n dones atractives que s\xF3n vistes prop de fonts d'aigua com
       rius"
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 8
     Content: Donen riquesa als seus enamorats
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 14
     Content: Al riu de Mirmanda, La Cantarana, es troben construccions de pissarra
       relacionades amb estructures de les fades
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 6
     Content: "Se les veu amb m\xE9s facilitat la nit de Sant Joan"
-    IsCompleted: 1
+    IsCompleted: 0
   - Key: 5
     Content: "S\xF3n \xE9ssers de mida diminuta, fins al punt que es poden portar
       milers en una petita caixeta"
