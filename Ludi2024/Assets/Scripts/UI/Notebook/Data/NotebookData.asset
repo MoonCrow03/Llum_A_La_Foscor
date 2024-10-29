@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: NotebookData
   m_EditorClassIdentifier: 
   Notes:
+  - Key: 14
+    Content: Al riu de Mirmanda, La Cantarana, es troben construccions de pissarra
+      relacionades amb estructures de les fades
+    IsCompleted: 0
   - Key: 4
     Content: Tendeixen a portar un mirall o una pinta daurada
     IsCompleted: 0
@@ -21,10 +25,6 @@ MonoBehaviour:
     IsCompleted: 0
   - Key: 2
     Content: "Tenen caracter\xEDstiques semblants a les nimfes gregues"
-    IsCompleted: 0
-  - Key: 14
-    Content: Al riu de Mirmanda, La Cantarana, es troben construccions de pissarra
-      relacionades amb estructures de les fades
     IsCompleted: 0
   - Key: 12
     Content: "S\xF3n dones atractives que s\xF3n vistes prop de fonts d'aigua com
