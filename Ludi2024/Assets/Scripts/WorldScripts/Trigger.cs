@@ -10,11 +10,20 @@ namespace WorldScripts
         public Scenes sceneToLoad;
 
         [SerializeField] SpriteRenderer interactkeyUI;
+        [SerializeField] private GameManager m_GameManager;
 
         private void Start()
         {
             interactkeyUI = GameObject.Find("FkeyInteract").GetComponent<SpriteRenderer>();
             interactkeyUI.enabled = false;
+
+
+            m_GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+            
+            if (m_GameManager != null && m_GameManager.m_IsWorldCompleted)
+            {
+                interactkeyUI.enabled = false;
+            }
         }
 
         private void OnTriggerStay(Collider other)
@@ -23,11 +32,11 @@ namespace WorldScripts
             {
                 interactkeyUI.enabled = true;
 
+
                 if (InputManager.Instance.F.Tap)
                 {
                     GameEvents.TriggerSetPlayerPosition();
                     GameManager.Instance.LoadScene(sceneToLoad);
-
                 }
             }
         }
