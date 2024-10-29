@@ -27,7 +27,6 @@ public class GameEvents
             OnEnableNotebook(p_enable);
         }
     }
-
     
     
     public delegate void ShowEndgameMessage(string message, bool p_won, int p_stars);

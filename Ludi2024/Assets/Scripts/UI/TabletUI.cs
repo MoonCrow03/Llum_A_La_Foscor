@@ -17,7 +17,6 @@ public class TabletUI : MonoBehaviour
     private void Start()
     {
         m_IsTabletEnabled = false;
-        //m_Animator.SetBool("Show", m_IsTabletEnabled);
     }
 
     private void Update()
