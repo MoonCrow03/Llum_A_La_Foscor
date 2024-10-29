@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSmoothTime = 0.1f;
     [SerializeField] private float turnSmoothVelocity;
     [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem dustParticles;
+
+    private ParticleSystem.EmissionModule dustParticleEmission;
 
     public static bool IsMoving;
     
@@ -21,6 +24,8 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = GameManager.Instance.m_StartPosition;
         transform.rotation = GameManager.Instance.m_StartRotation;
+        dustParticleEmission = dustParticles.emission;
+
     }
     
     void Update()
@@ -33,6 +38,9 @@ public class PlayerController : MonoBehaviour
         // Si el jugador está moviéndose en alguna dirección
         if (direction.magnitude >= 0.1f)
         {
+            // Emitir partículas set emitter rate to 3 
+            dustParticleEmission.rateOverTime = 3;
+            
             IsMoving = true;
             // Activar la animación de movimiento
             animator.SetBool("isMoving", true);
@@ -52,6 +60,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            dustParticleEmission.rateOverTime = 0;
             IsMoving = false;
             // Desactivar la animación de movimiento
             animator.SetBool("isMoving", false);
