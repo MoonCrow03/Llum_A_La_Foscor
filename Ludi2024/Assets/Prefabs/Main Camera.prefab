@@ -1076,6 +1076,13 @@ MonoBehaviour:
       Data3: -1479640158
       Data4: 189031070
     Path: event:/UI_Error
+  m_UISuccesSound:
+    Guid:
+      Data1: -1779214306
+      Data2: 1083828906
+      Data3: 161118593
+      Data4: 1583326310
+    Path: event:/Success
 --- !u!114 &5768397553228793210
 MonoBehaviour:
   m_ObjectHideFlags: 0
