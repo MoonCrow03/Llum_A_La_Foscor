@@ -15,6 +15,7 @@ public class NotebookUI : MonoBehaviour
     [SerializeField] private GameObject m_InfoPanelBellow;
     [SerializeField] private GameObject m_BulletPointHolder;
     [SerializeField] private GameObject m_BulletPointPrefab;
+    [SerializeField] private GameObject m_ExclamationMark;
     [SerializeField] private Animator m_Animator;
 
     [Header("Settings")]
@@ -96,11 +97,13 @@ public class NotebookUI : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnEnableNotebook += OnEnableNoteBook;
+        GameEvents.OnEnableExclamationMark += EnableExclamation;
     }
 
     private void OnDisable()
     {
         GameEvents.OnEnableNotebook -= OnEnableNoteBook;
+        GameEvents.OnEnableExclamationMark -= EnableExclamation;
     }
 
     private bool SetNextIndex()
@@ -160,6 +163,11 @@ public class NotebookUI : MonoBehaviour
         GameEvents.TriggerEnableTablet(false);
         m_Animator.SetBool("Show", p_enable);
         m_InfoPanelTop.SetActive(!p_enable);
+
+        if (m_ExclamationMark.activeSelf)
+        {
+            m_ExclamationMark.SetActive(false);
+        }
     }
 
     public bool IsNoteBookEnabled()
@@ -218,5 +226,10 @@ public class NotebookUI : MonoBehaviour
     private void OnDestroy()
     {
         m_NextPageSoundInstance.release();
+    }
+    
+    private void EnableExclamation(bool p_enable)
+    {
+        m_ExclamationMark.SetActive(p_enable);
     }
 }

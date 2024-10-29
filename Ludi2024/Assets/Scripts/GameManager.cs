@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     private int points;
     
+    public bool m_EnableExclamationMark = false;
+    
     public bool m_IsWorldCompleted = false;
     
     public bool m_IsTutorialCompleted;
@@ -59,6 +61,12 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         EnableTutorialWorld();
+
+        if (m_EnableExclamationMark)
+        {
+            GameEvents.TriggerEnableExclamationMark(true);
+            m_EnableExclamationMark = false;
+        }
     }
 
     public List<NotebookData.Note> GetNotebookData01()
@@ -95,6 +103,7 @@ public class GameManager : MonoBehaviour
     
     public void SetMiniGameCompleted(Scenes p_scene)
     {
+        m_EnableExclamationMark = true;
         m_NotebookData.SetNoteCompleted(p_scene);
     }
     

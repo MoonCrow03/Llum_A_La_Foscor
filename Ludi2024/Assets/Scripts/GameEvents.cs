@@ -149,4 +149,15 @@ public class GameEvents
             OnActivatePuzzleShader(p_stars);
         }
     }
+    
+    public delegate void EnableExclamationMark(bool p_enable);
+    public static event EnableExclamationMark OnEnableExclamationMark;
+    
+    public static void TriggerEnableExclamationMark(bool p_enable)
+    {
+        if (OnEnableExclamationMark != null)
+        {
+            OnEnableExclamationMark(p_enable);
+        }
+    }
 }
