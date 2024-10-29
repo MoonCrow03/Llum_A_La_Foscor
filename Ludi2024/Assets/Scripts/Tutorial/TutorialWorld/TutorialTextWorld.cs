@@ -38,7 +38,7 @@ public class TutorialTextWorld : MonoBehaviour
 
         private void Update()
         {
-            if ((InputManager.Instance.Enter.Tap || InputManager.Instance.LeftClick.Tap) && isTextFinished)
+            if ((InputManager.Instance.Enter.Tap) && isTextFinished)
             {
                 if (IsAllTextDisplayed())
                 {
