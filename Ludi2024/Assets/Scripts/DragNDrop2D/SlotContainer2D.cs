@@ -21,16 +21,27 @@ public abstract class SlotContainer2D : MonoBehaviour, IDropHandler
 
         if (transform.childCount > 0)
         {
-            // If the slotContainer2D already has a child, swap the objects.
-            Transform l_currentChild = transform.GetChild(0); // Get the current object in the slotContainer2D
-            SlotContainer2D oldSlotContainer2D = l_draggableObject.GetCurrentSlot(); // Get the old slotContainer2D of the dragged object
+            // Get the current child object in the slot
+            Transform l_currentChild = transform.GetChild(0);
+            DragNDrop2D l_currentSlotObject = l_currentChild.GetComponent<DragNDrop2D>();
 
-            // Move the object currently in the slotContainer2D back to the original slotContainer2D
+            // Check if the object in the slot is locked
+            if (l_currentSlotObject != null && l_currentSlotObject.IsLocked())
+            {
+                Debug.Log("The slot contains a locked object, cannot swap.");
+                // Return the dragged object to its previous slot
+                l_draggableObject.SetParentAfterDrag(l_draggableObject.GetCurrentSlot().transform);
+                return;
+            }
+
+            // If the current object is not locked, proceed with the swap
+            SlotContainer2D oldSlotContainer2D = l_draggableObject.GetCurrentSlot();
+
+            // Move the current object in the slot back to its original slot
             l_currentChild.SetParent(oldSlotContainer2D.transform);
             l_currentChild.localPosition = Vector3.zero;
 
-            // Set the current slotContainer2D for the swapped object
-            DragNDrop2D l_currentSlotObject = l_currentChild.GetComponent<DragNDrop2D>();
+            // Set the current slot for the swapped object
             l_currentSlotObject.SetCurrentSlot(oldSlotContainer2D);
         }
 
