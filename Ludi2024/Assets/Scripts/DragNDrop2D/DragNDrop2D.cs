@@ -90,8 +90,7 @@ public abstract class DragNDrop2D : MonoBehaviour, IDragHandler, IBeginDragHandl
     public virtual void OnEndDrag(PointerEventData eventData)
     {
         if (IsLocked()) return;
-
-
+        
         if (m_ParentAfterDrag != null)
         {
             transform.SetParent(m_ParentAfterDrag);

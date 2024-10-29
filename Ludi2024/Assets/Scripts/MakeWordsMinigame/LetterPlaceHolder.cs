@@ -14,7 +14,6 @@ public class LetterPlaceHolder : SlotContainer2D
     {
         // Store the original parent of the SlotContainer2D at initialization
         originalParent = transform.parent;
-        m_Index = transform.GetSiblingIndex();
     }
 
     private void OnTransformParentChanged()
@@ -24,6 +23,7 @@ public class LetterPlaceHolder : SlotContainer2D
         {
             Debug.LogWarning("Attempt to change SlotContainer2D's parent was blocked.");
             transform.parent = originalParent;
+            
             transform.SetSiblingIndex(m_Index);
         }
     }
@@ -35,6 +35,7 @@ public class LetterPlaceHolder : SlotContainer2D
 
     public void SetLetter(string p_letter)
     {
+        m_Index = transform.GetSiblingIndex();
         TextMeshProUGUI l_text = GetComponentInChildren<TextMeshProUGUI>();
         l_text.text = p_letter;
     }
