@@ -78,7 +78,6 @@ public class NotebookUI : MonoBehaviour
         if (InputManager.Instance.Tab.Tap)
         {
             OnEnableNoteBook(!m_IsNoteBookEnabled);
-            GameEvents.TriggerMarkTutorialAsSeen(Scenes.World01);
         }
 
         if(!m_IsNoteBookEnabled) return;

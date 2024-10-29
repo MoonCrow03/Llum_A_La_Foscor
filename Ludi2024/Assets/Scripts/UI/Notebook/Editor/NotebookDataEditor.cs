@@ -13,7 +13,13 @@ public class NotebookDataEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-
+        
+        if(GUILayout.Button("Reset Notebook"))
+        {
+            m_NotebookData.ResetNotes();
+        }
+        EditorGUILayout.Space();
+        
         // Loop through existing notes
         for (int i = 0; i < m_NotebookData.Notes.Count; i++)
         {
