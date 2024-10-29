@@ -46,6 +46,12 @@ public class TutorialWorldUI : MonoBehaviour
 
     private void EnableTutorialUI(bool p_enable)
     {
+        if (GameManager.TutorialsShown.ContainsKey(Scenes.World01))
+        {
+            //GameEvents.TriggerSetPlayerPosition();
+            return;
+        }
+        
         m_TutorialUI.SetActive(p_enable);
 
         if (p_enable)
