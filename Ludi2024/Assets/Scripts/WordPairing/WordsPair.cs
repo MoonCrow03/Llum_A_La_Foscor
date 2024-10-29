@@ -15,15 +15,9 @@ public class WordsPair : MonoBehaviour
     [SerializeField] private WordPairSlot m_SlotPairB;
     [SerializeField] private GameObject m_PointA;
     [SerializeField] private GameObject m_PointB;
-
+    [SerializeField] private ColorChanger m_ColorChanger;
+    
     public bool IsLocked;
-
-    private ColorChanger m_ColorChanger;
-
-    private void Awake()
-    {
-        m_ColorChanger = GetComponent<ColorChanger>();
-    }
 
     private void Start()
     {
