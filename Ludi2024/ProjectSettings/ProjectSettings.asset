@@ -922,11 +922,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: e484c308-0c04-469e-a4d6-1771b8f81819
+  cloudProjectId: 61574cdf-1afc-413e-a310-56cfd9f1ba3f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Ludi2024
-  organizationId: mooncrow03
+  organizationId: kira8a
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
