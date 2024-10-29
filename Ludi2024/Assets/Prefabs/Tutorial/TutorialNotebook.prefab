@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pressiona Space per accelerar el text
+  m_text: Pressiona Space o clic dret per accelerar el text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 951d1dc5f5b11eb45a6b0003380afad5, type: 2}
   m_sharedMaterial: {fileID: -5662530674216377144, guid: 951d1dc5f5b11eb45a6b0003380afad5,
