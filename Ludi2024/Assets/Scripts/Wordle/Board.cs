@@ -257,7 +257,7 @@ namespace Wordle
             rowIndex++;
             columnIndex = 0;
 
-            if (rowIndex >= rows.Length + 1)
+            if (rowIndex + 1 > rows.Length)
             {
                 gameCompleted = true;
                 timeLimit.StopTimer();
