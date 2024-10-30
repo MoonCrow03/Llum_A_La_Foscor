@@ -149,12 +149,15 @@ namespace Wordle
             
             UpdateClock();
             
+            Debug.Log("Updating clock");
             if (InputManager.Instance.SpaceBar.Tap || InputManager.Instance.SpaceBar.Hold)
             {
+                Debug.Log("Spacebar pressed");
                 return;
             }
             if (InputManager.Instance.Backspace.Tap)
             {
+                Debug.Log("Backspace pressed");
                 columnIndex = Mathf.Max(columnIndex - 1, 0);
                 currentRow.Tiles[columnIndex].SetLetter('\0');
                 currentRow.Tiles[columnIndex].SetTileState(EmptyState);
@@ -163,6 +166,7 @@ namespace Wordle
             {
                 if (InputManager.Instance.Enter.Tap)
                 {
+                    Debug.Log("Enter pressed, submitting row");
                     SubmitRow(currentRow);
                 }
             }
@@ -170,6 +174,7 @@ namespace Wordle
             {
                 foreach (char c in Input.inputString)
                 {
+                    Debug.Log("Input: " + c);
                     if (c == '\u0008') continue; // Caracter basura generado por mantener la tecla de Backspace
                     if (c == '\n' || c == '\r') continue;
                     if (c == ' ') continue;
@@ -207,6 +212,7 @@ namespace Wordle
                 
                 if (tile.Letter == solutionWord[i])
                 {
+                    Debug.Log("Correct letter: " + tile.Letter);
                     tile.SetTileState(CorrectState);
                     UpdateLetterTileColor(tile.Letter, CorrectState);
                     remaining = remaining.Remove(1, 1);
@@ -214,6 +220,7 @@ namespace Wordle
                 }
                 else if (!solutionWord.Contains(tile.Letter))
                 {
+                    Debug.Log("Incorrect letter: " + tile.Letter);
                     tile.SetTileState(IncorrectState);
                     UpdateLetterTileColor(tile.Letter, IncorrectState);
                     UpdateLetterTextToWhite(tile.Letter);
@@ -228,6 +235,7 @@ namespace Wordle
                 {
                     if (remaining.Contains(tile.Letter))
                     {
+                        Debug.Log("Wrong spot letter: " + tile.Letter);
                         tile.SetTileState(WrongSpot);
                         UpdateLetterTileColor(tile.Letter, WrongSpot);
                         
@@ -237,6 +245,7 @@ namespace Wordle
                     }
                     else
                     {
+                        Debug.Log("Incorrect letter: " + tile.Letter);
                         tile.SetTileState(IncorrectState);
                         UpdateLetterTileColor(tile.Letter, IncorrectState);
                         UpdateLetterTextToWhite(tile.Letter);
@@ -256,7 +265,7 @@ namespace Wordle
             rowIndex++;
             columnIndex = 0;
 
-            if (rowIndex >= rows.Length + 1)
+            if (rowIndex >= rows.Length + 1 && !CheckWordGuessed(ref row))
             {
                 gameCompleted = true;
                 timeLimit.StopTimer();
