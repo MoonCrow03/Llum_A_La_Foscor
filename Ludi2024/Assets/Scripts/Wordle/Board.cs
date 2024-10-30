@@ -144,6 +144,7 @@ namespace Wordle
 
             if (timeLimit == null)
             {
+                Debug.Log("<color=red>TimeLimit is null</color>");
                 return;
             }
             
@@ -155,6 +156,7 @@ namespace Wordle
             }
             if (InputManager.Instance.Backspace.Tap)
             {
+                Debug.Log("<color=aqua> Backspace </color>");
                 columnIndex = Mathf.Max(columnIndex - 1, 0);
                 currentRow.Tiles[columnIndex].SetLetter('\0');
                 currentRow.Tiles[columnIndex].SetTileState(EmptyState);
@@ -163,6 +165,7 @@ namespace Wordle
             {
                 if (InputManager.Instance.Enter.Tap)
                 {
+                    Debug.Log("<color=green> Enter </color>");
                     SubmitRow(currentRow);
                 }
             }
@@ -170,6 +173,7 @@ namespace Wordle
             {
                 foreach (char c in Input.inputString)
                 {
+                    Debug.Log("<color=yellow> Input: " + c + "</color>");
                     if (c == '\u0008') continue; // Caracter basura generado por mantener la tecla de Backspace
                     if (c == '\n' || c == '\r') continue;
                     if (c == ' ') continue;
@@ -255,8 +259,8 @@ namespace Wordle
             
             rowIndex++;
             columnIndex = 0;
-
-            if (rowIndex + 1 > rows.Length)
+            Debug.Log("Row Index: " + rowIndex);
+            if (rowIndex + 1 > rows.Length && !CheckWordGuessed(ref row))
             {
                 gameCompleted = true;
                 timeLimit.StopTimer();
