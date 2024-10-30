@@ -150,7 +150,7 @@ namespace Wordle
             
             UpdateClock();
             
-            if (InputManager.Instance.SpaceBar.Tap || InputManager.Instance.SpaceBar.Hold)
+            if (InputManager.Instance.SpaceBar.Tap) //|| InputManager.Instance.SpaceBar.Hold)
             {
                 return;
             }

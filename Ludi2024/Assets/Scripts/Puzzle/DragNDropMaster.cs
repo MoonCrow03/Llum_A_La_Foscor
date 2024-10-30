@@ -43,7 +43,8 @@ public class DragNDropMaster : MonoBehaviour
     private void Update()
     {
         if(!m_GameStarted) return;
-
+        
+        Debug.Log("<color=green>DragNDropMaster</color> is enabled");
         // Pick up object
         if (InputManager.Instance.LeftClick.Tap)  // Detect when left click starts
         {
