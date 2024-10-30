@@ -60,9 +60,15 @@ namespace Wordle
         private static Board instance;
 
         public static Board Instance => instance;
+
+        public int WordAuxIndex;
         private void Awake()
         {
-            solutionWord = listOfPossibleSolutions[Random.Range(0, listOfPossibleSolutions.Count)];
+            //solutionWord = listOfPossibleSolutions[Random.Range(0, listOfPossibleSolutions.Count)];
+            
+            // Dropdown menu to select a word from listOfPossibleSolutions to solutionWorld
+            solutionWord = listOfPossibleSolutions[WordAuxIndex];
+            
             WordLength = solutionWord.Length;
             if (instance == null)
             {
@@ -73,6 +79,7 @@ namespace Wordle
                 Destroy(gameObject);
             }
             
+            Debug.Log("<color=fuchsia>"+ solutionWord + "</color>");
             rows = GetComponentsInChildren<Row>();
             Debug.Log("Rows:" + rows );
             Debug.Log("Instance " + instance);
