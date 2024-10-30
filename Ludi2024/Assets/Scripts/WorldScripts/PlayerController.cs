@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform cam;
+    [SerializeField] private Joystick joystick;
     
     [SerializeField] private float speed = 6f;
     [SerializeField] private float turnSmoothTime = 0.1f;
     [SerializeField] private float turnSmoothVelocity;
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem dustParticles;
+    
 
     private ParticleSystem.EmissionModule dustParticleEmission;
 
@@ -35,18 +37,26 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
+        // Obtener las entradas horizontales y verticales del joystick
+        float horizontalJoystick = joystick.Horizontal;
+        float verticalJoystick = joystick.Vertical;
+        Vector3 directionJoystick = new Vector3(horizontalJoystick, 0f, verticalJoystick).normalized;
+
+        // Combinar las direcciones del teclado y el joystick
+        Vector3 combinedDirection = direction.magnitude > directionJoystick.magnitude ? direction : directionJoystick;
+
         // Si el jugador está moviéndose en alguna dirección
-        if (direction.magnitude >= 0.1f)
+        if (combinedDirection.magnitude >= 0.1f)
         {
-            // Emitir partículas set emitter rate to 3 
+            // Emitir partículas set emitter rate to 3
             dustParticleEmission.rateOverTime = 3;
-            
+
             IsMoving = true;
             // Activar la animación de movimiento
             animator.SetBool("isMoving", true);
-            
+
             // Calcular el ángulo hacia el que se debe rotar el personaje basado en la dirección de la cámara
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(combinedDirection.x, combinedDirection.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
 
             // Suavizar el giro del personaje
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
