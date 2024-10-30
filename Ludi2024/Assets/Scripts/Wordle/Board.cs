@@ -64,12 +64,6 @@ namespace Wordle
         public int WordAuxIndex;
         private void Awake()
         {
-            //solutionWord = listOfPossibleSolutions[Random.Range(0, listOfPossibleSolutions.Count)];
-            
-            // Dropdown menu to select a word from listOfPossibleSolutions to solutionWorld
-            solutionWord = listOfPossibleSolutions[WordAuxIndex];
-            
-            WordLength = solutionWord.Length;
             if (instance == null)
             {
                 instance = this;
@@ -78,6 +72,10 @@ namespace Wordle
             {
                 Destroy(gameObject);
             }
+            
+            solutionWord = listOfPossibleSolutions[Random.Range(0, listOfPossibleSolutions.Count)];
+            WordLength = solutionWord.Length;
+            
             
             Debug.Log("<color=fuchsia>"+ solutionWord + "</color>");
             rows = GetComponentsInChildren<Row>();
