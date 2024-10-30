@@ -10,7 +10,6 @@ namespace MakeWordsMinigame
     {
         public TextMeshProUGUI text;
         
-        
         public override void OnBeginDrag(PointerEventData eventData)
         {
             base.SetCanvas();

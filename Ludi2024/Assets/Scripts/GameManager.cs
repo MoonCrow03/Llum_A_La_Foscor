@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 
     private int points;
     
+    public bool m_EnableExMarkNoteBook = false;
+    
     public bool m_IsWorldCompleted = false;
     
     public bool m_IsTutorialCompleted;
@@ -59,6 +61,18 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         EnableTutorialWorld();
+
+        if (m_EnableExMarkNoteBook)
+        {
+            GameEvents.TriggerEnableExclamationMark(true);
+            m_EnableExMarkNoteBook = false;
+        }
+        
+        if (m_IsWorldCompleted)
+        {
+            GameEvents.TriggerEnableExMarkTablet1(true);
+            GameEvents.TriggerEnableExMarkTablet2(true);
+        }
     }
 
     public List<NotebookData.Note> GetNotebookData01()
@@ -95,6 +109,7 @@ public class GameManager : MonoBehaviour
     
     public void SetMiniGameCompleted(Scenes p_scene)
     {
+        m_EnableExMarkNoteBook = true;
         m_NotebookData.SetNoteCompleted(p_scene);
     }
     

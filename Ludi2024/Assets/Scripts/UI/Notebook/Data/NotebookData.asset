@@ -13,18 +13,26 @@ MonoBehaviour:
   m_Name: NotebookData
   m_EditorClassIdentifier: 
   Notes:
+  - Key: 2
+    Content: "Tenen caracter\xEDstiques semblants a les nimfes gregues"
+    IsCompleted: 0
+  - Key: 3
+    Content: "Es diu que les tarteres dels Pirineus s\xF3n obres d'aquests \xE9ssers,
+      que se'ls hi demanava apilar pedres"
+    IsCompleted: 0
+  - Key: 8
+    Content: Donen riquesa als seus enamorats
+    IsCompleted: 0
+  - Key: 9
+    Content: "Tenen un car\xE0cter feiner i s\xF3n amants de l'orde, per\xF2 tamb\xE9
+      s\xF3n juganers i a a les nits fan malifetes"
+    IsCompleted: 0
   - Key: 14
     Content: Al riu de Mirmanda, La Cantarana, es troben construccions de pissarra
       relacionades amb estructures de les fades
     IsCompleted: 0
   - Key: 4
     Content: Tendeixen a portar un mirall o una pinta daurada
-    IsCompleted: 0
-  - Key: 8
-    Content: Donen riquesa als seus enamorats
-    IsCompleted: 0
-  - Key: 2
-    Content: "Tenen caracter\xEDstiques semblants a les nimfes gregues"
     IsCompleted: 0
   - Key: 12
     Content: "S\xF3n dones atractives que s\xF3n vistes prop de fonts d'aigua com
@@ -51,14 +59,6 @@ MonoBehaviour:
   - Key: 7
     Content: Generalment, se'ls considera invisibles, tot i que vegades se'ls atribueix
       una forma animal
-    IsCompleted: 0
-  - Key: 3
-    Content: "Es diu que les tarteres dels Pirineus s\xF3n obres d'aquests \xE9ssers,
-      que se'ls hi demanava apilar pedres"
-    IsCompleted: 0
-  - Key: 9
-    Content: "Tenen un car\xE0cter feiner i s\xF3n amants de l'orde, per\xF2 tamb\xE9
-      s\xF3n juganers i a a les nits fan malifetes"
     IsCompleted: 0
   - Key: 11
     Content: "Poden atorgar propietats m\xE0giques als portadors com la capacitat

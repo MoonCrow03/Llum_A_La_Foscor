@@ -149,4 +149,37 @@ public class GameEvents
             OnActivatePuzzleShader(p_stars);
         }
     }
+    
+    public delegate void EnableExclamationMark(bool p_enable);
+    public static event EnableExclamationMark OnEnableExclamationMark;
+    
+    public static void TriggerEnableExclamationMark(bool p_enable)
+    {
+        if (OnEnableExclamationMark != null)
+        {
+            OnEnableExclamationMark(p_enable);
+        }
+    }
+    
+    public delegate void EnableExMarkTablet1(bool p_enable);
+    public static event EnableExMarkTablet1 OnEnableExMarkTablet1;
+    
+    public static void TriggerEnableExMarkTablet1(bool p_enable)
+    {
+        if (OnEnableExMarkTablet1 != null)
+        {
+            OnEnableExMarkTablet1(p_enable);
+        }
+    }
+    
+    public delegate void EnableExMarkTablet2(bool p_enable);
+    public static event EnableExMarkTablet2 OnEnableExMarkTablet2;
+    
+    public static void TriggerEnableExMarkTablet2(bool p_enable)
+    {
+        if (OnEnableExMarkTablet2 != null)
+        {
+            OnEnableExMarkTablet2(p_enable);
+        }
+    }
 }

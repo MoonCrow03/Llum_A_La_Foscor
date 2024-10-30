@@ -6,6 +6,7 @@ using TMPro;
 using Tutorial;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Utilities;
 
@@ -49,14 +50,9 @@ public class PuzzleMinigame : MonoBehaviour
         
         m_GameStarted = !m_IsTutorial;
         
-        if (m_PuzzleMiniGameType == PuzzleMiniGameType.TimeLimit && GameManager.TutorialsShown.ContainsKey(Scenes.PuzzleLvl01))
-        {
-            m_TimeLimit = new TimeLimit(this);
-            m_TimeLimit.StartTimer(m_SecondsToComplete, RanOutOfTime);
-            m_GameStarted = true;
-        }
+        Scene l_scene = SceneManager.GetActiveScene();
         
-        if (!m_IsTutorial)
+        if (GameManager.TutorialsShown.ContainsKey(Scenes.PuzzleLvl01) || l_scene.name.Equals(Scenes.PuzzleLvl02.ToString()))
         {
             m_TimeLimit = new TimeLimit(this);
             m_TimeLimit.StartTimer(m_SecondsToComplete, RanOutOfTime);

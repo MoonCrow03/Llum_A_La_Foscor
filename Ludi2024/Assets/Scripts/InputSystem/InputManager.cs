@@ -23,6 +23,8 @@ public class InputManager : MonoBehaviour
     public ButtonInputHandler SpaceBar;
 
     public ButtonInputHandler Q, E,F;
+
+    public ButtonInputHandler LeftShift;
     
     public Vector2 MovementInput { private set; get; }
     public Vector2 MousePosition { private set; get; }
@@ -74,6 +76,8 @@ public class InputManager : MonoBehaviour
         Q = new ButtonInputHandler(_actions.Main.Q);
         E = new ButtonInputHandler(_actions.Main.E);
         F = new ButtonInputHandler(_actions.Main.F);
+        
+        LeftShift = new ButtonInputHandler(_actions.Main.LeftShift);
     }
 }
 

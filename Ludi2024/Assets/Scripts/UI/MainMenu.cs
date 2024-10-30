@@ -59,6 +59,7 @@ public class MainMenu : MonoBehaviour
             m_Options.SetActive(false);
             m_PopUp.SetActive(false);
             m_NextLevelMessage.SetActive(true);
+            GameEvents.TriggerEnableExMarkTablet2(false);
         }
         else
         {

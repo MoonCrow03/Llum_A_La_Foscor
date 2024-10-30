@@ -179,6 +179,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftShift"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bdb06d8-e039-41b8-9f54-8c9632214306"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -412,6 +421,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""SpaceBar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""930aab1a-4fa9-4f82-8a7e-e5753a58703d"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftShift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""719710aa-6b6a-4523-a894-3aacc3d0ab54"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftShift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -437,6 +468,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Main_Q = m_Main.FindAction("Q", throwIfNotFound: true);
         m_Main_F = m_Main.FindAction("F", throwIfNotFound: true);
         m_Main_SpaceBar = m_Main.FindAction("SpaceBar", throwIfNotFound: true);
+        m_Main_LeftShift = m_Main.FindAction("LeftShift", throwIfNotFound: true);
     }
 
     ~@InputActions()
@@ -520,6 +552,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Main_Q;
     private readonly InputAction m_Main_F;
     private readonly InputAction m_Main_SpaceBar;
+    private readonly InputAction m_Main_LeftShift;
     public struct MainActions
     {
         private @InputActions m_Wrapper;
@@ -541,6 +574,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Q => m_Wrapper.m_Main_Q;
         public InputAction @F => m_Wrapper.m_Main_F;
         public InputAction @SpaceBar => m_Wrapper.m_Main_SpaceBar;
+        public InputAction @LeftShift => m_Wrapper.m_Main_LeftShift;
         public InputActionMap Get() { return m_Wrapper.m_Main; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -601,6 +635,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @SpaceBar.started += instance.OnSpaceBar;
             @SpaceBar.performed += instance.OnSpaceBar;
             @SpaceBar.canceled += instance.OnSpaceBar;
+            @LeftShift.started += instance.OnLeftShift;
+            @LeftShift.performed += instance.OnLeftShift;
+            @LeftShift.canceled += instance.OnLeftShift;
         }
 
         private void UnregisterCallbacks(IMainActions instance)
@@ -656,6 +693,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @SpaceBar.started -= instance.OnSpaceBar;
             @SpaceBar.performed -= instance.OnSpaceBar;
             @SpaceBar.canceled -= instance.OnSpaceBar;
+            @LeftShift.started -= instance.OnLeftShift;
+            @LeftShift.performed -= instance.OnLeftShift;
+            @LeftShift.canceled -= instance.OnLeftShift;
         }
 
         public void RemoveCallbacks(IMainActions instance)
@@ -692,5 +732,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnQ(InputAction.CallbackContext context);
         void OnF(InputAction.CallbackContext context);
         void OnSpaceBar(InputAction.CallbackContext context);
+        void OnLeftShift(InputAction.CallbackContext context);
     }
 }

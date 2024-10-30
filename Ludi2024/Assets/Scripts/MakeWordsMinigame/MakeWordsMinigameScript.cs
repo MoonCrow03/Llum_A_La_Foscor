@@ -19,6 +19,7 @@ namespace MakeWordsMinigame
         [SerializeField] private List<string> listOfWords;
         [SerializeField] private GameObject letterPrefab;
         [SerializeField] private GameObject slotPrefab;
+        [SerializeField] private GameObject slotLetterPrefab;
         [SerializeField] private Transform letterParent;
         [SerializeField] private Transform slotsParent;
         [SerializeField] private int extraLetters;
@@ -126,11 +127,11 @@ namespace MakeWordsMinigame
         private void CreateLetterObjects()
         {
             ShuffleList(ref availableLetters);
+            
             foreach (char letter in availableLetters)
             {
-                GameObject letterObject = Instantiate(letterPrefab, letterParent);
-                TextMeshProUGUI letterText = letterObject.GetComponentInChildren<TextMeshProUGUI>();
-                letterText.text = letter.ToString();
+                GameObject slotObject = Instantiate(slotLetterPrefab, letterParent);
+                slotObject.GetComponent<LetterPlaceHolder>().SetLetter(letter.ToString());
             }
         }
 
