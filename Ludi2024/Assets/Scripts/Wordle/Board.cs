@@ -65,14 +65,6 @@ namespace Wordle
             rows = GetComponentsInChildren<Row>();
             solutionWord = listOfPossibleSolutions[Random.Range(0, listOfPossibleSolutions.Count)];
             WordLength = solutionWord.Length;
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
         }
 
         private void Start()
