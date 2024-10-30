@@ -328,6 +328,7 @@ namespace Wordle
             for (int i = 0; i < row.Tiles.Length; i++)
             {
                 formedWord += row.Tiles[i].Letter.ToString();
+                Debug.Log("Checking word: " + formedWord);
                 if (formedWord.Equals(solutionWord))
                 {
                     return true;
