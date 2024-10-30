@@ -36,8 +36,11 @@ public class DragNDropMaster : MonoBehaviour
     {
         m_AudioDropInstance = FMODUnity.RuntimeManager.CreateInstance(m_AudioDropEvent);
         m_AudioRotateInstance = FMODUnity.RuntimeManager.CreateInstance(m_AudioRotateEvent);
-        
-        m_GameStarted = !m_IsTutorial;
+
+        if (GameManager.TutorialsShown.ContainsKey(Scenes.PuzzleLvl01))
+        {
+            m_GameStarted = true;
+        }
     }
 
     private void Update()
