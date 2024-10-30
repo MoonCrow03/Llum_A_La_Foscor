@@ -62,9 +62,20 @@ namespace Wordle
         public static Board Instance => instance;
         private void Awake()
         {
-            rows = GetComponentsInChildren<Row>();
             solutionWord = listOfPossibleSolutions[Random.Range(0, listOfPossibleSolutions.Count)];
             WordLength = solutionWord.Length;
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+            
+            rows = GetComponentsInChildren<Row>();
+            Debug.Log("Rows:" + rows );
+            Debug.Log("Instance " + instance);
         }
 
         private void Start()
